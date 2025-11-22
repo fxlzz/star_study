@@ -1,4 +1,7 @@
 {
   "strictLineBreaks": false,
-  "showLineNumber": false
+  "showLineNumber": false,
+  "useMarkdownLinks": true,
+  "newLinkFormat": "relative",
+  "promptDelete": false
 }
