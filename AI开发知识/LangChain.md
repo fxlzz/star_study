@@ -292,9 +292,10 @@ async function test() {
   });
 
   // 方法二：invoke()
-  const formattedPrompt = await prompt.format({
+  const formattedPrompt = await prompt.invoke({
     foo: 'apple'
   })
+
   
   const response = await llm.invoke(formattedPrompt);
   console.log("Generated Review:\n", response);
@@ -412,4 +413,48 @@ console.log(typeof response);
   }
 ]
 object
+```
+
+#### formatPromptValue
+```js
+const response = await prompt.formatPromptValue({ name: "star", problem: "1+1=?" });
+console.log(response);
+```
+
+返回值 - 这个返回的就跟invoke()差不多
+```js
+ChatPromptValue {
+  lc_serializable: true,
+  lc_kwargs: {
+    messages: [
+      AIMessage {
+        "content": "you are an helpful assistant, star",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "tool_calls": [],
+        "invalid_tool_calls": []
+      },
+      HumanMessage {
+        "content": "my question is 1+1=?",
+        "additional_kwargs": {},
+        "response_metadata": {}
+      }
+    ]
+  },
+  lc_namespace: [ 'langchain_core', 'prompt_values' ],
+  messages: [
+    AIMessage {
+      "content": "you are an helpful assistant, star",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "tool_calls": [],
+      "invalid_tool_calls": []
+    },
+    HumanMessage {
+      "content": "my question is 1+1=?",
+      "additional_kwargs": {},
+      "response_metadata": {}
+    }
+  ]
+}
 ```
