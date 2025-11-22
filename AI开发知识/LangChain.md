@@ -254,37 +254,25 @@ const prompt = new PromptTemplate({
   inputVariables: ["name", "somethings"]
 })
 
-// 方法二： 赋初始值
+// 方法二： 赋初始值 partialVariables
 const prompt = new PromptTemplate({
-  template: "hello {name}, you can help me to do {somethings}",
-  partialVariables: [{name: "star"}]
-})
+    template: "hi!, what are you doing, you are help me to solve the problem {problem}",
+    inputVariables: ["problem"],
+    partialVariables: { problem: "1 + 1 = ?" },
+});
 
-// 方法三：同时声明并赋值
-const prompt = new PromptTemplate.fromTemplate(
-  template= "hello {name}, you can help me to do {somethings}",
-).partial({name: "star"})
+// 方法三：同时声明并赋值 partial
+const prompt = await PromptTemplate.fromTemplate(
+    "hi!, what are you doing, you are help me to solve the problem {problem}"
+).partial({ problem: "1 + 1 = ?" });
+console.log(prompt);
 ```
 
-## 使用【变量赋值】
+### 调用
 
 可以定义提示词模板时，顺便赋值 `partialVariables` ，也可以调用提示词时（format、invoke）赋值
 
 ```js
-import { PromptTemplate } from "langchain/prompts";
-import { ChatAlibabaTongyi } from "@langchain/community/chat_models/alibaba_tongyi";
-
-// 定义提示词模版
- const prompt = new PromptTemplate({
-  template: "Say {foo}",
-  inputVariables: ["foo"],
-});
-
-const llm = new ChatAlibabaTongyi({
-  model: 'qwen-plus',
-  // others...
-})
-
 async function test() {
   // 方法一：format()
   const formattedPrompt = await prompt.format({
@@ -296,12 +284,10 @@ async function test() {
     foo: 'apple'
   })
 
-  
-  const response = await llm.invoke(formattedPrompt);
-  console.log("Generated Review:\n", response);
+  // 方法三: formatPromptValue()
+  const response = await prompt.formatPromptValue({xxx: xxx});
 }
-
-test().catch(e => console.error(e))
+test()
 ```
 
 ## ChatPromptTemplate
@@ -372,7 +358,7 @@ ChatPromptValue {
 + `invoke()` 返回值为 object 类型是 chatPromptValue
 + `format()` 返回值为 string 
 + `formatMessages()` 返回值为 array 
-+ `formatPrompt()`
++ `formatPrompt()` 返回值为 object, 跟invoke()调用结果一致 
 
 #### format()
 ```js
@@ -457,4 +443,64 @@ ChatPromptValue {
     }
   ]
 }
+```
+
+---
+总结:
+看似有四种调用方式, 其实只有三种返回值`[string | array | object]`, 根据调用场景来选择使用哪种调用方式吧
+
+chatPromptTemplate 这个类实现了 ChatPromptValueInterface 这个接口, 有一些方法可用
+https://v03.api.js.langchain.com/interfaces/_langchain_core.prompt_values.ChatPromptValueInterface.html
+
+### 方法
+#### toChatMessages()
+
+formatPromptValue() 与 invoke() 可通过调用 `toChatMessages()` 方法转化成 formatMessage() 的调用结果(会转成数组的形式)
+
+```js
+const test = async () => {
+  const prompt = ChatPromptTemplate.fromMessages([
+    ["ai", "hi, my name is {name}, i can help you to doing something"],
+    ["human", "i need you to solve this problem {q}"],
+  ]);
+
+  const res = await prompt.invoke({ name: "star", q: "1+1=?" });
+  console.log(res.toChatMessages());
+};
+```
+
+返回值`
+```js
+[
+  AIMessage {
+    "content": "hi, my name is star, i can help you to doing something",
+    "additional_kwargs": {},
+    "response_metadata": {},
+    "tool_calls": [],
+    "invalid_tool_calls": []
+  },
+  HumanMessage {
+    "content": "i need you to solve this problem 1+1=?",
+    "additional_kwargs": {},
+    "response_metadata": {}
+  }
+]
+```
+
+#### toString()
+同理, 也可转化成 format() 的调用结果
+```js
+const prompt = ChatPromptTemplate.fromMessages([
+    ["ai", "hi, my name is {name}, i can help you to doing something"],
+    ["human", "i need you to solve this problem {q}"],
+]);
+
+const res = await prompt.formatPromptValue({ name: "star", q: "1+1=?" });
+console.log(res.toString());
+```
+
+返回值
+```js
+AI: hi, my name is star, i can help you to doing something
+Human: i need you to solve this problem 1+1=?
 ```
