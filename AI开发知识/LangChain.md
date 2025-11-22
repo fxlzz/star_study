@@ -305,20 +305,66 @@ test().catch(e => console.error(e))
 
 ## ChatPromptTemplate
 ### 实例化
-```js
-// 二维数组，role: content
-
-const chatPrompt = ChatPromptTemplate.fromMessages([  
-	["system", "hi~"],
-	["ai", "You are a helpful assistant."]
-]);
-```
-
+传递一个二维数组，`[role: content]`
 role的取值：
 + ai
 + human
 + system
 + tool
+
+```js
+ const prompt = ChatPromptTemplate.fromMessages(
+    [
+      ["ai", "you are an helpful assistant, {name}"],
+      ["human", "my question is {problem}"],
+    ],
+    { inputVariables: ["name", "problem"] }
+  );
+
+const response = await prompt.invoke({ name: "star", problem: "1+1=?" });
+console.log(response);
+```
+
+返回值：
+```js
+ChatPromptValue {
+  lc_serializable: true,
+        "additional_kwargs": {},
+        "additional_kwargs": {},
+        "additional_kwargs": {},
+        "additional_kwargs": {},
+        "additional_kwargs": {},
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "tool_calls": [],
+        "invalid_tool_calls": []
+      },
+      HumanMessage {
+        "content": "my question is 1+1=?",
+        "additional_kwargs": {},
+        "response_metadata": {}
+      }
+    ]
+  },
+  lc_namespace: [ 'langchain_core', 'prompt_values' ],        
+  messages: [
+    AIMessage {
+      "content": "you are an helpful assistant, star",        
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "tool_calls": [],
+      "invalid_tool_calls": []
+    },
+    HumanMessage {
+      "content": "my question is 1+1=?",
+      "additional_kwargs": {},
+      "response_metadata": {}
+    }
+  ]
+}
+```
+
+
 
 ### 调用
 有四种调用方式
