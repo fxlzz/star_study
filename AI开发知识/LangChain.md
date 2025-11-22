@@ -510,5 +510,22 @@ Human: i need you to solve this problem 1+1=?
 
 现在, 还有一种情况, chatPromptTemplate 是需要指定 role 的, 那么如果, 不知道 role 是什么, 应该怎么写呢 ---> 用占位符
 
-### messagePlaceholder
+### MessagePlaceholder
+消息占位符, 对外提供一个变量, 可以承接一个**消息数组**
 
+```js
+const test = async () => {
+  // 提示词模板
+  const prompt = ChatPromptTemplate.fromMessages([
+    ["system", "hi, how are you ?"],
+    new MessagesPlaceholder("msg"),
+  ]);
+ 
+  // 提示词
+  const value = await prompt.invoke({ msg: [new HumanMessage("1+1=?"), new AIMessage("1+1=2")] });
+
+  // 调用llm
+  const response = await qwen.invoke(value);
+  console.log(response);
+};
+```
