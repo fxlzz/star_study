@@ -504,3 +504,11 @@ console.log(res.toString());
 AI: hi, my name is star, i can help you to doing something
 Human: i need you to solve this problem 1+1=?
 ```
+
+--- 
+调用大模型没什么好说的, 直接 invoke(prompt) 调用即可
+
+现在, 还有一种情况, chatPromptTemplate 是需要指定 role 的, 那么如果, 不知道 role 是什么, 应该怎么写呢 ---> 用占位符
+
+### messagePlaceholder
+
