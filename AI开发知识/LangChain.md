@@ -325,7 +325,7 @@ const response = await prompt.invoke({ name: "star", problem: "1+1=?" });
 console.log(response);
 ```
 
-返回值：
+invoke() 返回值：
 ```js
 ChatPromptValue {
   lc_serializable: true,
@@ -368,7 +368,48 @@ ChatPromptValue {
 
 ### 调用
 有四种调用方式
-+ `invoke()`
-+ `format()`
-+ `formatMessage()`
++ `invoke()` 返回值为 object 类型是 chatPromptValue
++ `format()` 返回值为 string 
++ `formatMessages()` 返回值为 array 
 + `formatPrompt()`
+
+#### format()
+```js
+// ... 上面的内容保持不变
+const response = await prompt.format({ name: "star", problem: "1+1=?" });
+console.log(response);
+console.log(typeof response);
+```
+
+返回值
+```js
+AI: you are an helpful assistant, star
+Human: my question is 1+1=?
+string
+```
+
+#### formatMessages()
+```js
+const response = await prompt.formatMessages({ name: "star", problem: "1+1=?" });
+console.log(response);
+console.log(typeof response);
+```
+
+返回值 - 看起来就是 invoke() 返回值的message字段的值 
+```js
+[
+  AIMessage {
+    "content": "you are an helpful assistant, star",
+    "additional_kwargs": {},
+    "response_metadata": {},
+    "tool_calls": [],
+    "invalid_tool_calls": []
+  },
+  HumanMessage {
+    "content": "my question is 1+1=?",
+    "additional_kwargs": {},
+    "response_metadata": {}
+  }
+]
+object
+```
