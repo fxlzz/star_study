@@ -843,3 +843,23 @@ test();
 ```json
 { "q": "秦始皇为什么不喜欢玩捉迷藏？", "a": "因为他一统六国，藏都没地儿藏！" }
 ```
+
+### XMLOutputParser
+
+解析成 xml 的格式输出
+
+https://v03.api.js.langchain.com/classes/_langchain_core.output_parsers.XMLOutputParser.html
+
+### CommaSeparatedListOutputParser
+
+解析成 csv  的格式, 以 , 隔开
+
+https://v03.api.js.langchain.com/classes/langchain.output_parsers.CommaSeparatedListOutputParser.html
+
+### DatetimeOutputParser
+
+解析成 日期 的格式
+
+http://v03.api.js.langchain.com/classes/langchain.output_parsers.DatetimeOutputParser.html
+
+
