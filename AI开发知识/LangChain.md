@@ -614,3 +614,49 @@ Output:
 
 ### 使用
 FewShotChatMessageTemplate 需要与 ChatPromptTemplate 一起使用
+```js
+const test = async () => {
+  // 定义AI输出模板
+  const examplePrompt = ChatPromptTemplate.fromMessages([
+    ["human", "{input}"],
+    ["ai", "{output}"],
+  ]);
+
+  // 实例样本
+  const examples = [
+    { input: "1 & 2", output: "2" },
+    { input: "2 & 3", output: "6" },
+    { input: "45 & 89", output: "4005" },
+  ];
+
+  // 创建 少量Chat模板
+  const fewShotPrompt = new FewShotChatMessagePromptTemplate({
+    examplePrompt,
+    examples,
+    inputVariables: ["input"],
+  });
+
+  const systemMessage = new SystemMessage("hello, can i help you something?");
+
+  // 获取示例消息
+  const exampleMsgs = await fewShotPrompt.formatMessages({ input: "5 & 6" });
+
+  // 手动添加用户输入消息
+  const userInputMsg = new HumanMessage("5 & 6");
+
+  const chatPrompt = ChatPromptTemplate.fromMessages([
+    systemMessage,
+    ["ai", "you are a super math teacher"],
+    ...exampleMsgs,
+    userInputMsg,
+  ]);
+
+  const finalMessages = await chatPrompt.format({});
+
+  console.log(finalMessages);
+
+  // const res = await qwen.invoke(finalMessages);
+  // console.log(res.content);
+};
+
+```
