@@ -551,6 +551,66 @@ AIMessage {
 
 ## FewShotPromptTemplate
 其实就是给LLM少量的模板, 类似于开发者直接提供一些训练样本
+使用场景: **非对话式**
 
 ### 使用
 FewShotPromptTemplate 需要与 PromptTemplate 一起使用
+```js
+const test = async () => {
+  // 定义样本模板
+  const examplePrompt = PromptTemplate.fromTemplate("Input: {input}\nOutput: {output}");
+
+  // 喂给 LLM 的样本
+  const examples = [
+    { input: "happy", output: "sad" },
+    { input: "tall", output: "short" },
+    { input: "energetic", output: "lethargic" },
+    { input: "sunny", output: "gloomy" },
+    { input: "windy", output: "calm" },
+  ];
+  
+  // 生成 少量样本 模板
+  const fewShotPrompt = new FewShotPromptTemplate({
+    examplePrompt,
+    examples,
+    suffix: "Input: {adjective}\nOutput:", // 输出模板
+    inputVariables: ["adjective"],
+  });
+
+  const response = await fewShotPrompt.format({ adjective: "rainy" });
+
+  // 调用大模型
+  const res = await qwen.invoke(response); // 这样大模型就能很好的推断出是 dry 
+  console.log(res);
+};
+```
+
+response 的返回值
+```js
+Input: happy
+Output: sad
+
+Input: tall
+Output: short
+
+Input: energetic
+Output: lethargic
+
+Input: sunny
+Output: gloomy
+
+Input: windy
+Output: calm
+
+Input: rainy
+Output:
+```
+
+其实就是先告诉 LLM , 规律是怎样的, 然后在输出(这样确实能减少LLM幻觉出现的次数)
+
+## FewShotChatMessageTemplate
+同理, 
+使用场景: **交互式场景**
+
+### 使用
+FewShotChatMessageTemplate 需要与 ChatPromptTemplate 一起使用
