@@ -787,3 +787,33 @@ const test = async () => {
 ```
 
 # 输出解析器
+可以将 LLM 以某种特定的格式输出 --> 但其实做的事情, 类似于格式化, 还是得跟 LLM 指定输出成什么类型的数据
+
+在 langChain 中, 有很多种解析器
+
+下面这些都是类: 
++ StringOutputParser
++ JsonOutputParser
+
+### StringOutputParser
+可以将数据以 string 的方式输出
+```js
+// 定义解析器
+const parser = new StringOutputParser();
+// 定义模板
+const prompt = PromptTemplate.fromTemplate("讲一个冷笑话");
+const res = await prompt.invoke({});
+// 调用 LLM
+const response = await qwen.invoke(res);
+// 返回解析结果
+console.log(await parser.invoke(response));
+```
+
+两种方式, 将 LLM 的结果转化成 string 格式
++ response.content
++ StringOutputParser
+
+一般用于对话模型中, 因为非对话模型, 返回的值就是 string 类型的
+
+### JsonOutputParser
+以 json 格式输出
