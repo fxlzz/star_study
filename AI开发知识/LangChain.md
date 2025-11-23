@@ -291,7 +291,7 @@ test()
 ```
 
 ## ChatPromptTemplate
-### 实例化
+### 实例化 fromMessages
 传递一个二维数组，`[role: content]`
 role的取值：
 + ai
