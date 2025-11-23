@@ -827,7 +827,7 @@ const test = async () => {
     "讲一个关于{name}的冷笑话, {type}, key为q, value为a"
   ).partial({
     name: "秦始皇",
-    type: parser.getFormatInstructions(),
+    type: parser.getFormatInstructions(), // 类似于 -> 以JSON格式数据返回
   });
 
   const res = await prompt.invoke({});
