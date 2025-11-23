@@ -549,3 +549,8 @@ AIMessage {
 }
 ```
 
+## FewShotPromptTemplate
+其实就是给LLM少量的模板, 类似于开发者直接提供一些训练样本
+
+### 使用
+FewShotPromptTemplate 需要与 PromptTemplate 一起使用
