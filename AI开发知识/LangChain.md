@@ -268,6 +268,8 @@ const prompt = await PromptTemplate.fromTemplate(
 console.log(prompt);
 ```
 
+注意: 实例化模板之后, 交给 LLM 之前, 需要调用一下哟. 不然就会报错 !!!
+
 ### 调用
 
 可以定义提示词模板时，顺便赋值 `partialVariables` ，也可以调用提示词时（format、invoke）赋值
@@ -817,3 +819,27 @@ console.log(await parser.invoke(response));
 
 ### JsonOutputParser
 以 json 格式输出
+
+```js
+const test = async () => {
+  const parser = new JsonOutputParser();
+  const prompt = await PromptTemplate.fromTemplate(
+    "讲一个关于{name}的冷笑话, {type}, key为q, value为a"
+  ).partial({
+    name: "秦始皇",
+    type: parser.getFormatInstructions(),
+  });
+
+  const res = await prompt.invoke({});
+
+  const response = await qwen.invoke(res);
+  console.log(await parser.invoke(response));
+};
+
+test();
+```
+
+返回值: 
+```json
+{ "q": "秦始皇为什么不喜欢玩捉迷藏？", "a": "因为他一统六国，藏都没地儿藏！" }
+```
