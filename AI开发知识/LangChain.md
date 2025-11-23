@@ -862,4 +862,9 @@ https://v03.api.js.langchain.com/classes/langchain.output_parsers.CommaSeparated
 
 http://v03.api.js.langchain.com/classes/langchain.output_parsers.DatetimeOutputParser.html
 
+# 本地部署大模型
+> 真的是, 前人栽树, 后人乘凉啊. 所有你的想法什么的, 可能都有人早就提出来了
+> 这可能就是多读书的好处, 直接将自己的想法, **引经据典**
+
+直接下载 ollama , 这个库即可 https://ollama.ac.cn/
 
