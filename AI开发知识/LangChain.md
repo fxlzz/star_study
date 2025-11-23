@@ -892,6 +892,42 @@ test();
 # Chain
 类似于 loader , 将上一层的结果交给下一层处理
 
-## LCEL
-也就是管道符 |
-	
+## pipe
+很可惜, js 中没有跟 python 中一样, 用 | 来描述管道, 是用的函数, 不过用还是一样的用
+
+```js
+const test = async () => {
+  const system = new SystemMessage("你是一个数学高手");
+  const llm = new ChatOllama({ model: "gemma3" });
+
+  const prompt = ChatPromptTemplate.fromMessages([system, ["human", "1 * 3 + 8 = ?"]]);
+  const parser = new StringOutputParser();
+  
+  // ....
+};
+
+test();
+```
+
+原来的方式: 先调模板 -> 在调大模型 -> 在调解析器
+```js
+const chat_prompt = await prompt.invoke({});
+const res = await llm.invoke(chat_prompt);
+const response = await parser.invoke(res);
+```
+
+pipe的方式: 
+```js
+const chain = prompt.pipe(llm).pipe(parser);
+const response = await chain.invoke({});
+console.log(response);
+```
+
+## RunnableSequence
+
+也是跟 pipe 一样的功能: 
+```js
+const chain = RunnableSequence.from([prompt, llm, parser]);
+const result = await chain.invoke({});
+console.log(result);
+```
