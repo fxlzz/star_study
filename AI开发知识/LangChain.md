@@ -868,3 +868,25 @@ http://v03.api.js.langchain.com/classes/langchain.output_parsers.DatetimeOutputP
 
 直接下载 ollama , 这个库即可 https://ollama.ac.cn/
 
+`ollama` 一些命令:
+```bash
+ollama list
+ollama run xxx 模型名
+```
+
+在 langChain 中使用: 
+```js
+// pnpm add @langChain/ollama
+
+import { ChatOllama } from "@langchain/ollama"; 
+const test = async () => { 
+	const llm = new ChatOllama({ model: "gemma3" });
+	const res = await llm.invoke("请介绍一下你自己");
+	console.log(res.content);
+};
+test();
+```
+
+稍微有点慢, 在本地调模型 -> 私有化部署 -> 也可以部署到自己的服务器上, 要配置 base_url
+
+# Chain
