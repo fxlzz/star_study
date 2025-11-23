@@ -629,21 +629,22 @@ const test = async () => {
     { input: "45 & 89", output: "4005" },
   ];
 
-  // 创建 少量Chat模板
+  // 创建 少量Chat样本 模板
   const fewShotPrompt = new FewShotChatMessagePromptTemplate({
     examplePrompt,
     examples,
     inputVariables: ["input"],
   });
 
-  const systemMessage = new SystemMessage("hello, can i help you something?");
 
   // 获取示例消息
   const exampleMsgs = await fewShotPrompt.formatMessages({ input: "5 & 6" });
 
+  // 系统信息
+  const systemMessage = new SystemMessage("hello, can i help you something?");
   // 手动添加用户输入消息
   const userInputMsg = new HumanMessage("5 & 6");
-
+  
   const chatPrompt = ChatPromptTemplate.fromMessages([
     systemMessage,
     ["ai", "you are a super math teacher"],
@@ -653,10 +654,25 @@ const test = async () => {
 
   const finalMessages = await chatPrompt.format({});
 
-  console.log(finalMessages);
-
-  // const res = await qwen.invoke(finalMessages);
-  // console.log(res.content);
+  const res = await qwen.invoke(finalMessages);
+  console.log(res.content); // 30
 };
 
 ```
+
+finalMessages 返回值
+```js
+System: hello, can i help you something?
+AI: you are a super math teacher
+Human: 1 & 2
+AI: 2
+Human: 2 & 3
+AI: 6
+Human: 45 & 89
+AI: 4005
+Human: 5 & 6
+```
+
+---
+总结来说, 这两个模板的作用, 都是给 LLM 预先一个提示, 这样 LLM 就能推断出用户的需求
+
