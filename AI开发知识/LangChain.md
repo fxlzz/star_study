@@ -243,7 +243,7 @@ API 文档
 
 ## PromptTemplate
 
-创建提示词模版： 
+创建提示词模版： 实例化 -> `new PromptTemplate({template: 'xxx'}) / PromptTemplate.fromTemplate()`
 
 ```js
 import { PromptTemplate } from "langchain/prompts";
@@ -291,8 +291,8 @@ test()
 ```
 
 ## ChatPromptTemplate
-### 实例化 fromMessages
-传递一个二维数组，`[role: content]`
+### 实例化 
+调用静态方法: fromMessages -> 传递一个二维数组，`[role: content]` 
 role的取值：
 + ai
 + human
@@ -554,6 +554,7 @@ AIMessage {
 使用场景: **非对话式**
 
 ### 使用
+实例化 -> `new FewShotPromptTemplate({})`
 FewShotPromptTemplate 需要与 PromptTemplate 一起使用
 ```js
 const test = async () => {
@@ -676,3 +677,59 @@ Human: 5 & 6
 ---
 总结来说, 这两个模板的作用, 都是给 LLM 预先一个提示, 这样 LLM 就能推断出用户的需求
 
+## SemanticSimilarityExampleSelector
+实例选择器
+
+其实, 也好理解, 
+有可能我们提示给 LLM 的样本实例有一些是与用户输入, 根本没有关系的提示, 为了不消耗大量 token 在无用的提示词上. 我们可以用 实例选择器 过滤一部分样本, 将与用户提问相关性更高的样本输出给 LLM
+
+> 当然这里会用到, 计算相关性的算法,
+> 有很多, 一般会采用 **余弦相关性算法**, 也会在 [RAG](RAG.md) 中使用
+
+这里看一个官方的示例: 
+```js
+const examplePrompt = PromptTemplate.fromTemplate(
+  "Input: {input}\nOutput: {output}",
+);
+
+// 实例选择器
+const exampleSelector = await SemanticSimilarityExampleSelector.fromExamples(
+  [
+    { input: "happy", output: "sad" },
+    { input: "tall", output: "short" },
+    { input: "energetic", output: "lethargic" },
+    { input: "sunny", output: "gloomy" },
+    { input: "windy", output: "calm" },
+  ],
+  new OpenAIEmbeddings(), // 嵌入模型
+  HNSWLib,  // 向量数据库  
+  { k: 1 }, // 提取 1 个与用户相关性最强的数据 [ 输出时,会在向量数据库中比较相关性 ]
+);
+
+const dynamicPrompt = new FewShotPromptTemplate({
+  exampleSelector,
+  examplePrompt,
+  prefix: "Give the antonym of every input",
+  suffix: "Input: {adjective}\nOutput:",
+  inputVariables: ["adjective"],
+});
+
+// Format the dynamic prompt with the input 'rainy'
+console.log(await dynamicPrompt.format({ adjective: "rainy" }));
+```
+
+## PipelinePromptTemplate
+管道提示器模板 : 跟 loader  一样, 将上一层处理过的模板结果 , 传给下一层继续处理
+
+https://v03.api.js.langchain.com/classes/_langchain_core.prompts.PipelinePromptTemplate.html
+
+## 持久化模板文件
+上述例子中, 模板作为变量 加载在内存中, 如果有些提示词模板经常使用. 那么可以用下述两种方式保存到硬盘中.
+
++ yaml 文件
++ json 文件
+
+### yaml 文件
+ 
+
+### json 文件
