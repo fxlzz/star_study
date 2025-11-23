@@ -730,6 +730,59 @@ https://v03.api.js.langchain.com/classes/_langchain_core.prompts.PipelinePromptT
 + json 文件
 
 ### yaml 文件
- 
+ ```yaml
+_type: "prompt"
+inputVariables: ["name", "what"]
+template: "请给{name}讲一个关于{what}的故事"
+ ```
+
+使用
+
+```js
+import yaml from "js-yaml";
+import fs from "fs";
+
+const test = async () => {
+  // 读取并解析 yaml 文件
+  const promptYaml = yaml.load(fs.readFileSync("prompt.yaml", "utf8"));
+  const prompt = new PromptTemplate(promptYaml);
+
+  // 使用模板
+  const result = await prompt.format({
+    name: "小明",
+    what: "太空探险",
+  });
+  console.log(result); // 请给小明讲一个关于太空探险的故事
+};
+```
 
 ### json 文件
+```json
+{
+  "_type": "prompt",
+  "inputVariables": ["name", "what"],
+  "template": "请给{name}讲一个关于{what}的故事"
+}
+```
+
+使用
+
+```js
+import path from "path";
+import fs from "fs";
+
+const test = async () => {
+  // 读取 JSON 文件
+  const promptJsonPath = path.join(process.cwd(), "prompt.json");
+  const promptData = JSON.parse(fs.readFileSync(promptJsonPath, "utf8"));
+
+  const prompt = new PromptTemplate(promptData);
+  const result = await prompt.format({
+    name: "张三",
+    what: "太空探险",
+  });
+
+  console.log(result); // 请给张三讲一个关于太空探险的故事
+};
+```
+
