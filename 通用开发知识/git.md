@@ -7,7 +7,7 @@ git 中的三个仓库
 + 暂存区
 + 远程仓库
   
-<img width="559" height="151" alt="image" src="https://github.com/user-attachments/assets/29ffcf53-869f-44b2-933e-00d69030b928" />
+![](assets/git/file-20251124222243160.png)
 
 **本地仓库**： 其实可以理解为，在编译器中 未提交 的代码
 **暂存区**：见名知意
@@ -22,11 +22,13 @@ git add . # 将所有状态改变的代码加入暂存区
 git commit -m "说明信息" # 加入本地仓库
 git push  # 将本地仓库更新到远程仓库 
 ```
+
 但这里需要注意的是，首次 push 会有报错
 ```bash
 # 将远程仓库地址关联到本地，并命名为 origin
 git remote add origin <remote-repo-url>
 ```
+
 使用 -u 或 --set-upstream 参数，建立本地分支和远程分支的追踪关系
 ```bash
 git push -u origin main # 本地仓库提交到远程的主分支名称 main
@@ -74,6 +76,7 @@ git stash pop stash{n} # 指定第几个
 # 删除
 git stash drop stash{n}
 ```
+
 注意：stash只能保存被git追踪的代码，如果你新增了一个文件，这个文件不会被git追踪
 所以，
 ```bash
