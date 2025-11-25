@@ -86,11 +86,44 @@ git stash save "xxx"
 
 ## 合并冲突
 一般，合并冲突会发生在，更改了同一个文件 / 很久没有 pull 代码 / merge / push等
-处理起来，其实很简单，在编译器中都有图形化展示，有冲突的代码
+处理起来，其实很简单，在编译器中都有图形化展示有冲突的代码，选择即可（一般会自动生成一个 合并的commit）
+类似于 `Merge branch 'qfusion-master' into qfusion-local-dev`
 
+为了避免合并冲突：
+**本地与远程分支名是一致的情况**
+```bash
+# 在所在分支（没有在本地创建分支），提交之前
+git stash save "xxx" # 暂存修改
+git pull 
+# 有冲突解决冲突
+git stash pop
+git add .
+git commit -m "xxx"
+git push
+```
 
+**在本地创建了新分支，但不提交到远程**
+假设：本地主分支为 A，远程分支为 OA，A 与 OA 是对应的，通过 -u / --set-upstream 确定了push关系
+此时在 A 分支的基础上，创建了 A’（在 A' 上进行开发，A‘分支不提交到远程）
+```bash
+# 在 A‘ 分支上
+git stash save "xxx"
+git switch A # 切换到 A 分支
+git pull
+git switch A'
+git merge A
+git stash pop
+git add .
+git commit -m "xxx"
+git switch A
+git merge A'
+git push
+```
+但注意，这样做还是会有风险
+有可能在 merge A' 之前，有同事先 push 到远程了，那么也会有合并冲突
 
-
+--- 
+一般常用的就是这些操作了，还有一些 fetch / rebase ...
 
 
 
