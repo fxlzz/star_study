@@ -931,3 +931,16 @@ const chain = RunnableSequence.from([prompt, llm, parser]);
 const result = await chain.invoke({});
 console.log(result);
 ```
+
+> 有一些之前的老 chain 都被废除了, 比如, LLMChain \SimpleSequentialChain \ SequentialChain 等
+
+## RouterChain
+路由chain, 用于创建 **动态选择下一条链**, 可以自动分析用户需求, 然后引导到最适合的链中执行, 获取响应并返回结果.
+
+是关于 数学 的问题, 就会自动关联到 数学链 上处理数据
+![](assets/LangChain/file-20251126221800646.png)
+
+## StuffDocumentChain
+文档处理链, 将 **多个文档内容合并** 到单个提示词中, 然后在传递给 LLM 进行处理.
+
+使用场景: 由于所有文档被完整拼接, LLM 能同时看到全部内容, 所以适合需要**全局理解**的任务, 比如, 总结 \ 问答 \ 对比分析等. 仅适合处理 **少量 / 中等长度文档**
