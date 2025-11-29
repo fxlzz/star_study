@@ -957,6 +957,12 @@ const chain = await createSqlQueryChain({ llm, db, dialect: "sqlite", });
 功能跟 StuffDocumentChain 这个是差不多的
 
 # Memory
+> 一个常识 LLM 是没有记忆功能的, 我们用的 豆包 \ deepseek 等都是AI应用程序. 他们是有记忆功能能的, 哪什么是记忆功能呢? 能知道用户上一轮问了什么东西. 更好的交互体验.
+
+那是怎么做到的呢?
+其实没有想象中的复杂, 将回答加入到下一轮提示词模板中即可
+
+
 
 # Tools
 
