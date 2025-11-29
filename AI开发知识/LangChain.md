@@ -944,3 +944,25 @@ console.log(result);
 文档处理链, 将 **多个文档内容合并** 到单个提示词中, 然后在传递给 LLM 进行处理.
 
 使用场景: 由于所有文档被完整拼接, LLM 能同时看到全部内容, 所以适合需要**全局理解**的任务, 比如, 总结 \ 问答 \ 对比分析等. 仅适合处理 **少量 / 中等长度文档**
+
+## createSqlQueryChain
+SQL 查询链, 可以将 **自然语言** 转化成 SQL 语句
+```ts 
+const datasource = new DataSource({ type: "sqlite", database: "../../../../Chinook.db", }); const db = await SqlDatabase.fromDataSourceParams({ appDataSource: datasource, });
+const llm = new ChatOpenAI({ model: "gpt-4o-mini", temperature: 0 }); 
+const chain = await createSqlQueryChain({ llm, db, dialect: "sqlite", }); 
+```
+
+## createStuffDocumentsChain
+功能跟 StuffDocumentChain 这个是差不多的
+
+# Memory
+
+# Tools
+
+# Agents
+
+# RAG
+
+
+
