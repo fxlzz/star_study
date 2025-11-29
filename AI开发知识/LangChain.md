@@ -961,7 +961,7 @@ const chain = await createSqlQueryChain({ llm, db, dialect: "sqlite", });
 
 那是怎么做到的呢?
 其实没有想象中的复杂, 将回答加入到下一轮提示词模板中即可
-
+![](assets/LangChain/file-20251129115446140.png)
 
 
 # Tools
