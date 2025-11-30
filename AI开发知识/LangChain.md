@@ -1160,9 +1160,11 @@ https://docs.langchain.com/oss/javascript/langchain/short-term-memory#trim-messa
 > 但是，一些情况下， 也需要模型直接与外部系统交互——例如API、数据库或文件系统，需要使用结构化输入。
 
 >  Tool 的作用：
->  能够丰富 LLM 的能力， 如虎添翼
->  通过允许模型通过定义明确的输入和输出来与世界交互，从而扩展模型能力。工具封装一个可调用的函数及其输入模式。
+>  **能够丰富 LLM 的能力， 如虎添翼**， 就是一个函数来的。
 
+不经思考，这个与 mcp 有什么区别呢？
+
+## create tools
 
 
 # Agents
