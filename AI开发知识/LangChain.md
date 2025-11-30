@@ -1165,6 +1165,51 @@ https://docs.langchain.com/oss/javascript/langchain/short-term-memory#trim-messa
 不经思考，这个与 mcp 有什么区别呢？
 
 ## create tools
+一个 tools 函数， 由三部分组成：
++ call ： 函数
++ name ：tools叫啥名
++ description ： tool 函数的描述【能做啥事】
+
+https://docs.langchain.com/oss/javascript/langchain/tools#basic-tool-definition
+
+```ts
+import * as z from "zod";
+import { tool } from "langchain/tools";
+
+// 模拟天气数据
+const getWeatherForCity = (city: string): string => {
+  const weatherData: Record<string, string> = {
+    "北京": "晴，25°C",
+    "上海": "多云，28°C",
+    "广州": "雷阵雨，30°C",
+    "深圳": "阴，29°C",
+    "杭州": "小雨，26°C",
+  };
+
+  return weatherData[city] || `抱歉，无法获取 ${city} 的天气信息。`;
+};
+
+// 定义 weather 工具
+const getWeatherTool = tool(
+  ({ city }) => getWeatherForCity(city),
+  {
+    name: "get_weather",
+    description: "获取指定城市的当前天气情况。",
+    schema: z.object({
+      city: z.string().describe("要查询天气的城市名称，例如：北京、上海"),
+    }),
+  }
+);
+
+export { getWeatherTool };
+```
+
+```js
+tool(call, {name: xxx, description: xxx}) 
+```
+
+
+
 
 
 # Agents
