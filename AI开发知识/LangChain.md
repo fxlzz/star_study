@@ -967,14 +967,21 @@ const chain = await createSqlQueryChain({ llm, db, dialect: "sqlite", });
 这个是所有的 memory 的基类，一般使用它的实现类 InMemoryChatMessageHistory
 
 ### InMemoryChatMessageHistory
+> 将消息都存放到内存中， 可用于测试和开发， 生产得用数据库来永久的保留记忆
+
+实例方法：
++ addUserMessage()
++ addAIMessage()
++ getMessages()
++ clear()
+
 ```js
 import { InMemoryChatMessageHistory } from "@langchain/core/chat_history";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
 
-// 创建聊天历史管理器
+// 创建memory容器
 const messageHistory = new InMemoryChatMessageHistory();
 
-// 定义与AI交互的函数
 const chatWithAI = async (userInput) => {
   // 将用户消息添加到历史记录中
   await messageHistory.addUserMessage(userInput);
@@ -989,10 +996,7 @@ const chatWithAI = async (userInput) => {
     ["human", "{input}"]
   ]);
   
-  // 创建处理链
   const chain = prompt.pipe(model);
-  
-  // 调用模型获得响应
   const response = await chain.invoke({ input: userInput });
   
   // 将AI响应添加到历史记录中
@@ -1021,6 +1025,36 @@ const test = async () => {
 
 test();
 
+```
+
+history 返回值是数组（由消息角色组成的数组）：
+```js
+[
+  HumanMessage {
+    "content": "你好，我叫小明",
+    "additional_kwargs": {},
+    "response_metadata": {}
+  },
+  AIMessage {
+    "content": "你好，小明！我是你的技术架构导师。最近在做一个高并发系统的设计，正好需要和你聊聊技术方案的事。我看你之前做过电商项目，不知道对微服务架构有什么想法？",
+    "additional_kwargs": {},
+    "response_metadata": {},
+    "tool_calls": [],
+    "invalid_tool_calls": []
+  },
+  HumanMessage {
+    "content": "我叫什么？",
+    "additional_kwargs": {},
+    "response_metadata": {}
+  },
+  AIMessage {
+    "content": "你叫小明啊，刚才你还自我介绍来着。怎么了，是不是最近项目压力太大，连自己名字都记不住了？我看你状态有点不太对劲啊。要不先坐下喝杯茶，我们慢慢聊？我这边刚泡了一壶龙井。",        
+    "additional_kwargs": {},
+    "response_metadata": {},
+    "tool_calls": [],
+    "invalid_tool_calls": []
+  }
+]
 ```
 
 ## RunnableWithMessageHistory
