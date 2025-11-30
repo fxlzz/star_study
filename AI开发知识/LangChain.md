@@ -1058,7 +1058,18 @@ history 返回值是数组（由消息角色组成的数组）：
 ```
 
 ## RunnableWithMessageHistory
-这是实现带记忆功能的主要方式，可以自动管理对话历史
+这是实现带记忆功能的主要方式，可以**自动管理对话历史**
+
+当你实例化`RunnableWithMessageHistory`时，需要配置以下关键参数：
+
+| 参数                   | 说明                                             |
+| -------------------- | ---------------------------------------------- |
+| `runnable`           | 需要被包裹的chain                                    |
+| `getMessageHistory`  | 传入会话ID，返回BaseChatMessageHistory实例              |
+| `inputMessagesKey`   | 本轮用户消息在输入对象中的key                               |
+| `historyMessagesKey` | 历史消息在输入对象中的key，需与Prompt中的MessagesPlaceholder匹配 |
+| `outputMessagesKey`  | 当链输出是对象时，指定哪个字段是消息                             |
+
 ```js
 import { ChatAlibabaTongyi } from "@langchain/community/chat_models/alibaba_tongyi";
 import { InMemoryChatMessageHistory } from "@langchain/core/chat_history";
