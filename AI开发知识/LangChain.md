@@ -1073,10 +1073,10 @@ history 返回值是数组（由消息角色组成的数组）：
 ```js
 import { ChatAlibabaTongyi } from "@langchain/community/chat_models/alibaba_tongyi";
 import { InMemoryChatMessageHistory } from "@langchain/core/chat_history";
-import { ChatPromptTemplate } from "@langchain/core/prompts";
+import { StringOutputParser } from "@langchain/core/output_parsers";
+import { ChatPromptTemplate, MessagesPlaceholder } from "@langchain/core/prompts";
 import { RunnableWithMessageHistory } from "@langchain/core/runnables";
 import dotenv from "dotenv";
-
 dotenv.config();
 
 const model = new ChatAlibabaTongyi({
@@ -1086,57 +1086,68 @@ const model = new ChatAlibabaTongyi({
   maxTokens: 100,
 });
 
-// 存储不同会话的历史记录
-const messageHistories = {};
-
-// 创建带记忆功能的链条
 const prompt = ChatPromptTemplate.fromMessages([
-  ["system", "你是一个资深前端架构师"],
-  ["placeholder", "{chat_history}"],
-  ["human", "{input}"],
+  ["system", "你是一个资深的前端架构师"],
+  new MessagesPlaceholder("history"), // 消息占位符， 与 historyMessagesKey 保持一致 【历史记录】
+  ["human", "{input}"], // 用户当前输入
 ]);
 
-const chain = prompt.pipe(model);
+const parser = new StringOutputParser();
+const chain = prompt.pipe(model).pipe(parser);
 
-const withMessageHistory = new RunnableWithMessageHistory({
+// 展示存储记忆【长期用数据库】
+const chatStore = new Map();
+
+// 每一轮对话都有唯一的sessionId，可用sessionId标识之前的对话
+const getMessageHistory = (sessionId) => {
+  if (!chatStore.has(sessionId)) {
+    chatStore.set(sessionId, new InMemoryChatMessageHistory());
+  }
+
+  return chatStore.get(sessionId);
+};
+
+// 自动管理 将当前和历史对话加入到内存
+const withHistoryChain = new RunnableWithMessageHistory({
   runnable: chain,
-  getMessageHistory: async (sessionId) => {
-    if (messageHistories[sessionId] === undefined) {
-      messageHistories[sessionId] = new InMemoryChatMessageHistory();
-    }
-    return messageHistories[sessionId];
-  },
-  inputMessagesKey: "input",
-  historyMessagesKey: "chat_history",
+  getMessageHistory,
+  inputMessagesKey: "input", // 输入中的用户消息键
+  historyMessagesKey: "history", // 历史消息在输入中的键
 });
 
-// 测试函数
 const test = async () => {
-  const config = {
-    configurable: {
-      sessionId: "abc123",
-    },
-  };
-
-  // 第一次对话
-  const response1 = await withMessageHistory.invoke({ input: "我叫小明，请记住我的名字" }, config);
-  console.log("AI:", response1.content);
-
-  // 第二次对话，AI应该记得用户的名字
-  const response2 = await withMessageHistory.invoke(
-    { input: "我刚才说了什么？我的名字是什么？" },
-    config
+  // 第一轮对话
+  const response1 = await withHistoryChain.invoke(
+    { input: "你好，我是小明" },
+    { configurable: { sessionId: "session1" } }
   );
-  console.log("AI:", response2.content);
+  console.log("第一轮回复:", response1);
+
+  // 第二轮对话，机器人记得之前对话
+  const response2 = await withHistoryChain.invoke(
+    { input: "你记得我叫什么名字吗？" },
+    { configurable: { sessionId: "session1" } }
+  );
+  console.log("第二轮回复:", response2);
 };
 
 test();
+```
 
+chatStore存储的值：
+```js
+Map(1) {
+  'session1' => InMemoryChatMessageHistory {
+    lc_serializable: false,
+    lc_kwargs: {},
+    lc_namespace: [ 'langchain', 'stores', 'message', 'in_memory' ],       
+    messages: []
+  }
+}
 ```
 
 ## Checkpointers
 > 短期记忆
-
 
 
 ## Stores
