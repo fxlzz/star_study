@@ -963,6 +963,132 @@ const chain = await createSqlQueryChain({ llm, db, dialect: "sqlite", });
 其实没有想象中的复杂, 将回答加入到下一轮提示词模板中即可
 ![](assets/LangChain/file-20251129115446140.png)
 
+## ChatMessageHistory
+这个是所有的 memory 的基类，一般使用它的实现类 InMemoryChatMessageHistory
+
+### InMemoryChatMessageHistory
+```js
+import { InMemoryChatMessageHistory } from "@langchain/core/chat_history";
+import { ChatPromptTemplate } from "@langchain/core/prompts";
+
+// 创建聊天历史管理器
+const messageHistory = new InMemoryChatMessageHistory();
+
+// 定义与AI交互的函数
+const chatWithAI = async (userInput) => {
+  // 将用户消息添加到历史记录中
+  await messageHistory.addUserMessage(userInput);
+  
+  // 获取所有历史消息
+  const history = await messageHistory.getMessages();
+  
+  // 创建提示模板，包含历史记录
+  const prompt = ChatPromptTemplate.fromMessages([
+    ["system", "你是一个资深前端架构师"],
+    ...history.map(msg => [msg._getType(), msg.content]),
+    ["human", "{input}"]
+  ]);
+  
+  // 创建处理链
+  const chain = prompt.pipe(model);
+  
+  // 调用模型获得响应
+  const response = await chain.invoke({ input: userInput });
+  
+  // 将AI响应添加到历史记录中
+  await messageHistory.addAIMessage(response.content);
+  
+  return response.content;
+};
+
+// 测试函数
+const test = async () => {
+  // 第一次对话
+  const response1 = await chatWithAI("我叫小明，请记住我的名字");
+  console.log("AI:", response1);
+
+  // 第二次对话，AI应该记得用户的名字
+  const response2 = await chatWithAI("我刚才说了什么？我的名字是什么？");
+  console.log("AI:", response2);
+  
+  // 查看完整的历史记录
+  console.log("\n完整对话历史:");
+  const history = await messageHistory.getMessages();
+  history.forEach((msg, index) => {
+    console.log(`${index + 1}. ${msg._getType()}: ${msg.content}`);
+  });
+};
+
+test();
+
+```
+
+## RunnableWithMessageHistory
+这是实现带记忆功能的主要方式，可以自动管理对话历史
+```js
+import { ChatAlibabaTongyi } from "@langchain/community/chat_models/alibaba_tongyi";
+import { InMemoryChatMessageHistory } from "@langchain/core/chat_history";
+import { ChatPromptTemplate } from "@langchain/core/prompts";
+import { RunnableWithMessageHistory } from "@langchain/core/runnables";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const model = new ChatAlibabaTongyi({
+  model: "qwen-plus",
+  alibabaApiKey: process.env.ALIBABA_API_KEY,
+  temperature: 1,
+  maxTokens: 100,
+});
+
+// 存储不同会话的历史记录
+const messageHistories = {};
+
+// 创建带记忆功能的链条
+const prompt = ChatPromptTemplate.fromMessages([
+  ["system", "你是一个资深前端架构师"],
+  ["placeholder", "{chat_history}"],
+  ["human", "{input}"],
+]);
+
+const chain = prompt.pipe(model);
+
+const withMessageHistory = new RunnableWithMessageHistory({
+  runnable: chain,
+  getMessageHistory: async (sessionId) => {
+    if (messageHistories[sessionId] === undefined) {
+      messageHistories[sessionId] = new InMemoryChatMessageHistory();
+    }
+    return messageHistories[sessionId];
+  },
+  inputMessagesKey: "input",
+  historyMessagesKey: "chat_history",
+});
+
+// 测试函数
+const test = async () => {
+  const config = {
+    configurable: {
+      sessionId: "abc123",
+    },
+  };
+
+  // 第一次对话
+  const response1 = await withMessageHistory.invoke({ input: "我叫小明，请记住我的名字" }, config);
+  console.log("AI:", response1.content);
+
+  // 第二次对话，AI应该记得用户的名字
+  const response2 = await withMessageHistory.invoke(
+    { input: "我刚才说了什么？我的名字是什么？" },
+    config
+  );
+  console.log("AI:", response2.content);
+};
+
+test();
+
+```
+
 ## Checkpointers
 > 短期记忆
 
