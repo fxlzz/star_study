@@ -521,6 +521,7 @@ const test = async () => {
   const prompt = ChatPromptTemplate.fromMessages([
     ["system", "hi, how are you ?"],
     new MessagesPlaceholder("msg"),
+    ["placeholder", "{chat_history}"] // 占位符也可以使用
   ]);
  
   // 提示词
@@ -532,6 +533,7 @@ const test = async () => {
   const response = await qwen.invoke(value);
   console.log(response);
 };
+
 ```
 
 返回值
@@ -1148,11 +1150,32 @@ Map(1) {
 
 在 langchain 框架中，js版本，没有提供 trim messages / summarize messages 的api，但是在 langGraph中提供了
 https://docs.langchain.com/oss/javascript/langchain/short-term-memory#trim-messages
+
+下面两个是在 langgraph 包中...
 ## Checkpointers
 > 短期记忆
 
+```js
+import { createAgent } from "langchain";
+import { MemorySaver } from "@langchain/langgraph";
+
+const checkpointer = new MemorySaver();
+
+const agent = createAgent({
+    model: "claude-sonnet-4-5-20250929",
+    tools: [],
+    checkpointer,
+});
+
+await agent.invoke(
+    { messages: [{ role: "user", content: "hi! i am Bob" }] },
+    { configurable: { thread_id: "1" } }
+);
+```
+
 ## Stores
 > 长期记忆
+
 
 
 # Tools
@@ -1191,7 +1214,7 @@ const getWeatherForCity = (city: string): string => {
 
 // 定义 weather 工具
 const getWeatherTool = tool(
-  ({ city }) => getWeatherForCity(city),
+  ({ city }) => getWeatherForCity(city), // call函数传的参，其实是由用户传递进来的
   {
     name: "get_weather",
     description: "获取指定城市的当前天气情况。",
@@ -1207,9 +1230,6 @@ export { getWeatherTool };
 ```js
 tool(call, {name: xxx, description: xxx}) 
 ```
-
-
-
 
 
 # Agents
