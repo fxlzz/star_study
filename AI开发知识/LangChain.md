@@ -963,6 +963,15 @@ const chain = await createSqlQueryChain({ llm, db, dialect: "sqlite", });
 其实没有想象中的复杂, 将回答加入到下一轮提示词模板中即可
 ![](assets/LangChain/file-20251129115446140.png)
 
+## Checkpointers
+> 短期记忆
+
+
+
+## Stores
+> 长期记忆
+
+
 
 # Tools
 
