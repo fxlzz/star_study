@@ -1214,7 +1214,7 @@ const getWeatherForCity = (city: string): string => {
 
 // 定义 weather 工具
 const getWeatherTool = tool(
-  ({ city }) => getWeatherForCity(city), // call函数传的参，其实是由用户传递进来的
+  ({ city }, config) => getWeatherForCity(city), 
   {
     name: "get_weather",
     description: "获取指定城市的当前天气情况。",
@@ -1229,8 +1229,32 @@ export { getWeatherTool };
 
 ```js
 tool(call, {name: xxx, description: xxx}) 
+
+type call = ({params}, config) => xxx
+params: 用户传递的参数
+config: 可以获取 agent 的上下文
+
 ```
 
+## 在 agent 中使用
+这个是官网的例子，其实都差不多，只不过是模型换了一个
+```js
+import { createAgent } from "langchain";
+import { ChatOpenAI } from "@langchain/openai";
+
+const model = new ChatOpenAI({ model: "gpt-4o" });
+
+const agent = createAgent({
+  model,
+  tools: [search, getWeather],
+  systemPrompt: "You are a helpful assistant.",
+});
+
+// Invoke agent
+const result = await agent.invoke({
+  messages: [{ role: "user", content: "Search for Python tutorials" }],
+});
+```
 
 # Agents
 
