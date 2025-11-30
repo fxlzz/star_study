@@ -1146,9 +1146,10 @@ Map(1) {
 }
 ```
 
+在 langchain 框架中，js版本，没有提供 trim messages / summarize messages 的api，但是在 langGraph中提供了
+https://docs.langchain.com/oss/javascript/langchain/short-term-memory#trim-messages
 ## Checkpointers
 > 短期记忆
-
 
 ## Stores
 > 长期记忆
