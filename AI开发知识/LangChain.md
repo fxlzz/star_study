@@ -1257,6 +1257,52 @@ const result = await agent.invoke({
 ```
 
 # Agents
+话不多说，直接上代码
+
+## createAgent
+```js
+import { createAgent } from "@langchain/langchain/agents";
+
+// 定义工具函数（这里模拟一个天气API）
+const getWeatherTool = {
+  name: "getWeather",
+  description: "获取指定城市天气",
+  async call(input) {
+    const { city } = input;
+    // 实际应用中这里会调用真实天气API
+    // 这里简单模拟返回
+    return {
+      temperature: 26,
+      condition: "Sunny",
+      city
+    };
+  }
+};
+
+// 创建智能体
+const weatherAgent = createAgent({
+  model: "openai:gpt-4o", // 使用OpenAI模型，也可以换成其他模型
+  tools: [getWeatherTool],
+  systemPrompt: "你是一个天气查询助手，使用工具获取实时天气"
+});
+
+// 运行智能体
+async function runAgent() {
+  try {
+    const result = await weatherAgent.invoke({
+      role: "user",
+      content: "深圳今天天气怎么样？"
+    });
+    
+    console.log("智能体返回结果:", result);
+    console.log("天气信息:", result.messages[result.messages.length - 1].content);
+  } catch (error) {
+    console.error("执行出错:", error);
+  }
+}
+
+runAgent();
+```
 
 # RAG
 
