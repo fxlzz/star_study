@@ -1187,7 +1187,7 @@ await agent.invoke(
 
 不经思考，这个与 mcp 有什么区别呢？
 
-## create tools
+## 创建 tools
 一个 tools 函数， 由三部分组成：
 + call ： 函数
 + name ：tools叫啥名
