@@ -1261,7 +1261,7 @@ const result = await agent.invoke({
 
 ## createAgent
 ```js
-import { createAgent } from "@langchain/langchain/agents";
+import { createAgent } from "langchain";
 
 // 定义工具函数（这里模拟一个天气API）
 const getWeatherTool = {
