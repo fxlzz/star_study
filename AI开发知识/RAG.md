@@ -32,7 +32,10 @@ RAG 解决的呢，就是 LLM 的知识性缺陷，具体一点：
 当然上述流程，是个人理解
 
 ## 文档加载
-langchain 支持市面常见的文档
+langchain 支持市面常见的文档，所有的 loader 都继承至 BaseDocumentLoader ， 这个抽象类实现了 DocumentLoader 这个接口，提供 load 方法。 
+
++ load()： 一次加载所有文档
++ loadAndSplit(): 一次加载所有文档，并拆分成更小的模块
 
 ### txt
 
