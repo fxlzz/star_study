@@ -174,4 +174,29 @@ console.log(texts[0]);
 ```
 
 ### Document structure-based
+支持解析各种有结构的文档，例如： 各种编程语言、markdown等
+
+`RecursiveCharacterTextSplitter.getSeparatorsForLanguage("js") ` ： 可以查找特定语言的分隔符
+
+```js
+const markdownText = `
+# 🦜️🔗 LangChain
+
+⚡ Building applications with LLMs through composability ⚡
+
+## What is LangChain?
+
+# Hopefully this code block isn't split
+LangChain is a framework for...
+
+As an open-source project in a rapidly developing field, we are extremely open to contributions.
+`;
+
+const mdSplitter = RecursiveCharacterTextSplitter.fromLanguage(
+    "markdown",
+    { chunkSize: 60, chunkOverlap: 0 }
+);
+const mdDocs = mdSplitter.createDocuments([{ pageContent: markdownText }]);
+console.log(mdDocs);
+```
 
