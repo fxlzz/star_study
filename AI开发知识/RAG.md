@@ -37,19 +37,47 @@ langchain 支持市面常见的文档，所有的 loader 都继承至 BaseDocume
 + load()： 一次加载所有文档
 + loadAndSplit(): 一次加载所有文档，并拆分成更小的模块
 
-### txt
+langchain 支持多模态的用户输入， 不仅仅有文档，还有web相关，
+具体可看官网：
+https://docs.langchain.com/oss/javascript/integrations/document_loaders
 
-### pdf
+### 以 pdf 文档为例
+其实在内部调的是 pdf-parse@v1 ，将 pdf 上的文字解析出来
+```js
+import { PDFLoader } from "@langchain/community/document_loaders/fs/pdf";
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
 
-### csv
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-### json
+const filename = join(__dirname, "../test.pdf");
 
-### html
+const readPDFDocument = async (filename) => {
+  const loader = new PDFLoader(filename);
+  const docs = await loader.load();
+  console.log(docs);
+};
 
-### markdown
+readPDFDocument(filename);
+```
 
-
-
+返回结果：
+```js
+Document {
+  pageContent: 'xxxx'
+  metadata: {
+    source: '文件地址',
+    pdf: {
+      version: '1.10.100',
+      info: [Object],
+      metadata: null,
+      totalPages: 文档页数
+    },
+    loc: { pageNumber: 1 } // 当前页数
+  },
+  id: undefined
+}
+```
 
 
