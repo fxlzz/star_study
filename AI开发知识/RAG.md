@@ -82,3 +82,33 @@ Document {
 
 ## 文档拆分
 langchain 中默认使用 `Splitting recursively`  这个函数进行拆分
+
+大致分为三种拆分策略：
++ 基于文本结构的 - 根据句子、段落、词语等进行拆分
++ 基于长度的
+	+ 基于token的
+	+ 基于文字的
++ 基于文档结构的 - 一般用于已有结构的文档，像 html、json、markdown 等
+
+### Text structure-based
+默认的文本拆分是基于： ["\n\n", "\n", " ", ""]
+
+```js
+import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
+
+const splitter = new RecursiveCharacterTextSplitter({ chunkSize: 100, chunkOverlap: 0 })
+const texts = splitter.splitText(document)
+```
+
+### Length based
+#### Token
+```js
+import { TokenTextSplitter } from "@langchain/textsplitters";
+
+const splitter = new TokenTextSplitter({ encodingName: "cl100k_base", chunkSize: 100, chunkOverlap: 0 })
+const texts = splitter.splitText(document)
+```
+
+#### characters
+
+### Document structure-based
