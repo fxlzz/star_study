@@ -316,7 +316,8 @@ fs.promises.writeFile(filePath, "你好呀~", { flag: "w" }).then(() => {
 //              -> 'w' : 写入操作，如果文件不存在，则创建文件；如果文件存在，覆盖原来内容
 ```
 
-## 查看文件属性 -> 可以用于判断是文件还是目录
+## 查看文件属性 
+### 判断是文件还是目录
 
 fs.promises.stat(filename)
 
@@ -335,6 +336,20 @@ async function test() {
 }
 
 test();
+```
+
+### 文件是否存在
+```js
+const isFileExits = async (filename) => {
+  try {
+    await fs.promises.stat(filename);
+  } catch (error) {
+    if (error.code === "ENOENT") {
+      throw new Error("文件路径不存在：" + filename);
+    }
+    throw error;
+  }
+};
 ```
 
 ## 练习：复制文件

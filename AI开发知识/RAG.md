@@ -82,6 +82,7 @@ Document {
 
 ## 文档拆分
 langchain 中默认使用 `Splitting recursively`  这个函数进行拆分
+`pnpm install @langchain/textsplitters`
 
 大致分为三种拆分策略：
 + 基于文本结构的 - 根据句子、段落、词语等进行拆分
@@ -91,24 +92,70 @@ langchain 中默认使用 `Splitting recursively`  这个函数进行拆分
 + 基于文档结构的 - 一般用于已有结构的文档，像 html、json、markdown 等
 
 ### Text structure-based
-默认的文本拆分是基于： ["\n\n", "\n", " ", ""]
+默认的文本拆分是基于： ["\n\n", "\n", " ", ""]，为了处理不同语言的结束符号。像中文的 '。' 就需要用 ASCII 码的方式加到拆分规则中.
+
+```js
+ const separators = [
+    "\n\n",
+    "\n",
+    " ",
+    ".",
+    ",",
+    "\uff0c", // ，
+    "\u3001", // 、
+    "\uff0e", // .
+    "\u3002", // 。
+    ",",
+  ];
+```
 
 ```js
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 
-const splitter = new RecursiveCharacterTextSplitter({ chunkSize: 100, chunkOverlap: 0 })
-const texts = splitter.splitText(document)
+const splitter = new RecursiveCharacterTextSplitter({ 
+	separators,
+	chunkSize: 100,  // pageContent 字符大小
+	chunkOverlap: 0  // 是否重叠 - 为了防止拆分语义不全
+})
+
+// 这个 document 是 Document 对象
+// [{pageContent: xxx}, {...}]
+const texts = docs.map((doc) => doc.pageContent); // 有可能需要处理一下
+const splitDocs = splitter.createDocuments(texts);
+```
+
+返回值：
+```js
+[
+  Document {
+    pageContent: 'xxx',
+    metadata: { loc: [Object] },
+    id: undefined
+  },
+  Document {
+    pageContent: 'xxx',
+    metadata: { loc: [Object] },
+    id: undefined
+  }
+  ...
+]
 ```
 
 ### Length based
+以文档长度为基于拆分，最大的好处就是 **直接** 
 #### Token
 ```js
 import { TokenTextSplitter } from "@langchain/textsplitters";
 
-const splitter = new TokenTextSplitter({ encodingName: "cl100k_base", chunkSize: 100, chunkOverlap: 0 })
+const splitter = new TokenTextSplitter({ 
+	encodingName: "cl100k_base", // 编码名称
+	chunkSize: 100, 
+	chunkOverlap: 0 
+})
 const texts = splitter.splitText(document)
 ```
 
 #### characters
 
 ### Document structure-based
+
