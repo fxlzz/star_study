@@ -178,25 +178,114 @@ console.log(texts[0]);
 
 `RecursiveCharacterTextSplitter.getSeparatorsForLanguage("js") ` ： 可以查找特定语言的分隔符
 
+#### markdown 格式
 ```js
-const markdownText = `
-# 🦜️🔗 LangChain
+const test = async () => {
+  const textSplitter = new RecursiveCharacterTextSplitter({
+    chunkSize: 100,
+    chunkOverlap: 20,
+  });
+  const docs = await textSplitter.createDocuments([markdownText]);
+  return docs;
+};
 
-⚡ Building applications with LLMs through composability ⚡
-
-## What is LangChain?
-
-# Hopefully this code block isn't split
-LangChain is a framework for...
-
-As an open-source project in a rapidly developing field, we are extremely open to contributions.
-`;
-
-const mdSplitter = RecursiveCharacterTextSplitter.fromLanguage(
-    "markdown",
-    { chunkSize: 60, chunkOverlap: 0 }
-);
-const mdDocs = mdSplitter.createDocuments([{ pageContent: markdownText }]);
-console.log(mdDocs);
+test().then((docs) => {
+  console.log(docs);
+});
 ```
+
+markdown 格式的数据，调用方式跟其他的文本类型保持一致了，不是 25-12-6 上官方的实例
+估计还没改文档，源代码上 formLanguage 的方式现在统一支持编程语言。
+![450](assets/RAG/file-20251206214601958.png)
+
+#### 编程语言
+以 python 为例：
+```js
+import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
+
+const code = `def hello_world():
+  print("Hello, World!")
+# Call the function
+hello_world()`;
+
+const test = async () => {
+  const splitter = RecursiveCharacterTextSplitter.fromLanguage("python", {
+    chunkSize: 16,
+    chunkOverlap: 0,
+  });
+
+  const docs = await splitter.splitText(code);
+  return docs;
+};
+
+test().then((docs) => {
+  console.log(docs);
+});
+```
+
+返回值：
+```js
+[
+  'def',
+  'hello_world():',
+  'print("Hello,',
+  'World!")',
+  '# Call the',
+  'function',
+  'hello_world()'
+]
+```
+
+---
+总结：
++ 拆分的是纯文本 - 实例调用 splitText() 像 TokenTextSplitter 、 拆分编程语言
++ 其他的 - 实例调用 createDocuments([{pageConent: xxx, metadata: xxx}])  
+	+ 传递的是 Document 对象数组
++ 虽然看起来很简单的样子，但 langchain 一直发展，并且 1.0 版本刚刚发布，有很多核心东西被改动了。文档和导包都有点不准确，还是得手动试一下
+
+## 嵌入
+### 向量化
+说人话就是，将拆分的数据进行**向量化**
+欸，这个向量化怎么理解呢？
+- 可以理解为从**不同角度**描述某个词语
+- 角度：可多可少， 越多描述的越准确 - 实际最少维度 ： 50左右， 实例最多维度如下
+
+| 模型/系统                  | 常见最大维度                                    |
+| ---------------------- | ----------------------------------------- |
+| Word2Vec (Google News) | 300 维                                     |
+| GloVe (Common Crawl)   | 300 维                                     |
+| FastText               | 通常 100–300 维                              |
+| BERT / Transformer 类模型 | 768 维（BERT-base）、1024 维（BERT-large）       |
+| 最新大模型（如 Llama, GPT）    | 词向量（token embedding）可达 **4096、8192 甚至更高** |
+
+还是不理解？
+举个例子：
+苹果（这是一个抽象的概念） -> 为了描述清楚，我可以从以下方面进行描述
+ + 甜度: 0.7
+ + 水分: 0.5
+ + 新鲜度: 0.6
+ + 颜色: 0.2
+ + 名称: 0.4
+ + 等
+人为规定一个标准，如果当前这个苹果，越接近某个维度的描述，那么值就越高
+最后就形成一个描述苹果的一维数组.
+apples = [0.7, 0.5, 0.6, 0.2, 0.4, ...] 当然实际用算法计算的，肯定比这个要精确.
+
+---
+用更为精准的描述：
+> **向量化 = 从多个预定义的“语义/特征维度”去刻画一个抽象对象，每个维度上的数值表示该对象在该特征上的“强度”或“相关性”，最终形成一个数值向量**
+
+通过计算两个向量的 **余弦相似度** 或 **欧式距离**，就能判断在向量空间上，某两个东西有多像 --> 死去的线性代数知识正在攻击宿主，算正相关和负相关。之前还真是，学了就是学了，也不知道有啥用。
+
+但是， 这个社会是残酷的，这里也是。 **维度不是人定的，而是隐式的、数据驱动的** - 这块应该跟 LLM 的底层架构相关（transformer）
+
+---
+数学真的很神奇！
+这么高的维度，这么降下来呢？ --> t-SNE / UMAP 将高维降成 2d 可视化
+
+## Embedding models
+> 嵌入模型
+
+
+
 
