@@ -132,7 +132,8 @@ console.log(path.resolve()); // 返回当前工作目录路径
 import { fileURLToPath } from 'url'; 
 import { dirname } from 'path'; 
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 ```
 
 原理：
