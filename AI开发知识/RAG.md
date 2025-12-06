@@ -152,6 +152,8 @@ const splitter = new TokenTextSplitter({
 	chunkSize: 100, 
 	chunkOverlap: 0 
 })
+
+// doucment -> Document 对象实例
 const texts = splitter.splitText(document)
 ```
 
