@@ -27,6 +27,8 @@
 console.log(global); // node.js 中的全局对象 就像浏览器中的 window 对象
 console.log("目录名：", __dirname); // 获得当前模块的目录名 D:\study\html文件夹\review\Node\全局对象
 console.log("文件名", __filename); // 获得当前文件的路径  D:\study\html文件夹\review\Node\全局对象\process.js
+
+// 进程启动时的工作目录，不一定是文件所在的目录
 console.log("当前命令行：", process.cwd()); // D:\study\html文件夹\review\Node\全局对象
 
 setTimeout(() => {
@@ -123,6 +125,20 @@ console.log(path.resolve("/foo/bar", "/tmp/file/")); // \tmp\file
 console.log(path.resolve("a", "b/png/", "../gif/image.gif")); // currentWorking\a\b\gif\image.gif
 console.log(path.resolve()); // 返回当前工作目录路径
 ```
+
+如果是在 ESM 的情况下， `__dirname` 是不能使用的，会报错
+可以用以下方式来代替：
+```js
+import { fileURLToPath } from 'url'; 
+import { dirname } from 'path'; 
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+```
+
+原理：
+- `import.meta.url`：返回当前模块的 URL，格式如 `file:///Users/xxx/project/index.js`
+- `url.fileURLToPath()`：将 `file://` URL 转换为平台相关的文件路径（如 `/Users/xxx/project/index.js`）
+- `path.dirname()`：提取目录部分（去掉文件名）
 
 ## URL 处理
 
