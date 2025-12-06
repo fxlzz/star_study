@@ -158,6 +158,20 @@ const texts = splitter.splitText(document)
 ```
 
 #### characters
+```js
+import { CharacterTextSplitter } from "@langchain/textsplitters";
+import { readFileSync } from "fs";
+
+const stateOfTheUnion = readFileSync("test.txt", "utf8");
+
+const splitter = new CharacterTextSplitter({
+    separator: "\n\n",
+    chunkSize: 1000,
+    chunkOverlap: 200,
+});
+const texts = splitter.createDocuments([{ pageContent: stateOfTheUnion }]);
+console.log(texts[0]);
+```
 
 ### Document structure-based
 
