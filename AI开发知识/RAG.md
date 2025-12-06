@@ -80,4 +80,5 @@ Document {
 }
 ```
 
-
+## 文档拆分
+langchain 中默认使用 `Splitting recursively`  这个函数进行拆分
