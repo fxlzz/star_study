@@ -132,3 +132,38 @@ docker 运行模式：
 ## 查看容器日志
 `docker logs xxx`
 `docker logs xxx -f` ： 滚动查看日志
+
+## 构建镜像
+一般工程化项目中，都会有一个配置文件 **Dockerfile**
+会在 ci/cd 时根据这个文件，创建镜像 - 随后在服务器用 docker 来运行这个镜像
+
+Dockerfile 文件中，会包含项目的打包命令之类的
+
+`docker build -t 镜像名字 版本号` - 构建镜像
+`docker login`
+`docker push 用户名/xxx` - 推送镜像
+
+## docker compose
+前因： 现代化的应用程序，一般都会有 前端 + 后端 + 数据库。 如果用将三个部分全部放到一个大容器中，只要有一个服务挂了，其他的服务也不能访问。
+
+因此，这种方式，不契合现代程序。更加完美的方案是，将每一个部分都做成一个容器，然后独立运行每个容器。
+
+docker compose - 容器化编排技术 => 管理容器调度运行的
+读取 `docker-compose.yaml` 文件 - 该文件列出了容器之间是如何创建、如何协同工作的
+注意： docker 会为每一个 docker-compose 文件中都创建一个子网， compose 文件中容器会自动归属于一个子网
+
+**启动compose文件**
+`docker compose up -d`
+
+**停止并删除容器**
+`docker componse down`
+
+**只停止**
+`docker componse stop`
+
+**开启**
+`docker componse start`
+
+---
+企业级的容器编排技术，需要用到 k8s -> 这个功能更全，更牛逼~
+
