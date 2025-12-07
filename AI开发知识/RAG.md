@@ -378,6 +378,12 @@ langchain 中，提供了统一的接口来操作向量数据库
 + similaritySearch
 
 ### 以 Chorma 为例
+在本地启动 chorma 数据库
+```js
+docker pull chormadb/chorma
+docker run -d -p 8000:8000 chormadb/chorma
+```
+
 **初始化** ： 接收 embedding model
 
 ```js
