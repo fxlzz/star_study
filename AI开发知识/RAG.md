@@ -377,7 +377,40 @@ langchain 中，提供了统一的接口来操作向量数据库
 + delete
 + similaritySearch
 
-这里以 Chorma 为例：
+### 以 Chorma 为例
+**初始化** ： 接收 embedding model
 
+```js
+import { OpenAIEmbeddings } from "@langchain/openai";
+import { MemoryVectorStore } from "@langchain/classic/vectorstores/memory";
+
+const embeddings = new OpenAIEmbeddings({
+  model: "text-embedding-3-small",
+});
+const vectorStore = new MemoryVectorStore(embeddings);
+```
+
+**添加数据**
+```js
+import { Document } from "@langchain/core/documents";
+const document = new Document({
+  pageContent: "Hello world",
+});
+await vectorStore.addDocuments([document]);
+```
+
+**删除数据**
+```js
+await vectorStore.delete({
+  filter: {
+    pageContent: "Hello world",
+  },
+});
+```
+
+**相似度比对**
+```js
+const results = await vectorStore.similaritySearch("Hello world", 10);
+```
 
 ## 检索
