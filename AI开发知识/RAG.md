@@ -363,9 +363,21 @@ const embed = async (docs) => {
 
 
 ## 存储
-> 两种方式存储： 
-> - Vector stores 向量数据库
-> - key-value stores 缓存机制
+> 就像关系型 / 非关系型数据库，有各种各样的数据库（mysql、mongo、pg、还有国产数据库）。存向量这么特别的东西，当然也会有**向量数据库**
+
+向量数据库，提供的核心功能：
++ 增删
++ Retrieval - 内置了相似度比对算法
+
+langchain 中，市面上的向量数据库基本上都支持
+https://docs.langchain.com/oss/javascript/integrations/vectorstores#all-vector-stores
+
+langchain 中，提供了统一的接口来操作向量数据库
++ addDocuments
++ delete
++ similaritySearch
+
+这里以 Chorma 为例：
 
 
 ## 检索
