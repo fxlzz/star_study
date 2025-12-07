@@ -143,6 +143,9 @@ Dockerfile 文件中，会包含项目的打包命令之类的
 `docker login`
 `docker push 用户名/xxx` - 推送镜像
 
+## 进入容器内部调式
+`docker exec -it <容器ID> sh`
+
 ## docker compose
 前因： 现代化的应用程序，一般都会有 前端 + 后端 + 数据库。 如果用将三个部分全部放到一个大容器中，只要有一个服务挂了，其他的服务也不能访问。
 
