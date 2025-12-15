@@ -48,6 +48,9 @@ git push -u origin main # 本地仓库提交到远程的主分支名称 main
 **删除分支**
 `git switch -d <branch-name>` -D 强制删除
 
+**删除远程分支**
+`git push <remote> --delete <remote-branch-name>`
+
 **本地分支与远程分支的对应关系**
 `git branch -vv` 
 
@@ -88,6 +91,9 @@ git stash save "xxx"
 一般，合并冲突会发生在，更改了同一个文件 / 很久没有 pull 代码 / merge / push等
 处理起来，其实很简单，在编译器中都有图形化展示有冲突的代码，选择即可（一般会自动生成一个 合并的commit）
 类似于 `Merge branch 'qfusion-master' into qfusion-local-dev`
+
+**中止合并冲突**
+`git merge --abort`
 
 为了避免合并冲突：
 **本地与远程分支名是一致的情况**
