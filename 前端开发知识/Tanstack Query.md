@@ -1,6 +1,18 @@
 # Tanstack query
-> 大名鼎鼎的异步状态管理库，之前叫 react query
-> https://tanstack.com/query/latest/docs/framework/react/overview
+> 这个库中集成了许多生态，关于异步状态管理 -> react query
+
+# 学习指南
+> 如果有条件可以用 AI 学习，让 AI 用苏格拉底式提问法，去学习
+
+参考资料：
+官网：https://tanstack.com/query/latest/docs/framework/react/overview
+deepWiki：https://deepwiki.com/TanStack/query
+源码：https://github1s.com/TanStack/query
+
+# 面临的问题
+开发中，最终要的就是处理数据的流向，一般，有两种情况
++ 从接口获取数据，展示到页面上 -> 纯展示【useQuery】
++ 通过交互，修改数据，更新服务器上的数据 -> 变更【useMutation】
 
 ## 核心概念
 React Query 强大的秘密在于它区分了数据的**“新鲜度”（Fresh）和“缓存期”（Cached）**，这主要由两个核心配置项控制：staleTime 和 cacheTime。
