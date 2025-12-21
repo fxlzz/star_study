@@ -1,0 +1,79 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" version="29.2.9">
+  <diagram name="第 1 页" id="8XlA4B5wE0EutX1HCxMu">
+    <mxGraphModel dx="1489" dy="869" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="D4ZPeiMD4mTcpJBBSGLq-83" parent="1" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=12 12;" value="" vertex="1">
+          <mxGeometry height="260" width="510" x="890" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="D4ZPeiMD4mTcpJBBSGLq-65" edge="1" parent="1" source="D4ZPeiMD4mTcpJBBSGLq-50" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="D4ZPeiMD4mTcpJBBSGLq-64">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D4ZPeiMD4mTcpJBBSGLq-50" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b style=&quot;&quot;&gt;kubectl&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="30" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="D4ZPeiMD4mTcpJBBSGLq-66" edge="1" parent="1" source="D4ZPeiMD4mTcpJBBSGLq-54" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="D4ZPeiMD4mTcpJBBSGLq-64">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D4ZPeiMD4mTcpJBBSGLq-54" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;图形界面&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="130" x="30" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="D4ZPeiMD4mTcpJBBSGLq-55" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;k8s客户端&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="90" x="40" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="D4ZPeiMD4mTcpJBBSGLq-63" parent="1" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;" value="" vertex="1">
+          <mxGeometry height="270" width="510" x="320" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="D4ZPeiMD4mTcpJBBSGLq-84" edge="1" parent="1" source="D4ZPeiMD4mTcpJBBSGLq-64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="D4ZPeiMD4mTcpJBBSGLq-68">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D4ZPeiMD4mTcpJBBSGLq-64" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" value="&lt;b style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;API&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="106" x="170" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="D4ZPeiMD4mTcpJBBSGLq-67" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;控制面板（Master）&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="170" x="470" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="D4ZPeiMD4mTcpJBBSGLq-68" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" value="&lt;b&gt;kube-apiserver&lt;/b&gt;: 提供 k8s 接口服务，采用REST风格" vertex="1">
+          <mxGeometry height="40" width="470" x="340" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="D4ZPeiMD4mTcpJBBSGLq-69" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;kube-controller-manager&lt;/b&gt;&lt;div&gt;控制管理器，管理其他类型的控制器对 k8s 中的各种资源进行管理。&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;例如，pod、node的创建等&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="230" x="340" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="D4ZPeiMD4mTcpJBBSGLq-70" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;kube-scheduler&lt;/b&gt;: 根据算法，在合适的时机调度 pod" vertex="1">
+          <mxGeometry height="40" width="470" x="340" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="D4ZPeiMD4mTcpJBBSGLq-71" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;cloud-controller-manager&lt;/b&gt;&lt;div&gt;云控制管理器，第三方云平台提供的控制器API对接功能&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="230" x="580" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="D4ZPeiMD4mTcpJBBSGLq-72" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;etcd&lt;/b&gt;: k8s 的数据库，键值类型存储的分布式数据库，高可用" vertex="1">
+          <mxGeometry height="40" width="470" x="340" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="D4ZPeiMD4mTcpJBBSGLq-73" parent="1" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;" value="" vertex="1">
+          <mxGeometry height="270" width="510" x="900" y="295" as="geometry" />
+        </mxCell>
+        <mxCell id="D4ZPeiMD4mTcpJBBSGLq-74" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;节点（Node）&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="170" x="1050" y="305" as="geometry" />
+        </mxCell>
+        <mxCell id="D4ZPeiMD4mTcpJBBSGLq-75" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;kubelet&lt;/b&gt;：负责 pod 的生命周期、存储、网络等的管理" vertex="1">
+          <mxGeometry height="40" width="470" x="920" y="335" as="geometry" />
+        </mxCell>
+        <mxCell id="D4ZPeiMD4mTcpJBBSGLq-76" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;kube-proxy：&lt;/b&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;网络代理，负责 service 的服务发现，负载均衡&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="470" x="920" y="385" as="geometry" />
+        </mxCell>
+        <mxCell id="D4ZPeiMD4mTcpJBBSGLq-79" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;container-runtime：&lt;/b&gt;容器运行时环境，docker、containerd、CRI-O" vertex="1">
+          <mxGeometry height="50" width="470" x="920" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="D4ZPeiMD4mTcpJBBSGLq-80" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" value="&lt;b&gt;Pod&lt;/b&gt;&lt;div&gt;容器1&amp;nbsp; 容器2&amp;nbsp; 容器3&lt;/div&gt;" vertex="1">
+          <mxGeometry height="55" width="160" x="920" y="435" as="geometry" />
+        </mxCell>
+        <mxCell id="D4ZPeiMD4mTcpJBBSGLq-81" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" value="&lt;b&gt;Pod&lt;/b&gt;&lt;div&gt;容器1&lt;/div&gt;" vertex="1">
+          <mxGeometry height="55" width="140" x="1090" y="435" as="geometry" />
+        </mxCell>
+        <mxCell id="D4ZPeiMD4mTcpJBBSGLq-82" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" value="&lt;b&gt;Pod&lt;/b&gt;&lt;div&gt;容器1&amp;nbsp; &amp;nbsp;容器2&lt;/div&gt;" vertex="1">
+          <mxGeometry height="55" width="150" x="1240" y="435" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
