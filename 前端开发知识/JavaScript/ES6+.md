@@ -556,7 +556,7 @@ setTimeout(() => {
 
 1. 如果需要结果一个都不能少，全部都要成功，那么 all
 2. 如果需要得到第一个成功的信息，那么 any
-3. 如果需要知道每个任务的状态，那么 allSettled
+3. 如果需要知道每个任务的状态，那么 allSettled, Promise.allSettled 的返回值是一个 对象数组，每个对象有一个 status 来描述那个任务的状态
 4. 如果需要第一个有结果的数据（不管成功还是失败），那么 race
 
 ## async 和 await
