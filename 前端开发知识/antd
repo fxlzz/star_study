@@ -1,0 +1,70 @@
+# antd 使用场景
+
+## Form
+
+**获取表单数据**
++ form.validateFields() -> 只验证并返回当前渲染在 DOM 中的表单项
++ form.getFieldsValue(true) -> 返回整个表单的所有字段值，无论它们是否当前显示在 DOM 中 
+  - 通常于 Form.Item 的 noStyle、hidden 联用，辅助处理表单数据
++ form.setFieldsValue({ name: 'xxx' }) -> 设置对应 name 的值
++ initialValues -> 只在组件初次渲染时生效, 一般设置在 Form 标签上，而不是 Form.Item -> 如果是异步获取的初始化参数，最好用 useEffect 来赋值
++ Form.useWatch(form, 'xxx') -> 监听表单某个字段的变化
+
+**表单布局**
++ layout -> 控制整体布局 horizontal | vertical | inline
++ labelCol -> { span: 3, offset: 12 } 
++ wrapperCol -> { span: 3, offset: 12 } 
++ labelAlign -> left | right
+
+span: 标签占多宽 
+offest: 向左偏离多少格
+
+**校验规则**
+一般在 Form.Item 上，设置 rules
++ validator -> 自定义校验规则
++ validateTrigger -> 校验时机
+
+注意：
+如果 Form.Item 上设置了 name 属性，那么就变成了 受控组件，defaultValue 就没有用了，需要 initailValues 来设置初始值
+
+### Form.List
+将某个组件作为 表单项 遍历渲染
+
+```jsx
+<Form.List name="rules">
+  {(fields, { add, remove }) => {
+    return (
+        <Table
+          dataSource={fields}
+          columns={getColumns(remove, form)}
+          rowKey="key"
+          pagination={false}
+          style={{ width: '100%', height: '100%' }}
+          scroll={{ y: '400px' }}
+        />
+    )
+  }}
+</Form.List>
+
+// Table 中的 columns form 项
+{
+    title: "用户",
+    dataIndex: 'user',
+    width: '20%',
+    key: 'user',
+    align: 'center',
+    render: (_, field) => {
+      return (
+      <Form.Item noStyle name={[field.name, 'user']}>
+        <Input placeholder="请输入" />
+      </Form.Item>
+    )
+  },
+}
+```
+注意：fields -> 就是 xxx 的数据，在 Form.List 下的 Form.Item name值需要设置成 [field.name, 'user']，最后获取数据 -> rules: [ { user: 'xxx' } ]
+
+
+
+
+
