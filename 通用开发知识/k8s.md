@@ -373,9 +373,20 @@ spec:
 ## 回滚
 *如果更新有问题，比如镜像名有误等 错误操作， 那么就可以启动回滚*
 
+**查看所有更新的版本**
+`kubectl rollout history deployment/nginx-deploy`
 
+**查看某个资源，某个版本更新的详细信息**
+`kubectl rollout history deployment/nginx-deploy --version=2` 
 
+**回退上一个版本**
+`kubectl rollout undo deployment/nginx-deploy`
 
+**回退指定版本**
+`kubectl rollout undo deployment/ngin-deploy --to-version=2`
+
+注意：
+如果 yaml 文件中，设置的 spec.revisionHistoryLimit 设置的为 0 ，那么 deployment 不允许回退
 
 
 
