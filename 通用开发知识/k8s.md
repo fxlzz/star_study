@@ -349,18 +349,31 @@ spec:
 				terminationGracePeriodSeconds: 30
 ```
 
-## 滚动更新
+## 滚动 更新/回滚
 在 核心概念 篇中， 讲到 deployment 比 RS 的功能更强一点， 回顾一下
 + 扩容 / 缩容 -> 因为 deploy 中管理了 rs
 + 滚动更新 / 回滚
 + 暂停 / 恢复
 ---
+### 更新
 *只有修改了 template 中的内容，才会触发 deploy 的自动滚动更新*
 
 查看滚动更新过程 
 `kubectl rollout statuts 资源 资源名称` 
 或者
 `kubectl describe deploy nginx-deploy` 
+
+注意：
+-更新或回滚操作，都是用 RS 来作为中间层，来进行操作的 
+-什么意思呢?
+-就是，不论更新还是回滚，deploy 都会创建 RS 来控制 Pod 的更新/回滚
+	-具体来说，会先创建一个一模一样的 RS2，然后在新的 RS2 中一个一个替换旧 RS1 中的 Pod
+	-更新/回滚，都会创建新的 RS，Pod也会关联最新的 RS
+
+## 回滚
+*如果更新有问题，比如镜像名有误等 错误操作， 那么就可以启动回滚*
+
+
 
 
 
