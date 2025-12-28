@@ -290,4 +290,5 @@ lifecycle:
 			- "echo sleep 50; echo bye >> /index.html"
 ```
 
-preStop 常常与 terminationGracePeriodSeconds 配置一起设置
+preStop 常常与 terminationGracePeriodSeconds(删除宽限时间) 配置一起设置
+
