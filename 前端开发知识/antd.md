@@ -13,6 +13,25 @@
 + initialValues -> 只在组件初次渲染时生效, 一般设置在 Form 标签上，而不是 Form.Item -> 如果是异步获取的初始化参数，最好用 useEffect 来赋值
 + Form.useWatch(form, 'xxx') -> 监听表单某个字段的变化
 
+**Form.useWatch 和 form.getFieldsValue区别**
+1. 响应式 vs 静态
+Form.useWatch（响应式）：当字段值变化时，value 会自动更新，组件重新渲染
+const value = Form.useWatch('fieldName', form);
+
+getFieldsValue（静态）：只在调用时获取当前值，不会自动触发重新渲染
+const value = form.getFieldsValue(['fieldName']);
+
+2. 使用场景
+Form.useWatch 适用于：
++ 需要监听字段变化并实时响应
++ 动态显示/隐藏其他字段
++ 字段间的联动验证
++ 在函数组件中建立响应式依赖
+
+getFieldsValue 适用于：
++ 事件处理函数中获取值（如提交时）
++ 条件判断（不需要实时监听）
+
 **antd 还支持类似于 loash 的路径语法来绑定数据**
 一般来说，Form.Item 的 name 与 后端的字段需要一一对应，这样 value 就直接展示了
 但是，如果 name 对应的数据来自于其他的接口，那么可以直接用 useEffect 和 form.setFieldsValue({ xxx: xxx }) 直接给 name 对应的字段赋值，也可以不用配合 noStyle 和 hidden 来处理 form 表单数据
