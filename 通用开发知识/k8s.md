@@ -403,3 +403,4 @@ spec:
 # StatefulSet
 > 专门针对有状态服务进行部署的一个控制器
 
+![](assets/k8s/file-20260110184832321.png)
