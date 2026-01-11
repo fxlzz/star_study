@@ -475,3 +475,8 @@ spec:
 
 那么使用 DaemonSet 就没有这个问题，我们只需要创建 DaemonSet 的模板，k8s会直接监听到 Daemon Set 选中的 Node。自动在 Node 上部署。扩展性的问题，也迎刃而解了，k8s也自动监听自动部署。
 
+指定 pod 只运行在指定的 Node 节点上：
++ nodeSelector: 只调度匹配到指定 label 的 Node 上
++ nodeAffinity: 功能更丰富的 Node 选择器，支持集合操作
++ podAffinity: 调度到满足条件的 Pod 所在的 Node 上
+
