@@ -466,3 +466,4 @@ spec:
 
 # DaemonSet
 ![](assets/k8s/file-20260111102636295.png)
+
