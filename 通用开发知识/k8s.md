@@ -405,3 +405,61 @@ spec:
 
 ![](assets/k8s/file-20260110184832321.png)
 
+## 配置文件
+```yaml
+---
+spec: 
+	ports:
+	- port: 80
+	  name: web
+	clusterIP: None
+	selector:
+		app: nginx 
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata: 
+	name: web
+spec:
+	serviceName: "nginx" # 使用哪个 service 来管理 dns
+	reolicas: 2
+	selector:
+		matchLabels:
+			app: nginx
+	template:
+		metadata:
+			labels:
+				app: nginx
+		spec:
+			containers:
+			- name: nginx
+			  image: nginx:1.7.9
+			  imagePullPolicy: IfNotPresent
+			  ports:
+			  - containerPort: 80
+			    name: web
+			    protocol: TCP
+		updateStrategy:
+			rollingUpdate:
+				partition: 0 # 控制第 >= 0个的pod进行更新 -> 实现灰度发布
+			type: RollingUpdate # OnDelete -> 在删除时，才会进行更新
+```
+
+创建 sts 资源，与之前一直，指定yaml的方式来创建
+`kubectl create -f web.yaml`
+
+## 扩容/缩容
+一条命令：
+`kubectl scale statefulset web --replicas=5`
+
+值得注意的是，扩容和缩容都是**有序**进行的
+
+## 灰度发布
+> 一句话来总结： 先给一小部分的服务器进行版本升级，配置一些路由规则，让少部分用户用到最新功能。如果测试下来，没有问题，那么全量更新。
+
+利用滚动更新中的 partition 属性，可以实现简易版的灰度发布
+例如：
+我们有 5 个pod，如果当前的 partition 设置为3，那么此时滚动更新时，指挥更新那些序号 >= 3 的pod
+
+注意：
+但凡涉及到滚动更新的，只有更新了 pod template，k8s才会自动更新
