@@ -463,3 +463,6 @@ spec:
 
 注意：
 但凡涉及到滚动更新的，只有更新了 pod template，k8s才会自动更新
+
+# DaemonSet
+![](assets/k8s/file-20260111102636295.png)
