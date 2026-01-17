@@ -538,9 +538,9 @@ spec:
 ```
 
 type 的其他常见类型：
-+ ClusterIP： 提供外部访问
++ ClusterIP： type 的默认配置，只能在集群内部使用
 + ExternalName： 用域名的方式访问
-+ NodePort
++ NodePort： 
 + LoadBalancer
 
 创建 pod 通过 service name 进行访问：
