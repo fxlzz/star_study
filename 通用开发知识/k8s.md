@@ -535,13 +535,17 @@ spec:
 	  targetPort: 80 # 目标 pod 的端口 -> 外部的流量会先到 service服务的80端口转发到 pod服务的80
 	  name: web # 端口的名字
 	type: NodePort # 随机启动一个端口（30000-32767），映射到 ports 中的端口，该端口是直接绑定在Node上的，并且集群中的每一个node都会绑定这个端口
+	# type: ExternalName # 需要手动配一个域名
+	# externalName: www.baidu.com
 ```
 
 type 的其他常见类型：
-+ ClusterIP： type 的默认配置，只能在集群内部使用
-+ ExternalName： 用域名的方式访问
-+ NodePort： 
-+ LoadBalancer
++ ClusterIP： type 的默认配置，仅在 **Kubernetes 集群内部** 可访问（Pod、Node 上的进程可以访问）
+	+ *代理外部服务* -> 编写service配置文件时,不指定selector(k8s不会自动创建ep)
+	  手动创建 ep 配置文件, 在这里面代理到外部服务
++ ExternalName： 在集群内部访问, 但可配置*外部的域名*(代理外部服务)
++ NodePort： 可用 `http://<Node1-IP>:port` 的方式来访问 pod, 集群外部用户需要用 `<Node公网IP>:<NodePort>` 的方式进行访问(或用 *ingress + 域名暴露*)
++ LoadBalancer: 与 NodePort 差不多,需要云厂商支持
 
 创建 pod 通过 service name 进行访问：
 `kubectl exec -it <pod name> --sh` -> 进入容器内部，使用命令
