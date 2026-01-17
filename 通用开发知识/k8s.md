@@ -538,8 +538,8 @@ spec:
 ```
 
 type 的其他常见类型：
-+ ClusterIP
-+ ExternalName
++ ClusterIP： 提供外部访问
++ ExternalName： 用域名的方式访问
 + NodePort
 + LoadBalancer
 
