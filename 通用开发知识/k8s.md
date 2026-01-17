@@ -502,6 +502,54 @@ resources:
 也可以通过`kubectl top po`获取pod资源的分布情况(cpu、内存)
 
 
+# Service
+> 实现东西流量，说白话就是，实现服务（Node）之间的联网通信。
+
+- Service 主要用于：
+    - 提供稳定的 DNS 名称和虚拟 IP（ClusterIP）
+    - 负载均衡到多个后端 Pod（无论是否跨节点）
+    - 抽象 Pod 生命周期（Pod 会重建，IP 会变，但 Service 不变）
+
+1. 同一 Node 节点中的 Pod 之间怎么通信？ --> 可以直接用 ip 来通信，属于统一网段
+2. 容器之间怎么通信？ --> Pod 内的网络系统、文件系统都是共享的（类似于 Pod 是容器的宿主机）
+
+*kubectl 命令 -> master节点 api-server封装为 pod -> 给到 service 服务 -> 会给每一个Node创建一个endpoint -> iptables 进行转发到 -> Node中的 kube-proxy -> 在转发到 Pod 中对应的容器*
+
+![](assets/k8s/file-20260117165424768.png)
+
+**Service 配置文件**
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+	name: nginx-svc # Service 名字
+	labels:
+		app: nginx # Service 标签
+spec:
+	selector: # k8s 会根据选择器来判断那些 pod 需要 Service 服务 
+		app: nginx-deploy # pod 中有这个 app: nginx-deploy 选择器的 pod 会被 Service 代理
+	ports: # 端口映射
+	- port: 80 # Service 自己的端口，在使用内网 ip 访问时使用 
+	  targetPort: 80 # 目标 pod 的端口 -> 外部的流量会先到 service服务的80端口转发到 pod服务的80
+	  name: web # 端口的名字
+	type: NodePort # 随机启动一个端口（30000-32767），映射到 ports 中的端口，该端口是直接绑定在Node上的，并且集群中的每一个node都会绑定这个端口
+```
+
+type 的其他常见类型：
++ ClusterIP
++ ExternalName
++ NodePort
++ LoadBalancer
+
+创建 pod 通过 service name 进行访问：
+`kubectl exec -it <pod name> --sh` -> 进入容器内部，使用命令
+`curl http://<service name>.<namespace>` -> 还可以访问不同命名空间下的服务
+
+
+
+
+
+
 
 
 
