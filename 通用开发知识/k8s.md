@@ -551,6 +551,18 @@ type 的其他常见类型：
 `kubectl exec -it <pod name> --sh` -> 进入容器内部，使用命令
 `curl http://<service name>.<namespace>` -> 还可以访问不同命名空间下的服务
 
+# Ingress
+> 做一件事情: 向外暴露服务, 让外边的用户能够访问到内网的服务
+
+用户
+   |
+负载均衡器
+   |
+Ingress -> k8s 集群内部
+   |
+service
+   | 
+pod
 
 
 
