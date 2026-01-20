@@ -4,7 +4,7 @@
 
 mongodb 是非关系型数据库，相对的 mysql 是关系型数据库
 
-启动服务：
+启动服务： 用 sudo 权限启动服务
 
 ```
 mongod --dbpath data文件路径，例如：
