@@ -321,6 +321,26 @@ fs.promises.writeFile(filePath, "你好呀~", { flag: "w" }).then(() => {
 
 fs.promises.stat(filename)
 
+返回值：
+```js
+stat Stats {
+  dev: 16777234,
+  mode: 33188,
+  nlink: 1,
+  uid: 501,
+  gid: 20,
+  rdev: 0,
+  blksize: 4096,
+  ino: 28630502,
+  size: 4727,
+  blocks: 16,
+  atimeMs: 1769588071035.988,
+  mtimeMs: 1769588071002.682,
+  ctimeMs: 1769588071002.682,
+  birthtimeMs: 1769588071002.3806
+}
+```
+
 ```js
 const fs = require("fs");
 const path = require("path");
