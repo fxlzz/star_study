@@ -65,3 +65,30 @@
 + ”发现好用工具“ -> `swc-loader`
 + “人多力量大” -> `thread-loader`
 + “减少不必要的解析” -> 确定 loader 转化范围 `include / exclude`
+
+### swc-loader 配置
+```js
+{
+  test: /\.(ts|tsx|js|jsx)$/i,
+  include: [sourcePath],
+  exclude: /node_modules/,
+  use: [
+    {
+      loader: 'swc-loader',
+      options: {
+        jsc: {
+          parser: {
+            syntax: 'typescript', // 使用 ts 解析器
+            tsx: true, // 启用 tsx/jsx 支持
+          },
+          transform: {
+            react: {
+              runtime: 'automatic', // 使用react 17+ 自动 jsx 运行时
+            },
+          },
+        },
+      },
+    },
+  ],
+},
+```
