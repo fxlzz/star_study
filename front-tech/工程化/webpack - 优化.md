@@ -255,4 +255,96 @@ qfusion 中，只有 Chart 这个组件用到了 echarts 库
 | 折线图 | SQLDiagnosisDetails/index.jsx:494 |
 | 饼图  | ResourceDetails.jsx:250           |
 
+升级 echarts 版本为 5.5.1，改写为函数组件的写法
+```js
+import React, { useRef, useEffect, useState } from 'react'
+import classNames from 'classnames'
+import ResizeObserver from 'resize-observer-polyfill'
+import isEqual from 'lodash/isEqual'
+import throttle from 'lodash/throttle'
+
+import './index.scss'
+
+const Chart = ({ className = '', option }) => {
+  const chartRef = useRef(null)
+  const chartInstance = useRef(null)
+  const resizeObserver = useRef(null)
+  const [isReady, setIsReady] = useState(false)
+
+  useEffect(() => {
+    let active = true
+
+    const initChart = async () => {
+      // 懒加载，按需加载 ECharts 模块
+      const [
+        echarts,
+        { LineChart, PieChart },
+        { TitleComponent, TooltipComponent, GridComponent, LegendComponent },
+        { CanvasRenderer },
+      ] = await Promise.all([
+        import('echarts/core'),
+        import('echarts/charts'),
+        import('echarts/components'),
+        import('echarts/renderers'),
+      ])
+
+      if (!active) return
+
+      // 注册组件
+      echarts.use([
+        LineChart,
+        PieChart,
+        TitleComponent,
+        TooltipComponent,
+        GridComponent,
+        LegendComponent,
+        CanvasRenderer,
+      ])
+
+      if (chartRef.current) {
+        // 初始化
+        const instance = echarts.init(chartRef.current)
+        chartInstance.current = instance
+        instance.setOption(option)
+        setIsReady(true)
+
+        const ro = new ResizeObserver(
+          throttle(() => {
+            instance.resize({ animation: false })
+          }, 150)
+        )
+        ro.observe(chartRef.current)
+        resizeObserver.current = ro
+      }
+    }
+
+    initChart()
+
+    return () => {
+      active = false
+      if (resizeObserver.current) {
+        resizeObserver.current.disconnect()
+      }
+      if (chartInstance.current) {
+        chartInstance.current.dispose()
+        chartInstance.current = null
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    if (isReady && chartInstance.current) {
+      const currentOption = chartInstance.current.getOption()
+      if (!isEqual(option, currentOption)) {
+        chartInstance.current.setOption(option)
+      }
+    }
+  }, [option, isReady])
+
+  return <div ref={chartRef} className={classNames('chart', className)} />
+}
+
+export default Chart
+
+```
   
