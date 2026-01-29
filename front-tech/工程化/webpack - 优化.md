@@ -348,4 +348,14 @@ export default Chart
 
 ```
 
-就在你以为万事大吉的时候，突然发现，骗你的，其实 index.html 还是加载了 echarts 相关的js
+就在你以为万事大吉的时候，骗你的，其实 index.html 还是加载了 echarts 相关的 js 文件
+那怎咋办呢？
+
+原因
+- echarts 相关的 node_modules 会被强制打包到独立的 echarts.js chunk 中
+- 当 webpack 分析依赖时，如果发现任何模块（包括动态 import）使用了 echarts，就会提前生成这个 chunk
+
+方法：
+- 删掉相关配置 -> 但是又个问题，会被打入 node_moudles 这个包中
+- 
+
