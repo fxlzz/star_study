@@ -1188,16 +1188,31 @@ new Map(itertable); // 注意，第一层是可迭代对象，第二层也必须
 new Map([["a", 2], ["b", 3], ["c", 4]]) => "a"是key，2是value（以此类推）
 ```
 
+注意： Map 对于 key 的判断，采用的是 SameValueZero 的算法，也就是 0 与 -0 不相等，但是 NaN 等于 NaN。其他的值都遵循 === 的判断结果.
+
 **Map 的 API**
 
-- set(key, value) -> 如果 key 不存在，那么新增一个，如果存在，修改值
-- get(key) -> 根据 key 获得对应的 value
-- has(key) -> 判断 key 在不在 Map
-- delete(key) -> 删除 key
-- size -> 长度
-- clear() -> 清空 Map
-- for of -> 迭代
-- forEach((value, key, map) => {}) -> value：值，key：键，map：Map 本身
+- `set(key, value)` -> 如果 key 不存在，那么新增一个，如果存在，修改值
+- `get(key)` -> 根据 key 获得对应的 value
+- `has(key) `-> 判断 key 在不在 Map
+- `delete(key)` -> 删除 key
+- `size` -> 长度
+- `clear()` -> 清空 Map
+- `forEach((value, key, map) => {})` -> value：值，key：键，map：Map 本身
+--- 
+返回的是可迭代对象，可用 for...of 来遍历
+- `keys()` -> 获取所有的 key 值
+- `values()` -> 获取所有的 value 值
+- `entries()` -> 获取 key 、value 值
+
+```js
+const map = new Map();
+map.set("0", "foo");
+map.set(1, "bar");
+
+const iterator = map.keys();
+console.log(iterator.next().value); // "0"
+```
 
 ## 【扩展】手写 Map
 
