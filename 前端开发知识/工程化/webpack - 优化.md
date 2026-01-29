@@ -248,5 +248,12 @@ qfusion 中，只有 Chart 这个组件用到了 echarts 库
 - 懒加载
 - echarts 按需导入
 --> 最终采用 懒加载 + 按需导入 100kb左右
-  图表类型
+
+图表类型
+
+| 类型  | 位置                                |
+| --- | --------------------------------- |
+| 折线图 | SQLDiagnosisDetails/index.jsx:494 |
+| 饼图  | ResourceDetails.jsx:250           |
+
   
