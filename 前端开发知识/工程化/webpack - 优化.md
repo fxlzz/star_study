@@ -230,9 +230,17 @@ optimization: {
 - 非首屏代码，按需加载
 - webpack 预加载
 
-*非首屏代码，按需加载*
+---
  首屏必需的核心代码必须同步加载：
   - React、React DOM
   - 首屏路由对应的组件
   - 核心状态管理（mobx、concent）
   - 基础 UI 库（antd）
+
+*先挑软柿子*
+其实，可以在 index.html 看到，echarts 引入了很多文件。但实际上，qfusion 项目中使用 echarts 库的频率不高。
+![500](assets/webpack%20-%20优化/file-20260129103933039.png)
+
+qfusion 中，只有 Chart 这个组件用到了 echarts 库
+![500](assets/webpack%20-%20优化/file-20260129104047870.png)
+
