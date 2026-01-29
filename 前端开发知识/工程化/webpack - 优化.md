@@ -244,3 +244,6 @@ optimization: {
 qfusion 中，只有 Chart 这个组件用到了 echarts 库
 ![500](assets/webpack%20-%20优化/file-20260129104047870.png)
 
+两种方案：
+- 懒加载
+- echarts 按需导入
