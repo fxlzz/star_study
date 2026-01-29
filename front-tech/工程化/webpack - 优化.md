@@ -347,4 +347,5 @@ const Chart = ({ className = '', option }) => {
 export default Chart
 
 ```
-  
+
+就在你以为万事大吉的时候，突然发现，骗你的，其实 index.html 还是加载了 echarts 相关的js
