@@ -316,10 +316,45 @@ fs.promises.writeFile(filePath, "你好呀~", { flag: "w" }).then(() => {
 //              -> 'w' : 写入操作，如果文件不存在，则创建文件；如果文件存在，覆盖原来内容
 ```
 
+3. 重命名文件 `fs.renameSync(filePath, newFilePath)`
+```js
+// 遍历所有文件并重命名
+fs.readdirSync(targetDir).forEach((file) => {
+   const filePath = path.join(targetDir, file)
+   if (isFile(filePath)) {
+   const regex = new RegExp(`${targetExt}$`)
+   const newFile = file.replace(regex, newExt)
+   const newFilePath = path.join(targetDir, newFile)
+   fs.renameSync(filePath, newFilePath)
+   console.log(`已重命名: ${file} -> ${newFile}`)
+ }
+})
+```
+
 ## 查看文件属性 
 ### 判断是文件还是目录
 
 fs.promises.stat(filename)
+
+返回值：
+```js
+stat Stats {
+  dev: 16777234,
+  mode: 33188,
+  nlink: 1,
+  uid: 501,
+  gid: 20,
+  rdev: 0,
+  blksize: 4096,
+  ino: 28630502,
+  size: 4727,
+  blocks: 16,
+  atimeMs: 1769588071035.988,
+  mtimeMs: 1769588071002.682,
+  ctimeMs: 1769588071002.682,
+  birthtimeMs: 1769588071002.3806
+}
+```
 
 ```js
 const fs = require("fs");
