@@ -247,9 +247,8 @@ qfusion 中，只有 Chart 这个组件用到了 echarts 库
 两种方案：
 - 懒加载
 - echarts 按需导入
---> 最终采用 懒加载 + 按需导入 100kb左右
-
-图表类型
+--> 最终采用 懒加载 + 按需导入 100kb左右。事实上，改起来不太容易。因为，echarts 4.x 版本不支持 esm 的按需导入。
+查阅资料可知，echarts 4.x 已于2022年停止更新，并且存在 xss [CVE-2021-37127](https://nvd.nist.gov/vuln/detail/CVE-2021-37127?spm=a2ty_o01.29997173.0.0.4fff5171sxywXn)缺陷。建议升级至 echarts 5.5.1 版本，90%兼容 4.x，支持按需导入，支持tree shaking。兼容 node 16 + react 17。
 
 | 类型  | 位置                                |
 | --- | --------------------------------- |
