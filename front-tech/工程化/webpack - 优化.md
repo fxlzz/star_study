@@ -356,6 +356,10 @@ export default Chart
 - 当 webpack 分析依赖时，如果发现任何模块（包括动态 import）使用了 echarts，就会提前生成这个 chunk
 
 方法：
-- 删掉相关配置 -> 但是又个问题，会被打入 node_moudles 这个包中
-- 
+删掉相关配置 -> 但是有个问题，会被打入 node_moudles 这个包中
+- 为什么？
+	- 最根本的原因是存在 *隐式调用*，虽然在 qfusion 这个项目中处理了 echarts 的引入，但是在 q-bus-monitoring-alarm 项目中依然存在 *同步* 引入 echarts 库
+	- 同时，所有的数据库模块都是 *同步* 引入的`ClusterDetails` -> `MonitorAddAlarm` -> `q-bus-monitoring-alarm`
+
+
 
