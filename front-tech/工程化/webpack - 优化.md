@@ -361,5 +361,12 @@ export default Chart
 	- 最根本的原因是存在 *隐式调用*，虽然在 qfusion 这个项目中处理了 echarts 的引入，但是在 q-bus-monitoring-alarm 项目中依然存在 *同步* 引入 echarts 库
 	- 同时，所有的数据库模块都是 *同步* 引入的`ClusterDetails` -> `MonitorAddAlarm` -> `q-bus-monitoring-alarm`
 
+因此，从源头上解决，直接改 `q-bus-moitoring-alarm`中有关 echarts 的代码，还好也不多。
+
+--- 
+那么，如果就是第三方库有静态导入，咋办呢？
+- 异步和同步的代码，分开单独处理
+	- `chunks: async` | `chunks: initial`
+
 
 
