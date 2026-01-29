@@ -10,20 +10,10 @@
 # 优化策略
 ## 存在问题
 ### 构建性能问题
-*主 `bundle` 体积过大*
- - `index.js ~ 15.5MB`
- -  压缩后 `index.js.gz ~ 3.6MB`
-
-**根因分析:** *没有分包*
-- 所有代码打包到单个 index.js，包括 node_modules
-- 任何代码变更都会导致整个 bundle 失效
-- 浏览器缓存无法有效利用
----
-
-**影响:**
-- 首屏加载时间长（3.6 MB 解压后仍然很大）
-- 缓存策略失效（任何代码变更都会导致整个 bundle 失效 -> 导致了 hmr 也会很慢，需要 1.2 秒 左右）
-因为，webpack 的热更新，是重新构建 bundle 及其子模块，重新构建后，在通过 hmr 的客户端替换浏览器之前未被修改的包
+*本地开发需要达到 30-32s 左右*
+- 解析 loader 工具不行
+- 范围
+- ...
 
 *未配缓存策略*
 - loader 转化后的结果未被缓存 - cache-loader
@@ -40,17 +30,21 @@
 + 缓存
 + ...
 
-### 分包的问题
-虽然将 `index.js`这个文件，占的内存变少了。但是细分了很多很多小的包，需要优化分包策略
+### 首屏构建时间过长
+*主 `bundle` 体积过大*
+ - `index.js ~ 15.5MB`
+ -  压缩后 `index.js.gz ~ 3.6MB`
 
-目标：分段加载，首屏加载的都是假数据，加载进来后，在后台加载其他的模块。如果用户有交互效果，那么优先加载改模块。
+**根因分析:** *没有分包*
+- 所有代码打包到单个 index.js，包括 node_modules
+- 任何代码变更都会导致整个 bundle 失效
+- 浏览器缓存无法有效利用
+---
 
-- [ ] 其他 chunk 懒加载
-- [ ] 白屏问题
-- [ ] 小模块懒加载的跳转问题
-- [ ] 首次构建时间太长
-- [ ] 项目中引入的其他项目模块
-	- [ ] 封装过的 pkg-icon、告警以及pkg-antd
+**影响:**
+- 首屏加载时间长（3.6 MB 解压后仍然很大）
+- 缓存策略失效（任何代码变更都会导致整个 bundle 失效 -> 导致了 hmr 也会很慢，需要 1.2 秒 左右）
+因为，webpack 的热更新，是重新构建 bundle 及其子模块，重新构建后，在通过 hmr 的客户端替换浏览器之前未被修改的包
 
 
 
@@ -66,7 +60,9 @@
 + “人多力量大” -> `thread-loader`
 + “减少不必要的解析” -> 确定 loader 转化范围 `include / exclude`
 
-### swc-loader 配置
+#### swc-loader 配置
+`npm i -D @swc/core swc-loader`
+
 ```js
 {
   test: /\.(ts|tsx|js|jsx)$/i,
@@ -92,3 +88,151 @@
   ],
 },
 ```
+
+#### cache 配置
+*cache-loader 配置*
+
+*webpack5 cache 配置*
+```js
+cache: {
+  type: 'filesystem',
+  cacheDirectory: resolve(dirname, '.webpack_cache'),
+  // 缓存配置
+  buildDependencies: {
+    config: [__filename], // 配置文件变更时重建缓存
+  },
+  // 算法版本（依赖变更时更新）
+  version: `${pkg.version}-${process.env.NODE_ENV}`,
+  // 压缩缓存以减少磁盘占用
+  compression: 'gzip',
+  // 性能配置
+  maxAge: 1000 * 60 * 60 * 24 * 7, // 7 天
+  maxMemoryGenerations: 1, // 限制内存中的缓存代数
+},
+```
+
+#### 多进程配置
+
+
+### 首屏优化
+> 那么这里采用最常见的处理方式，分包，懒加载
+
+*分包优化*
+
+> 这里有发现一些其他的问题，
+> 问题一：引入的其他自定义组件，体积特别大。基本上都能占到 1 MB 左右（pkg-icon、q-alarm、antd）
+> 问题二：有些库在项目根目录的依赖中已经有了，在fusion项目再一次引入了一遍(echarts、moment...)
+
+```js
+optimization: {
+  runtimeChunk: 'single', // 值 "single" 会创建一个在所有生成 chunk 之间共享的运行时文件
+  splitChunks: {
+	  chunks: 'all',
+	  maxSize: 1024 * 1024, // 1MB
+	  cacheGroups: { // 缓存组
+    // ============ 核心依赖 ==============
+    react: { 
+      test: /[\\/]node_modules[\\/](react|react-dom|react-router-dom)[\\/]
+      name: 'react-core',
+      priority: 50,
+      reuseExistingChunk: true,
+    },
+    // ============ 状态管理 ==============
+    state: {
+      test: /[\\/]node_modules[\\/](mobx|mobx-react|concent)[\\/]/,
+      name: 'state-management',
+      priority: 40,
+      reuseExistingChunk: true,
+    },
+    // ============ ui 组件库 ==============
+    antd: {
+      test: /[\\/]node_modules[\\/](@ant-design|antd|rc-)[\\/]/,
+      name: 'antd-ui',
+      priority: 35,
+      reuseExistingChunk: true,
+    },
+    // ============ 自定义组件 ==============
+    'woqutech-pkg': {
+      test: /[\\/]node_modules[\\/](@woqutech|q-theme-default)[\\/]/,
+      name: 'woqutech-pkg',
+      priority: 30,
+      reuseExistingChunk: true,
+    },
+    // ============ 图表库 ==============
+    echarts: {
+      test: /[\\/]node_modules[\\/](echarts|echarts-for-react)[\\/]/,
+      name: 'echarts',
+      priority: 25,
+      reuseExistingChunk: true,
+    },
+    // ============ 工具库 ==============
+    utils: {
+      test: /[\\/]node_modules[\\/](lodash|dayjs|moment|qs|classnames)[\\/
+      name: 'utils',
+      priority: 20,
+      reuseExistingChunk: true,
+    },
+    // ============ 微前端 ==============
+    qiankun: {
+      test: /[\\/]node_modules[\\/](qiankun|import-html-entry)[\\/]/,
+      name: 'qiankun',
+      priority: 15,
+      reuseExistingChunk: true,
+    },
+    // ============ 其他第三方依赖 ==============
+    vendors: {
+      test: /[\\/]node_modules[\\/]/,
+      name: 'vendors',
+      priority: 10,
+      reuseExistingChunk: true,
+      minChunks: 2, 
+    },
+    // ============ 公共模块 ==============
+    common: {
+      test: /[\\/]src[\\/](components|hooks|utils|services)[\\/]/,
+      name: 'common',
+      minChunks: 2,
+      priority: 5,
+      reuseExistingChunk: true,
+    },
+    default: {
+      minChunks: 2,
+      priority: -10,
+      reuseExistingChunk: true,
+    },
+	  },
+  },
+  minimize: envConf.isMini,
+  minimizer: [
+    '...',
+    !envConf.isDev && new CssMinimizerPlugin(),
+    !envConf.isDev &&
+      new TerserPlugin({
+        terserOptions: {
+          compress: {
+            drop_console: true,
+            pure_funcs: ['console.log', 'console.info'],
+          },
+        },
+        extractComments: false,
+        parallel: true,
+      }),
+  ].filter(Boolean),
+}
+```
+
+那么，分包之后出现了一个问题
+分包数量过多，能到达 124个 js 文件，太多了...
+
+![](assets/webpack%20-%20优化/file-20260129102154165.png)
+
+处理的方法 --> 最好能达到首屏只加载 20-30 个文件
+- 非首屏代码，按需加载
+- webpack 预加载
+
+*非首屏代码，按需加载*
+ 首屏必需的核心代码必须同步加载：
+  - React、React DOM
+  - 首屏路由对应的组件
+  - 核心状态管理（mobx、concent）
+  - 基础 UI 库（antd）
