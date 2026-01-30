@@ -371,7 +371,7 @@ export default Chart
 
 其他*非首屏代码*，同理处理
 
-- `elasticsearch` 库
+- `elasticsearch` 库 -> 懒加载有问题...
 - `mathjs` 库
 - 
 
