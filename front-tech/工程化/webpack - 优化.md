@@ -369,4 +369,8 @@ export default Chart
 	- `chunks: async` | `chunks: initial`
 
 
+其他*非首屏代码*，同理处理
+
+
+
 
