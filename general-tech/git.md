@@ -153,6 +153,9 @@ git push
 - `fix` 修复bug
  
 
+## 远程操作
+**删除远程分支**: `git push origin -d <branch-name>`
+
 
 
 
