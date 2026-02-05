@@ -39,7 +39,7 @@ git push -u origin main # 本地仓库提交到远程的主分支名称 main
 恭喜你，git 的 helloworld 你会了
 
 ### 关联仓库
-如果本地已有仓库，想关联到远程仓库（最好是空仓库，没有.gitignore等文件，不然可能会有合并冲突。有也没有关系，无非push是解决一下合并冲突即可）
+如果本地已有仓库，想关联到远程仓库（最好是空仓库，没有.gitignore等文件，不然可能会有合并冲突。有也没有关系，无非push时解决一下合并冲突即可）
 
 一般使搭建工程化项目，使用脚手架都会自带 .gitignore 等文件（本地仓库就搭建完成了）
 ```
@@ -145,6 +145,11 @@ git push
 --- 
 一般常用的就是这些操作了，还有一些 fetch / rebase ...
 
+## cherry-pick
+
+这个命令一般用于，你在 A 分支写过一遍的代码 A' ，只想将这个 A' 单独合到 B 分支
+`git cherry-pick <commit-id>` 
+ 
 ## git 提交的规范
 - `refactor` 代码重构（既不修复 bug，也不新增功能，仅改善结构）
 - `chore` 杂项维护（如更新依赖、调整构建配置等）
@@ -153,8 +158,6 @@ git push
 - `fix` 修复bug
  
 
-## 远程操作
-**删除远程分支**: `git push origin -d <branch-name>`
 
 
 
