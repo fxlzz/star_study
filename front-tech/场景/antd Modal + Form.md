@@ -1,4 +1,3 @@
-## 使用 antd Modal + Form
 
 这里面主要注意的是，怎么通过 ref 来获取子组件中 Form 的数据
 
@@ -169,11 +168,3 @@ const useHobbies = () => {
 };
 export default useHobbies;
 ```
-
-## 处理流式输出
-
-后端处理
-
-  
-
-前端处理
