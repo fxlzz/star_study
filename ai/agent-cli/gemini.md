@@ -10,7 +10,7 @@ mac/linux: `export GOOGLE_CLOUD_PROJECT="YOUR_PROJECT_ID"`
 
 不得不在感概一句，mac系统还是比window好用一些...
 
-window：
+window - powershell：
 临时版会话中使用“：`$env:GOOGLE_CLOUD_PROJECT=""
 永久需要加到window上的环境变量中
 
