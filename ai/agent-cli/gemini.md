@@ -14,5 +14,7 @@ window - powershell：
 临时版会话中使用“：`$env:GOOGLE_CLOUD_PROJECT=""
 永久需要加到window上的环境变量中
 
+设置模型：
+`$env:GEMINI_MODEL="gemini-3-pro-preview"`
 
 
