@@ -17,4 +17,10 @@ window - powershell：
 设置模型：
 `$env:GEMINI_MODEL="gemini-3-pro-preview"`
 
+--- 
+- 下载最新的 gemini 版本
+`npm install -g @google/gemini-cli@latest`
+- `/settings` 将 `preview feature` 配置为true
+- `/model` 切换模型
+
 
