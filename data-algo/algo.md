@@ -82,3 +82,16 @@ const func = (s, k) => {
   return ans;
 };
 ```
+
+## 不定长滑动窗口
+
+# 前缀和
+用于快速处理数组任意区间内的和
+
+`prefix[j]` 表示从数组第 0 项到第 j 项的和
+
+求出任意区间的和：
+`sum = prefix[j] - prefix[i - 1]`
+例如：
+`[1, 3] -> prefix[3] - prefix[0]`
+
