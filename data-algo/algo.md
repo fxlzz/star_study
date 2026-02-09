@@ -51,6 +51,34 @@ console.log(func(users, 3))
 ```
 
 ## 定长滑动窗口
+
+其中最关键的一点就是，需要在脑子里模拟一遍算法的运行过程
+左端点： `right - left + 1` 的位置
+
 ```js
-   
+/**
+ * 定长滑动窗口 - 模板
+ * @param {*} s 模板串
+ * @param {*} k 定长
+ */
+const func = (s, k) => {
+  let left = 0, right = 0;
+  let ans = 0, count = 0;
+
+  while (right < s.length) {
+    // 1. 右端点进入窗口 -> 需满足的条件等
+    if (xxx) count++;
+
+    // 2. 更新最值
+    ans = Math.max(count, ans);
+
+    // 3. 左端点出窗口
+    if (right - left + 1 === k) { // 说明左右端口已经到达了定长的长度， 可以滑动窗口了
+      if (xxx) count--;
+      left++;
+    }
+    right++;
+  }
+  return ans;
+};
 ```
