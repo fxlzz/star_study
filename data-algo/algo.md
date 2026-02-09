@@ -49,3 +49,8 @@ const func = (users, k) => {
 }
 console.log(func(users, 3))
 ```
+
+## 定长滑动窗口
+```js
+   
+```
