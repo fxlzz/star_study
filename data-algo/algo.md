@@ -94,4 +94,26 @@ const func = (s, k) => {
 `sum = prefix[j] - prefix[i - 1]`
 例如：
 `[1, 3] -> prefix[3] - prefix[0]`
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var subarraySum = function (nums, k) {
+  let ans = 0;
+  let sum = 0;
+  const map = new Map();
 
+  map.set(0, 1);
+  for (let i = 0; i < nums.length; i++) {
+    sum += nums[i];
+    const n = sum - k;
+    if (map.has(n)) {
+      ans += map.get(n);
+    }
+    map.set(sum, (map.get(sum) ?? 0) + 1);
+  }
+  return ans;
+};
+```
