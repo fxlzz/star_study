@@ -86,6 +86,7 @@ const func = (s, k) => {
 ## 不定长滑动窗口
 
 ## 单调队列
+[leetcode:239](https://leetcode.cn/problems/sliding-window-maximum/description/?envType=study-plan-v2&envId=top-100-liked)
 > 特殊的数据结构，基于双端队列实现，用于维护一个单调递增或单调递减的队列
 
 核心思想：
@@ -99,6 +100,38 @@ const func = (s, k) => {
 - `shift()` ： 删除第一个元素
 - `unshift()` ： 队头添加元素
 
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number[]}
+ */
+var maxSlidingWindow = function (nums, k) {
+    const queue = []; // 存放下标，用于判断是否超出滑动窗口边界
+    const ans = [];
+    let r = 0;
+  
+    while (r < nums.length) {
+        // 从队尾比较，保持单调性
+        while (nums.length && nums[queue[queue.length - 1]] < nums[r]) {
+            queue.pop();
+        }
+        queue.push(r);
+        
+        // 去掉已超过窗口的最大值 -> 例如：k = 3 此时 r = 5 那么窗口内的值最左侧应该为 3 的下标，因此其他元素需要移除
+        if (queue[0] <= r - k) { 
+            queue.shift();
+        }
+  
+        // 只要形成窗口后，一定会有答案
+        if (r >= k - 1) {
+            ans.push(nums[queue[0]]);
+        }
+        r++;
+    }
+    return ans;
+};
+```
 
 # 前缀和
 用于快速处理数组任意区间内的和
