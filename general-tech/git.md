@@ -159,12 +159,16 @@ git push
 
 
 ## git 提交的规范
+`<type>(<scope>): <subject>`
+
 - `refactor` 代码重构（既不修复 bug，也不新增功能，仅改善结构）
 - `chore` 杂项维护（如更新依赖、调整构建配置等）
 - `build` 构建系统或外部依赖的变更（如 Webpack 配置优化）
 - `feat` 新增功能
 - `fix` 修复bug
-
+- `docs` 文档
+- `style` 样式（不影响代码运行）
+- `test` 增加测试
 
 
 
