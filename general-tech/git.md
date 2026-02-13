@@ -150,15 +150,20 @@ git push
 这个命令一般用于，你在 A 分支写过一遍的代码 A' ，只想将这个 A' 单独合到 B 分支
 `git cherry-pick <commit-id>` 
  
+## gitflow 工作流
+基本上，有两条分支是永远不变的
+- `matser` ： 主分支 -> 线上正在运行的最新代码
+	- `hotfix/xxx` -> 线上出现的紧急问题，修复完后，需合并到 `master` 和 `develop` 分支
+- `develop` ： 研发分支 -> 研发正在开发的最新代码
+	- `feature/login` -> 功能需求分支 -> 一个功能一个分支，命名规范`feature/功能描述` 开发完毕后，提交 `MR(merge request)`合并请求，code review 后，合并到 `develop`分支
+
+
 ## git 提交的规范
 - `refactor` 代码重构（既不修复 bug，也不新增功能，仅改善结构）
 - `chore` 杂项维护（如更新依赖、调整构建配置等）
 - `build` 构建系统或外部依赖的变更（如 Webpack 配置优化）
 - `feat` 新增功能
 - `fix` 修复bug
- 
-
-
 
 
 
