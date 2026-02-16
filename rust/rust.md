@@ -46,3 +46,19 @@ my_project/
 ```
 
 使用 `rustc` 来编译`.rs` 的源文件，在windows上会生成 `.exe（可执行文件）` | `.pdb（可调式文件）` 
+
+# 猜字游戏
+> 来自 rust 官网， 确实与其他的语言不太一样
+
+注意几点：
+1. `mut` 定义可变变量
+2. `Result<xxx>`  Result 类型是*枚举*，那么说明，前面的操作可能成功也可能失败，需要放一手，用`expect`来捕获错误
+	1. `Result` 的成员 `OK` 和 `Err`
+	2. `OK` -> 表示成功
+	3. `Err` -> 表示失败
+3. *枚举* 可以通过 `match` 一起使用，是一种条件语句
+4. `xxx!` 表示这是一个宏定义变量
+5. `println!("you guessed: {}", guest);` 变量输出
+6. 导包： Rust 有少量标准库，这些项被称作 *prelude* ，如果不在标准库中，需要用 `use` 关键字来显式引入 `use std::io;`
+7. `crate` 是一个Rust代码包，有*库crate*的，也有*二进制crate*
+
