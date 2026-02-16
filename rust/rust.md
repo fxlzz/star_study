@@ -35,6 +35,9 @@ cargo add serde             # 添加依赖（需安装 cargo-edit）
 cargo update                # 更新依赖
 ```
 
+注意：
+`cargo update` ： 这个命令会忽略 `cargo.lock` 文件，计算出所有符合`cargo.toml`声明的最新版本
+
 项目目录结构：
 ```bash
 my_project/
