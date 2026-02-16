@@ -90,6 +90,30 @@ const hasCycle = (head) => {
 当*快慢指针在环内相遇*时，如果此时把*慢指针*放回*链表起点*，*快指针留在相遇点*，然后在以“*每次1步*”的速度同时出发，它们下一次相遇的地方，刚好就是“环的入口”
 
 这里有数学逻辑的证明，真的太强了呀！！！
+```js
+const findCyclePoint = (head) => {
+	if (!head || !head.next) return null;
+	let slow = fast = head;
+	
+	while (fast && fast.next) {
+		slow = slow.next;
+		fast = fast.next.next;
+		
+		// 相遇点 -> 有环
+		if (slow === fast) {
+			slow = head; // 慢指针回到链表起点，快指针在相遇点
+			while (slow !== fast) {
+				// 每次一步
+				slow = slow.next;
+				fast = fast.next;
+			}
+			// 慢指针所在位置即是环的入口
+			return slow;
+		} 
+	}
+	return null;
+}
+```
 
 # 栈
 # 队列
