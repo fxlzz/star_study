@@ -29,6 +29,7 @@ const getIntersectionNode = (headA, headB) => {
 ## 反转链表 
 [leetcode:206](https://leetcode.cn/problems/reverse-linked-list/?envType=study-plan-v2&envId=top-100-liked)
 *双指针* -> 类似于，将所有的 next 指向全部反转
+*pre* 就是反转后链表的头指针
 ```js
 const reverseList = function(head) {
 	// head.next 为null，说明链表只有一个元素直接返回即可
@@ -49,10 +50,25 @@ const reverseList = function(head) {
 [leetcode:234](https://leetcode.cn/problems/palindrome-linked-list/description/?envType=study-plan-v2&envId=top-100-liked)
 两种方法：
 - 遍历链表，获取 val 的值，用数组使用双指针来判断是否为回文的，从而推断，链表是否为回文
-- 找到链表中心，将中心后续的链表节点反转，比较两条链表（起点 -> 中心点 或 中心点 -> 终点）
-### 链表中心
-*双指针* -> 定义两个一个快指针、一个慢指针。快指针一次走两步，慢指针一次走一步。慢指针所指位置就是链表中心位置
+- 找到链表中心，将中心后续的链表节点反转，比较两条链表（*起点 -> 中心点* 或 *中心点 -> 终点*）
 
+### 快慢指针 -> 查找链表中点
+> *快慢指针* 定义两个一个快指针、一个慢指针。快指针一次走两步，慢指针一次走一步。
+
+慢指针所指位置就是链表中心位置
+
+```js
+const findMidListNode = (head) => {
+	let slow = fast = head;
+	while(fast && fast.next && fast.next.next) {
+		slow = slow.next;
+		fast = fast.next.next;
+	}
+	return slow;
+}
+```
+
+### 快慢指针 -> 判断链表是否有环
 
 
 # 栈
