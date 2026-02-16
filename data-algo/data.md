@@ -69,7 +69,25 @@ const findMidListNode = (head) => {
 ```
 
 ### 快慢指针 -> 判断链表是否有环
+快慢指针相遇时，即有环
+```js
+const hasCycle = (head) => {
+	if (!head || !head.next) return false;
+	let slow = fast = head;
+	while(fast && fast.next) {
+		slow = slow.next;
+		fast = fast.next.next;
+		
+		if(slow === fast) {
+			return true;
+		}	
+	}
+	return false;
+}
+```
 
+#### 环的入口
+当*快慢指针在环内相遇*时，如果此时把*慢指针*放回*链表起点*，*快指针留在相遇点*，然后在以“*每次1步*”的速度同时出发，它们下一次相遇的地方，刚好就是“环的入口”
 
 # 栈
 # 队列
