@@ -40,6 +40,9 @@ cargo update                # 更新依赖
 my_project/
 ├── Cargo.toml    # 项目配置与依赖声明
 ├── Cargo.lock    # 依赖版本锁定文件（自动生成）
+|—— .gitignore    # git 工程 
 └── src/
     └── main.rs   # 主程序入口（二进制项目）或 lib.rs（库项目）
 ```
+
+使用 `rustc` 来编译`.rs` 的源文件，在windows上会生成 `.exe（可执行文件）` | `.pdb（可调式文件）` 
