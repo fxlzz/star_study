@@ -142,8 +142,8 @@ fn main() {
 
 ```rust
 fn main() {
-	let x = (10, 6.4, 1);
-
+	let nums = (10, 6.4, 1);
+	let n1 = 
 }
 ```
 
