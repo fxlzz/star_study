@@ -65,3 +65,4 @@ my_project/
 6. 导包： Rust 有少量标准库，这些项被称作 *prelude* ，如果不在标准库中，需要用 `use` 关键字来显式引入 `use std::io;`
 7. `crate` 是一个Rust代码包，有*库crate*的，也有*二进制crate*
 
+# 变量和可变性
