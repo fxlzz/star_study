@@ -143,7 +143,9 @@ fn main() {
 ```rust
 fn main() {
 	let nums = (10, 6.4, 1);
-	let n1 = 
+	let n1 = x.0;
+	let n2 = x.1;
+	let n3 = x.2;
 }
 ```
 
