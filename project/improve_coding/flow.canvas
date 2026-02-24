@@ -4,11 +4,15 @@
 		{"id":"6d1b3e7002c7cc27","type":"text","text":"server-core 核心加载","x":-360,"y":-240,"width":250,"height":60},
 		{"id":"f7549b98f5749cc1","type":"text","text":"middleware loader\nrouter loader\nloader 加载\n……","x":-51,"y":-279,"width":211,"height":139},
 		{"id":"839b13c32fe26feb","type":"text","text":"挂载到 app 上","x":254,"y":-245,"width":186,"height":60},
-		{"id":"34e33a8761349dde","type":"text","text":"调 controller 中的方法","x":-214,"y":49,"width":250,"height":60},
-		{"id":"87b70336169a2850","type":"text","text":"Router 请求","x":-450,"y":79,"width":160,"height":60},
-		{"id":"f01aa41d81968994","x":110,"y":40,"width":250,"height":60,"type":"text","text":"服务器返回渲染的页面"},
-		{"id":"ffd07c392e5259fb","x":-698,"y":84,"width":123,"height":55,"type":"text","text":"页面请求"},
-		{"id":"f46c199fa450fe6c","x":-477,"y":191,"width":250,"height":60,"type":"text","text":"兜底请求"}
+		{"id":"87b70336169a2850","type":"text","text":"Router 请求\nrouter-loader","x":-450,"y":79,"width":160,"height":106},
+		{"id":"f01aa41d81968994","type":"text","text":"返回渲染的页面","x":110,"y":40,"width":190,"height":60},
+		{"id":"ffd07c392e5259fb","type":"text","text":"页面请求","x":-700,"y":52,"width":123,"height":55},
+		{"id":"1e040b3c544c3100","type":"text","text":"API请求","x":-700,"y":160,"width":123,"height":50},
+		{"id":"f46c199fa450fe6c","type":"text","text":"Router 兜底设计","x":-309,"y":260,"width":191,"height":60},
+		{"id":"99afe206ba6ef2d9","x":-51,"y":260,"width":191,"height":60,"type":"text","text":"重定向到根目录"},
+		{"id":"9c97c59d5a87ada8","x":110,"y":125,"width":237,"height":60,"type":"text","text":"调 service 层的方法"},
+		{"id":"852263939ee36f90","x":440,"y":125,"width":158,"height":60,"type":"text","text":"读写数据库"},
+		{"id":"34e33a8761349dde","type":"text","text":"调 controller 中的方法","x":-213,"y":80,"width":250,"height":60}
 	],
 	"edges":[
 		{"id":"e06a16b0d3c59b55","fromNode":"87b70336169a2850","fromSide":"right","toNode":"34e33a8761349dde","toSide":"left"},
@@ -18,6 +22,10 @@
 		{"id":"f419bdf0ba0ffcd5","fromNode":"ffd07c392e5259fb","fromSide":"right","toNode":"87b70336169a2850","toSide":"left"},
 		{"id":"3c89be9e94bba115","fromNode":"34e33a8761349dde","fromSide":"right","toNode":"f01aa41d81968994","toSide":"left"},
 		{"id":"97358f3b856750d0","fromNode":"839b13c32fe26feb","fromSide":"bottom","toNode":"87b70336169a2850","toSide":"top","label":"之所以router层可以调controller层的方法，是因为所有的loader都挂载在app上"},
-		{"id":"9d8147cdab98a70c","fromNode":"ffd07c392e5259fb","fromSide":"right","toNode":"f46c199fa450fe6c","toSide":"left"}
+		{"id":"9d8147cdab98a70c","fromNode":"87b70336169a2850","fromSide":"bottom","toNode":"f46c199fa450fe6c","toSide":"left"},
+		{"id":"2f6babbd064cbf1e","fromNode":"1e040b3c544c3100","fromSide":"right","toNode":"87b70336169a2850","toSide":"left"},
+		{"id":"298d4db7a4649a53","fromNode":"f46c199fa450fe6c","fromSide":"right","toNode":"99afe206ba6ef2d9","toSide":"left"},
+		{"id":"477aeb9a68aef3d5","fromNode":"34e33a8761349dde","fromSide":"right","toNode":"9c97c59d5a87ada8","toSide":"left"},
+		{"id":"05cb4c965ef8c372","fromNode":"9c97c59d5a87ada8","fromSide":"right","toNode":"852263939ee36f90","toSide":"left"}
 	]
 }
