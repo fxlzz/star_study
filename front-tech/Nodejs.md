@@ -64,6 +64,28 @@ process.stdin.on("data", (data) => {
 }); // 标准输入流
 ```
 
+## 配置环境变量
+> 在后端服务程序中，配置环境变量是很重要的，一些隐私数据（例如，密钥等）不能暴露在外部
+> 所以，一般是部署时通过配置化的形式，加入到宿主机的环境变量中
+
+在 nodejs 程序中，可通过 dotenv 库来加载环境变量
+通过 `process.env.xxx` 来获取对应环境变量 key 的 value
+
+注意：
+ + dotenv 库 没有指定读取的 env 目录，那么会根据 `process.cwd()` 来读取环境变量
+ + 为了避免源代码泄露，`.env` 文件不需要被提交，需要在 `.gitignore` 文件中忽略
+
+```js
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, "..", ".env") });
+
+// xxx
+
+// 使用
+const signKey = process.env.SIGN_KEY;
+```
+
+
 # 内置对象
 
 ## 操作系统 os
