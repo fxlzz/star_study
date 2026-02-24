@@ -86,3 +86,25 @@ public/
   }
 ```
 
+# gitflow 规范
++ 主分支： main / master
++ 开发分支： develop 
+	+ 功能分支： feature/xxx
+具体可看： [git](../../general-tech/git.md)
+
+# server-core 设计
+
+## router 兜底
+注意： 写通配符 `*` ，koa 会优先匹配上，在匹配其他的路由，很有可能造成无限重定向
+
+```js
+ const indexPath = app?.options?.index ?? "/";
+ // 这里不能写成 router.get("*", (xxx) => xxx)
+  router.get(/(.*)/, async (ctx, next) => {
+    if (ctx.path === indexPath || ctx.path === "/") {
+      return next();
+    }
+    ctx.status = 302;
+    ctx.redirect(indexPath);
+  });
+```
