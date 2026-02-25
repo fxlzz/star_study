@@ -2,20 +2,26 @@
 	"nodes":[
 		{"id":"2a5ede1f9221550b","type":"text","text":"启动服务 node index.js","x":-700,"y":-140,"width":250,"height":60},
 		{"id":"6d1b3e7002c7cc27","type":"text","text":"server-core 核心加载","x":-360,"y":-240,"width":250,"height":60},
-		{"id":"f7549b98f5749cc1","type":"text","text":"middleware loader\nrouter loader\nloader 加载\n……","x":-51,"y":-279,"width":211,"height":139},
+		{"id":"f7549b98f5749cc1","type":"text","text":"middleware loader\nrouter loader\nconfig loader\ncontroller loader\nrouter-schema\nextend loader\nservice loader\n……","x":-51,"y":-400,"width":211,"height":290},
 		{"id":"839b13c32fe26feb","type":"text","text":"挂载到 app 上","x":254,"y":-245,"width":186,"height":60},
-		{"id":"87b70336169a2850","type":"text","text":"Router 请求\nrouter-loader","x":-450,"y":79,"width":160,"height":106},
-		{"id":"f01aa41d81968994","type":"text","text":"返回渲染的页面","x":110,"y":40,"width":190,"height":60},
+		{"id":"87b70336169a2850","type":"text","text":"Router 请求\nrouter-loader","x":-450,"y":79,"width":160,"height":106,"color":"5"},
 		{"id":"ffd07c392e5259fb","type":"text","text":"页面请求","x":-700,"y":52,"width":123,"height":55},
 		{"id":"1e040b3c544c3100","type":"text","text":"API请求","x":-700,"y":160,"width":123,"height":50},
-		{"id":"f46c199fa450fe6c","type":"text","text":"Router 兜底设计","x":-309,"y":260,"width":191,"height":60},
-		{"id":"99afe206ba6ef2d9","x":-51,"y":260,"width":191,"height":60,"type":"text","text":"重定向到根目录"},
-		{"id":"9c97c59d5a87ada8","x":110,"y":125,"width":237,"height":60,"type":"text","text":"调 service 层的方法"},
-		{"id":"852263939ee36f90","x":440,"y":125,"width":158,"height":60,"type":"text","text":"读写数据库"},
-		{"id":"34e33a8761349dde","type":"text","text":"调 controller 中的方法","x":-213,"y":80,"width":250,"height":60}
+		{"id":"ad85db3838d5714b","type":"text","text":"中间件（洋葱圈）","x":-227,"y":102,"width":207,"height":60},
+		{"id":"6c8383a3abe10d1a","type":"text","text":"模板引擎，返回渲染页面 koa-nunjucks-2","x":48,"y":110,"width":279,"height":74},
+		{"id":"f78628da00376fcd","type":"text","text":"全局错误捕获、api 请求签名校验...","x":-131,"y":340,"width":291,"height":75},
+		{"id":"202b3bbc0f82dbdf","type":"text","text":"解析请求体 支持 post 参数解析 koa-bodyparser","x":45,"y":200,"width":285,"height":79},
+		{"id":"cff438d24c059b83","type":"text","text":"确定 / 绝对路径 koa-static","x":47,"y":42,"width":282,"height":60},
+		{"id":"f01aa41d81968994","type":"text","text":"返回渲染的页面","x":783,"y":77,"width":190,"height":60},
+		{"id":"9c97c59d5a87ada8","type":"text","text":"调 service 层的方法","x":783,"y":162,"width":237,"height":60},
+		{"id":"852263939ee36f90","type":"text","text":"读写数据库","x":1113,"y":162,"width":158,"height":60},
+		{"id":"34e33a8761349dde","type":"text","text":"调 controller 中的方法","x":460,"y":117,"width":250,"height":60},
+		{"id":"6664054ecb897e7f","x":439,"y":-40,"width":292,"height":78,"type":"text","text":"BaseController 统一返回成功、失败格式"},
+		{"id":"8c20f305613868f5","x":777,"y":300,"width":250,"height":60,"type":"text","text":"BaseService 统一请求"},
+		{"id":"f46c199fa450fe6c","type":"text","text":"Router 兜底设计","x":-243,"y":460,"width":191,"height":60},
+		{"id":"99afe206ba6ef2d9","type":"text","text":"重定向到根目录","x":15,"y":460,"width":191,"height":60}
 	],
 	"edges":[
-		{"id":"e06a16b0d3c59b55","fromNode":"87b70336169a2850","fromSide":"right","toNode":"34e33a8761349dde","toSide":"left"},
 		{"id":"7c5ec4d7410235a6","fromNode":"2a5ede1f9221550b","fromSide":"right","toNode":"6d1b3e7002c7cc27","toSide":"left"},
 		{"id":"c97f1c7e4f6b04e6","fromNode":"6d1b3e7002c7cc27","fromSide":"right","toNode":"f7549b98f5749cc1","toSide":"left"},
 		{"id":"19acb5d3bb95e728","fromNode":"f7549b98f5749cc1","fromSide":"right","toNode":"839b13c32fe26feb","toSide":"left"},
@@ -26,6 +32,14 @@
 		{"id":"2f6babbd064cbf1e","fromNode":"1e040b3c544c3100","fromSide":"right","toNode":"87b70336169a2850","toSide":"left"},
 		{"id":"298d4db7a4649a53","fromNode":"f46c199fa450fe6c","fromSide":"right","toNode":"99afe206ba6ef2d9","toSide":"left"},
 		{"id":"477aeb9a68aef3d5","fromNode":"34e33a8761349dde","fromSide":"right","toNode":"9c97c59d5a87ada8","toSide":"left"},
-		{"id":"05cb4c965ef8c372","fromNode":"9c97c59d5a87ada8","fromSide":"right","toNode":"852263939ee36f90","toSide":"left"}
+		{"id":"05cb4c965ef8c372","fromNode":"9c97c59d5a87ada8","fromSide":"right","toNode":"852263939ee36f90","toSide":"left"},
+		{"id":"36a451b69ddd612c","fromNode":"87b70336169a2850","fromSide":"right","toNode":"ad85db3838d5714b","toSide":"left"},
+		{"id":"cf7390d035922b6c","fromNode":"ad85db3838d5714b","fromSide":"right","toNode":"cff438d24c059b83","toSide":"left"},
+		{"id":"36d0cdcf3e620735","fromNode":"ad85db3838d5714b","fromSide":"right","toNode":"202b3bbc0f82dbdf","toSide":"left"},
+		{"id":"1a64e2de01d33ba5","fromNode":"ad85db3838d5714b","fromSide":"bottom","toNode":"f78628da00376fcd","toSide":"top","label":"先进入"},
+		{"id":"d56229b671858b3a","fromNode":"cff438d24c059b83","fromSide":"right","toNode":"34e33a8761349dde","toSide":"left"},
+		{"id":"0ce2761aead4ab44","fromNode":"202b3bbc0f82dbdf","fromSide":"right","toNode":"34e33a8761349dde","toSide":"left"},
+		{"id":"8f0f004d4fdc746f","fromNode":"34e33a8761349dde","fromSide":"top","toNode":"6664054ecb897e7f","toSide":"bottom","label":"extends"},
+		{"id":"b10f90236ba0c4e4","fromNode":"9c97c59d5a87ada8","fromSide":"bottom","toNode":"8c20f305613868f5","toSide":"top","label":"extends"}
 	]
 }
