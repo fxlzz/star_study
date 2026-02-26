@@ -28,7 +28,7 @@ const getIntersectionNode = (headA, headB) => {
 
 ## 反转链表 
 [leetcode:206](https://leetcode.cn/problems/reverse-linked-list/?envType=study-plan-v2&envId=top-100-liked)
-*双指针* -> 类似于，将所有的 next 指向全部反转
+*双指针* -> 将所有的 next 指向全部反转
 *pre* 就是反转后链表的头指针
 ```js
 const reverseList = function(head) {
