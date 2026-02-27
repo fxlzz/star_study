@@ -31,6 +31,7 @@
 + ...
 
 ### 首屏构建时间过长
+使用 `webpack-bundle-analyzer` 插件分析
 *主 `bundle` 体积过大*
  - `index.js ~ 15.5MB`
  -  压缩后 `index.js.gz ~ 3.6MB`
