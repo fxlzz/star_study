@@ -73,14 +73,14 @@
     ]
   },
   "project/improve_coding/improve_coding.md": {
-    "scroll": 171.38142794809664,
+    "scroll": 0,
     "cursor": {
       "from": {
-        "line": 225,
+        "line": 3,
         "ch": 0
       },
       "to": {
-        "line": 225,
+        "line": 3,
         "ch": 0
       }
     },
@@ -94,12 +94,12 @@
     "scroll": 111.03703313080025,
     "cursor": {
       "from": {
-        "line": 122,
-        "ch": 22
+        "line": 123,
+        "ch": 0
       },
       "to": {
-        "line": 122,
-        "ch": 22
+        "line": 123,
+        "ch": 0
       }
     },
     "expandedKeys": [
@@ -107,5 +107,19 @@
       "item-3-6",
       "item-2-4"
     ]
+  },
+  "interview/简历.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 57,
+        "ch": 76
+      },
+      "to": {
+        "line": 57,
+        "ch": 76
+      }
+    },
+    "expandedKeys": []
   }
 }

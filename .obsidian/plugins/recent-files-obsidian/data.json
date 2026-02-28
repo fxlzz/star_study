@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "improve_coding",
+      "path": "project/improve_coding/improve_coding.md"
+    },
+    {
+      "basename": "简历",
+      "path": "interview/简历.md"
+    },
+    {
       "basename": "data",
       "path": "data-algo/data.md"
     },
@@ -11,10 +19,6 @@
     {
       "basename": "KanBan",
       "path": "KanBan.md"
-    },
-    {
-      "basename": "improve_coding",
-      "path": "project/improve_coding/improve_coding.md"
     },
     {
       "basename": "Drawing 2026-02-28 09.50.14.excalidraw",
