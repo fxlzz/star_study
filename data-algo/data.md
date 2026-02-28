@@ -120,8 +120,8 @@ const findCyclePoint = (head) => {
 ## 双向链表
 [146. LRU 缓存 - 力扣（LeetCode）](https://leetcode.cn/problems/lru-cache/description/?envType=study-plan-v2&envId=top-100-liked)
 
-LRU 缓存： 最近最少使用缓存，看时间长短
-LFU 缓存：
+LRU 缓存： 最近最少使用缓存，看时间*长短*
+LFU 缓存： 最不经常使用，看使用*次数*
 
 # 栈
 # 队列
