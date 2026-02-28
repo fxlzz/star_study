@@ -118,10 +118,37 @@ const findCyclePoint = (head) => {
 ```
 
 ## 双向链表
+```js
+class DoubleLinkedListNode {
+    constructor(val = 0) {
+        this.val = val;
+        this.prev = null; // 前驱
+        this.next = null; // 后继
+    }
+}
+```
+
+## LRU 
 [146. LRU 缓存 - 力扣（LeetCode）](https://leetcode.cn/problems/lru-cache/description/?envType=study-plan-v2&envId=top-100-liked)
 
-LRU 缓存： 最近最少使用缓存，看时间*长短*
-LFU 缓存： 最不经常使用，看使用*次数*
+>  LRU 缓存： 最近最少使用缓存，看时间*长短*
+>  这个题目就非常适合用 *双向链表* + *哈希表* 来做
+
+理解 LRU：
+怎么理解呢? 将整一个 LRU 看成一摞书
+- `get(key)`： 
+	- 如果一摞书中存在要看的书 `key`，那么将其移动到书的最上面，方便看；
+	- 如果没有，那么告诉自己下次要记得买 `return -1`
+- `put(key, value)`： 
+	- 如果一摞书中存在要找的书，这  `key` 这一版本我看过了，将其拿出来放置书摞最上面，并且更新为 `value` 这个版本的；
+	- 如果没找到这本书，那么将新书 `{key: value}` 放到书摞上；
+	- 如果超过书摞能累计的最大容量，不能放书了，那么将最长时间没有看过的书（最后一本书）丢掉
+
+
+## LFU
+[460. LFU 缓存 - 力扣（LeetCode）](https://leetcode.cn/problems/lfu-cache/description/)
+
+>  LFU 缓存： 最不经常使用，看使用*次数*
 
 # 栈
 # 队列

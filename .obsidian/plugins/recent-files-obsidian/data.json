@@ -5,20 +5,28 @@
       "path": "data-algo/data.md"
     },
     {
-      "basename": "KanBan",
-      "path": "KanBan.md"
+      "basename": "algo",
+      "path": "data-algo/algo.md"
     },
     {
-      "basename": "improve_coding",
-      "path": "project/improve_coding/improve_coding.md"
+      "basename": "2026-02-28",
+      "path": "diary/2026-02-28.md"
+    },
+    {
+      "basename": "webpack - 优化",
+      "path": "front-tech/工程化/webpack - 优化.md"
     },
     {
       "basename": "简历",
       "path": "interview/简历.md"
     },
     {
-      "basename": "algo",
-      "path": "data-algo/algo.md"
+      "basename": "KanBan",
+      "path": "KanBan.md"
+    },
+    {
+      "basename": "improve_coding",
+      "path": "project/improve_coding/improve_coding.md"
     },
     {
       "basename": "Drawing 2026-02-28 09.50.14.excalidraw",
@@ -31,10 +39,6 @@
     {
       "basename": "React",
       "path": "front-tech/React.md"
-    },
-    {
-      "basename": "2026-02-28",
-      "path": "diary/2026-02-28.md"
     }
   ],
   "omittedPaths": [],
