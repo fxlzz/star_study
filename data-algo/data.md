@@ -2,6 +2,8 @@
 > --- 所有的东西都是数据结构，无非是以一种特殊的方式进行了处理
 
 # 链表
+
+## 单链表
 ```js
 function ListNode(val) {
 	this.val = val;
@@ -114,6 +116,11 @@ const findCyclePoint = (head) => {
 	return null;
 }
 ```
+
+## 双向链表
+[146. LRU 缓存 - 力扣（LeetCode）](https://leetcode.cn/problems/lru-cache/description/?envType=study-plan-v2&envId=top-100-liked)
+
+LRU 缓存： 最近最少使用缓存，看时间长短
 
 # 栈
 # 队列
