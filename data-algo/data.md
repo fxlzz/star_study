@@ -11,7 +11,7 @@ function ListNode(val) {
 }
 ```
 
-## 判断链表是否相交：
+## 判断链表是否相交
 [leetcode:160](https://leetcode.cn/problems/intersection-of-two-linked-lists/?envType=study-plan-v2&envId=top-100-liked)
 链表 A 、链表B
 *双指针* -> 两个指针分别从 headA 、 headB 出发，如果不相等，移动指针。如果其中一个指针遍历到链表结尾，那么从另一条链表重新遍历
@@ -118,6 +118,10 @@ const findCyclePoint = (head) => {
 ```
 
 ## 双向链表
+>  一般做链表的题目，涉及到增删，那么设置虚拟结点操作会简单一些
+
+>  还有注意一下，箭头函数没有 this !!
+
 ```js
 class DoubleLinkedListNode {
     constructor(val = 0) {
@@ -126,10 +130,25 @@ class DoubleLinkedListNode {
         this.next = null; // 后继
     }
 }
+
+// 删除结点
+// 删除尾部结点，在有 tail dummy结点时，只需要 removeNode(tail.prev); 
+const removeNode = function(node) {
+	node.prev.next = node.next;
+	node.next.prev = node.prev;
+}
+
+// 插入头结点
+const addToHead = function(node) {
+	// 先操作 node ，最后操作 head.next 指向
+	node.prev = head;
+	node.next = head.next;
+	head.next.prev = node;
+	head.next = node;
+}
 ```
 
 ## LRU 
-[146. LRU 缓存 - 力扣（LeetCode）](https://leetcode.cn/problems/lru-cache/description/?envType=study-plan-v2&envId=top-100-liked)
 
 >  LRU 缓存： 最近最少使用缓存，看时间*长短*
 >  这个题目就非常适合用 *双向链表* + *哈希表* 来做
@@ -144,6 +163,99 @@ class DoubleLinkedListNode {
 	- 如果没找到这本书，那么将新书 `{key: value}` 放到书摞上；
 	- 如果超过书摞能累计的最大容量，不能放书了，那么将最长时间没有看过的书（最后一本书）丢掉
 
+[146. LRU 缓存 - 力扣（LeetCode）](https://leetcode.cn/problems/lru-cache/description/?envType=study-plan-v2&envId=top-100-liked)
+
+```js
+/**
+ * 双向链表
+ */
+class DoubleLinkedListNode {
+    constructor(key = 0, val = 0) {
+        this.key = key; // 方便在缓存中，删除尾部key
+        this.val = val;
+        this.prev = null;
+        this.next = null;
+    }
+}
+
+/**
+ * @param {number} capacity
+ */
+var LRUCache = function (capacity) {
+    this.capacity = capacity;
+    this.cache = new Map();
+    
+    // dummy head & tail
+    this.head = new DoubleLinkedListNode();
+    this.tail = new DoubleLinkedListNode();
+    this.head.next = this.tail;
+    this.tail.prev = this.head;
+};
+
+/**
+ * @param {number} key
+ * @return {number}
+ */
+LRUCache.prototype.get = function (key) {
+    if (!this.cache.has(key)) {
+        return -1;
+    }
+    
+    const node = this.cache.get(key); // 存入双向链表结点
+    this.moveToHead(node);
+    return node.val;
+};
+
+/**
+ * @param {number} key
+ * @param {number} value
+ * @return {void}
+ */
+LRUCache.prototype.put = function (key, value) {
+    if(!this.cache.has(key)) {
+        const node = new DoubleLinkedListNode(key, value);
+        this.addToHead(node);
+        this.cache.set(key, node);
+
+        if (this.cache.size > this.capacity) {
+            const lastNode = this.tail.prev;
+            this.removeNode(lastNode);
+            this.cache.delete(lastNode.key);
+        }
+    } 
+        
+    const node = this.cache.get(key);
+    this.moveToHead(node);
+    node.val = value;
+    this.cache.set(key, node);
+};
+
+/**
+ * 在头结点处插入结点
+ */
+LRUCache.prototype.addToHead = function (node) {
+    node.next = this.head.next;
+    node.prev = this.head;
+    this.head.next.prev = node;
+    this.head.next = node;
+}
+
+/**
+ * 删除结点
+ */
+LRUCache.prototype.removeNode = function (node) {
+    node.prev.next = node.next;
+    node.next.prev = node.prev;
+}
+
+/**
+ * 已存在的结点移动到头结点
+ */
+LRUCache.prototype.moveToHead = function (node) {
+    this.removeNode(node);
+    this.addToHead(node);
+}
+```
 
 ## LFU
 [460. LFU 缓存 - 力扣（LeetCode）](https://leetcode.cn/problems/lfu-cache/description/)
