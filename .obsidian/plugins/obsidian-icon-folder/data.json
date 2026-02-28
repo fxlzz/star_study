@@ -6,10 +6,11 @@
     "emojiStyle": "native",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "LiWand",
+      "LiFolderCode",
       "LiCalendarDays",
       "LiBookOpen",
-      "LiFolder",
-      "🤖"
+      "LiFolder"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -35,5 +36,11 @@
   },
   "ai": "LiFolder",
   "data-algo": "LiBookOpen",
-  "diary": "LiCalendarDays"
+  "diary": "LiCalendarDays",
+  "front-tech": "LiFolderCode",
+  "general-tech": "LiFolderCode",
+  "interview": "LiFolder",
+  "project": "LiFolder",
+  "rust": "LiFolderCode",
+  "Excalidraw": "LiWand"
 }

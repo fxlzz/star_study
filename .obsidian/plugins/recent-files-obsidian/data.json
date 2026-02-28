@@ -1,12 +1,32 @@
 {
   "recentFiles": [
     {
-      "basename": "2026-02-28",
-      "path": "diary/2026-02-28.md"
+      "basename": "improve_coding",
+      "path": "project/improve_coding/improve_coding.md"
     },
     {
       "basename": "Drawing 2026-02-28 09.50.14.excalidraw",
       "path": "Excalidraw/Drawing 2026-02-28 09.50.14.excalidraw.md"
+    },
+    {
+      "basename": "flow",
+      "path": "project/improve_coding/flow.canvas"
+    },
+    {
+      "basename": "React",
+      "path": "front-tech/React.md"
+    },
+    {
+      "basename": "algo",
+      "path": "data-algo/algo.md"
+    },
+    {
+      "basename": "2026-02-28",
+      "path": "diary/2026-02-28.md"
+    },
+    {
+      "basename": "KanBan",
+      "path": "KanBan.md"
     }
   ],
   "omittedPaths": [],
