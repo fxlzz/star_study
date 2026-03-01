@@ -268,10 +268,10 @@ LRUCache.prototype.moveToHead = function (node) {
 >  二叉树节点描述
 ```js
 class TreeNode {
-	constructor(val = 0) {
+	constructor(val = 0, left = null, right = null) {
 		this.val = val;
-		this.left = null; // 左孩子
-		this.right = null; // 右孩子
+		this.left = left; // 左孩子
+		this.right = right; // 右孩子
 	}
 }
 ```
