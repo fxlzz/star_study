@@ -93,22 +93,24 @@
     ]
   },
   "data-algo/data.md": {
-    "scroll": 360.96249097702116,
+    "scroll": 284.55437281775096,
     "cursor": {
       "from": {
-        "line": 372,
-        "ch": 15
+        "line": 302,
+        "ch": 12
       },
       "to": {
-        "line": 372,
-        "ch": 15
+        "line": 302,
+        "ch": 12
       }
     },
     "expandedKeys": [
       "item-1-0",
       "item-1-13",
       "item-2-14",
-      "item-2-20"
+      "item-2-21",
+      "item-3-17",
+      "item-3-15"
     ]
   },
   "interview/简历.md": {

@@ -281,6 +281,29 @@ class TreeNode {
 
 ### 先序
 >  根左右
+
+[144. 二叉树的前序遍历 - 力扣（LeetCode）](https://leetcode.cn/problems/binary-tree-preorder-traversal/)
+#### 递归
+```js
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+
+var preorderTraversal = function(root) {
+	const ans = [];
+	const dfs = root => {
+		if(!root) return null;
+		
+		ans.push(root.val);
+		dfs(root.left);
+		dfs(root.right);
+	}
+	dfs(root);
+	return ans;
+};
+```
+
 ### 中序
 >  左根右
 
@@ -346,7 +369,7 @@ var inorderTraversal = function(root) {
 
 一般有关于二叉树的题目，都可以用"递归"来实现，这题也不例外，但是有两种写法
 
-### 自底向上（后序遍历）
+### 自底向上 -> 归（后序遍历）
 >  其实就是递归中的 "归" 这个阶段，*先"递"到叶子结点，在返上来*
 >  "归" 需要*返回值*，一般都是先"递"（调自己），在处理 root 的情况
 
@@ -367,10 +390,10 @@ var maxDepth = function(root) {
 };
 ```
 
-### 自顶向上（先序遍历）
+### 自顶向上 -> 递（先序遍历）
 >  这个就是反着的，是递归中的 "递" 这个阶段，从*根结点一直遍历到叶子结点*
 >  "递" 处理*当前这一层的数据*，在让孩子们在去处理孩子的数据
->  没有返回值，先处理在递归
+>  没有返回值，先处理本层结点 -> 再递归
 
 ```js
 /**
