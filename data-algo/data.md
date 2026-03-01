@@ -363,6 +363,27 @@ var inorderTraversal = function(root) {
 ### 后序
 >  左右根
 
+[145. 二叉树的后序遍历 - 力扣（LeetCode）](https://leetcode.cn/problems/binary-tree-postorder-traversal/description/)
+
+#### 递归
+```js
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var postorderTraversal = function(root) {
+	const ans = [];
+	const dfs = root => {
+		if(!root) return null;
+		
+		dfs(root.left);
+		dfs(root.right);
+		ans.push(root.val);
+	}
+	dfs(root);
+	return ans;
+};
+```
 
 ## 二叉树的高度
 [104. 二叉树的最大深度 - 力扣（LeetCode）](https://leetcode.cn/problems/maximum-depth-of-binary-tree/?envType=study-plan-v2&envId=top-100-liked)

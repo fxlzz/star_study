@@ -93,22 +93,23 @@
     ]
   },
   "data-algo/data.md": {
-    "scroll": 284.55437281775096,
+    "scroll": 426.6733765702368,
     "cursor": {
       "from": {
-        "line": 302,
-        "ch": 12
+        "line": 425,
+        "ch": 1
       },
       "to": {
-        "line": 302,
-        "ch": 12
+        "line": 425,
+        "ch": 1
       }
     },
     "expandedKeys": [
       "item-1-0",
       "item-1-13",
+      "item-2-22",
+      "item-3-20",
       "item-2-14",
-      "item-2-21",
       "item-3-17",
       "item-3-15"
     ]
