@@ -342,6 +342,50 @@ var inorderTraversal = function(root) {
 
 
 ## 二叉树的高度
+[104. 二叉树的最大深度 - 力扣（LeetCode）](https://leetcode.cn/problems/maximum-depth-of-binary-tree/?envType=study-plan-v2&envId=top-100-liked)
 
+一般有关于二叉树的题目，都可以用"递归"来实现，这题也不例外，但是有两种写法
+
+### 自底向上
+>  其实就是递归中的 "归" 这个阶段，从树的最下面，一直返回到根
+>  想象成，要求整棵的高度，只要求 `max = Math.max(左子树高度，右子树高度) + 1` 即可
+
+```js
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var maxDepth = function(root) {
+	if(!root) return 0;
+	
+	const left = maxDepth(root.left); // 左子树的高度
+	const right = maxDepth(root.right); // 右子树的高度
+	
+	return Math.max(left, right) + 1;
+};
+```
+
+### 自顶向上
+>  这个就是反着的，是递归中的 "递" 这个阶段，从根结点一直遍历到叶子结点
+
+```js
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var maxDepth = function(root) {
+	let ans = 0;
+	
+	const dfs = (root, cnt) => {
+		if(!root) return;
+		
+		cnt += 1; // 记录路径上的结点个数
+		ans = Math.max(ans, cnt);
+		dfs(root.left, cnt);
+		dfs(root.right, cnt);
+	}
+	return ans;
+};
+```
 
 # 图
