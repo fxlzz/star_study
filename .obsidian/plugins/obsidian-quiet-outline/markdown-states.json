@@ -42,18 +42,20 @@
     "expandedKeys": []
   },
   "data-algo/algo.md": {
-    "scroll": 0,
+    "scroll": 84.97896424550859,
     "cursor": {
       "from": {
-        "line": 0,
-        "ch": 8
+        "line": 142,
+        "ch": 3
       },
       "to": {
-        "line": 0,
-        "ch": 8
+        "line": 142,
+        "ch": 3
       }
     },
-    "expandedKeys": []
+    "expandedKeys": [
+      "item-1-0"
+    ]
   },
   "front-tech/React.md": {
     "scroll": 2215.868686566211,
@@ -91,15 +93,15 @@
     ]
   },
   "data-algo/data.md": {
-    "scroll": 177.73352320579878,
+    "scroll": 253.30639874612245,
     "cursor": {
       "from": {
-        "line": 266,
-        "ch": 3
+        "line": 267,
+        "ch": 0
       },
       "to": {
-        "line": 266,
-        "ch": 3
+        "line": 267,
+        "ch": 0
       }
     },
     "expandedKeys": [

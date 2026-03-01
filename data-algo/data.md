@@ -265,4 +265,5 @@ LRUCache.prototype.moveToHead = function (node) {
 # 栈
 # 队列
 # 树
+
 # 图

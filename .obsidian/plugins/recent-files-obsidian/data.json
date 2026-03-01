@@ -5,6 +5,10 @@
       "path": "data-algo/data.md"
     },
     {
+      "basename": "KanBan",
+      "path": "KanBan.md"
+    },
+    {
       "basename": "algo",
       "path": "data-algo/algo.md"
     },
@@ -19,10 +23,6 @@
     {
       "basename": "简历",
       "path": "interview/简历.md"
-    },
-    {
-      "basename": "KanBan",
-      "path": "KanBan.md"
     },
     {
       "basename": "improve_coding",

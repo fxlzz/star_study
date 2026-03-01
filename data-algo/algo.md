@@ -165,3 +165,5 @@ var subarraySum = function (nums, k) {
   return ans;
 };
 ```
+
+# 二分法
