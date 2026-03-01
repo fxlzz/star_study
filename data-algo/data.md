@@ -265,5 +265,48 @@ LRUCache.prototype.moveToHead = function (node) {
 # 栈
 # 队列
 # 树
+>  二叉树节点描述
+```js
+class TreeNode {
+	constructor(val = 0) {
+		this.val = val;
+		this.left = null; // 左孩子
+		this.right = null; // 右孩子
+	}
+}
+```
+
+## 二叉树遍历 
+二叉树的遍历，一般采用 *递归* 会简单一点；由于在计算机底层，*递归* 的实现是借助于 *栈* 来实现的，所以，也可用 *栈* 来模拟 *递归* 遍历
+
+### 先序
+>  根左右
+### 中序
+>  左根右
+
+#### 递归
+[94. 二叉树的中序遍历 - 力扣（LeetCode）](https://leetcode.cn/problems/binary-tree-inorder-traversal/description/?envType=study-plan-v2&envId=top-100-liked)
+```js
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var inorderTraversal = function(root) {
+    const ans = [];
+
+    const dfs = (root) => {
+        if(!root) return null;
+
+        dfs(root?.left);
+        ans.push(root.val);
+        dfs(root?.right);
+    }
+    dfs(root);
+    return ans;
+};
+```
+
+### 后序
+>  左右根
 
 # 图
