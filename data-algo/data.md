@@ -306,7 +306,42 @@ var inorderTraversal = function(root) {
 };
 ```
 
+#### 迭代
+*用栈来模拟*
+```js
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var inorderTraversal = function(root) {
+    if(!root) return [];
+    const stack = [];
+    const ans = [];
+    
+   let cur = root;
+   while(cur || stack.length > 0) {
+   	// 如果不加 stack.length > 0 的话，只会处理一颗子树，不会回退到root
+   	while(cur) {
+   		stack.push(cur);
+   		cur = cur.left;
+   	}
+   	
+   	// 因为存储时是存的引用，那么回退就简单了，简直就是神之一手!!!
+   	cur = stack.pop();
+   	ans.push(cur.val);
+   	cur = cur.right;
+   }
+   return ans;
+};
+```
+
+*线索二叉树*
+
 ### 后序
 >  左右根
+
+
+## 二叉树的高度
+
 
 # 图
