@@ -25,7 +25,7 @@
 
 ```js
 console.log(global); // node.js 中的全局对象 就像浏览器中的 window 对象
-console.log("目录名：", __dirname); // 获得当前模块的目录名 D:\study\html文件夹\review\Node\全局对象
+console.log("目录名：", __dirname); // 获得当前脚本所在目录 D:\study\html文件夹\review\Node\全局对象
 console.log("文件名", __filename); // 获得当前文件的路径  D:\study\html文件夹\review\Node\全局对象\process.js
 
 // 进程启动时的工作目录，不一定是文件所在的目录
