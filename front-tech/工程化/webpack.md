@@ -601,7 +601,7 @@ noParse: /jquery/
 
 ## resolve
 
-resolve的相关配置主要用于控制模块解析过程
+resolve的相关配置主要用于控制*模块解析*过程
 
 ### modules
 
