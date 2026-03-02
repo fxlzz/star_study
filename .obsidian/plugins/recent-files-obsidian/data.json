@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "React",
+      "path": "front-tech/React.md"
+    },
+    {
       "basename": "Nodejs",
       "path": "front-tech/Nodejs.md"
     },
@@ -39,10 +43,6 @@
     {
       "basename": "Drawing 2026-02-28 09.50.14.excalidraw",
       "path": "Excalidraw/Drawing 2026-02-28 09.50.14.excalidraw.md"
-    },
-    {
-      "basename": "React",
-      "path": "front-tech/React.md"
     }
   ],
   "omittedPaths": [],

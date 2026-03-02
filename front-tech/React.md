@@ -1211,17 +1211,15 @@ export default React.forwardRef(function Input(props, ref) {
 
 ### useRef
 
-useRef 与 React.createRef 的区别
-
-useRef：一般用于**函数组件**，挂载在 fiber 上，**只会更新一次**
-
-React.createRef：一般用于**类组件**，每次更新都会重新创建
+>  useRef 与 React.createRef 的区别:
+>  - useRef：一般用于**函数组件**，挂载在 fiber 上，**只会更新一次**
+>  - React.createRef：一般用于**类组件**，每次更新都会重新创建
 
 ```
 const ref = useRef(initialValue);
 ```
 
-**【注意】改变 ref 不会触发重新渲染，**这意味着 ref 是存储一些**不影响组件视图输出**信息的完美选择。
+**【注意】改变 ref 不会触发重新渲染**, 这意味着 ref 是存储一些**不影响组件视图输出**信息的完美选择。
 
 例如：
 
