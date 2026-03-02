@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "webpack",
+      "path": "front-tech/工程化/webpack.md"
+    },
+    {
       "basename": "KanBan",
       "path": "KanBan.md"
     },
@@ -15,10 +19,6 @@
     {
       "basename": "algo",
       "path": "data-algo/algo.md"
-    },
-    {
-      "basename": "2026-02-28",
-      "path": "diary/2026-02-28.md"
     },
     {
       "basename": "webpack - 优化",
