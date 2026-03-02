@@ -871,10 +871,10 @@ document.documentElement: 获取根元素 -> html
 **this关键字在事件处理程序中指代当前发生的事件元素**
 
 ### 获取和设置元素属性
-
-- 通用方式：getAttribute、setAttribute  
-    一般设置自定义属性 `lis[0].setAttribute('data-abx', 123)`  
-    获取属性 `lis[0].getAttribute('data-abx') // 123`  
+- 获取所有的属性：`attributes` 配合 `for.. of` 来遍历所有的属性值
+- 通用方式：`getAttribute、setAttribute`  
+    一般*设置*自定义属性 `lis[0].setAttribute('data-abx', 123)`  
+    *获取*属性 `lis[0].getAttribute('data-abx') // 123`  
     **可识别属性**  
     正常的HTML属性
 - dom对象.属性名：推荐  

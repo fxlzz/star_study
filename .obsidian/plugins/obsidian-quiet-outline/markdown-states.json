@@ -187,5 +187,40 @@
       "item-1-7",
       "item-2-10"
     ]
+  },
+  "front-tech/JavaScript/JS.md": {
+    "scroll": 883.1330526008392,
+    "cursor": {
+      "from": {
+        "line": 891,
+        "ch": 0
+      },
+      "to": {
+        "line": 891,
+        "ch": 0
+      }
+    },
+    "expandedKeys": [
+      "item-1-0",
+      "item-2-57",
+      "item-1-55",
+      "item-2-62"
+    ]
+  },
+  "front-tech/JavaScript/some details.md": {
+    "scroll": 64.10918708969987,
+    "cursor": {
+      "from": {
+        "line": 74,
+        "ch": 22
+      },
+      "to": {
+        "line": 74,
+        "ch": 22
+      }
+    },
+    "expandedKeys": [
+      "item-2-1"
+    ]
   }
 }
