@@ -397,7 +397,25 @@ var postorderTraversal = function(root) {
  * @return {number[][]}
  */
 var levelOrder = function(root) {
-
+	if(!root) return []; // 记得越界判断，不然会报空指针异常
+	
+	const queue = [root]; // 初始化队列，根结点
+	const ans = [];
+	
+	// 只要队列中有值，说明结点未遍历完
+	while(queue.length > 0) { 
+		let size = queue.length;
+		const res = [];
+		while(size--) { // 删除那一层的元素
+			const node = queue.shift();
+			res.push(node.val);
+			
+			if(node.left) queue.push(node.left);
+			if(node.right) queue.push(node.right);
+		}
+		ans.push(res);
+	}
+	return ans;
 };
 ```
 
