@@ -385,6 +385,22 @@ var postorderTraversal = function(root) {
 };
 ```
 
+
+### 层次遍历
+>  如果说，上面的递归都可以用 *栈* 来模拟，那么层次递归，就可以用 *队列* 来模拟
+
+[102. 二叉树的层序遍历 - 力扣（LeetCode）](https://leetcode.cn/problems/binary-tree-level-order-traversal/?envType=study-plan-v2&envId=top-100-liked)
+
+```js
+/**
+ * @param {TreeNode} root
+ * @return {number[][]}
+ */
+var levelOrder = function(root) {
+
+};
+```
+
 ## 二叉树的高度
 [104. 二叉树的最大深度 - 力扣（LeetCode）](https://leetcode.cn/problems/maximum-depth-of-binary-tree/?envType=study-plan-v2&envId=top-100-liked)
 
