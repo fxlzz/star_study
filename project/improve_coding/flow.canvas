@@ -1,7 +1,7 @@
 {
 	"nodes":[
 		{"id":"2a5ede1f9221550b","type":"text","text":"启动服务 node index.js","x":-700,"y":-140,"width":250,"height":60},
-		{"id":"6d1b3e7002c7cc27","type":"text","text":"server-core 核心加载","x":-360,"y":-240,"width":250,"height":60},
+		{"id":"6d1b3e7002c7cc27","type":"text","text":"server-core 核心加载","x":-360,"y":-240,"width":250,"height":60,"color":"2"},
 		{"id":"f7549b98f5749cc1","type":"text","text":"middleware loader\nrouter loader\nconfig loader\ncontroller loader\nrouter-schema\nextend loader\nservice loader\n……","x":-51,"y":-400,"width":211,"height":290},
 		{"id":"839b13c32fe26feb","type":"text","text":"挂载到 app 上","x":254,"y":-245,"width":186,"height":60},
 		{"id":"87b70336169a2850","type":"text","text":"Router 请求\nrouter-loader","x":-450,"y":79,"width":160,"height":106,"color":"5"},
@@ -19,7 +19,25 @@
 		{"id":"6664054ecb897e7f","type":"text","text":"BaseController 统一返回成功、失败格式","x":439,"y":-40,"width":292,"height":78},
 		{"id":"8c20f305613868f5","type":"text","text":"BaseService 统一请求","x":777,"y":300,"width":250,"height":60},
 		{"id":"f46c199fa450fe6c","type":"text","text":"Router 兜底设计","x":-243,"y":460,"width":191,"height":60},
-		{"id":"99afe206ba6ef2d9","type":"text","text":"重定向到根目录","x":15,"y":460,"width":191,"height":60}
+		{"id":"99afe206ba6ef2d9","type":"text","text":"重定向到根目录","x":15,"y":460,"width":191,"height":60},
+		{"id":"01d53a9ed3619373","type":"text","text":"HTML + CSS + JS （浏览器能够识别的文件）","x":-1280,"y":-98,"width":250,"height":91,"color":"5"},
+		{"id":"78983a0f5bd3c7c3","type":"text","text":"Page 1","x":-2000,"y":-218,"width":120,"height":60},
+		{"id":"9eca24899a7e6cd4","type":"text","text":"Page 3","x":-2000,"y":-18,"width":120,"height":60},
+		{"id":"7d20ad72b04d0c8b","type":"text","text":"Page 3","x":-2000,"y":82,"width":120,"height":60},
+		{"id":"f842d0d76a85c3b1","type":"text","text":"模块解析","x":-1740,"y":-78,"width":250,"height":60},
+		{"id":"f372c4fb0d60e551","type":"text","text":"Page 2","x":-2000,"y":-128,"width":120,"height":60},
+		{"id":"ec5ae528bb8fd102","type":"text","text":"Vue 工程","x":-2260,"y":-188,"width":120,"height":60,"color":"5"},
+		{"id":"0ff1ebf0069dd7a5","type":"text","text":".less | .scss -> .css -> css-loader...\n.jsx | .js -> .js -> babel-loader ..\n.vue -> .js -> vue-loader..\n.png | .jpeg | .gif -> base 64 -> file-loader..\n...","x":-1755,"y":42,"width":280,"height":191},
+		{"id":"3f103b6d5b901fc3","type":"text","text":"分包： 多个模块同时引用一个包","x":-1735,"y":300,"width":241,"height":78},
+		{"id":"38b62a8bed3e8fc5","type":"text","text":"生产、测试的差异性","x":-1739,"y":440,"width":250,"height":60},
+		{"id":"f542ad36381ec536","type":"text","text":"Webpack 工程","x":-1704,"y":-188,"width":180,"height":60,"color":"2"},
+		{"id":"c708c22159ddc930","type":"text","text":"Production 生产环境","x":-1894,"y":598,"width":250,"height":60},
+		{"id":"b96cf341b6069461","type":"text","text":"Development 开发环境","x":-1580,"y":598,"width":250,"height":60},
+		{"id":"204dd5284af02460","type":"text","text":"Prod. Js","x":-1846,"y":730,"width":154,"height":60},
+		{"id":"ecd2a404ccd7fc81","type":"text","text":"dev. Js","x":-1524,"y":730,"width":138,"height":60},
+		{"id":"01e002c46d3b8587","type":"text","text":"Webpack. Prod.js","x":-1894,"y":860,"width":250,"height":60},
+		{"id":"53e0f39708e0f370","type":"text","text":"Webpack. dev.js","x":-1580,"y":860,"width":250,"height":60},
+		{"id":"f0cfecf914ae683a","type":"text","text":"Webpack. Base. Js","x":-2260,"y":790,"width":250,"height":60}
 	],
 	"edges":[
 		{"id":"7c5ec4d7410235a6","fromNode":"2a5ede1f9221550b","fromSide":"right","toNode":"6d1b3e7002c7cc27","toSide":"left"},
@@ -40,6 +58,25 @@
 		{"id":"d56229b671858b3a","fromNode":"cff438d24c059b83","fromSide":"right","toNode":"34e33a8761349dde","toSide":"left"},
 		{"id":"0ce2761aead4ab44","fromNode":"202b3bbc0f82dbdf","fromSide":"right","toNode":"34e33a8761349dde","toSide":"left"},
 		{"id":"8f0f004d4fdc746f","fromNode":"34e33a8761349dde","fromSide":"top","toNode":"6664054ecb897e7f","toSide":"bottom","label":"extends"},
-		{"id":"b10f90236ba0c4e4","fromNode":"9c97c59d5a87ada8","fromSide":"bottom","toNode":"8c20f305613868f5","toSide":"top","label":"extends"}
+		{"id":"b10f90236ba0c4e4","fromNode":"9c97c59d5a87ada8","fromSide":"bottom","toNode":"8c20f305613868f5","toSide":"top","label":"extends"},
+		{"id":"27c23aaf5a62086a","fromNode":"78983a0f5bd3c7c3","fromSide":"right","toNode":"f842d0d76a85c3b1","toSide":"left"},
+		{"id":"1e5563186e721d9c","fromNode":"f372c4fb0d60e551","fromSide":"right","toNode":"f842d0d76a85c3b1","toSide":"left"},
+		{"id":"4209eeb8c1901f3f","fromNode":"9eca24899a7e6cd4","fromSide":"right","toNode":"f842d0d76a85c3b1","toSide":"left"},
+		{"id":"63d30f219326dd4f","fromNode":"7d20ad72b04d0c8b","fromSide":"right","toNode":"f842d0d76a85c3b1","toSide":"left"},
+		{"id":"1bbb65319dba4a41","fromNode":"f842d0d76a85c3b1","fromSide":"right","toNode":"01d53a9ed3619373","toSide":"left","label":"最终产物"},
+		{"id":"c16a0ddca380584b","fromNode":"01d53a9ed3619373","fromSide":"right","toNode":"ffd07c392e5259fb","toSide":"left","label":"打包后的HTML文件"},
+		{"id":"e3cef17f936e51bb","fromNode":"01d53a9ed3619373","fromSide":"bottom","toNode":"1e040b3c544c3100","toSide":"left","label":"页面中的API请求"},
+		{"id":"d887f4797334e824","fromNode":"ec5ae528bb8fd102","fromSide":"right","toNode":"78983a0f5bd3c7c3","toSide":"left"},
+		{"id":"cc335b65cd191107","fromNode":"f842d0d76a85c3b1","fromSide":"bottom","toNode":"0ff1ebf0069dd7a5","toSide":"top"},
+		{"id":"2259a7901c897350","fromNode":"0ff1ebf0069dd7a5","fromSide":"bottom","toNode":"3f103b6d5b901fc3","toSide":"top"},
+		{"id":"193aa8adb08242d2","fromNode":"3f103b6d5b901fc3","fromSide":"bottom","toNode":"38b62a8bed3e8fc5","toSide":"top"},
+		{"id":"2d9699c10e6b4894","fromNode":"38b62a8bed3e8fc5","fromSide":"bottom","toNode":"c708c22159ddc930","toSide":"top"},
+		{"id":"5f64fa6c68750feb","fromNode":"38b62a8bed3e8fc5","fromSide":"bottom","toNode":"b96cf341b6069461","toSide":"top"},
+		{"id":"a1959a6db0d54ba9","fromNode":"c708c22159ddc930","fromSide":"bottom","toNode":"204dd5284af02460","toSide":"top"},
+		{"id":"3781b9c35417c981","fromNode":"204dd5284af02460","fromSide":"bottom","toNode":"01e002c46d3b8587","toSide":"top"},
+		{"id":"6a10e5314b392ac7","fromNode":"b96cf341b6069461","fromSide":"bottom","toNode":"ecd2a404ccd7fc81","toSide":"top"},
+		{"id":"20e85299474f8606","fromNode":"ecd2a404ccd7fc81","fromSide":"bottom","toNode":"53e0f39708e0f370","toSide":"top"},
+		{"id":"15fc71f2b190c4db","fromNode":"f0cfecf914ae683a","fromSide":"right","toNode":"01e002c46d3b8587","toSide":"left"},
+		{"id":"95ffba0a21115774","fromNode":"f0cfecf914ae683a","fromSide":"right","toNode":"53e0f39708e0f370","toSide":"left"}
 	]
 }

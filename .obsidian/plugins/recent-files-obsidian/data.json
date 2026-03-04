@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "flow",
+      "path": "project/improve_coding/flow.canvas"
+    },
+    {
+      "basename": "webpack",
+      "path": "front-tech/工程化/webpack.md"
+    },
+    {
+      "basename": "毕设",
+      "path": "毕设.md"
+    },
+    {
       "basename": "data",
       "path": "data-algo/data.md"
     },
@@ -17,10 +29,6 @@
       "path": "front-tech/工程化/webpack - 优化.md"
     },
     {
-      "basename": "webpack",
-      "path": "front-tech/工程化/webpack.md"
-    },
-    {
       "basename": "KanBan",
       "path": "KanBan.md"
     },
@@ -35,10 +43,6 @@
     {
       "basename": "React",
       "path": "front-tech/React/React.md"
-    },
-    {
-      "basename": "flow",
-      "path": "project/improve_coding/flow.canvas"
     },
     {
       "basename": "algo",
