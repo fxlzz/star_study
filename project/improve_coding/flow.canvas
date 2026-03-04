@@ -1,5 +1,6 @@
 {
 	"nodes":[
+		{"id":"e6fe333c183775c9","x":-2338,"y":769,"width":250,"height":60,"type":"text","text":""},
 		{"id":"2a5ede1f9221550b","type":"text","text":"启动服务 node index.js","x":-700,"y":-140,"width":250,"height":60},
 		{"id":"6d1b3e7002c7cc27","type":"text","text":"server-core 核心加载","x":-360,"y":-240,"width":250,"height":60,"color":"2"},
 		{"id":"f7549b98f5749cc1","type":"text","text":"middleware loader\nrouter loader\nconfig loader\ncontroller loader\nrouter-schema\nextend loader\nservice loader\n……","x":-51,"y":-400,"width":211,"height":290},
@@ -35,9 +36,11 @@
 		{"id":"b96cf341b6069461","type":"text","text":"Development 开发环境","x":-1580,"y":598,"width":250,"height":60},
 		{"id":"204dd5284af02460","type":"text","text":"Prod. Js","x":-1846,"y":730,"width":154,"height":60},
 		{"id":"ecd2a404ccd7fc81","type":"text","text":"dev. Js","x":-1524,"y":730,"width":138,"height":60},
-		{"id":"01e002c46d3b8587","type":"text","text":"Webpack. Prod.js","x":-1894,"y":860,"width":250,"height":60},
-		{"id":"53e0f39708e0f370","type":"text","text":"Webpack. dev.js","x":-1580,"y":860,"width":250,"height":60},
-		{"id":"f0cfecf914ae683a","type":"text","text":"Webpack. Base. Js","x":-2260,"y":790,"width":250,"height":60}
+		{"id":"01e002c46d3b8587","type":"text","text":"Webpack. Prod.js","x":-1894,"y":960,"width":250,"height":60},
+		{"id":"53e0f39708e0f370","type":"text","text":"Webpack. dev.js","x":-1580,"y":960,"width":250,"height":60},
+		{"id":"f0cfecf914ae683a","type":"text","text":"Webpack. Base. Js","x":-1720,"y":820,"width":250,"height":60},
+		{"id":"d6151ad0b34dfd3f","type":"text","text":"开发主要配置：\n1. `mode`\n2. `devtool`\n3. `module` -> 处理 css\n4. `devServer` \n","x":-1580,"y":1072,"width":280,"height":228},
+		{"id":"f2bb416f2e28f3fc","type":"text","text":"生产主要配置：\n1. `mode`\n2. `output`\n3. `module` -> 合并 css（`MiniCssExtractPlugin`）\n4. `plugins` -> 提取 css（`MiniCssExtractPlugin`）\n5. `optimization` -> 压缩 JS 、CSS 代码（`TerserPlugin、CssMinimizerPlugin`）","x":-2124,"y":1072,"width":480,"height":297}
 	],
 	"edges":[
 		{"id":"7c5ec4d7410235a6","fromNode":"2a5ede1f9221550b","fromSide":"right","toNode":"6d1b3e7002c7cc27","toSide":"left"},
@@ -76,7 +79,7 @@
 		{"id":"3781b9c35417c981","fromNode":"204dd5284af02460","fromSide":"bottom","toNode":"01e002c46d3b8587","toSide":"top"},
 		{"id":"6a10e5314b392ac7","fromNode":"b96cf341b6069461","fromSide":"bottom","toNode":"ecd2a404ccd7fc81","toSide":"top"},
 		{"id":"20e85299474f8606","fromNode":"ecd2a404ccd7fc81","fromSide":"bottom","toNode":"53e0f39708e0f370","toSide":"top"},
-		{"id":"15fc71f2b190c4db","fromNode":"f0cfecf914ae683a","fromSide":"right","toNode":"01e002c46d3b8587","toSide":"left"},
-		{"id":"95ffba0a21115774","fromNode":"f0cfecf914ae683a","fromSide":"right","toNode":"53e0f39708e0f370","toSide":"left"}
+		{"id":"15fc71f2b190c4db","fromNode":"f0cfecf914ae683a","fromSide":"bottom","toNode":"01e002c46d3b8587","toSide":"top","label":"merge"},
+		{"id":"095ccf83a0a4cead","fromNode":"f0cfecf914ae683a","fromSide":"bottom","toNode":"53e0f39708e0f370","toSide":"top","label":"merge"}
 	]
 }
