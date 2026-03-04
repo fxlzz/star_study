@@ -1063,7 +1063,7 @@ module.exports = {
 
 利用一些loader或plugin来打包、合并、压缩css文件
 
-比如：css-loader 、style-loader
+比如：css-loader (兼容性)、style-loader（将 css 文件通过 `<style>` 注入到 html 文件）
 
 ```js
 module: {

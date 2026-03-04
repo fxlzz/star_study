@@ -148,15 +148,15 @@
     ]
   },
   "front-tech/工程化/webpack.md": {
-    "scroll": 378.0143951776282,
+    "scroll": 1056.951650169375,
     "cursor": {
       "from": {
-        "line": 138,
-        "ch": 41
+        "line": 1065,
+        "ch": 65
       },
       "to": {
-        "line": 138,
-        "ch": 41
+        "line": 1065,
+        "ch": 65
       }
     },
     "expandedKeys": [
@@ -174,7 +174,8 @@
       "item-2-53",
       "item-1-52",
       "item-1-40",
-      "item-1-60"
+      "item-1-60",
+      "item-2-57"
     ]
   },
   "front-tech/Nodejs.md": {
