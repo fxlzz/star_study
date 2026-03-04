@@ -6,14 +6,14 @@ mongodb 是非关系型数据库，相对的 mysql 是关系型数据库
 
 启动服务： 用 sudo 权限启动服务
 
-```
+```js
 mongod --dbpath data文件路径，例如：
 mongod --dbpath D:\software\mongodb\server\data
 ```
 
 对了，mongodb 的 shell 程序需要自行下载，下载 mongosh
 
-```
+```js
 mongosh
 ```
 
@@ -46,7 +46,7 @@ mongosh
 
 ## mongoose
 
-```
+```js
 npm i mongoose
 ```
 
@@ -54,7 +54,7 @@ npm i mongoose
 
 使用`mongoose`node.js 的 mongodb 的驱动，连接 mongodb 数据库
 
-```
+```js
 const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost/test");
 
@@ -67,7 +67,7 @@ mongoose.connection.on("open", () => {
 
 ## 创建 Schema
 
-```
+```js
 const addressSchema = require("./addressSchema");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
@@ -131,7 +131,7 @@ MongoDB 提供以下方法将文档插入到集合中：
 
 例如：在 test 数据库中，在 test 文档中添加一条数据
 
-```
+```js
 db.test.insertOne({name: "tom", age: 18})
 ```
 
@@ -141,7 +141,7 @@ mongoose 提供两种插入数据的方法，
 
 方法一：创建 model 对象，通过 new 关键字来添加数据
 
-```
+```js
 let User = mongoose.model("User", userSchema);
 
 //向文档中添加数据
@@ -155,7 +155,7 @@ user.save();
 
 方法二：model.create() 调用 api
 
-```
+```js
 let User = mongoose.model("User", userSchema); 
 User.create({
   loginId:"abc", 
@@ -182,7 +182,7 @@ User.create({
 
 例如，
 
-```
+```js
 db.users.find({
   _id: ObjectId('67d2858ddb800758715e53ae')
 })
@@ -210,7 +210,7 @@ sort -> skip -> limit
 
 例如：
 
-```
+```js
 // 查询user文档中的数据
 db.user.find().skip(2).limit(3).sort({age: 1}) 
 // 先根据age升序排序，跳过2条数据，取3条数据，注意这里返回的还是cursor
@@ -225,7 +225,7 @@ db.user.find().count() // 这个
 
 【注意】条件与条件之间默认是**并且**的关系
 
-```
+```js
 // 查询所有 name="曹敏" 的用户
 {
   name: "曹敏" 
@@ -296,7 +296,7 @@ db.user.find().count() // 这个
 
 就是控制输出结果要展示那些数据，
 
-```
+```js
 // 查询结果中仅包含 name、age，以及会自动包含的 _id
 {
   name: 1,
@@ -325,7 +325,7 @@ db.user.find().count() // 这个
 
 例如：
 
-```
+```js
 db.users.find({
   name: /^M/
 }, {
@@ -343,7 +343,7 @@ db.users.find({
 
 ### mongoose中的查询
 
-```
+```js
 <Model>.findById(id); // 按照id查询单条数据
 <Model>.findOne(filter, projection); // 根据条件和投影查询单条数据
 <Model>.find(filter, projection); // 根据条件和投影查询多条数据
@@ -360,7 +360,7 @@ db.users.find({
 
 例如，
 
-```
+```js
 async function test(){
 const res = await User.find({ age: { $gte: 20, $lte: 30 } }, { name: 1, age: 1, _id: 0 })
     .skip((page - 1) * limit)
@@ -398,7 +398,7 @@ options 相关配置，只需了解一个即可，
 
 1. 字段操作
 
-```
+```js
 // 将匹配文档的 name 设置为 邓哥，address.city 设置为 哈尔滨
 {
   $set: { name:"邓哥", "address.city": "哈尔滨" }
@@ -429,7 +429,7 @@ options 相关配置，只需了解一个即可，
 
 2. 数组操作
 
-```
+```js
 // 向 loves 添加一项：秋葵
 // 若数组中不存在则进行添加 若存在则不进行任何操作
 {
@@ -473,7 +473,7 @@ db.users.updateOne({
 
 ### mongoose 更新文档
 
-```
+```js
 async function test() {
   const u = await User.findById("67d29640266a9a4d9eec632b");
   // 得到对象，直接操作即可
@@ -499,14 +499,14 @@ test();
 
 ## 原生创建索引
 
-```
+```js
 // 为某个集合创建索引
 db.<collection>.createIndex(keys, [options]);
 ```
 
 - `keys`：指定索引中关联的字段，以及字段的排序方式，1为升序，-1为降序
 
-```
+```js
 // 索引关联 age 字段，按照升序排序
 { age: 1 }
 ```
@@ -521,7 +521,7 @@ db.<collection>.createIndex(keys, [options]);
 
 ## 其他索引操作
 
-```
+```js
 // 查看所有索引
 db.<collection>.getIndexes()
 // 查看集合索引占用空间
@@ -536,7 +536,7 @@ db.<collection>.dropIndex("索引名称")
 
 这个简单，在创建 Schema 时，直接在某个属性（想要其成为索引）配置一下就可以了~
 
-```
+```js
 index: true, // 将该字段设置为索引
 unique: true, // 特殊索引，唯一索引
 ```
