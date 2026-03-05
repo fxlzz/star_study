@@ -479,8 +479,65 @@ var maxDepth = function(root) {
 >  - 节点的右子树所有节点必须 *严格大于* 当前节点
 >  - 左右子树必须都是二叉搜索树
 
-```js
+在一次体会到，"递归" 这个词的深意，递归的写法一般都有两种【 自底向上（归） | 自顶向下（递）】
 
+### 自底向上
+递归到叶子节点，在"归"的时候，判断当前节点是否在范围内（所以，这需要返回当前节点能够允许的范围）
+
+```js
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isValidBST = function(root) {
+	const dfs = (root) => {
+		if(!root) return {valid: true, min: Infinity, max: -Infinity};
+		
+		// 返回当前节点能够满足的范围
+		const left = dfs(root.left);
+		const right = dfs(root.right);
+		
+		if(!left.valid || !right.valid || root.val <= left.max || root.val >= right.min) {
+			return {valid: false};
+		}
+		
+		return {
+			valid: true,
+			min: Math.min(root.val, left.min),
+			max: Math.max(root.val, right.max)
+		}
+	}
+	
+	return dfs(root).valid;
+};
 ```
+
+### 自顶向下
+需要判断每一个值，它的范围有没有超过祖先定下来的范围 `[min, max]`
+
+```js
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isValidBST = function(root) {
+	const dfs = (root, min, max) => {
+		// 如果到了null，说明到了判断到了叶子节点，说明这棵子树是一个棵二叉搜索树
+		if(!root) return true;
+		
+		// 判断节点是否在规定范围内
+		if(root.val >= min || root.val <= max) return false;
+		
+		return dfs(root.left, min, root.val) && dfs(root.right, root.val, max);
+	}
+	
+	// 对于根节点的范围当然无所谓 [-Infinity, Infinity]
+	return dfs(root, -Infinity, Infinity);
+};
+```
+
+### 中序遍历
+利用二叉搜索树的特性： *中序遍历*后的结果一定是*升序*的
+
 
 # 图
