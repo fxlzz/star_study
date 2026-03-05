@@ -41,10 +41,15 @@
 		{"id":"d6151ad0b34dfd3f","type":"text","text":"开发主要配置：\n1. `mode`\n2. `devtool`\n3. `module` -> 处理 css\n4. `devServer` \n","x":-1540,"y":1107,"width":280,"height":228},
 		{"id":"f2bb416f2e28f3fc","type":"text","text":"生产主要配置：\n1. `mode`\n2. `output`\n3. `module` -> 合并 css（`MiniCssExtractPlugin`）\n4. `plugins` -> 提取 css（`MiniCssExtractPlugin`）\n5. `optimization` -> 压缩 JS 、CSS 代码（`TerserPlugin、CssMinimizerPlugin`）","x":-2124,"y":1107,"width":480,"height":297},
 		{"id":"e6fe333c183775c9","type":"text","text":"基础配置：\n1. `entry`\n2. `cache`\n3. `module`\n4. `resolve`\n5. `plugins`\n6. `optimization`","x":-2200,"y":760,"width":198,"height":291},
-		{"id":"71209da81a8aadb8","type":"text","text":"开发服务器（Express）","x":-940,"y":820,"width":240,"height":60},
-		{"id":"3e0c4e3a152347d1","type":"text","text":"<font color=\"#00b0f0\">监听</font>工程文件变化","x":-1120,"y":910,"width":250,"height":68,"color":"4"},
-		{"id":"0ff43b8a8d884e62","type":"text","text":"<font color=\"#00b0f0\">告知</font>浏览器文件变动","x":-820,"y":910,"width":250,"height":68,"color":"4"},
-		{"id":"a8d92847775bca42","type":"text","text":"","x":-1120,"y":1010,"width":550,"height":60}
+		{"id":"3e0c4e3a152347d1","type":"text","text":"<font color=\"#00b0f0\">监听</font>工程文件变化","x":-1005,"y":1050,"width":220,"height":68,"color":"4"},
+		{"id":"d7107ffb3e7d464f","type":"text","text":"<center>代码片段：xxx.js / xxx.css...</center>","x":-1005,"y":1140,"width":495,"height":60},
+		{"id":"0ff43b8a8d884e62","type":"text","text":"<font color=\"#00b0f0\">告知</font>浏览器文件变动","x":-760,"y":1050,"width":250,"height":68,"color":"4"},
+		{"id":"f6948511c6e20434","type":"text","text":"压缩优化","x":-635,"y":1320,"width":140,"height":60},
+		{"id":"ebff011684626d3e","type":"text","text":"解析编译","x":-1005,"y":1320,"width":125,"height":60},
+		{"id":"cfac7be37a32f6b2","type":"text","text":"模块分包","x":-826,"y":1320,"width":126,"height":60},
+		{"id":"a3afa09a6619f396","type":"text","text":"Koa 服务","x":-159,"y":1320,"width":119,"height":60},
+		{"id":"11fe74a5d6ae4d8f","type":"text","text":"产物 HTML 文件\n1. 注入代码\n2. 引入的资源\n\tScript 脚本\n\tStyle 样式\n\t ...","x":-219,"y":960,"width":240,"height":240},
+		{"id":"71209da81a8aadb8","type":"text","text":"开发服务器（Express）","x":-1015,"y":820,"width":240,"height":60,"color":"2"}
 	],
 	"edges":[
 		{"id":"7c5ec4d7410235a6","fromNode":"2a5ede1f9221550b","fromSide":"right","toNode":"6d1b3e7002c7cc27","toSide":"left"},
@@ -87,6 +92,15 @@
 		{"id":"095ccf83a0a4cead","fromNode":"f0cfecf914ae683a","fromSide":"bottom","toNode":"53e0f39708e0f370","toSide":"top","label":"merge"},
 		{"id":"d156c93d399afb74","fromNode":"f0cfecf914ae683a","fromSide":"left","toNode":"e6fe333c183775c9","toSide":"right"},
 		{"id":"0418531855cd18cb","fromNode":"01e002c46d3b8587","fromSide":"bottom","toNode":"f2bb416f2e28f3fc","toSide":"top"},
-		{"id":"51b8b6ec37ec15f2","fromNode":"53e0f39708e0f370","fromSide":"bottom","toNode":"d6151ad0b34dfd3f","toSide":"top"}
+		{"id":"51b8b6ec37ec15f2","fromNode":"53e0f39708e0f370","fromSide":"bottom","toNode":"d6151ad0b34dfd3f","toSide":"top"},
+		{"id":"383512dc280d59a5","fromNode":"ebff011684626d3e","fromSide":"right","toNode":"cfac7be37a32f6b2","toSide":"left"},
+		{"id":"bbccc377b5e84399","fromNode":"cfac7be37a32f6b2","fromSide":"right","toNode":"f6948511c6e20434","toSide":"left"},
+		{"id":"0150e5f02f46fe1c","fromNode":"f6948511c6e20434","fromSide":"top","toNode":"d7107ffb3e7d464f","toSide":"bottom"},
+		{"id":"d4a67017d8cdc464","fromNode":"0ff43b8a8d884e62","fromSide":"top","toNode":"11fe74a5d6ae4d8f","toSide":"top"},
+		{"id":"30f69520289b7ba5","fromNode":"a3afa09a6619f396","fromSide":"top","toNode":"11fe74a5d6ae4d8f","toSide":"bottom","label":"渲染页面"},
+		{"id":"b03285e0b3c8fc7c","fromNode":"f6948511c6e20434","fromSide":"top","toNode":"11fe74a5d6ae4d8f","toSide":"bottom"},
+		{"id":"e31eb651e7099ece","fromNode":"11fe74a5d6ae4d8f","fromSide":"left","toNode":"d7107ffb3e7d464f","toSide":"right","label":"引入的资源在内存中\n不在磁盘中"},
+		{"id":"e40904d5cf27fe83","fromNode":"11fe74a5d6ae4d8f","fromSide":"top","toNode":"0ff43b8a8d884e62","toSide":"top","label":"EventStream-长连接 "},
+		{"id":"22c030fcbcd44af2","fromNode":"d6151ad0b34dfd3f","fromSide":"right","toNode":"71209da81a8aadb8","toSide":"left","label":"手写\ndevServer"}
 	]
 }
