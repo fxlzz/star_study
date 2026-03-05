@@ -470,4 +470,17 @@ var maxDepth = function(root) {
 };
 ```
 
+
+## 二叉搜索树
+[98. 验证二叉搜索树 - 力扣（LeetCode）](https://leetcode.cn/problems/validate-binary-search-tree/description/?envType=study-plan-v2&envId=top-100-liked)
+
+>  定义：
+>  - 节点的左子树所有节点必须 *严格小于* 当前节点
+>  - 节点的右子树所有节点必须 *严格大于* 当前节点
+>  - 左右子树必须都是二叉搜索树
+
+```js
+
+```
+
 # 图

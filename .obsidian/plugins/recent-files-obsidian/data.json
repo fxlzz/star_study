@@ -1,12 +1,12 @@
 {
   "recentFiles": [
     {
-      "basename": "algo",
-      "path": "data-algo/algo.md"
-    },
-    {
       "basename": "data",
       "path": "data-algo/data.md"
+    },
+    {
+      "basename": "algo",
+      "path": "data-algo/algo.md"
     },
     {
       "basename": "flow",
