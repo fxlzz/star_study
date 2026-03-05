@@ -75,33 +75,35 @@
     ]
   },
   "project/improve_coding/improve_coding.md": {
-    "scroll": 0,
+    "scroll": 326.01238841679,
     "cursor": {
       "from": {
-        "line": 3,
+        "line": 335,
         "ch": 0
       },
       "to": {
-        "line": 3,
+        "line": 335,
         "ch": 0
       }
     },
     "expandedKeys": [
       "item-2-5",
       "item-1-4",
-      "item-1-7"
+      "item-1-7",
+      "item-1-11",
+      "item-3-14"
     ]
   },
   "data-algo/data.md": {
     "scroll": 468.5449544529937,
     "cursor": {
       "from": {
-        "line": 473,
-        "ch": 8
+        "line": 481,
+        "ch": 6
       },
       "to": {
-        "line": 473,
-        "ch": 8
+        "line": 481,
+        "ch": 6
       }
     },
     "expandedKeys": [

@@ -1,24 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "data",
-      "path": "data-algo/data.md"
-    },
-    {
-      "basename": "algo",
-      "path": "data-algo/algo.md"
-    },
-    {
       "basename": "flow",
       "path": "project/improve_coding/flow.canvas"
+    },
+    {
+      "basename": "improve_coding",
+      "path": "project/improve_coding/improve_coding.md"
+    },
+    {
+      "basename": "mongodb",
+      "path": "general-tech/database/mongodb.md"
     },
     {
       "basename": "webpack",
       "path": "front-tech/工程化/webpack.md"
     },
     {
-      "basename": "mongodb",
-      "path": "general-tech/database/mongodb.md"
+      "basename": "data",
+      "path": "data-algo/data.md"
+    },
+    {
+      "basename": "algo",
+      "path": "data-algo/algo.md"
     },
     {
       "basename": "毕设",
@@ -55,10 +59,6 @@
     {
       "basename": "简历",
       "path": "interview/简历.md"
-    },
-    {
-      "basename": "improve_coding",
-      "path": "project/improve_coding/improve_coding.md"
     },
     {
       "basename": "Drawing 2026-02-28 09.50.14.excalidraw",

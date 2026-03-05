@@ -40,7 +40,11 @@
 		{"id":"f0cfecf914ae683a","type":"text","text":"Webpack. Base. Js","x":-1720,"y":820,"width":250,"height":60},
 		{"id":"d6151ad0b34dfd3f","type":"text","text":"开发主要配置：\n1. `mode`\n2. `devtool`\n3. `module` -> 处理 css\n4. `devServer` \n","x":-1540,"y":1107,"width":280,"height":228},
 		{"id":"f2bb416f2e28f3fc","type":"text","text":"生产主要配置：\n1. `mode`\n2. `output`\n3. `module` -> 合并 css（`MiniCssExtractPlugin`）\n4. `plugins` -> 提取 css（`MiniCssExtractPlugin`）\n5. `optimization` -> 压缩 JS 、CSS 代码（`TerserPlugin、CssMinimizerPlugin`）","x":-2124,"y":1107,"width":480,"height":297},
-		{"id":"e6fe333c183775c9","x":-2200,"y":760,"width":198,"height":291,"type":"text","text":"基础配置：\n1. `entry`\n2. `cache`\n3. `module`\n4. `resolve`\n5. `plugins`\n6. `optimization`"}
+		{"id":"e6fe333c183775c9","type":"text","text":"基础配置：\n1. `entry`\n2. `cache`\n3. `module`\n4. `resolve`\n5. `plugins`\n6. `optimization`","x":-2200,"y":760,"width":198,"height":291},
+		{"id":"71209da81a8aadb8","type":"text","text":"开发服务器（Express）","x":-940,"y":820,"width":240,"height":60},
+		{"id":"3e0c4e3a152347d1","type":"text","text":"<font color=\"#00b0f0\">监听</font>工程文件变化","x":-1120,"y":910,"width":250,"height":68,"color":"4"},
+		{"id":"0ff43b8a8d884e62","type":"text","text":"<font color=\"#00b0f0\">告知</font>浏览器文件变动","x":-820,"y":910,"width":250,"height":68,"color":"4"},
+		{"id":"a8d92847775bca42","type":"text","text":"","x":-1120,"y":1010,"width":550,"height":60}
 	],
 	"edges":[
 		{"id":"7c5ec4d7410235a6","fromNode":"2a5ede1f9221550b","fromSide":"right","toNode":"6d1b3e7002c7cc27","toSide":"left"},
