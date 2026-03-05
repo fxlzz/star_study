@@ -539,5 +539,31 @@ var isValidBST = function(root) {
 ### 中序遍历
 利用二叉搜索树的特性： *中序遍历*后的结果一定是*升序*的
 
+用 prevVal 来记录前一个值，判断当前值是否大于前一个值，若大于，则继续判断后续节点
+
+```js
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isValidBST = function(root) {
+    let prevVal = -Infinity; // 只有一个值[0]时，去其他值判断有问题
+    const dfs = root => {
+        // 说明到叶子节点的子树节点都是合法的
+        if(!root) return true;
+        
+        // 说明左子树有不正常的节点
+        if(!dfs(root.left)) return false;
+
+        // 根节点
+        if(root.val <= prevVal) return false;
+        prevVal = root.val;
+        
+        // 右子树
+        return dfs(root.right);
+    }
+    return dfs(root);
+};
+```
 
 # 图
