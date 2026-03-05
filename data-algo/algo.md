@@ -167,3 +167,6 @@ var subarraySum = function (nums, k) {
 ```
 
 # 二分法
+```js
+
+```

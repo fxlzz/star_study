@@ -1,24 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "mongodb",
-      "path": "general-tech/database/mongodb.md"
+      "basename": "algo",
+      "path": "data-algo/algo.md"
     },
     {
-      "basename": "webpack",
-      "path": "front-tech/工程化/webpack.md"
+      "basename": "data",
+      "path": "data-algo/data.md"
     },
     {
       "basename": "flow",
       "path": "project/improve_coding/flow.canvas"
     },
     {
-      "basename": "毕设",
-      "path": "毕设.md"
+      "basename": "webpack",
+      "path": "front-tech/工程化/webpack.md"
     },
     {
-      "basename": "data",
-      "path": "data-algo/data.md"
+      "basename": "mongodb",
+      "path": "general-tech/database/mongodb.md"
+    },
+    {
+      "basename": "毕设",
+      "path": "毕设.md"
     },
     {
       "basename": "未命名看板",
@@ -47,10 +51,6 @@
     {
       "basename": "React",
       "path": "front-tech/React/React.md"
-    },
-    {
-      "basename": "algo",
-      "path": "data-algo/algo.md"
     },
     {
       "basename": "简历",
