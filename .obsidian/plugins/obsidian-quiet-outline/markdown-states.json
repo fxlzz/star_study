@@ -265,5 +265,19 @@
       "item-2-15",
       "item-1-20"
     ]
+  },
+  "front-tech/场景/base64 导出.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 5,
+        "ch": 0
+      },
+      "to": {
+        "line": 5,
+        "ch": 0
+      }
+    },
+    "expandedKeys": []
   }
 }

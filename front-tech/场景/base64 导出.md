@@ -83,7 +83,7 @@ export const exportFile = async ({
       const blob = new Blob([bytes], { type: extMap.get(extname) })
 
       createDownloadLink(extname, fileName, blob)
-
+	
       onAfterExport
         ? onAfterExport()
         : Alert.alert(`${intl.formatMessage({ id: 'Export Success' })}`, 'success')
