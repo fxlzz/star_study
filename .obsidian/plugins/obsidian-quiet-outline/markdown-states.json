@@ -311,19 +311,35 @@
     ]
   },
   "general-tech/docker.md": {
-    "scroll": 37.943721052614194,
+    "scroll": 42.594034026584346,
     "cursor": {
       "from": {
-        "line": 48,
+        "line": 53,
         "ch": 0
       },
       "to": {
-        "line": 48,
+        "line": 53,
         "ch": 0
       }
     },
     "expandedKeys": [
       "item-2-5"
+    ]
+  },
+  "general-tech/git.md": {
+    "scroll": 155.47882845949783,
+    "cursor": {
+      "from": {
+        "line": 4,
+        "ch": 10
+      },
+      "to": {
+        "line": 4,
+        "ch": 10
+      }
+    },
+    "expandedKeys": [
+      "item-1-0"
     ]
   }
 }
