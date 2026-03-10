@@ -1,11 +1,13 @@
 {
 	"nodes":[
-		{"id":"0c4256730f119032","x":-340,"y":-60,"width":180,"height":60,"type":"text","text":"文件存储方式"},
-		{"id":"3a2798b2e4d515aa","x":-60,"y":-90,"width":380,"height":60,"type":"text","text":"默认内存存储： 存放在本地浏览器中"},
-		{"id":"b39ee315d1745b1c","x":-60,"y":-5,"width":385,"height":165,"type":"text","text":"持久化存储：\n1. 支持配置 Supabase 账号（存放在云端）\n2. "}
+		{"id":"970cdd2c9d67a505","type":"text","text":"Docker 启动","x":180,"y":-80,"width":174,"height":60},
+		{"id":"aee5ba6a6a2d5028","type":"text","text":"启动后端服务： 3001","x":401,"y":-80,"width":271,"height":60},
+		{"id":"743c085f0e6bf52d","x":394,"y":80,"width":286,"height":60,"type":"text","text":"浏览器访问 3001 的端口"},
+		{"id":"9f42c0a6bcdb0990","x":389,"y":-260,"width":296,"height":60,"type":"text","text":"前端部分： react + ts + vite"}
 	],
 	"edges":[
-		{"id":"80456fc2df177512","fromNode":"0c4256730f119032","fromSide":"right","toNode":"3a2798b2e4d515aa","toSide":"left"},
-		{"id":"0ee522d0731fdd4d","fromNode":"0c4256730f119032","fromSide":"right","toNode":"b39ee315d1745b1c","toSide":"left"}
+		{"id":"cc88e9d7997f5df3","fromNode":"970cdd2c9d67a505","fromSide":"right","toNode":"aee5ba6a6a2d5028","toSide":"left"},
+		{"id":"37e6c81bf8e38c93","fromNode":"aee5ba6a6a2d5028","fromSide":"bottom","toNode":"743c085f0e6bf52d","toSide":"top","label":"渲染前端页面"},
+		{"id":"9d99afe28cdf420e","fromNode":"9f42c0a6bcdb0990","fromSide":"bottom","toNode":"aee5ba6a6a2d5028","toSide":"top","label":"打包单页应用，提供 html 文件"}
 	]
 }
