@@ -15,6 +15,11 @@ docker 运行模式：
 ![450](assets/docker/file-20251207164527433.png)
 
 
+## 镜像与容器
+镜像类似于"类"、"模板" （由应用程序打包而成的，会将应用程序所依赖的库都记录下来，这样不管在哪里使用该应用程序，用的依赖都是一样的）
+
+容器简单的说，就是镜像的运行的实例
+
 ## 下载镜像
 `docker pull docker.io/library/nginx:latest`  
 + docker.io - registry 仓库地址 

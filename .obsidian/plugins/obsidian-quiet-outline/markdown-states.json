@@ -309,5 +309,21 @@
       "item-2-23",
       "item-3-6"
     ]
+  },
+  "general-tech/docker.md": {
+    "scroll": 37.943721052614194,
+    "cursor": {
+      "from": {
+        "line": 48,
+        "ch": 0
+      },
+      "to": {
+        "line": 48,
+        "ch": 0
+      }
+    },
+    "expandedKeys": [
+      "item-2-5"
+    ]
   }
 }
