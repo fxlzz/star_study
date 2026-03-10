@@ -235,12 +235,12 @@
     "scroll": 0,
     "cursor": {
       "from": {
-        "line": 0,
-        "ch": 15
+        "line": 12,
+        "ch": 39
       },
       "to": {
-        "line": 0,
-        "ch": 15
+        "line": 12,
+        "ch": 39
       }
     },
     "expandedKeys": []
