@@ -145,6 +145,14 @@ git push
 --- 
 一般常用的就是这些操作了，还有一些 fetch / rebase ...
 
+## 回退代码
+核心命令： `git reset`
+
+几个场景：
+- 代码 commit 没有 push `git reset --soft HEAD~1` （代码会回退到暂存区）
+	- 回退到未加入暂存区状态 `git reset HEAD~1`
+	- 彻底删除最近一次提交 `git reset --hard HEAD~1`
+
 ## cherry-pick
 
 这个命令一般用于，你在 A 分支写过一遍的代码 A' ，只想将这个 A' 单独合到 B 分支
