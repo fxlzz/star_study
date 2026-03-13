@@ -172,6 +172,9 @@ docker compose - 容器化编排技术 => 管理容器调度运行的
 **开启**
 `docker componse start`
 
+**查看日志**
+`docker compose logs -f server` 查看 server 服务的日志
+
 ---
 企业级的容器编排技术，需要用到 k8s -> 这个功能更全，更牛逼~
 
