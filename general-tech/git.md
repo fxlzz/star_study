@@ -153,6 +153,30 @@ git push
 	- 回退到未加入暂存区状态 `git reset HEAD~1`
 	- 彻底删除最近一次提交 `git reset --hard HEAD~1`
 
+## Tag
+```zsh
+# 1. 查看本地所有 tag
+git tag
+
+# 2. 查看特定 tag 的详情
+git show v1.0.0
+
+# 3. 创建附注 tag (推荐)
+git tag -a v1.0.0 -m "版本 1.0.0 正式发布"
+
+# 4. 切换到某个 tag (进入只读模式/分离头指针)
+git checkout v1.0.0
+
+# 5. 删除本地 tag
+git tag -d v1.0.0
+
+# 6. 删除远程 tag
+git push origin --delete v1.0.0
+
+# 7. 推送 tag 到远程
+git push origin v1.0.0
+```
+
 ## cherry-pick
 
 这个命令一般用于，你在 A 分支写过一遍的代码 A' ，只想将这个 A' 单独合到 B 分支
