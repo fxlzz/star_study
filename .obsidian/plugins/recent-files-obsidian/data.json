@@ -1,20 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "毕设",
-      "path": "毕设.md"
+      "basename": "git",
+      "path": "general-tech/git.md"
     },
     {
       "basename": "docker",
       "path": "general-tech/docker.md"
     },
     {
-      "basename": "git",
-      "path": "general-tech/git.md"
+      "basename": "毕设",
+      "path": "毕设.md"
     },
     {
       "basename": "未命名",
       "path": "未命名.canvas"
+    },
+    {
+      "basename": "KanBan",
+      "path": "KanBan.md"
     },
     {
       "basename": "flow",
@@ -49,20 +53,12 @@
       "path": "data-algo/algo.md"
     },
     {
-      "basename": "未命名看板",
-      "path": "未命名看板.md"
-    },
-    {
       "basename": "Nodejs",
       "path": "front-tech/Nodejs.md"
     },
     {
       "basename": "webpack - 优化",
       "path": "front-tech/工程化/webpack - 优化.md"
-    },
-    {
-      "basename": "KanBan",
-      "path": "KanBan.md"
     },
     {
       "basename": "some details",

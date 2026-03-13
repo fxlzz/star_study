@@ -160,8 +160,18 @@ docker compose - 容器化编排技术 => 管理容器调度运行的
 读取 `docker-compose.yaml` 文件 - 该文件列出了容器之间是如何创建、如何协同工作的
 注意： docker 会为每一个 docker-compose 文件中都创建一个子网， compose 文件中容器会自动归属于一个子网
 
+**打包**
+根据 `docker-compose.yaml` 中的 services 生成对应个镜像
+`docker compose build` 
+
 **启动compose文件**
+会为每个 services 启动一个或多个容器
 `docker compose up -d`
+
+`docker compose up -d --build` 两者的结合体
+
+**查看 compose 中的服务**
+`docker compose ps`
 
 **停止并删除容器**
 `docker componse down`
@@ -175,6 +185,22 @@ docker compose - 容器化编排技术 => 管理容器调度运行的
 **查看日志**
 `docker compose logs -f server` 查看 server 服务的日志
 
+### 环境变量
+```yaml
+environment:
+  - PORT=3001
+  - DASHSCOPE_API_KEY=${DASHSCOPE_API_KEY}
+  - JWT_SECRET=${JWT_SECRET}
+  ...
+```
+1. 宿主机当前 shell 环境变量
+```zsh
+export DASHSCOPE_API_KEY=xxx
+export JWT_SECRET=yyy
+
+docker compose up -d
+```
+3. 和 `docker-compose.yaml` 同目录下的 `.env` 文件
 ---
 企业级的容器编排技术，需要用到 k8s -> 这个功能更全，更牛逼~
 

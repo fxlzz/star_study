@@ -314,31 +314,32 @@
     ]
   },
   "general-tech/docker.md": {
-    "scroll": 156.5920662047371,
+    "scroll": 153.2076707330911,
     "cursor": {
       "from": {
-        "line": 175,
-        "ch": 47
+        "line": 170,
+        "ch": 37
       },
       "to": {
-        "line": 175,
-        "ch": 47
+        "line": 170,
+        "ch": 37
       }
     },
     "expandedKeys": [
-      "item-2-5"
+      "item-2-5",
+      "item-2-17"
     ]
   },
   "general-tech/git.md": {
-    "scroll": 141.4142829047309,
+    "scroll": 165.3221052165206,
     "cursor": {
       "from": {
-        "line": 150,
-        "ch": 5
+        "line": 173,
+        "ch": 25
       },
       "to": {
-        "line": 150,
-        "ch": 5
+        "line": 173,
+        "ch": 25
       }
     },
     "expandedKeys": [
