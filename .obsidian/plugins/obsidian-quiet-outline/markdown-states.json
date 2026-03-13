@@ -232,18 +232,21 @@
     ]
   },
   "毕设.md": {
-    "scroll": 0,
+    "scroll": 78.83386323313233,
     "cursor": {
       "from": {
-        "line": 12,
-        "ch": 39
+        "line": 137,
+        "ch": 3
       },
       "to": {
-        "line": 12,
-        "ch": 39
+        "line": 137,
+        "ch": 3
       }
     },
-    "expandedKeys": []
+    "expandedKeys": [
+      "item-1-4",
+      "item-2-8"
+    ]
   },
   "general-tech/database/mongodb.md": {
     "scroll": 532.9133746326129,

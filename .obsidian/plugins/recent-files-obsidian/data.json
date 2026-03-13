@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "毕设",
+      "path": "毕设.md"
+    },
+    {
       "basename": "docker",
       "path": "general-tech/docker.md"
     },
@@ -11,10 +15,6 @@
     {
       "basename": "未命名",
       "path": "未命名.canvas"
-    },
-    {
-      "basename": "毕设",
-      "path": "毕设.md"
     },
     {
       "basename": "flow",
