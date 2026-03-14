@@ -232,7 +232,7 @@
     ]
   },
   "毕设.md": {
-    "scroll": 296.13553798192976,
+    "scroll": 295.9637353150828,
     "cursor": {
       "from": {
         "line": 330,
@@ -355,17 +355,17 @@
     "cursor": {
       "from": {
         "line": 0,
-        "ch": 2
+        "ch": 0
       },
       "to": {
         "line": 0,
-        "ch": 2
+        "ch": 0
       }
     },
     "expandedKeys": []
   },
   "RAG 测试数据.md": {
-    "scroll": 0,
+    "scroll": 65.62499600365048,
     "cursor": {
       "from": {
         "line": 5,
@@ -376,20 +376,41 @@
         "ch": 34
       }
     },
-    "expandedKeys": []
+    "expandedKeys": [
+      "item-1-0",
+      "item-2-4"
+    ]
   },
   "interview/计算机网络.md": {
     "scroll": 0,
     "cursor": {
       "from": {
-        "line": 11,
+        "line": 0,
         "ch": 0
       },
       "to": {
-        "line": 11,
+        "line": 0,
         "ch": 0
       }
     },
     "expandedKeys": []
+  },
+  "md测试数据.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 41,
+        "ch": 0
+      },
+      "to": {
+        "line": 41,
+        "ch": 0
+      }
+    },
+    "expandedKeys": [
+      "item-1-0",
+      "item-3-2",
+      "item-2-1"
+    ]
   }
 }
