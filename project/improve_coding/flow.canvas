@@ -49,7 +49,8 @@
 		{"id":"cfac7be37a32f6b2","type":"text","text":"模块分包","x":-826,"y":1320,"width":126,"height":60},
 		{"id":"a3afa09a6619f396","type":"text","text":"Koa 服务","x":-159,"y":1320,"width":119,"height":60},
 		{"id":"11fe74a5d6ae4d8f","type":"text","text":"产物 HTML 文件\n1. 注入代码\n2. 引入的资源\n\tScript 脚本\n\tStyle 样式\n\t ...","x":-219,"y":960,"width":240,"height":240},
-		{"id":"71209da81a8aadb8","type":"text","text":"开发服务器（Express）","x":-1015,"y":820,"width":240,"height":60,"color":"2"}
+		{"id":"71209da81a8aadb8","type":"text","text":"开发服务器（Express）","x":-1015,"y":820,"width":240,"height":60,"color":"2"},
+		{"id":"57d1bcc66e87a3dc","type":"text","text":"多页应用，不好配置 devServer","x":-1015,"y":898,"width":353,"height":62}
 	],
 	"edges":[
 		{"id":"7c5ec4d7410235a6","fromNode":"2a5ede1f9221550b","fromSide":"right","toNode":"6d1b3e7002c7cc27","toSide":"left"},

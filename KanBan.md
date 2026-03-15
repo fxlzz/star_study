@@ -11,12 +11,10 @@ kanban-plugin: board
 
 ## Todo
 
-- [ ] Good idea 项目编写
 - [ ] 计算机基础知识复习
 - [ ] 计算机网络
 - [ ] 数据结构
 - [ ] 操作系统
-- [ ] 论文初稿等 3-15 截至
 
 
 ## Doing
@@ -27,6 +25,8 @@ kanban-plugin: board
 
 ## Done
 
+- [ ] Good idea 项目编写
+- [ ] 论文初稿等 3-15 截至
 - [ ] 算法三题
 
 

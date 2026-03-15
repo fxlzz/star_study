@@ -314,11 +314,346 @@ webpack.base.js
 	   | -- development -> merge.smart(webpackBaseConfig, {...})
 ```
 
-### Webpack. Base. Js
+### `webpack.base.js`
+基础配置：
+- 入口 entry
+- 缓存 cache
+- 基本解析模块 loader
+- 插件 plugin
+- 分包优化 optimization
 
-### Webpack. Prod. Js
+```js
+const webpack = require("webpack");
+const path = require("path");
+const glob = require("glob");
 
-### Webpack. Dev. Js
+const { businessPath, publicPath, templatePath } = require("./path");
+const { VueLoaderPlugin } = require("vue-loader");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+const entryList = {}; // 配置多页入口
+const htmlWebpackPluginList = [];
+const entryPath = path.join(businessPath, "/**/entry.*.js");
+glob.sync(entryPath).forEach((file) => {
+  // file 是路绝对路径
+  const entryName = path.basename(file, ".js");
+  entryList[entryName] = file;
+  
+  htmlWebpackPluginList.push(
+    new HtmlWebpackPlugin({
+      // 产物的输出目录
+      filename: path.resolve(publicPath, "./dist", `./${entryName}.html`),
+      // 指定要使用的模板
+      template: path.resolve(templatePath, "./index.html"),
+      // 要注入的代码块
+      chunks: [entryName],
+    }),
+  );
+});
+
+// webpack 配置
+module.exports = {
+  // 入口配置
+  entry: entryList,
+  // 缓存配置
+  cache: {
+    type: "filesystem", // 持久化缓存 -> 默认存储在 node_modules/.cache/webpack
+    buildDependencies: {
+      config: [__filename], //当配置文件修改时，整个缓存失效
+    }
+  },
+  // 模块解析配置
+  module: {
+    rules: [
+      {
+        test: /\.vue$/,
+        use: "vue-loader",
+      },
+      {
+        test: /\.js$/,
+        include: businessPath,
+        use: "swc-loader",
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.less$/,
+        use: ["style-loader", "css-loader", "less-loader"],
+      },
+      {
+        test: /\.(png|jpeg|gif)(\?.+)?$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            limit: 300,
+            esModule: false,
+          },
+        },
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+        use: ["file-loader"],
+      },
+    ],
+  },
+  // 配置解析模块的具体行为
+  resolve: {
+    extensions: [".vue", ".js", ".less", ".json"],
+    alias: {
+      "@pages": path.resolve(businessPath),
+      "@common": path.resolve(businessPath, "./common"),
+      "@components": path.resolve(businessPath, "./components"),
+      "@stores": path.resolve(businessPath, "./stores"),
+      "@utils": path.resolve(businessPath, "./utils"),
+      "@api": path.resolve(businessPath, "./api"),
+    },
+  },
+  // 插件配置（在合适的时机干预 webpack 解析）
+  plugins: [
+    // 处理 .vue 文件，与 vue-loader 配合起来用
+    new VueLoaderPlugin(),
+    // 把第三方库暴露到 window context 下（提前下载这些模块，具体来说，这些变量的使用在模块中就不需要显示引入了）
+    new webpack.ProvidePlugin({
+      Vue: "vue",
+      axios: "axios",
+      _: "lodash",
+    }),
+
+    // 定义全局变量
+    new webpack.DefinePlugin({
+      __VUE_OPTIONS_API__: "true", // 支持 vue 解析 optionsAPI
+      __VUE_PROD_DEVTOOLS__: "false", // 解析过程中禁用调式工具
+      __VUE_PROD_HYDRTION_MISMATCH_DETAYILS__: "false",
+    }),
+
+    // 构建最终产物
+    ...htmlWebpackPluginList,
+  ],
+  // 优化打包/构建
+  optimization: {
+    /**
+     * 代码分割
+     * 1. vendor 改动很少的一些第三方库
+     * 2. commons 业务中公共的代码
+     * 3. entry 业务中每个页面的入口代码
+     */
+    splitChunks: {
+      chunks: "all", // 同步和异步的模块都进行分割
+      maxAsyncRequests: 10, // 最大异步加载请求并行数
+      maxInitialRequests: 10, // 最大初始加载请求并行数
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendor",
+          chunks: "all",
+          priority: 20, // 优先级越高，越先被分割
+          enforce: true, // 强制分割
+          reuseExistingChunk: true, // 复用已有的 chunk
+        },
+
+        commons: {
+          test: /[\\/]pages[\\/]/,
+          name: "commons",
+          chunks: "all",
+          minChunks: 2, // 最少引用次数
+          priority: 10,
+          reuseExistingChunk: true, // 复用已有的 chunk
+        },
+      }
+    },
+  }
+};
+```
+
+### `webpack.prod.js`
+生产配置：
+- 模式 mode
+- 输出目录 output
+- 打包压缩 optimization
+	- Css -> `CssMinimizerPlugin` & `MiniCssExtractPlugin.loader` & `MiniCssExtractPlugin`
+	- Js -> `TerserPlugin`
+
+```js
+const path = require("path");
+const merge = require("webpack-merge");
+const webpackBaseConfig = require("./webpack.base");
+  
+const { publicPath } = require("./path");
+  
+const TerserPlugin = require("terser-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+module.exports = merge.smart(webpackBaseConfig, {
+    mode: "production",
+    output: {
+        clean: true, // 相当于 CleanWebpackPlugin
+        // contenthash 使得浏览器缓存失效
+        filename: "js/[name]_[contenthash:8].bundle.js",
+        path: path.resolve(publicPath, "./dist/prod"),
+        publicPath: "/dist/prod/",
+        crossOriginLoading: "anonymous",
+    },
+
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [MiniCssExtractPlugin.loader, "css-loader"],
+            },
+            {
+                test: /\.less$/,
+                use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"],
+            },
+        ]
+    },
+
+    plugins: [
+        // 提取 CSS 代码
+        new MiniCssExtractPlugin({
+            filename: "css/[name]_[contenthash:8].bundle.css",
+        }),
+    ],
+
+    optimization: {
+        splitChunks: { chunks: "all" },
+        runtimeChunk: "single", // 提取 runtime 代码
+        minimizer: [
+            new CssMinimizerPlugin(), // 压缩 CSS 代码
+            new TerserPlugin({
+                minify: TerserPlugin.swcMinify, // 压缩 JS 代码，压缩使用 swc 
+                terserOptions: {
+                    compress: {
+                        drop_console: true, // 删除 console.log
+                    },
+                },
+            }),
+        ],
+    },
+});
+```
+
+### `webpack.dev.js`
+开发配置：
+- 模式 mode
+- 输出目录 output
+- 源码地图 devtool
+- 配置开发服务器 devServer -- 多页应用 -- 自定义开发服务器
+	- Webpack 作为客户端
+		- 需要给每个入口配置 hmr 的客户端
+		- 配置插件支持在应用程序运行时替换模块 `HotModuleReplacementPlugin`
+	- 手写 hmr 服务端 `express.js` -- 在这个服务中需要满足两个功能
+		- 监听代码变动 - `webpack-dev-middleware`
+		- 告诉浏览器变动 - `webpack-hot-middleware`
+
+*webpack 配置 --- hmr 客户端*
+
+```js
+const webpack = require("webpack");
+const merge = require("webpack-merge");
+const path = require("path");
+const webpackBaseConfig = require("./webpack.base.js");
+
+const { publicPath } = require("./path");
+
+// 开发服务器
+const DEV_SERVER_CONFIG = {
+    HOST: "127.0.0.1",
+    PORT: 9002,
+    HMR_PATH: "__webpack_hmr", // 官方规定，hmr客户端路径
+    TIMEOUT: 20000,
+    RELOAD: true,
+}
+
+// 注入hmr客户端
+const { HOST, PORT, HMR_PATH, TIMEOUT, RELOAD } = DEV_SERVER_CONFIG;
+Object.keys(webpackBaseConfig.entry).forEach(key => {
+    // 第三方库改动较少，不需要注入hmr客户端
+    if (key !== "vendor") {
+        webpackBaseConfig.entry[key] = [
+            webpackBaseConfig.entry[key],
+            `webpack-hot-middleware/client?path=http://${HOST}:${PORT}/${HMR_PATH}&timeout=${TIMEOUT}&reload=${RELOAD}`,
+        ]
+    }
+})
+
+const webpackDevConfig = merge.smart(webpackBaseConfig, {
+    mode: "development",
+    devtool: "eval-cheap-module-source-map",
+    output: {
+        clean: true,
+        filename: "js/[name].bundle.js",
+        path: path.resolve(publicPath, "./dist/dev"),
+        publicPath: `http://${HOST}:${PORT}/public/dist/dev/`,
+    },
+    // 开发环境插件
+    plugins: [
+        // 该插件允许在应用程序运行时替换模块
+        new webpack.HotModuleReplacementPlugin({
+            multiStep: true,
+        }),
+    ]
+})
+  
+module.exports = {
+    // webpack 开发环境配置
+    webpackDevConfig,
+    // 开发服务器配置
+    DEV_SERVER_CONFIG
+}
+```
+
+*express 服务端 --- hmr 服务端*
+
+```js
+// 使用 express 启动开发服务器
+const express = require("express");
+const path = require("path");
+const webpack = require("webpack");
+const consoler = require("consoler");
+  
+// hmr 中间件
+const devMiddleware = require("webpack-dev-middleware");
+const hotMiddleware = require("webpack-hot-middleware");
+
+// 获取 webpack 开发环境配置和开发服务器配置
+const { webpackDevConfig, DEV_SERVER_CONFIG } = require("./config/webpack.dev");
+
+consoler.info("webpack 开发服务器正在启动...");
+
+const app = express();
+const complier = webpack(webpackDevConfig);
+
+// 指定静态文件目录
+app.use(express.static(path.resolve(__dirname, "../public/dist/")));
+
+// 配置监听中间件（dev）
+app.use(devMiddleware(complier, {
+    // .html 文件 不加入内存的文件 --- 引入的资源在内存中 改动更频繁是引用的资源，修改后，hmr服务端将修改后的代码片段放入内容中，浏览器从内容中取更新后的代码
+    writeToDisk: filename => filename.endsWith(".html"),
+    // 资源目录
+    publicPath: webpackDevConfig.output.publicPath,
+    // 跨域
+    headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+        "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Authorization",
+    },
+}))
+
+// 配置通知中间件（hot）
+app.use(hotMiddleware(complier, {
+    path: `/${DEV_SERVER_CONFIG.HMR_PATH}`,
+    log: () => { }
+}))
+
+const port = DEV_SERVER_CONFIG.PORT;
+app.listen(port, () => {
+    console.log(`开发服务器正在运行，端口：${port}`);
+});
+```
 
 #### 开发服务器
 问题：为什么不直接用 Proxy 代理呢？
@@ -332,4 +667,18 @@ webpack.base.js
 
 + **webpack-dev-middleware**: 将 Webpack 编译后的文件（存在内存里）映射到 Koa 的路由上
 + **webpack-hot-middleware**: 实现浏览器的热更新（HMR）
+
+# DSL 领域模型设计
+对于 ToB 的项目而言，开发者往往不仅仅只会维护一套系统，还有其他客户的定制化需求
+但，这就造成了比较尴尬的场景
+就我实习的公司而言，是在 master 的基础上拉取新的分支，莫条独立的分支用于维护某个特定的客户需求。
+
+这样做的缺点，当客户到达一定程度，那么熵增就会越大。导致，管理混乱，分支杂乱。不同客户可能还是不同的版本。
+
+改进作法：
+将每一位客户的系统作为一个单页应用，这个应用中用到的组件，都复用同一套代码。
+[DSL领域模型](DSL领域模型.md)
+
+-- 疑问： 不同版本之间，如果UI 不同，如果是复用同一套代码，好像也不对？
+
 
