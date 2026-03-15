@@ -317,7 +317,7 @@
     ]
   },
   "general-tech/docker.md": {
-    "scroll": 153.2076707330911,
+    "scroll": 160.36388851347425,
     "cursor": {
       "from": {
         "line": 170,
@@ -396,21 +396,23 @@
     "expandedKeys": []
   },
   "md测试数据.md": {
-    "scroll": 0,
+    "scroll": 0.6703536149585334,
     "cursor": {
       "from": {
-        "line": 41,
-        "ch": 0
+        "line": 45,
+        "ch": 5
       },
       "to": {
-        "line": 41,
-        "ch": 0
+        "line": 45,
+        "ch": 5
       }
     },
     "expandedKeys": [
       "item-1-0",
       "item-3-2",
-      "item-2-1"
+      "item-2-1",
+      "item-5-4",
+      "item-4-3"
     ]
   }
 }
