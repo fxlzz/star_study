@@ -98,12 +98,12 @@
     "scroll": 414.03173020641935,
     "cursor": {
       "from": {
-        "line": 456,
-        "ch": 3
+        "line": 425,
+        "ch": 0
       },
       "to": {
-        "line": 456,
-        "ch": 3
+        "line": 425,
+        "ch": 0
       }
     },
     "expandedKeys": [
@@ -382,18 +382,20 @@
     ]
   },
   "interview/计算机网络.md": {
-    "scroll": 0,
+    "scroll": 42.26983962586327,
     "cursor": {
       "from": {
-        "line": 0,
+        "line": 48,
         "ch": 0
       },
       "to": {
-        "line": 0,
+        "line": 48,
         "ch": 0
       }
     },
-    "expandedKeys": []
+    "expandedKeys": [
+      "item-1-1"
+    ]
   },
   "md测试数据.md": {
     "scroll": 0.6703536149585334,
