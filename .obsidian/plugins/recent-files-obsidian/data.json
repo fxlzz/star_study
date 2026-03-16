@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "webpack",
+      "path": "front-tech/工程化/webpack.md"
+    },
+    {
       "basename": "Drawing 2026-03-16 18.14.35.excalidraw",
       "path": "interview/Drawing 2026-03-16 18.14.35.excalidraw.md"
     },
@@ -65,10 +69,6 @@
       "path": "general-tech/database/mongodb.md"
     },
     {
-      "basename": "webpack",
-      "path": "front-tech/工程化/webpack.md"
-    },
-    {
       "basename": "Nodejs",
       "path": "front-tech/Nodejs.md"
     },
@@ -87,10 +87,6 @@
     {
       "basename": "简历",
       "path": "interview/简历.md"
-    },
-    {
-      "basename": "Drawing 2026-02-28 09.50.14.excalidraw",
-      "path": "Excalidraw/Drawing 2026-02-28 09.50.14.excalidraw.md"
     }
   ],
   "omittedPaths": [],
