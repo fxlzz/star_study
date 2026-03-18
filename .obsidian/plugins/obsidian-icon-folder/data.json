@@ -42,5 +42,13 @@
   "interview": "LiFolder",
   "project": "LiFolder",
   "rust": "LiFolderCode",
-  "毕设": "LiFolder"
+  "毕设": "LiFolder",
+  "interview/计算机网络-图.md": {
+    "iconName": "LiWand",
+    "iconColor": "#21c4c3"
+  },
+  "project/improve_coding/DSL领域模型.md": {
+    "iconName": "LiWand",
+    "iconColor": "#21c3c3"
+  }
 }
