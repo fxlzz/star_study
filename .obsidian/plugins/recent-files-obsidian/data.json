@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "JS+TS",
+      "path": "interview/JS+TS.md"
+    },
+    {
+      "basename": "JS",
+      "path": "front-tech/JavaScript/JS.md"
+    },
+    {
+      "basename": "some details",
+      "path": "front-tech/JavaScript/some details.md"
+    },
+    {
+      "basename": "事件循环",
+      "path": "front-tech/JavaScript/事件循环.md"
+    },
+    {
+      "basename": "ES6+",
+      "path": "front-tech/JavaScript/ES6+.md"
+    },
+    {
       "basename": "Nodejs",
       "path": "front-tech/Nodejs.md"
     },
@@ -51,10 +71,6 @@
     {
       "basename": "HTML+CSS",
       "path": "interview/HTML+CSS.md"
-    },
-    {
-      "basename": "JS+TS",
-      "path": "interview/JS+TS.md"
     },
     {
       "basename": "React",
@@ -143,14 +159,6 @@
     {
       "basename": "webpack - 优化",
       "path": "front-tech/工程化/webpack - 优化.md"
-    },
-    {
-      "basename": "some details",
-      "path": "front-tech/JavaScript/some details.md"
-    },
-    {
-      "basename": "JS",
-      "path": "front-tech/JavaScript/JS.md"
     }
   ],
   "omittedPaths": [],

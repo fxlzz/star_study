@@ -197,22 +197,26 @@
     ]
   },
   "front-tech/JavaScript/JS.md": {
-    "scroll": 883.1330526008392,
+    "scroll": 1271.1000207567972,
     "cursor": {
       "from": {
-        "line": 891,
+        "line": 225,
         "ch": 0
       },
       "to": {
-        "line": 891,
+        "line": 225,
         "ch": 0
       }
     },
     "expandedKeys": [
-      "item-1-0",
+      "item-2-27",
+      "item-1-13",
+      "item-2-23",
+      "item-2-21",
+      "item-2-19",
       "item-2-57",
       "item-1-55",
-      "item-2-62"
+      "item-1-95"
     ]
   },
   "front-tech/JavaScript/some details.md": {
@@ -521,14 +525,14 @@
     ]
   },
   "interview/JS+TS.md": {
-    "scroll": 0,
+    "scroll": 911.7174271477593,
     "cursor": {
       "from": {
-        "line": 25,
+        "line": 885,
         "ch": 5
       },
       "to": {
-        "line": 25,
+        "line": 885,
         "ch": 5
       }
     },
@@ -539,10 +543,12 @@
       "item-1-33",
       "item-1-25",
       "item-1-18",
-      "item-1-8",
       "item-3-12",
       "item-3-9",
-      "item-3-5"
+      "item-3-5",
+      "item-1-42",
+      "item-2-43",
+      "item-2-47"
     ]
   },
   "interview/React.md": {
@@ -694,6 +700,36 @@
   },
   "front-tech/TypeScript.md": {
     "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 0,
+        "ch": 0
+      },
+      "to": {
+        "line": 0,
+        "ch": 0
+      }
+    },
+    "expandedKeys": []
+  },
+  "front-tech/JavaScript/ES6+.md": {
+    "scroll": 0.005362828999580646,
+    "cursor": {
+      "from": {
+        "line": 0,
+        "ch": 0
+      },
+      "to": {
+        "line": 0,
+        "ch": 0
+      }
+    },
+    "expandedKeys": [
+      "item-1-0"
+    ]
+  },
+  "front-tech/JavaScript/事件循环.md": {
+    "scroll": 0.006694560769212795,
     "cursor": {
       "from": {
         "line": 0,
