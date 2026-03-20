@@ -2,7 +2,9 @@
 
 ==RAG==：retrieval-augmented generation 检索增强生成
 
-==MCP==：model context protocol 模型上下文协议
+==MCP==：model context protocol 模型上下文协议，利用 JSON-RCP 格式传输，在 agent 外部调用服务，MCP 服务端在将返回交给 LLM 使用
+
+==Function Calling==：函数调用，用 JSON 数据描述调用函数的参数、输入、输出等，需要在内部手动调用，再将返回结果交给 LLM
 
 RAG 、MCP、Function Calling 都可以理解是为了增强 LLM 的能力而诞生的增强工具
 
