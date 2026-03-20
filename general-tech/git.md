@@ -71,6 +71,11 @@ git remote add origin <远程仓库地址>
 **查看本地分支**
 `git branch -v`
 
+## 重命名分支
+`git branch -m <新分支名>`
+
+`git branch -m <旧分支名> <新分支名>`
+
 ## 查看状态
 `git status` 被git追踪的状态[修改、删除、添加、加入暂存区等] 
 `git log` 查看git的提交日志

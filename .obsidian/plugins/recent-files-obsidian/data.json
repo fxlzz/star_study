@@ -1,16 +1,24 @@
 {
   "recentFiles": [
     {
+      "basename": "git",
+      "path": "general-tech/git.md"
+    },
+    {
+      "basename": "improve_coding",
+      "path": "project/improve_coding/improve_coding.md"
+    },
+    {
+      "basename": "简历",
+      "path": "interview/简历.md"
+    },
+    {
       "basename": "计算机网络",
       "path": "interview/计算机网络.md"
     },
     {
       "basename": "计算机网络-图",
       "path": "interview/计算机网络-图.md"
-    },
-    {
-      "basename": "improve_coding",
-      "path": "project/improve_coding/improve_coding.md"
     },
     {
       "basename": "DSL领域模型",
@@ -39,10 +47,6 @@
     {
       "basename": "毕设",
       "path": "毕设/毕设.md"
-    },
-    {
-      "basename": "git",
-      "path": "general-tech/git.md"
     },
     {
       "basename": "RAG 测试数据",
@@ -83,10 +87,6 @@
     {
       "basename": "JS",
       "path": "front-tech/JavaScript/JS.md"
-    },
-    {
-      "basename": "简历",
-      "path": "interview/简历.md"
     }
   ],
   "omittedPaths": [],
