@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "webpack - 优化",
+      "path": "front-tech/工程化/webpack - 优化.md"
+    },
+    {
       "basename": "JS+TS",
       "path": "interview/JS+TS.md"
     },
@@ -155,10 +159,6 @@
     {
       "basename": "mongodb",
       "path": "general-tech/database/mongodb.md"
-    },
-    {
-      "basename": "webpack - 优化",
-      "path": "front-tech/工程化/webpack - 优化.md"
     }
   ],
   "omittedPaths": [],
