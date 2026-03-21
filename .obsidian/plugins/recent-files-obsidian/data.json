@@ -1,16 +1,24 @@
 {
   "recentFiles": [
     {
+      "basename": "计算机网络",
+      "path": "interview/计算机网络.md"
+    },
+    {
       "basename": "计算机网络-图",
       "path": "interview/计算机网络-图.md"
     },
     {
-      "basename": "improve_coding",
-      "path": "project/improve_coding/improve_coding.md"
-    },
-    {
       "basename": "JS",
       "path": "front-tech/JavaScript/JS.md"
+    },
+    {
+      "basename": "git",
+      "path": "general-tech/git.md"
+    },
+    {
+      "basename": "improve_coding",
+      "path": "project/improve_coding/improve_coding.md"
     },
     {
       "basename": "gemini",
@@ -43,10 +51,6 @@
     {
       "basename": "TypeScript",
       "path": "front-tech/TypeScript.md"
-    },
-    {
-      "basename": "计算机网络",
-      "path": "interview/计算机网络.md"
     },
     {
       "basename": "浏览器",
@@ -107,10 +111,6 @@
     {
       "basename": "ai-concept",
       "path": "ai/ai-concept.md"
-    },
-    {
-      "basename": "git",
-      "path": "general-tech/git.md"
     },
     {
       "basename": "DSL领域模型",
