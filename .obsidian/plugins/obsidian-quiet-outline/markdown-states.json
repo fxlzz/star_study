@@ -75,7 +75,7 @@
     ]
   },
   "project/improve_coding/improve_coding.md": {
-    "scroll": 671.9702240474641,
+    "scroll": 673.0309490930466,
     "cursor": {
       "from": {
         "line": 682,
@@ -197,7 +197,7 @@
     ]
   },
   "front-tech/JavaScript/JS.md": {
-    "scroll": 1270.426566767292,
+    "scroll": 1283.3421121022059,
     "cursor": {
       "from": {
         "line": 225,
@@ -738,6 +738,20 @@
       "to": {
         "line": 0,
         "ch": 0
+      }
+    },
+    "expandedKeys": []
+  },
+  "ai/agent-cli/gemini.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 17,
+        "ch": 5
+      },
+      "to": {
+        "line": 17,
+        "ch": 5
       }
     },
     "expandedKeys": []
