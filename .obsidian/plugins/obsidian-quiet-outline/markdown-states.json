@@ -197,14 +197,14 @@
     ]
   },
   "front-tech/JavaScript/JS.md": {
-    "scroll": 1283.3421121022059,
+    "scroll": 1252.42737845769,
     "cursor": {
       "from": {
-        "line": 225,
+        "line": 1269,
         "ch": 0
       },
       "to": {
-        "line": 225,
+        "line": 1269,
         "ch": 0
       }
     },
@@ -216,7 +216,12 @@
       "item-2-19",
       "item-2-57",
       "item-1-55",
-      "item-1-95"
+      "item-1-96",
+      "item-1-92",
+      "item-1-74",
+      "item-2-76",
+      "item-2-79",
+      "item-2-94"
     ]
   },
   "front-tech/JavaScript/some details.md": {

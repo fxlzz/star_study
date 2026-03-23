@@ -1248,6 +1248,27 @@ document.querySelector('textarea').oncut = function (e) {
     dir方法：打印对象结构  
     tiem方法和timeEnd方法：用于计时(一般成对出现)
 
+### `window.location`
+负责获取当前*url 信息*以及操作*浏览器的导航系统*
+
+完整 URL：  
+`https://www.example.com:8080/path/index.html?id=123#section1`
+
+| **属性**       | **描述**         | **示例**                                                         |
+| ------------ | -------------- | -------------------------------------------------------------- |
+| **href**     | 完整的 URL 字符串    | `https://www.example.com:8080/path/index.html?id=123#section1` |
+| **protocol** | 协议（包括冒号）       | `https:`                                                       |
+| **host**     | 主机名 + 端口号      | `www.example.com:8080`                                         |
+| **hostname** | 主机名（不含端口）      | `www.example.com`                                              |
+| **port**     | 端口号            | `8080`                                                         |
+| **pathname** | 路径部分           | `/path/index.html`                                             |
+| **search**   | 查询参数（以 `?` 开头） | `?id=123`                                                      |
+| **hash**     | 锚点（以 `#` 开头）   | `#section1`                                                    |
+| **origin**   | 源（协议+域名+端口），只读 | `https://www.example.com:8080`                                 |
+
+
+
+
 # 原型和原型链
 
 前提知识：
