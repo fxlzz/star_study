@@ -1282,6 +1282,13 @@ document.querySelector('textarea').oncut = function (e) {
 - **reload()**: `window.location.reload()`
     - _注意_：如果不传参数，浏览器可能会从缓存中加载。如果你想强制从服务器拉取最新的，可以使用某些技巧（尽管标准参数已废弃，但在旧版中 `reload(true)` 表示强制刷新）。
 
+解析 serach 参数：
+```js
+const params = new URLSearchParams(window.location.serach);
+const a = params.get("a");
+```
+`
+
 # 原型和原型链
 
 前提知识：
