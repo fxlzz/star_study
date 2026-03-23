@@ -1251,6 +1251,7 @@ document.querySelector('textarea').oncut = function (e) {
 ### `window.location`
 负责获取当前*url 信息*以及操作*浏览器的导航系统*
 
+*名词解释：*
 完整 URL：  
 `https://www.example.com:8080/path/index.html?id=123#section1`
 
@@ -1266,8 +1267,20 @@ document.querySelector('textarea').oncut = function (e) {
 | **hash**     | 锚点（以 `#` 开头）   | `#section1`                                                    |
 | **origin**   | 源（协议+域名+端口），只读 | `https://www.example.com:8080`                                 |
 
+*常用方法：*
 
+ 跳转到新页面
+- **直接赋值**: `window.location.href = 'https://google.com'`
+- **assign()**: `window.location.assign('https://google.com')`
+    - _特点_：这两者效果相同，都会跳转并**生成历史记录**，用户点击“后退”可以回到原页。
 
+替换当前页面
+- **replace()**: `window.location.replace('https://google.com')`
+    - _特点_：它不会在浏览器历史中生成新记录。用户**无法通过“后退”按钮**回到该页面。常用于登录后的重定向。
+        
+刷新页面
+- **reload()**: `window.location.reload()`
+    - _注意_：如果不传参数，浏览器可能会从缓存中加载。如果你想强制从服务器拉取最新的，可以使用某些技巧（尽管标准参数已废弃，但在旧版中 `reload(true)` 表示强制刷新）。
 
 # 原型和原型链
 
