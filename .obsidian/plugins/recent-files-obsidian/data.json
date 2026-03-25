@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "CSS3",
+      "path": "front-tech/CSS3.md"
+    },
+    {
+      "basename": "webpack",
+      "path": "front-tech/工程化/webpack.md"
+    },
+    {
+      "basename": "webpack - 优化",
+      "path": "front-tech/工程化/webpack - 优化.md"
+    },
+    {
       "basename": "JS",
       "path": "front-tech/JavaScript/JS.md"
     },
@@ -23,10 +35,6 @@
     {
       "basename": "gemini",
       "path": "ai/agent-cli/gemini.md"
-    },
-    {
-      "basename": "webpack - 优化",
-      "path": "front-tech/工程化/webpack - 优化.md"
     },
     {
       "basename": "JS+TS",
@@ -101,10 +109,6 @@
       "path": "interview/Vue.md"
     },
     {
-      "basename": "CSS3",
-      "path": "front-tech/CSS3.md"
-    },
-    {
       "basename": "HTML5",
       "path": "front-tech/HTML5.md"
     },
@@ -119,10 +123,6 @@
     {
       "basename": "KanBan",
       "path": "KanBan.md"
-    },
-    {
-      "basename": "webpack",
-      "path": "front-tech/工程化/webpack.md"
     },
     {
       "basename": "data",
