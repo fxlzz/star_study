@@ -5,12 +5,12 @@
       "path": "interview/计算机网络.md"
     },
     {
-      "basename": "JS",
-      "path": "front-tech/JavaScript/JS.md"
-    },
-    {
       "basename": "CSS3",
       "path": "front-tech/CSS3.md"
+    },
+    {
+      "basename": "JS",
+      "path": "front-tech/JavaScript/JS.md"
     },
     {
       "basename": "webpack",
