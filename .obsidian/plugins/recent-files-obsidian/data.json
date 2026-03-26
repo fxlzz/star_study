@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "计算机网络",
+      "path": "interview/计算机网络.md"
+    },
+    {
+      "basename": "JS",
+      "path": "front-tech/JavaScript/JS.md"
+    },
+    {
       "basename": "CSS3",
       "path": "front-tech/CSS3.md"
     },
@@ -11,14 +19,6 @@
     {
       "basename": "webpack - 优化",
       "path": "front-tech/工程化/webpack - 优化.md"
-    },
-    {
-      "basename": "JS",
-      "path": "front-tech/JavaScript/JS.md"
-    },
-    {
-      "basename": "计算机网络",
-      "path": "interview/计算机网络.md"
     },
     {
       "basename": "计算机网络-图",
