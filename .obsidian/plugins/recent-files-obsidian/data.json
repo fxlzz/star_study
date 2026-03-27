@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "JS+TS",
+      "path": "interview/JS+TS.md"
+    },
+    {
+      "basename": "JS",
+      "path": "front-tech/JavaScript/JS.md"
+    },
+    {
       "basename": "计算机网络",
       "path": "interview/计算机网络.md"
     },
     {
       "basename": "CSS3",
       "path": "front-tech/CSS3.md"
-    },
-    {
-      "basename": "JS",
-      "path": "front-tech/JavaScript/JS.md"
     },
     {
       "basename": "webpack",
@@ -35,10 +39,6 @@
     {
       "basename": "gemini",
       "path": "ai/agent-cli/gemini.md"
-    },
-    {
-      "basename": "JS+TS",
-      "path": "interview/JS+TS.md"
     },
     {
       "basename": "some details",
