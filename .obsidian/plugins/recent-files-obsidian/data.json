@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "python",
+      "path": "python/python.md"
+    },
+    {
+      "basename": "CSS3",
+      "path": "front-tech/CSS3.md"
+    },
+    {
       "basename": "improve_coding",
       "path": "project/improve_coding/improve_coding.md"
     },
@@ -23,10 +31,6 @@
     {
       "basename": "base64 导出",
       "path": "front-tech/场景/base64 导出.md"
-    },
-    {
-      "basename": "CSS3",
-      "path": "front-tech/CSS3.md"
     },
     {
       "basename": "JS",
