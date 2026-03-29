@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "improve_coding",
+      "path": "project/improve_coding/improve_coding.md"
+    },
+    {
       "basename": "React",
       "path": "front-tech/React/React.md"
     },
@@ -39,10 +43,6 @@
     {
       "basename": "git",
       "path": "general-tech/git.md"
-    },
-    {
-      "basename": "improve_coding",
-      "path": "project/improve_coding/improve_coding.md"
     },
     {
       "basename": "gemini",
