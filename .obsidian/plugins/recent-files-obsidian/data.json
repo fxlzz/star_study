@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "React",
+      "path": "front-tech/React/React.md"
+    },
+    {
       "basename": "计算机网络",
       "path": "interview/计算机网络.md"
     },
@@ -147,10 +151,6 @@
     {
       "basename": "md测试数据",
       "path": "毕设/md测试数据.md"
-    },
-    {
-      "basename": "React",
-      "path": "front-tech/React/React.md"
     },
     {
       "basename": "mongodb",
