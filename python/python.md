@@ -349,3 +349,22 @@ __all__ = ['public_func'] # 只有在这里面的才会被 import * 导出
 def public_func(): pass
 def _private_func(): pass # 下划线开头默认也是私有的
 ```
+
+# 面向对象 OOP
++ 封装
++ 继承
++ 多态
+
+*类的结构*
+```python
+class ModelConfig:
+	# 类属性 static
+	platform = "OpenAI"
+	
+	# 构造函数
+	def __init__(self, model, temp = 0.7):
+	self.model = model
+	self.temp = temp
+	self._api_key = "sk-..." # 下划线开头，私有属性
+	
+```
