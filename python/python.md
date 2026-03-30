@@ -114,7 +114,6 @@ x, y = point
 print(x, y)
 ```
 
-
 ## *字典*操作
 ```python
 user = {
