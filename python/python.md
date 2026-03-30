@@ -12,7 +12,8 @@
 PY 中的模板字符串 --- 加 f
 `print(f"hello, my name is {name}")`
 
-## *列表*操作：
+## *列表*操作
+### 基础操作
 +  `[start:end: step] ---> slice(start, end) 左闭右开` 
 	1. 省略参数
 ```python
@@ -39,6 +40,22 @@ print(numbers[::-1]) # 步长为 -1 代表翻转列表 [40, 30, 20, 10] -- numbe
 + `list.index("xxx") ---> arr.indexOf("xxx") 返回第一个索引`
 + `list.sort() ---> arr.sort((a, b) => a - b)`
 
+### 列表推导式
+```python
+response = {
+    "model": "GPT-4o",
+    "usage": (150, 200),  
+    "tags": ["ai", "chat", "generative", "fullstack"]
+}
+tags = response.get("tags")
+# 在标签中，挑选长度大于2的值
+# JS
+const res = tags.filter(t => t.length > 2)
+
+# python
+res = [t for t in tags if len(t) > 2]
+```
+
 ## *元组*操作
 元组可看作是*不可变列表*，一旦创建，不能修改、添加、删除其中元素
 ```python
@@ -57,6 +74,8 @@ user = {
 }
 user["addr"] = "hunan" # 添加或修改
 
+# 读取
+print(user["name"])
 email = user.get("email") # 不存在返回 None，不会报错
 
 ```
@@ -101,7 +120,15 @@ Reflect.ownKeys(obj).forEach(key => {})
 for tool in tools: # 类似于 js 的 for..of 循环，只能遍历可迭代对象
 
 for i in range(5): # 0 1 2 3 4 不包含5 
-# range(start, stop, step) 
+# range(start, stop, step)
+ 
+for index, item in enumerate(numbers): # 同时获取索引和值 --- 类似于 forEach((item, index) => {})
+
+names= ["tom", "marry"]
+ages = [18, 19]
+# 配对，zip接收多对列表
+for name, age in zip(names, ages):
+	print(f"{name} 的年龄是: {age}")
 
 while a > 0: 
 
