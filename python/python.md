@@ -227,3 +227,60 @@ const func = ({ prompt, model="gpt-4o" }) => {}
 func({ prompt: "hi", model: "qwen3-max"})
 ```
 
+## 坑！默认参数
+永远不要使用"*可变类型（列表、字典）*"作为函数的*默认参数*
+
+```python
+# python 中错误的写法
+def fn(msg, list = []):
+    list.append(msg)
+    return list
+    
+print(fn("hello")) # ["hello"]
+print(fn("world")) # ["hello", "world"]
+
+# 正确写法：默认给 None
+def fn(msg, list = None):
+	if list is None: 
+		list = []
+	list.append(msg)
+	return list
+```
+
+Python 的默认参数在*函数定义时* 执行，而不是每次调用时执行。因此，定义时 list 参数会变成"静态变量" 存放在内存中
+
+每次调用，使用的都是同一块空间
+
+而 JS 不同，每次调用，都是重新创建新的空间
+```js
+function fn(msg, arr = []) {
+  arr.push(msg);
+  return arr;
+}
+console.log(fn("hello")); // ["hello"]
+console.log(fn("world")); // ["world"]
+```
+
+## 万能参数 `*args` 与 `**kwargs`
++ `*args` 将*多余参数*打包进一个*元组*
++ `**kwargs` 将*多余键值对*参数打包进一个*字典*
+
+```python
+def fn(task_name, *tags, **configs):
+    print(f"开始任务：{task_name}")
+    print(f"标签分类：{tags}")
+    print(f"模型配置：{configs}")
+
+fn("翻译", "NLP", "紧急", model="gpt-4", retry=3, stream=True)
+
+
+# 输出结果：
+# 开始任务：翻译 
+# 标签分类：('NLP', '紧急') 
+# 模型配置：{'model': 'gpt-4', 'retry': 3, 'stream': True}
+```
+
+## 闭包与装饰器
+
+
+
