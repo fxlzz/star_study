@@ -140,6 +140,14 @@ email = user.get("email") # 不存在返回 None，不会报错
 + 文件对象 ` for line in open ("file.txt")`
 + 生成器 generator
 
+# 类型转换
+与 JS 一样，python 作为弱语言类型，也会自动进行类型转换
+## Bool 
+一下都会被视为 False
++ `None, False`
++ `0, 0.0`
++ `"", [], (), {}, set()` 这里与 JS 不一样，JS 会将 `[], {}...` 视为 true
+
 # 流程控制与循环
 ## 流程控制
 ```js
@@ -196,3 +204,5 @@ for key in dict 或 dict.keys():
 for value in dict.values():
 for key, value in dict.items():
 ```
+
+# 函数
