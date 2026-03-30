@@ -341,3 +341,11 @@ from module import funcA, funcB <---> import {funcA, funcB} from "module";
 在 Python 中，一个 .py 文件里的*所有全局变量、函数、类*，默认都是可以被导出的
 
 控制范围：若不想让使用者将私有函数导出，可加*下划线（私有）* 或在为文件顶部定义 `__all__` 列表
+
+```python
+# my_module.py
+__all__ = ['public_func'] # 只有在这里面的才会被 import * 导出
+
+def public_func(): pass
+def _private_func(): pass # 下划线开头默认也是私有的
+```
