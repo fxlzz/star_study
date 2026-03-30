@@ -228,6 +228,8 @@ func({ prompt: "hi", model: "qwen3-max"})
 ```
 
 ## 坑！默认参数
+>  在 python 中，如果给默认参数，那么说明这个参数是*可选参数*
+
 永远不要使用"*可变类型（列表、字典）*"作为函数的*默认参数*
 
 ```python
@@ -300,5 +302,38 @@ def fn(a, b):
 fn(1, 4)
 ```
 
+## 异常处理
+一般语言中都有异常处理机制
++ 捕获异常
++ 抛出异常
++ finally 执行
+
+`try-except-finally --- try-catch-finally`
+
+```python
+try: 
+	res = 10 / 0
+except ZeroDivisionError as e:
+	# 指定错误类型
+	print("不能除以0")
+except Exception as e:
+	# 捕获其他错误 类似于 catch(e)
+	print(f"其他错误：{e}")
+else: 
+	# JS 没有这个！如果 try 块没有发生异常，就会执行这里
+	print("没有错误")
+finally: 
+	# 无论是否报错都会执行（常用于关闭数据库连接、释放资源）
+	print("清理工作完成")
+```
+
+# 模块化
+与 JS 类似，每一个 `.py` 文件都会视为一个模块，可供其他文件导入
+
+```python
+import os # 导入整个模块
+import numpy as np # 起别名
+from datetime import datetime # 从指定模块导入特定的类
+```
 
 
