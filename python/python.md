@@ -281,6 +281,24 @@ fn("翻译", "NLP", "紧急", model="gpt-4", retry=3, stream=True)
 ```
 
 ## 闭包与装饰器
+装饰器： 横向抽离代码，常用于*函数调用耗时、重试机制、身份验证等*
+
+```python
+def logger(func):
+    def wrapper(*args, **kwargs):
+        print("函数开始运行")
+        res = func(*args, **kwargs)
+        print(f"运行结果： {res}")
+        print("函数运行结束")
+        return res
+    return wrapper
+
+@logger
+def fn(a, b):
+    return a + b
+
+fn(1, 4)
+```
 
 
 
