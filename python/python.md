@@ -9,11 +9,57 @@
 | 字典  | `const obj = {a: 1}` | `dict = {"a": 1}` 注意 python 字典 key 值只能是 string 类型的 |
 | 元组  |                      | `tuple = (1, 2)`                                   |
 
-PY 中的模板字符串 -- 加 f
+PY 中的模板字符串 --- 加 f
 `print(f"hello, my name is {name}")`
 
-列表操作：
-`append("1") ---> push("1")`
+## *列表*操作：
++  `[start:end: step] ---> slice(start, end) 左闭右开` 
+	1. 省略参数
+```python
+numbers = [10,20,30,40]
+print(numbers[:3]) # [10, 20, 30] -- slice(0, 4)
+print(numbers[2:]) # [30, 40] -- slice(2)
+print(numbers[:]) # 浅拷贝 类似于 JS 扩展运算符[...numbers]
+```
+	2. 步长
+```python
+print(numbers[0:4:2]) # 隔一个取一个 [10, 30]
+```
+	3. 负数
+```python
+print(numbers[-1]) # 40 -- slice(-1)
+print(numbers[::-1]) # 步长为 -1 代表翻转列表 [40, 30, 20, 10] -- numbers.rervse()
+```
+ 
++ `list.append("1") ---> arr.push("1")`
++ `list.extend(list2) ---> arr.concat(arr2) 或 [...arr1, ...arr2]`
++ `list.insert(index, x) ---> arr.splice(index, 0, x)`
++ `list.remove(x) 删除值为 x`
++ `list.pop(index) ---> arr.pop()`
++ `list.index("xxx") ---> arr.indexOf("xxx") 返回第一个索引`
++ `list.sort() ---> arr.sort((a, b) => a - b)`
+
+## *元组*操作
+元组可看作是*不可变列表*，一旦创建，不能修改、添加、删除其中元素
+```python
+point = (10, 20)
+
+# 解构
+x, y = point
+print(x, y)
+```
+
+## *字典*操作
+```python
+user = {
+	"name" : "tom",
+	"age" : 18,
+}
+user["addr"] = "hunan" # 添加或修改
+
+email = user.get("email") # 不存在返回 None，不会报错
+
+```
 
 # 流程控制与循环
 ## 流程控制
@@ -58,4 +104,6 @@ for i in range(5): # 0 1 2 3 4 不包含5
 # range(start, stop, step) 
 
 while a > 0: 
+
+for key, value in dict.items():
 ```
