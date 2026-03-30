@@ -305,7 +305,7 @@ fn(1, 4)
 ## 异常处理
 一般语言中都有异常处理机制
 + 捕获异常
-+ 抛出异常
++ 抛出异常 `raise Exception("xxx") --- throw new Error("xxx")`
 + finally 执行
 
 `try-except-finally --- try-catch-finally`
@@ -330,10 +330,14 @@ finally:
 # 模块化
 与 JS 类似，每一个 `.py` 文件都会视为一个模块，可供其他文件导入
 
+## 导入
 ```python
 import os # 导入整个模块
 import numpy as np # 起别名
-from datetime import datetime # 从指定模块导入特定的类
+from module import funcA, funcB <---> import {funcA, funcB} from "module"; 
 ```
 
+## 导出
+在 Python 中，一个 .py 文件里的*所有全局变量、函数、类*，默认都是可以被导出的
 
+控制范围：若不想让使用者将私有函数导出，可加*下划线（私有）* 或在为文件顶部定义 `__all__` 列表

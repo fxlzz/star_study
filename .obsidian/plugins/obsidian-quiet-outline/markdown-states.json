@@ -797,14 +797,14 @@
     "expandedKeys": []
   },
   "python/python.md": {
-    "scroll": 328.89646971853153,
+    "scroll": 341.4907678972211,
     "cursor": {
       "from": {
-        "line": 335,
-        "ch": 29
+        "line": 343,
+        "ch": 0
       },
       "to": {
-        "line": 335,
+        "line": 343,
         "ch": 0
       }
     },
@@ -813,7 +813,8 @@
       "item-1-0",
       "item-2-2",
       "item-1-10",
-      "item-1-15"
+      "item-1-15",
+      "item-1-21"
     ]
   }
 }
