@@ -1,25 +1,22 @@
 # 类
+>  ES6 更加支持面向对象编程
 
-ES6 更加支持面向对象编程
-
-## 传统的构造函数的问题
-
+传统的构造函数的问题：
 1. 属性和原型方法定义分离，降低了可读性
 2. 原型成员可以被枚举
 3. 默认情况下，构造函数仍然可以被当作普通函数使用
 
 ## 类的特点
-
 1. 类声明*不会被提升*，与 let 和 const 一样，存在暂时性死区
 2. 类中的所有代码均在*严格模式*下执行，全局调的函数，this 指向 undefined
 3. 类的<font color="#ff0000">所有方法</font>都是<font color="#ff0000">不可枚举</font>`enumerable: false`，*方法*都加到*类的原型*上了（因为方法不可枚举，所以直接 ` Person.prototype === {} ` 在控制台是没有值输出的）
 4. 类的所有方法都无法被当作构造函数使用
 5. 类的构造器必须使用 *new* 来调用
 
-第 4 点和第 5 点，是因为 ES5 之前的函数都有两种作用，一个是当作构造器（一般大写首字母），另一个是当作普通的函数，所以为了避免出现这种歧义，ES6 就明确了所有的方法不能作为构造函数，同时 ES6 中也提供了箭头函数它的作用只能当作普通函数。
+第 4 点和第 5 点，是因为 ES5 之前的函数都有两种作用，一个是当作*构造器*（一般大写首字母），另一个是当作*普通函数*，所以为了避免歧义，
+ES6 就明确了所有的方法不能作为构造函数，同时 ES6 中也提供了箭头函数它的作用只能当作普通函数
 
 ES6 写法：
-
 ```js
 class Person {
   // 挂在 Person 的原型上
@@ -39,7 +36,6 @@ console.log(p);
 ```
 
 ES5 写法：
-
 ```js
 function Person(name, age) {
   this.name = name;
@@ -53,27 +49,8 @@ Person.prototype.sayHello() {
 const p = new Person("张三",18)
 ```
 
-## 其他一些东西
-### 私有属性
-类自己的东西，使用 `#name` "#" 来标识
-```js
-class Person {
-  #name = "张三";   // 私有属性
-  #age = 18;
-
-  getName() {
-    return this.#name;
-  }
-}
-
-const p = new Person();
-
-console.log(p.#name); //  报错
-console.log(p.getName()); // 张三
-```
-
-### get 和 set
-就跟 java 中的 get 和 set 方法差不多，JS 中应该是用 `Object.defineProperty()` 来实现的，ES6 中提供了一种简单的写法
+## `get` 和 `set`
+就跟 java 中的 get 和 set 方法差不多，JS 中应该是用 `Object.defineProperty()` 来实现的，ES 6 中提供了一种简单的写法
 
 ```js
 class Person {
@@ -106,7 +83,7 @@ class Person {
     this.name = name;
     this._age = age;
     // 对面的get和set就相当于下面的代码
-    Object.defineProperty(this,"age",{
+    Object.defineProperty(this, "age", {
       get() {
         return this._age;
       },
@@ -125,7 +102,69 @@ const p = new Person("lisi", 18);
 console.log(p.age);
 ```
 
-### 静态方法
+## 私有属性
+- 不暴露
+- 不可反射（reflect）
+- 不可动态访问 (defineProperty)
+- 不可被代理（Proxy）拦截
+
+使用 `#name` "#" 来标识
+```js
+class Person {
+  #name = "张三";   // 私有属性
+  #age = 18;
+
+  get name() {
+    return this.#name;
+  }
+  
+  set name(val) {
+  	this.#name = val;
+  }
+}
+
+const p = new Person();
+
+console.log(p.#name); //  报错
+p.name = "tom";
+console.log(p.name); // tom
+```
+
+ES 5 通过*闭包*实现：
+```js
+function Person() {
+	let name = "张三";
+
+	this.getName = function() {
+		return name;
+	}
+}
+const p = new Person(); // p 的实例上只挂载了 getName 函数，访问不到 name
+console.log(p.getName()); 
+```
+
+---
+闭包的作用之一： 实现*私有属性*
+
+进阶：
+私有属性挂在哪里？
+—— 内部槽（internal slot）/ 私有字段存储空间
+
+JS 每一个对象上都有一个隐藏结构： `[[PrivateFieldValues]]`
+私有属性可以理解为：
+```js
+p = {
+  // 普通属性
+  // name: "xxx"
+
+  // 内部私有槽
+  [[PrivateFieldValues]]: {
+    #name: "张三"
+  }
+}
+```
+
+## 静态方法
 
 使用关键字：`static`
 
@@ -149,7 +188,7 @@ class Person {
 }
 ```
 
-### 字段初始化器
+## 字段初始化器
 做了一些简化，使用字段初始化器，就相当于在构造器中赋了值，很适合一些**属性有初始值**的情况
 比如，
 ```js
@@ -213,9 +252,9 @@ t();
 使用字段初始化器的属性或方法，都是加在对象上的，普通方法是加在类的原型上的
 所以，如果用这种字段初始化器的方式，*每一个对象都会创建一个新的 print 函数*，会造成内存的一定浪费。最好不使用字段初始器方法
 
-### 继承
+## 继承
 
-#### ES5 的写法
+### ES5 的写法
 ```js
 function Animal(type, name, age) {
   this.type = type;
@@ -251,7 +290,6 @@ console.log(Dog.prototype);
 ```
 
 重点就是两句话，
-
 1. 调用父类构造函数
 ```js
 function Dog(type, name, age, loves) {
@@ -268,7 +306,7 @@ Object.setPrototypeOf(Dog.prototype, Animal.prototype);
 
 ![](https://cdn.nlark.com/yuque/0/2025/png/51701855/1751108688953-0e68db39-f56f-447e-a373-bfa4cf2a1d58.png)
 
-#### ES6 的写法
+### ES6 的写法
 ```js
 class Animal {
   constructor(type, name, age) {

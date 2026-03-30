@@ -355,16 +355,84 @@ def _private_func(): pass # 下划线开头默认也是私有的
 + 继承
 + 多态
 
-*类的结构*
+## 类的结构
 ```python
 class ModelConfig:
-	# 类属性 static
-	platform = "OpenAI"
+	# 1. 类属性 static --js-> static platform = "OpenAI"
+	platform = "OpenAI" 
 	
-	# 构造函数
+	# 2. 构造函数 --js-> constructor(model, temp) {} 不用显示传 this
+	#    python self 类似于 this，但需要显示传递
 	def __init__(self, model, temp = 0.7):
-	self.model = model
-	self.temp = temp
-	self._api_key = "sk-..." # 下划线开头，私有属性
+		self.model = model
+		self.temp = temp
+		self._api_key = "sk-..." # 下划线开头，私有属性
 	
+	# 3. 实例方法
+	def get_summary(self):
+		return f"模型是：{self.model}, 温度：{self.temp}"
+		
+# 4. 创建对象 -- 不用 new !!！-- 为什么要这么设计，啊啊啊啊
+gpt4 = ModelConfig("gpt-4o", tmp=0.8)
+```
+
+## 继承与重写
+语法： `class A(B): ---> class A extends B {}` 
+重写--调用父类内容：`super().xxx`
+
+```python 
+class Person:
+	def __init__(self, name, age):
+		self.name = name
+		self.age = age
+	
+	def hello(self) :
+		print(f"我是{self.name}，今年{self.age}岁")
+		
+class XiaoMing(Person): 
+	def __init__(self, name, age, addr):
+		super().__init__(name, age)
+		self.addr = addr
+	
+	def hello(self):
+		super().hello() # 先执行父类逻辑
+		print(f"家在{self.addr}")
+
+xm = XiaoMing("小明", 18, "地球")
+xm.hello()
+```
+
+## 属性装饰器（getter/setter）
+JS （ES 6）使用 `get/set 关键字` 底层使用 `Object.defineProperty(this, xxx, {})`
+Python 使用 `装饰器 @property`
+
+```python
+class UserProfile:
+    def __init__(self, age, addr):
+        self._age = age
+        self._addr = addr
+
+    @property # get 方法 --js--> get addr() {}
+    def addr(self):
+        return self._addr
+
+    @addr.setter # 对应的set方法 --js--> set addr(val) {}
+    def addr(self, val):
+        self._addr = val
+
+    @property
+    def age(self):
+        return self._age
+
+    @age.setter
+    def age(self, val):
+        if val < 0:
+            raise ValueError("年龄不能为负数！")
+        self._age = val
+
+user = UserProfile(18, "Beijing")
+user.age = 20
+user.addr = "shanghai"
+print(user.age)
+print(user.addr)
 ```
