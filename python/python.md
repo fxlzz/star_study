@@ -9,8 +9,15 @@
 | 字典  | `const obj = {a: 1}` | `dict = {"a": 1}` 注意 python 字典 key 值只能是 string 类型的 |
 | 元组  |                      | `tuple = (1, 2)`                                   |
 
+## *String* 操作
 PY 中的模板字符串 --- 加 f
-`print(f"hello, my name is {name}")`
++  `print(f"hello, my name is {name}")`
++ `strip() ---> trim()`
++ `split(sep)`
++ `join(list)` <font color="#ff0000">注意! </font>Python 中 `"-".join(["a", "b"])` 在 JS 中是 `["a", "b"].join("-")
++ `replace(old, new)` 返回新串
++ `lower() / upper()` 返回新串
++ `startswith() / endswith()`
 
 ## *列表*操作
 ### 基础操作
@@ -39,21 +46,62 @@ print(numbers[::-1]) # 步长为 -1 代表翻转列表 [40, 30, 20, 10] -- numbe
 + `list.pop(index) ---> arr.pop()`
 + `list.index("xxx") ---> arr.indexOf("xxx") 返回第一个索引`
 + `list.sort() ---> arr.sort((a, b) => a - b)`
+	+ `list.sort(reverse=True)`
+	+ `list.sort(key=lambda x: x["score"], reverse=True) # 按分数降序`
+---
+### 函数式编程 
+注意：python 返回的是一个*迭代器*，如果想看到具体的列表结果，需要用 `list()` 包裹一下
++  `map(func, iterable) --- arr.map(func)`
++ `fliter(func, iterable) --- arr.filter(func)`
++ `reduce(func, iterable) --- arr.reduce((pre, cur) => {})`
+
+```python
+nums = [1, 2, 3, 4]
+
+doubled = list(map(lambda x: x * 2, nums)) # [2, 4, 6, 8]
+
+evens = list(filter(lambda x: x % 2 == 0, nums)) # [2, 4]
+```
+
+不过 python 中更加推崇*列表推导式*，更容易阅读
+
+---
+上面的换成列表推导式的写法：
+```python
+nums = [1, 2, 3, 4]
+
+doubled = [x * 2 for x in nums]
+
+evens = [x for x in nums if x % 2 == 0]
+```
+
+### Lambda 表达式
+语法公式：
+`lambda 参数1, 参数2: 返回值表达式`
+
+- **JS**: `(a, b) => a + b`
+- **Python**: `lambda a, b: a + b`
+
+注意：
++ `lambda` 只能写*一行*表达式，不能写多行，也不能写 return
 
 ### 列表推导式
-```python
-response = {
-    "model": "GPT-4o",
-    "usage": (150, 200),  
-    "tags": ["ai", "chat", "generative", "fullstack"]
-}
-tags = response.get("tags")
-# 在标签中，挑选长度大于2的值
-# JS
-const res = tags.filter(t => t.length > 2)
+语法公式：
+`[ <结果表达式> for <变量> in <可迭代对象> if <过滤条件> ]`
 
-# python
-res = [t for t in tags if len(t) > 2]
+```python
+nums = [1, 2, 3, 4, 5]
+
+# 循环
+res = []
+for i in nums:
+	if i > 2:
+		res.append(i * 2)
+
+# 列表推导式 
+# 将大于 2 的数 * 2 返回出来
+res = [x * 2 for x in nums if x > 2]
+print(res)
 ```
 
 ## *元组*操作
@@ -61,10 +109,11 @@ res = [t for t in tags if len(t) > 2]
 ```python
 point = (10, 20)
 
-# 解构
+# 解构可用于任何 "可迭代对象"
 x, y = point
 print(x, y)
 ```
+
 
 ## *字典*操作
 ```python
@@ -79,6 +128,17 @@ print(user["name"])
 email = user.get("email") # 不存在返回 None，不会报错
 
 ```
+
+#  可迭代对象
+与 JS `Symbol.iterator` 类似，只要满足可迭代协议，就可视为*可迭代对象* 
+
+只要对象实现了 `__iter__` (返回一个迭代器 `{next(), done: false}`)
+
+常见的可迭代对象：
++ list、tuple、str、range
++ dict、set
++ 文件对象 ` for line in open ("file.txt")`
++ 生成器 generator
 
 # 流程控制与循环
 ## 流程控制
@@ -132,5 +192,7 @@ for name, age in zip(names, ages):
 
 while a > 0: 
 
+for key in dict 或 dict.keys():
+for value in dict.values():
 for key, value in dict.items():
 ```
