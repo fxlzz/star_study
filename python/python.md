@@ -206,4 +206,24 @@ for key, value in dict.items():
 ```
 
 # 函数
+## 定义与调用
+Python 中支持，默认参数传递以及关键字参数
  
+ ```python
+ def ask_ai(prompt, model="gpt-4o", temperature=0.7):
+ 	return "AI 回复"
+ 
+ # 正常调用
+ ask_ai("你好", "claude-3", 0.5)
+ 
+ # 关键字参数 -- 指定参数名
+ ask_ai(temperature=0.9, prompt="写个诗", model="gpt-4")
+ ```
+
+其实与 JS 没什么区别，只不过 python 底层自己支持
+```js
+const func = ({ prompt, model="gpt-4o" }) => {}
+
+func({ prompt: "hi", model: "qwen3-max"})
+```
+
