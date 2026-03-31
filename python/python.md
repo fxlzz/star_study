@@ -35,7 +35,7 @@ print(numbers[0:4:2]) # 隔一个取一个 [10, 30]
 ```
 	3. 负数
 ```python
-print(numbers[-1]) # 40 -- slice(-1)
+print(numbers[-1]) # 40 -- arr.at(-1)
 print(numbers[::-1]) # 步长为 -1 代表翻转列表 [40, 30, 20, 10] -- numbers.rervse()
 ```
  
@@ -204,6 +204,30 @@ for value in dict.values():
 for key, value in dict.items():
 ```
 
+# JSON 与文件处理
+## JSON 处理
++ 对象 -> JSON 格式 ：`json.dumps(data) --- JSON.stringity(obj)`
+	Indent 让格式变漂亮，ensure_ascii=False 支持中文
+	`json.dumps(data, indent=4, ensure_ascii=False)`
+
++ JSON -> 对象：`json.loads(str) --- JSON.parse(str)`
+
+## 文件读写
+```python
+# 写入文件
+config = {"api_key": "sk-123", "timeout": 30}
+
+with open("config.json", "w", encoding="utf-8") as f:
+    # 直接把字典写进文件 (dump，没有 s)
+    json.dump(config, f, indent=4)
+
+# 读取文件
+with open("config.json", "r", encoding="utf-8") as f:
+    # 直接从文件加载 (load)
+    content = json.load(f)
+    print(content["api_key"])
+```
+
 # 函数
 ## 定义与调用
 Python 中支持，默认参数传递以及关键字参数
@@ -336,6 +360,19 @@ import numpy as np # 起别名
 from module import funcA, funcB <---> import {funcA, funcB} from "module"; 
 ```
 
+注意：
+`import math` 与 `from math import *` 区别：
++ `import math`:
+	+ 机制： 创建一个名为 `math` 的引用，指向该模块对象
+	+ 用法： `math.sqrt(4)`
+	+ 优点： 不阅读简单，不会污染当前变量
++ `from math import *`:
+	+ 机制： 将 `math` 模块里所有*不以下划线*开头的变量/函数，直接"复制" 到当前命名空间
+	+ 用法： `sqrt(4)`
+	+ 缺点： 如果代码中也定义了一个 `def sqrt():`，它会被模块里的同名函数*静默覆盖*
+--- 
+永远优先使用 `import math`
+
 ## 导出
 在 Python 中，一个 .py 文件里的*所有全局变量、函数、类*，默认都是可以被导出的
 
@@ -435,3 +472,33 @@ user.addr = "shanghai"
 print(user.age)
 print(user.addr)
 ```
+
+# 魔法方法
+常见魔法方法，看上去很像 JS 中的反射，那些底层的方法
+
+| **魔法方法**                   | **触发时机**                  | **对应 JS 概念**      |
+| -------------------------- | ------------------------- | ----------------- |
+| **`__init__`**             | 实例化对象时                    | `constructor`     |
+| **`__str__`**              | `print(obj)` 或 `str(obj)` | `toString()`      |
+| **`__len__`**              | 调用 `len(obj)` 时           | 模拟 `.length` 属性   |
+| **`__getitem__`**          | `obj[key]` 索引访问           | 模拟数组/对象取值         |
+| **`__iter__`**             | `for x in obj` 循环时        | `Symbol.iterator` |
+| **`__enter__ / __exit__`** | 使用 `with` 语句时             | 资源管理（自动开关文件）      |
+| `__call__`                 | 用函数的方式调用对象 `obj(param)`   |                   |
+| `__getattr__`              | 处理不存在的属性                  | 读取不到会返回 undefined |
+
+```python
+class SmartModel:
+    def __init__(self):
+        self.known_info = {"status": "online"}
+
+    def __getattr__(self, name):
+        # 当访问不存在的属性时，会触发这里
+        return f"抱歉，我不知道什么是 '{name}'，但我依然运行正常。"
+
+model = SmartModel()
+print(model.status)   # 正常访问: online
+print(model.power)    # 触发 __getattr__: 抱歉，我不知道什么是 'power'...
+```
+
+# 异步编程
