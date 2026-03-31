@@ -199,31 +199,20 @@
     ]
   },
   "front-tech/JavaScript/JS.md": {
-    "scroll": 1253.9412541975055,
+    "scroll": 36.08479513992927,
     "cursor": {
       "from": {
-        "line": 1268,
+        "line": 0,
         "ch": 0
       },
       "to": {
-        "line": 1268,
+        "line": 0,
         "ch": 0
       }
     },
     "expandedKeys": [
-      "item-2-27",
-      "item-1-13",
-      "item-2-23",
-      "item-2-21",
-      "item-2-19",
-      "item-2-57",
-      "item-1-55",
-      "item-1-96",
-      "item-1-92",
-      "item-1-74",
-      "item-2-76",
-      "item-2-79",
-      "item-2-94"
+      "item-1-0",
+      "item-2-2"
     ]
   },
   "front-tech/JavaScript/some details.md": {
@@ -540,28 +529,18 @@
     ]
   },
   "interview/JS+TS.md": {
-    "scroll": 360.27058829160137,
+    "scroll": 0,
     "cursor": {
       "from": {
-        "line": 361,
-        "ch": 28
+        "line": 0,
+        "ch": 0
       },
       "to": {
-        "line": 361,
-        "ch": 28
+        "line": 0,
+        "ch": 0
       }
     },
-    "expandedKeys": [
-      "item-1-1",
-      "item-3-2",
-      "item-2-36",
-      "item-3-12",
-      "item-3-9",
-      "item-3-5",
-      "item-2-43",
-      "item-2-47",
-      "item-1-25"
-    ]
+    "expandedKeys": []
   },
   "interview/React.md": {
     "scroll": 0,
@@ -812,11 +791,11 @@
     "scroll": 426.65816598284687,
     "cursor": {
       "from": {
-        "line": 447,
+        "line": 440,
         "ch": 23
       },
       "to": {
-        "line": 447,
+        "line": 440,
         "ch": 23
       }
     },

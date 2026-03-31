@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "JS",
+      "path": "front-tech/JavaScript/JS.md"
+    },
+    {
+      "basename": "JS+TS",
+      "path": "interview/JS+TS.md"
+    },
+    {
       "basename": "python",
       "path": "python/python.md"
     },
@@ -29,16 +37,8 @@
       "path": "interview/计算机网络-图.md"
     },
     {
-      "basename": "JS+TS",
-      "path": "interview/JS+TS.md"
-    },
-    {
       "basename": "base64 导出",
       "path": "front-tech/场景/base64 导出.md"
-    },
-    {
-      "basename": "JS",
-      "path": "front-tech/JavaScript/JS.md"
     },
     {
       "basename": "webpack",
