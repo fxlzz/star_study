@@ -502,3 +502,29 @@ print(model.power)    # 触发 __getattr__: 抱歉，我不知道什么是 'powe
 ```
 
 # 异步编程
+异步的概念就不需要多说了，直接看语法吧
+
+```python
+import asyncio
+
+async def fetch_ai_response(prompt):
+	await asyncio.sleep(2)
+	return f"AI对 {prompt} 的回复"
+
+async def main():
+	task1 = fetch_ai_response("hello")
+	task2 = fetch_ai_response("你好")
+
+	# 并发 --- Promise.all(Promise<Array>)
+	res = await asyncio.gather(task1, task2)
+	print(res)
+
+# 启动异步事件循环
+if __name__ == "__main__":
+	asyncio.run(main())
+```
+
+---
+注意：
++ 与 JS 类似，`async` 函数返回的是一个*协程对象*，JS 返回的*promise 对象*
+必须使用 `await` 等待返回结果
