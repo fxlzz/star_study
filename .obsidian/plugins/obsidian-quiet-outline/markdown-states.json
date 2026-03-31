@@ -725,21 +725,31 @@
     "expandedKeys": []
   },
   "front-tech/JavaScript/ES6+.md": {
-    "scroll": 79.03454975865804,
+    "scroll": 126.29558187901638,
     "cursor": {
       "from": {
-        "line": 87,
-        "ch": 25
+        "line": 120,
+        "ch": 17
       },
       "to": {
-        "line": 87,
-        "ch": 25
+        "line": 120,
+        "ch": 17
       }
     },
     "expandedKeys": [
       "item-1-0",
       "item-1-9",
-      "item-2-6"
+      "item-2-6",
+      "item-1-43",
+      "item-1-48",
+      "item-1-14",
+      "item-1-28",
+      "item-1-31",
+      "item-1-35",
+      "item-1-38",
+      "item-1-40",
+      "item-2-17",
+      "item-2-24"
     ]
   },
   "front-tech/JavaScript/事件循环.md": {
@@ -799,26 +809,17 @@
     "expandedKeys": []
   },
   "python/python.md": {
-    "scroll": 503.60069887829246,
+    "scroll": 488.6947266428094,
     "cursor": {
       "from": {
-        "line": 519,
-        "ch": 11
+        "line": 500,
+        "ch": 40
       },
       "to": {
-        "line": 519,
-        "ch": 11
+        "line": 500,
+        "ch": 40
       }
     },
-    "expandedKeys": [
-      "item-1-12",
-      "item-1-0",
-      "item-2-2",
-      "item-1-10",
-      "item-1-18",
-      "item-1-24",
-      "item-1-27",
-      "item-1-15"
-    ]
+    "expandedKeys": []
   }
 }
