@@ -516,7 +516,8 @@ async def main():
 	task2 = fetch_ai_response("你好")
 
 	# 并发 --- Promise.all(Promise<Array>)
-	res = await asyncio.gather(task1, task2)
+	tasks = [task1, task2]
+	res = await asyncio.gather(*tasks) # *来解包列表
 	print(res)
 
 # 启动异步事件循环
