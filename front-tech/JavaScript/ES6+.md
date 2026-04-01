@@ -442,9 +442,9 @@ pro.then((data) => console.log(data)).catch((err) => console.log(err));
 
 【注意】：
 1. `new Promise((resolve, reject) => {})`这个会立即执行，不会加入到微队列，加入微队列的是后续的处理函数（then、catch）
-2. 如果整个 Promise 没有调用 resolve 或 reject，pro 的状态是 pending
-3. 调用 resolve ，那么 pro 状态是 fulfilled
-4. 调用 reject，那么 pro 状态时 rejected
+2. 如果整个 Promise 没有调用 resolve 或 reject，promise 的状态是 pending
+3. 调用 resolve ，那么 promise 状态是 fulfilled
+4. 调用 reject，那么 promise 状态时 rejected
 
 ## Promise 链式调用
 
@@ -468,7 +468,7 @@ const pro1 = new Promise((resolve, reject) => {
   resolve(12);
 });
 
-console.log(pro1); // Promise { 12 }
+console.log(pro1); // Promise { 12 } fulfilled
 console.log("-----------------------");
 
 const pro2 = pro1.catch(() => {

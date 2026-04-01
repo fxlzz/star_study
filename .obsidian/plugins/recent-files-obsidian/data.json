@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "ES6+",
+      "path": "front-tech/JavaScript/ES6+.md"
+    },
+    {
       "basename": "JS",
       "path": "front-tech/JavaScript/JS.md"
     },
@@ -11,10 +15,6 @@
     {
       "basename": "python",
       "path": "python/python.md"
-    },
-    {
-      "basename": "ES6+",
-      "path": "front-tech/JavaScript/ES6+.md"
     },
     {
       "basename": "CSS3",
