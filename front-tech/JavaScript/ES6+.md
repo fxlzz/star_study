@@ -639,7 +639,7 @@ setTimeout(() => {
 
 **await**
 
-await 的作用就是：等待一个 promise，如果这个 promise 状态是已完成，那么将后续代码加入到微队列，如果没有后续代码，那么将 async 返回的 promise 的状态从 pending 转到 fulfilled 的这个过程加入到微队列。
+await 的作用就是：等待一个 promise，如果这个*promise 状态是已完成*，那么将后续代码加入到微队列，如果没有后续代码，那么将 async 返回的 promise 的状态从 pending 转到 fulfilled 的这个过程加入到微队列。
 
 【注意】：await 后面跟的可以不是一个 Promise 对象，但 await 内部会将其转化成一个 Promise 对象
 
@@ -650,7 +650,6 @@ await 1 <==> await Promise.resolve(1);
 ```
 
 用法：
-
 ```js
 function delay(duration) {
   return new Promise((resolve, reject) => {
@@ -668,7 +667,6 @@ delay(1000).then(() => console.log("1秒之后输出这句话"))
 ```
 
 await 表示等待某个 Promise 完成，
-
 ```js
 async function method(){
   const n = await 1;
@@ -687,7 +685,6 @@ function method(){
 ```
 
 如果需要针对失败的任务进行处理，可以使用`try-catch`语法
-
 ```js
 async function method(){
   try{
