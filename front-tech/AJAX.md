@@ -88,6 +88,10 @@ axios.interceptors.response.use((response) => {
 })
 ```
 
+请求超时：
+`axios.isAxiosError(error) && error.code === "ECONNABORTED"` 
+
+
 ## 取消请求
 几个场景：
 + 快速点击按钮 -- 发送请求 -- 导致服务器资源浪费 --> 只保留最后一个请求
