@@ -9,6 +9,9 @@
 
 官网： [Axios Docs](https://axios-http.com/zh/docs/intro)
 
+---
+注意： axios 默认请求下，会将 JS 对象序列化为`JSON`
+
 ## 三种写法
 + `axios.[method](url, [config])`
 + `axios(config) | axios.request(config)`
@@ -59,3 +62,49 @@ const curl = axios.create({
 + `config: object` axios 配置信息
 
 ## 拦截器
+
+*请求拦截器*
+```js
+axios.interceptors.request.use((config) => {
+	// 在请求之前做什么
+	// 一般是加 token 
+}, (err) => {
+	// 对请求错误做什么
+	return promise.reject(err);
+})
+```
+
+*响应拦截器*
+```js
+axios.interceptors.response.use((response) => {
+	// 对响应数据做些什么
+	// 响应结构 {data, status, statusText, headers...}
+	// 处理后端返回的 code 
+	// code == 442 -> message.error("参数校验失败")
+}, (err) => {
+	// 不是 200 才会被捕获, http报文有问题
+	// err.toJSON() 更多http错误信息
+	return promise.reject(err)
+})
+```
+
+## 取消请求
+几个场景：
++ 快速点击按钮 -- 发送请求 -- 导致服务器资源浪费 --> 只保留最后一个请求
++ tab 切换 -- 资源浪费 --> 前一个 tab 的请求取消
++ 手动中断请求 -- 图片上传至一半
+
+原生 JS fetch API 方式 -- `AbortController` -- 传 `signal: controller.signal`
+
+例如：
+```js
+const controller = new AbortController();
+
+axios.get("/api/test", {
+	signal: controller.signal
+}).then(res => {})
+
+// 取消请求
+controller.abort();
+```
+
