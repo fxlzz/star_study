@@ -2,7 +2,7 @@
 
 对于前端而言，发送 AJAX 的两大神器
 + axios 基于 xhr
-+ fetch
++ fetch 基于 promise
 
 ## Axios
 >  基于 promise 的 HTTP 客户端，可以在浏览器和 nodejs 环境使用
@@ -34,7 +34,7 @@ const curl = axios.create({
 列举常见的配置[请求配置 \| Axios Docs](https://axios-http.com/zh/docs/req_config)
 
 + `url: string`
-+ `method: enmu`
++ `method: enum`
 + `baseURL: string`
 + `headers: object`
 + `params: object` 应该是 query 参数 
@@ -113,3 +113,80 @@ controller.abort();
 ```
 
 # Fetch
+浏览器提供的原生 HTTP 请求 API，使用 promise 方式代替 xhr 发送请求
+
+---
+<font color="#ff0000">注意：</font>
++ *query 参数不会自动拼接*（axios 会自动拼接 -> 设置 params 配置项）
++ 请求体 *body 参数*，必须是*字符串*`JSON.stringify`
++ 不会自动*携带 cookie* `credentials: "include"`
++  没有*超时机制*，需要配合 `abortController`
+ 
+## 基础用法
+`fetch` 函数的参数与 [Request]( #Request ) 对象保持一致 
+
+```js
+fetch(url, [options])
+// 因为响应错误的HTTP状态码不会被拒绝，所以，then方法中需要检查 response.ok 或 response.status
+	.then(response => response.json())
+	.then(data => {
+		console.log(data);
+	})
+	.catch(err => {
+// 注意： HTTP响应状态码不为 200 时，也不会进入catch，只有 URL 格式错误或网络错误时，promise才会被拒绝
+		console.error(err);
+	})
+```
+
+调用流程：
+```txt
+fetch() 
+  ↓
+返回 Response 对象（不是数据！）
+  ↓
+调用 response.json()
+  ↓
+才是真正数据
+```
+
+## 超时机制 
+```js
+const controller = new AbortController();
+
+setTimeout(() => {
+	controller.abort();
+}, 5000)
+
+fetch("/api", {
+	signal: controller.signal
+})
+```
+
+## Request
+官网： [Request() - Web API \| MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Request/Request)
+
+`fetch` 的 `options` 配置：
++ `method` 
++ `headers`
++ `body` : 必须序列化
++ `mode: cors | no-cors | same-origin | navigate` 请求的模式
++ `credentials: include | omit | same-origin` 携带 cookie
++ `cache: default | no-store | reload | no-cache | force-cache` 
+	+ [Request.cache - Web API \| MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Request/cache)
++ `redirect: follow | error | manual`
+
+
+## Response
+官网：  [Response - Web API \| MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Response)
+
+响应常见属性:
++ `headers` 
++ `ok: boolean`
++ `status: number`
++ `statusText`
+
+常见方法：
++ `response.json()` 解析为 JSON 格式
++ `response.text()` 解析为 USVString 格式
++ `response.blob()` 解析为 Blob 格式
++ `response.arrayBuffer()` 解析为 ArrayBuffer 格式
