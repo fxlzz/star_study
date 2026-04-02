@@ -220,7 +220,7 @@ encodeURIComponent("张三")
 const params = new URLSearchParams({
   name: "张三",
   age: 18,
-  city: "New York"
+  city: "New York" // 空格解析成了 +
 });
 
 console.log(params.toString()); 
@@ -228,7 +228,7 @@ console.log(params.toString());
 ```
 
 注意：
-+ *空格* 被解析成了 `+` 号
++ URL 标准，查询字符串里的 `+` 等同于*空格*
 
 ### 增删改查
 ```js
