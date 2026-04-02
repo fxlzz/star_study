@@ -1,10 +1,6 @@
 {
   "recentFiles": [
     {
-      "basename": "base64 导出",
-      "path": "front-tech/场景/base64 导出.md"
-    },
-    {
       "basename": "AJAX",
       "path": "front-tech/AJAX.md"
     },
@@ -15,6 +11,10 @@
     {
       "basename": "React",
       "path": "interview/React.md"
+    },
+    {
+      "basename": "base64 导出",
+      "path": "front-tech/场景/base64 导出.md"
     },
     {
       "basename": "计算机网络",

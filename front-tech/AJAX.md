@@ -190,3 +190,18 @@ fetch("/api", {
 + `response.text()` 解析为 USVString 格式
 + `response.blob()` 解析为 Blob 格式
 + `response.arrayBuffer()` 解析为 ArrayBuffer 格式
+
+# 封装相关 API
+## `encodeURIComponent`
+用于编码 query 参数的 value 值，因为 URL 只能包含 `A-Z a-z 0-9 - _ . ~`
+例如，
++ `/api?name=张三` -> 请求失败，乱码
++ `params: {key: "a&b"}` -> 会解析为 `?key=a&b -> {key: "a", b: undefined}` 导致后端解析错误
+
+这个 API 就是来解决这个问题的
+经过处理后，
+```js
+encodeURIComponent("张三")
+// → "%E5%BC%A0%E4%B8%89"
+```
+
