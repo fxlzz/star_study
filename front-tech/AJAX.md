@@ -248,3 +248,138 @@ p.append("tags", "js");
 p.append("tags", "python");
 console.log(p.toString()); // tags=js&tags=python
 ```
+
+
+# 基于 fetch 封装的请求方法
+优化：
++ 可以将业务逻辑报错，换成 antd 的 message 告诉前端用户，而不是抛出给前端开发，在到具体组件中处理
+
+```js
+const BASE_URL = "http://localhost:3003";
+
+/**
+ * 解析数据格式
+ * @param {Response} response
+ */
+async function dataResolver(response) {
+  const contentType = response.headers.get("content-type") ?? "";
+  
+  try {
+    if (contentType.includes("application/json")) {
+      return await response.json();
+    } else if (["text/", "application/x-www-form-urlencoded"].includes(contentType)) {
+      return await response.text();
+    } else if (["application/octet-stream", "image/png"].includes(contentType)) {
+      return await response.blob();
+    } else {
+      return await response.json();
+    }
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
+/**
+ * 构建fetch配置项
+ */
+function buildConfig({ method, data, headers, ...extraConfig }) {
+  let body = "";
+  try {
+    body = JSON.stringify(data);
+  } catch (error) {
+    throw new Error(error?.message);
+  }
+
+  const options = {
+    method: method.toUpperCase(),
+    body,
+    headers: {
+      "Content-type": "application/json",
+      ...headers,
+    },
+    credentials: "include",
+    ...extraConfig,
+  };
+
+  if (["GET", "HEAD"].includes(options.method)) {
+    delete options.body;
+  }
+  return options;
+}
+
+/**
+ * 基于 fetch 封装的请求方法
+ * 其他配置项：https://developer.mozilla.org/zh-CN/docs/Web/API/Request/Request
+ * @param {object} options
+ * @param {string} options.url 请求路径
+ * @param {string} options.method 请求方法
+ * @param {object} options.data 请求体
+ * @param {object} options.headers 请求头
+ * @param {object} options.params query 参数
+ * @param {number} options.timeout fetch 原生不支持，配合 abortController + setTimeout 实现
+ */
+async function curl({
+  url = "",
+  method = "GET",
+  data = null,
+  headers = {},
+  params = {},
+  timeout = 5000,
+  ...extra
+}) {
+  if (!url.startsWith("/")) {
+    throw new Error("url 必须以 / 开头");
+  }
+
+  // 超时机制
+  const controller = new AbortController();
+  const timer = setTimeout(() => {
+    controller.abort();
+  }, timeout);
+
+  // 构建 query 参数
+  let fullURL = `${BASE_URL}${url}`;
+  if (Object.keys(params).length > 0) {
+    const query = new URLSearchParams(params);
+    const seq = fullURL.includes("?") ? "&" : "?";
+    fullURL += seq + query.toString();
+  }
+
+  // 构建 options 配置
+  const options = buildConfig({ method, data, headers, ...extra });
+  try {
+    // 发送请求
+    const response = await fetch(fullURL, {
+      ...options,
+      signal: controller.signal,
+    });
+    clearTimeout(timer);
+
+    if (!response.ok) {
+      throw new Error("网络错误");
+    }
+
+    /**
+     * 罗列具体的 HTTP 响应报文错误
+     * if(response.status === 401) {thorw new Error("未授权")}
+     */
+
+    // 解析 Response 格式
+    const result = await dataResolver(response);
+    if (!result || !result.data || !result.success) {
+      throw new Error("服务端信息异常");
+    }
+    return result.data;
+    
+  } catch (error) {
+    clearTimeout(timer);
+    if (error.name === "AbortError") {
+      throw new Error("请求超时");
+    }
+    throw err;
+  }
+}
+
+export default curl;
+```
+
