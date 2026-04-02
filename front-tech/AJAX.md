@@ -174,6 +174,7 @@ fetch("/api", {
 + `cache: default | no-store | reload | no-cache | force-cache` 
 	+ [Request.cache - Web API \| MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Request/cache)
 + `redirect: follow | error | manual`
++ `signal: controller.signal` controller 为 abortController 的实例
 
 
 ## Response
@@ -208,11 +209,42 @@ encodeURIComponent("张三")
 ##  `URLSearchParams`
 [URLSearchParams - Web API \| MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/URLSearchParams)
 
-也是处理 query 参数的方法，比手动拼接更方便、更安全
+`URLSearchParams(params) -> params: {key, value} | 二维数组 [[key, value]] `
 
 *核心优势*
 - **自动转义**：自动处理特殊字符（如空格变 `%20`，`&` 变成 `%26`）
 - **可迭代**：可以直接把*对象、数组*转换成查询参数
 
+### 初始化与序列化
+```js
+const params = new URLSearchParams({
+  name: "张三",
+  age: 18,
+  city: "New York"
+});
+
+console.log(params.toString()); 
+// 输出: name=%E5%BC%A0%E4%B8%89&age=18&city=New+York
+```
+
 注意：
-+ 该函数会将 *+* 号解析成*空格* -> 可用 `encodeURIComponent` 规避
++ *空格* 被解析成了 `+` 号
+
+### 增删改查
+```js
+const p = new URLSearchParams("?id=123");
+
+p.append("type", "admin"); // 添加：?id=123&type=admin
+p.set("id", "456");        // 修改：?id=456&type=admin
+p.has("type");             // 检查：true
+p.delete("id");            // 删除
+```
+
+### 重复键
+处理数组，也没问题
+```js
+const p = new URLSearchParams();
+p.append("tags", "js");
+p.append("tags", "python");
+console.log(p.toString()); // tags=js&tags=python
+```
