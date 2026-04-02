@@ -181,7 +181,7 @@ fetch("/api", {
 
 响应常见属性:
 + `headers` 
-+ `ok: boolean`
++ `ok: boolean`： 200-299
 + `status: number`
 + `statusText`
 

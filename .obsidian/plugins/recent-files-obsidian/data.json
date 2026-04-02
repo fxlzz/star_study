@@ -5,6 +5,14 @@
       "path": "front-tech/AJAX.md"
     },
     {
+      "basename": "React",
+      "path": "front-tech/React/React.md"
+    },
+    {
+      "basename": "React",
+      "path": "interview/React.md"
+    },
+    {
       "basename": "计算机网络",
       "path": "interview/计算机网络.md"
     },
@@ -83,10 +91,6 @@
     {
       "basename": "TypeScript",
       "path": "front-tech/TypeScript.md"
-    },
-    {
-      "basename": "React",
-      "path": "front-tech/React/React.md"
     },
     {
       "basename": "Zustand",
@@ -195,10 +199,6 @@
     {
       "basename": "简历",
       "path": "interview/简历.md"
-    },
-    {
-      "basename": "AI",
-      "path": "interview/AI.md"
     }
   ],
   "omittedPaths": [],
