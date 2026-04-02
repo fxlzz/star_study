@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "base64 导出",
+      "path": "front-tech/场景/base64 导出.md"
+    },
+    {
       "basename": "AJAX",
       "path": "front-tech/AJAX.md"
     },
@@ -111,10 +115,6 @@
     {
       "basename": "毕设",
       "path": "毕设/毕设.md"
-    },
-    {
-      "basename": "base64 导出",
-      "path": "front-tech/场景/base64 导出.md"
     },
     {
       "basename": "antd Modal + Form",

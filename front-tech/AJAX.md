@@ -180,7 +180,7 @@ fetch("/api", {
 官网：  [Response - Web API \| MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Response)
 
 响应常见属性:
-+ `headers` 
++ `headers` [Headers - Web API \| MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Headers)
 + `ok: boolean`： 200-299
 + `status: number`
 + `statusText`
