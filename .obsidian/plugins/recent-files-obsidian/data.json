@@ -5,6 +5,10 @@
       "path": "front-tech/AJAX.md"
     },
     {
+      "basename": "ES6+",
+      "path": "front-tech/JavaScript/ES6+.md"
+    },
+    {
       "basename": "React",
       "path": "front-tech/React/React.md"
     },
@@ -155,10 +159,6 @@
     {
       "basename": "JS",
       "path": "front-tech/JavaScript/JS.md"
-    },
-    {
-      "basename": "ES6+",
-      "path": "front-tech/JavaScript/ES6+.md"
     },
     {
       "basename": "improve_coding",

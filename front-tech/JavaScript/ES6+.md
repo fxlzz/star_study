@@ -684,7 +684,7 @@ function method(){
 }
 ```
 
-如果需要针对失败的任务进行处理，可以使用`try-catch`语法
+如果需要针对失败的任务进行处理，可以使用 `try-catch` 语法
 ```js
 async function method(){
   try{
@@ -692,6 +692,10 @@ async function method(){
     console.log('成功', n)
   }
   catch(err){
+  	/**
+  	* err 的结构：
+  	* - name(错误类型)/ message/ stack
+  	*/
     console.log('失败', err)
   }
 }

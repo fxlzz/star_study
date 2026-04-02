@@ -191,7 +191,7 @@ fetch("/api", {
 + `response.blob()` 解析为 Blob 格式
 + `response.arrayBuffer()` 解析为 ArrayBuffer 格式
 
-# 封装相关 API
+# 相关 API
 ## `encodeURIComponent`
 用于编码 query 参数的 value 值，因为 URL 只能包含 `A-Z a-z 0-9 - _ . ~`
 例如，
@@ -204,4 +204,11 @@ fetch("/api", {
 encodeURIComponent("张三")
 // → "%E5%BC%A0%E4%B8%89"
 ```
+
+##  `URLSearchParams`
+也是处理 query 参数的方法，比手动拼接更方便、更安全
+
+*核心优势*
+- **自动转义**：自动处理特殊字符（如空格变 `%20`，`&` 变成 `%26`）
+- **可迭代**：可以直接把*对象、数组*转换成查询参数
 
