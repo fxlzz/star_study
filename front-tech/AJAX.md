@@ -206,9 +206,13 @@ encodeURIComponent("张三")
 ```
 
 ##  `URLSearchParams`
+[URLSearchParams - Web API \| MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/URLSearchParams)
+
 也是处理 query 参数的方法，比手动拼接更方便、更安全
 
 *核心优势*
 - **自动转义**：自动处理特殊字符（如空格变 `%20`，`&` 变成 `%26`）
 - **可迭代**：可以直接把*对象、数组*转换成查询参数
 
+注意：
++ 该函数会将 *+* 号解析成*空格* -> 可用 `encodeURIComponent` 规避
