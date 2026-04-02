@@ -62,6 +62,7 @@ const curl = axios.create({
 + `config: object` axios 配置信息
 
 ## 拦截器
+>  拦截器是一个函数链，每个函数接收上一个阶段的结果，并返回新的结果，最终形成一个 Promise 调用链（前端很多技术，都有这个思想 webpack-loader、express-middlewares...）
 
 *请求拦截器*
 ```js
@@ -318,7 +319,7 @@ function buildConfig({ method, data, headers, ...extraConfig }) {
  * @param {object} options.params query 参数
  * @param {number} options.timeout fetch 原生不支持，配合 abortController + setTimeout 实现
  */
-async function curl({
+async function request({
   url = "",
   method = "GET",
   data = null,
@@ -380,6 +381,6 @@ async function curl({
   }
 }
 
-export default curl;
+export default request;
 ```
 
