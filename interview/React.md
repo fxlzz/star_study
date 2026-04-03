@@ -1,6 +1,7 @@
-# React 设计思想
+# 设计思想
 ## 声明式与命令式
-## 组件化思维
+## 组件复用设计
+## 怎么设计数据流？
 
 # JSX & 渲染机制
 ## JSX 本质
@@ -49,7 +50,7 @@ const element = React.createElement(
 + 这是一个专门用来防止 *XSS（跨站脚本攻击）* 的机制
 + 如果你的服务器漏洞导致返回了恶意的 JSON 模拟 React 元素，因为 JSON 不支持 `Symbol` 类型，React 会在渲染时检测到 `$$typeof` 缺失或错误，从而拒绝渲染该对象
 
-宏观渲染机制：
+*宏观渲染机制*
 1. 用户编写 JSX 描述 UI
 2. Babel 或 swc 转化为 `React.createElement()`
 3. 执行后，转化为 React 元素 --- 调度器
@@ -58,4 +59,19 @@ const element = React.createElement(
 
 ## JSX 和模板引擎的区别
  
+## Diff 算法
 
+# 组件 & Hooks
+类组件用的不多
+
+## Hooks
+### `useState`
+
+### `useEffect`
+
+### `useRef`
+
+### `useMemo & useCallback`
+
+
+ 
