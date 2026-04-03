@@ -57,5 +57,5 @@ const element = React.createElement(
 5. ReactDOM 负责这些差异最小化的更新到真实 DOM 上 --- 渲染器
 
 ## JSX 和模板引擎的区别
-
+ 
 
