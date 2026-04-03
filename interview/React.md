@@ -46,7 +46,7 @@ const element = React.createElement(
 ```
 
 ---
-为什么会有 `$$typeof` 这个属性呢？
+*为什么会有 `$$typeof` 这个属性呢？*
 + 这是一个专门用来防止 *XSS（跨站脚本攻击）* 的机制
 + 如果你的服务器漏洞导致返回了恶意的 JSON 模拟 React 元素，因为 JSON 不支持 `Symbol` 类型，React 会在渲染时检测到 `$$typeof` 缺失或错误，从而拒绝渲染该对象
 
@@ -97,6 +97,25 @@ function App({ list }) {
 特点：
 - 更像“渲染模板”
 
+## 虚拟 DOM 是什么？
+首先，先明确一个概念，虚拟 DOM 是一个概念，而不是一项具体的技术。可以狭义的认为是一段特殊的*数据结构*
+在 React 中，`React.createElemet()` 函数调用后的返回的 JS 对象就是虚拟 DOM
+
+### 为什么虚拟 DOM 快？
+按之前的理解，虚拟 DOM 可被认为是一段 JS 对象，这段 JS 对象描述了页面 UI。因此，对 DOM 的操作转化成为了对 JS 对象的操作（并且这个是在内存中进行的）。
+
+结合浏览器渲染原理，只有在更新 DOM 时，才会触发浏览器的重绘机制。
+
+因此，虚拟 DOM 快。
+
+### 为什么虚拟 DOM 可以跨平台？
+这里涉及到 React 设计哲学，有个公式 `UI = f(state)`
+这里的 `state` 可认为是虚拟 DOM——描述 UI 的数据，配合上 `f - function` ——不同平台操作 DOM 的 API
+例如：
+- 浏览器、`Node.js` 宿主环境使用 `ReactDOM` 包
+- `Native` 宿主环境使用 `ReactNative` 包
+- `Canvas、SVG` 宿主环境使用 `ReactArt` 包
+- `ReactTest` 包用于渲染出 JS 对象，可以很方便地测试“不隶属于任何宿主环境的通用功能”
 
 ## Diff 算法
 
