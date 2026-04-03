@@ -1,35 +1,21 @@
 
-# 一、入门篇
-
-### 快速开始：
-
-```bash
-npx create-react-app my-app
-cd my-app
-npm start
-```
-
-当然用 _vite_ 也可以创建 _react_
-
-```bash
-yarn vite
-```
-
 ## 初识
 
 React 是一个很灵活的 JavaScript 库，
 
 分成两个库：
+- *React* -> 核心库（任何环境都可以运行，无论是浏览器还是 node -> 编译成虚拟 DOM）
+- *React-dom* -> 提供一个 API 在浏览器环境下运行
 
-- React -> 核心库（任何环境都可以运行，无论是浏览器还是 node）
-- React-dom -> 提供一个 API 在浏览器环境下运行
+## React 元素
+React 底层使用 `React.createElement("容器", {属性}, "内容");` 来创建 React 元素，是 React 核心库提供的功能
+例如： 
+```js
+const h1 = React.createElement("h1", {}, "hello world");
+```
+这个是创建虚拟 dom 元素，是 React 元素
 
-【React 元素】
-
-React 底层使用`React.createElement("容器", {属性}, "内容");`来创建 React 元素，是 React 核心库提供的功能。例如： `const h1 = React.createElement("h1", {}, "hello world");`这个是创建虚拟 dom 元素，是 React 元素。
-
-创建完 React 元素后，会交给`ReactDOM.render()`创建成 dom 元素，
-
+创建完 React 元素后，会交给`ReactDOM.render()`创建成 dom 元素
 ```jsx
 import React from "react";
 import { createRoot } from "react-dom/client";
@@ -41,16 +27,15 @@ createRoot(document.getElementById("root")).render(
 );
 ```
 
-像我们自己定义的组件，一般称为： React Component Element 比如：`<Comp />`
+像我们自己定义的组件，一般称为： `React Component Element` 比如：`<Comp />`
 
-react 中内置的组件，一般为：React Html Element 比如：`<h1></h1>`
+react 中内置的组件，一般为：`React HtmlElement` 比如：`<h1></h1>`
 
 ## JSX语法
-其实也不是什么新的东西，就是长的很像 _HTML_ ，但是不是的！！
-是_JS_语言的语法扩展，_React_ 是_JavaScript_库，虽然是官网上这么说的
+>  JSX 本质 [React](../../interview/React.md)
 
 与 _Vue_ 的区别：
-- _Vue_ 使用来描述页面
+- _Vue_ 使用来模板描述页面
 - _React_ 使用JSX来描述页面
 
 【注意】：一些语法规则
@@ -156,7 +141,7 @@ export default function Profile() {
 
 在 _React_ 中，可以通过使用 _JavaScript_ 的 _if_ 语句、_&&_ 和 _? :_ 运算符来选择性的渲染 _JSX_
 
-**返回值为** **_null_** ，那么就不会渲染满足条件的_组件_。
+**返回值为** **_null_** ，那么就不会渲染满足条件的*组件*。
 
 在 JSX 里，React 会将 `false` 视为一个“空值”，就像 `null` 或者 `undefined`，React 不会在这里进行任何渲染
 
@@ -167,9 +152,8 @@ _JavaScript_ 逻辑运算符判断：如果 `null && 123` 前面判断为 _false
 比如：`0 && 123` _JavaScript_ 中在进行 _&&_ 运算时，会进行自动的布尔判定，0 判定为 false，所以这个表达式的返回值为 0
 
 例如：
-
 ```jsx
-一、if - else语句
+// 一、if - else语句
 function Item({name, isPacked}) {
   if (isPacked) {
     return <li>{name + '√'}</li>
@@ -177,29 +161,27 @@ function Item({name, isPacked}) {
   return <li>{name}</li>
 }
 
-二、? : 三元运算符
+// 二、? : 三元运算符
 function Item({name, isPacked}) {
   return <li>{isPacked ? name + '√' : name}</li>
 }
 
-三、&& 
+// 三、&& 
 function Item({name, isPacked}) {
   return <li>{name}{isPacked && '√'}</li>
 }
 
-四、额外增加一个存储空间
+// 四、额外增加一个存储空间
 function Item({name, isPacked}) {
   let content = name;
   if (isPacked) {
     content = name + '√'
-    或者
+    // 或者
     content = (
       <del>
         {name + '√'}
       </del>
     ) 
-    // 这是一段 JSX 代码，在 JSX 代码中使用JS代码需要用{}
-    // 不要感觉到很奇怪！
   }
   return <li>{content}</li>; 
 }
@@ -233,15 +215,13 @@ function Test() {
 
 如何添加事件呢？在 _React_ 中，使用的方式更加贴近原生 _JavaScript_ 的操作方式。
 
-事件处理函数，在 DOM（wip fiber tree） 生成完成后执行
+事件处理函数，*<font color="#ff0000">在 DOM（wip fiber tree） 生成完成后执行</font>*
 
 **事件处理函数**：
-
 - 通常定义在组件**内部**
 - 名称以 _handle_ 开头，后跟事件名称
 
 例如：
-
 ```jsx
 function Test() {
   function handleClick() {
@@ -252,21 +232,18 @@ function Test() {
   );
 }
 
-或者
+// 或者
   <button onclick={() => {
   console.log('点击触发了')
 }}>点击</button>
 ```
 
 **特别注意**：
-
-传递事件处理函数，一定是函数，在JSX中 `{}` 里面的都被看做成 _JS_ 代码。要传递函数，而不是调用函数
+传递事件处理函数，一定是函数，在JSX中 `{}` 里面的都被看做成 _JS_ 代码。要*传递函数*，而不是调用函数
 
 区别：
-
 **第一个**会等点击事件之后，触发 _handleClick_ 回调函数
-
-**第二个**是一串 _JS_ 代码，会直接调用_handleClick_ 函数
+**第二个**是一串 _JS_ 代码，会直接调用*handleClick* 函数
 
 |   |   |
 |---|---|
@@ -274,27 +251,25 @@ function Test() {
 |`<button onClick={handleClick}>`<br><br>`<button onClick={() => handleClick()}>`|`<button onClick={handleClick()}>`|
 
 ### 事件冒泡
-
 跟原生 _JavaScript_ 一样，_react_ 中的事件处理函数也会**冒泡**，阻止事件冒泡
 
 只能使用 **事件对象**`e.stopPropagation()` 不能使用 `return false`的方式
 
 ### 阻止默认行为
-
 `e.preventDefault()`
 
 ## state
-
 相当于 _Vue_ 中的 _data_ ，用于保存数据，事件处理函数可以处理 _state_ 中的数据，不破坏从 _prop_ 中传入的数据，保持组件的 **纯粹性**
 
-### 第一个 Hook -> useState
+### useState
+在 React 中，`useState` 以及任何其他以“`use`”开头的函数都被称为 **Hook**
 
-在 React 中，`useState` 以及任何其他以“`use`”开头的函数都被称为 **Hook**。
-
-**Hooks ——以** `use` **开头的函数——只能在组件或**[自定义 Hook](https://react.docschina.org/learn/reusing-logic-with-custom-hooks) **的最顶层调用。** 不能在条件语句、循环语句或其他嵌套函数内调用 Hook
+Hooks 
++ 以*use*开头的函数
++ 只能在*组件*或[自定义 Hook](https://react.docschina.org/learn/reusing-logic-with-custom-hooks) 的最顶层调用 
++ 不能在*条件语句、循环语句*或其他*嵌套函数内*调用 Hook
 
 定义useState：
-
 ```jsx
 // 定义了多个 state
 const [index, setIndex] = useState(0);

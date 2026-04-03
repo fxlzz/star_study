@@ -58,7 +58,46 @@ const element = React.createElement(
 5. ReactDOM 负责这些差异最小化的更新到真实 DOM 上 --- 渲染器
 
 ## JSX 和模板引擎的区别
- 
+>  问： JSX 和模板引擎有什么区别？
+>  答： 
+>  - JSX 本质上是 JS 语法的扩展，被编译函数调用，用 JS 对象来描述 UI；而模板引擎本质上是字符串模板，用数据填充后生成 HTML
+>  - JSX 具备完成的 JS 能力，而模板引擎会受限于 DSL
+
+*运行时机不同*：
++ JSX
+	+ 编译 -- JS 函数
+	+ 执行 -- 虚拟 DOM
+	+ 更新 -- diff 算法
+ 特点： 不是字符串拼接，是 JS 对象
+
+ + 模板引擎
+	+ 编译 -- 函数
+	+ 执行 -- 返回 HTML 字符串
+	+ 更新 -- 重新渲染整段
+ 特点： 本质还是字符串
+
+同时，因为 JSX 类似于 JS，没有丢失语言便捷，可用 if/for/map 等方法。而，模板引擎受限于 DSL，DSL 中是怎么描述的，模板中就只能怎么写（灵活度下降）
+
+*设计哲学不同*：
+JSX：`UI = f(state)`
+```jsx
+function App({ list }) {
+  return list.map(item => <div>{item.name}</div>);
+}
+```
+特点：
+- UI 是函数
+- 数据驱动
+- 强组合能力
+
+模板引擎： HTML + 数据填充
+```html
+<div>{{name}}</div>
+```
+特点：
+- 更像“渲染模板”
+
+
 ## Diff 算法
 
 # 组件 & Hooks
