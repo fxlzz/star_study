@@ -46,18 +46,14 @@ createRoot(document.getElementById("root")).render(
 react 中内置的组件，一般为：React Html Element 比如：`<h1></h1>`
 
 ## JSX语法
-
 其实也不是什么新的东西，就是长的很像 _HTML_ ，但是不是的！！
-
 是_JS_语言的语法扩展，_React_ 是_JavaScript_库，虽然是官网上这么说的
 
 与 _Vue_ 的区别：
-
 - _Vue_ 使用来描述页面
 - _React_ 使用JSX来描述页面
 
 【注意】：一些语法规则
-
 使用 _JSX_ 来描述页面时，有如下的一些语法规则：
 
 - 根元素只能有一个，单标签需要闭合
@@ -67,12 +63,11 @@ react 中内置的组件，一般为：React Html Element 比如：`<h1></h1>`
 - _JSX_ 注释需要写在花括号
 - _JSX_ 允许在模板中插入数组，数组会自动展开所有成员
 
-## React组件
 
-在我的理解力，应该是又两种写法，一种是 _类组件_ ，一种是 _函数组件_ ，现在用的比较多的是 _函数组件_
+## React组件
+两种写法，一种是 _类组件_ ，一种是 _函数组件_ ，现在用的比较多的是 _函数组件_
 
 **类组件**
-
 ```jsx
 class Test extends React.Component{
   render(
@@ -84,7 +79,6 @@ class Test extends React.Component{
 ```
 
 **函数组件 【现在一般用这个】**
-
 ```jsx
 function Test{ // 这里必须大写
   return (
@@ -94,41 +88,29 @@ function Test{ // 这里必须大写
 ```
 
 【注意】
-
 1、函数名必须大写
-
 2、_return_ 要用 _()_ 包起来，不然下行代码会被忽视
-
 3、一个组件中可以声明多个组件，但是不能嵌套声明（而且需要注意的是，在顶层声明其他的组件）
 
-### 导入和导出
-
-跟_JavaScript_中的导入和导出差不多，可以用 _具名_ 和 _默认_ 导入和导出，要注意的是，**一个组件中，只能有一个默认导出，多个具名导出**
-
-|   |   |   |
-|---|---|---|
-|语法|导出语句|导入语句|
-|默认|`export default function Button() {}`|`import Button from './Button.js';`|
-|具名|`export function Button() {}`|`import { Button } from './Button.js';`|
-
-### 熟悉的 Props
-
+### Props
 跟 _Vue_ 差不多，也是来传递参数的，就是写法有点不一样而已
 
-_React_ **组件函数**接收一个参数，一个 _props_ 对象，_props_ **是组件的唯一参数**
+_React_ **组件函数**接收参数，一个 _props_ 对象，另一个 ref
 
 通常不需要整个 `props` 对象，可以将它**解构**为单独的 _props_
-
-在声明 props 时， **不要忘记** `(` **和** `)` **之间的一对花括号** `{` **和** `}` ，从对象中 _解构_
-
 ```jsx
+function Avatar(props) {
+  const person = props.person;
+  // ...
+}
+
+// 解构
 function Avatar({ person, size }) {
   // ...
 }
 ```
 
 #### 设置默认值
-
 ```jsx
 function Avatar({ person, size = 100 }) {
   // ...
@@ -136,17 +118,14 @@ function Avatar({ person, size = 100 }) {
 ```
 
 默认值仅在缺少 `size` prop 或 `size={undefined}` 时生效。
-
 但是如果你传递了 `size={null}` 或 `size={0}`，默认值将 **不** 被使用。
 
 #### 类型检测
 
 #### children -> 插槽
-
-_props_ 中的 _children_ 的功能就类似于 _Vue_ 中的 _插槽_ 的功能，可以接收**父组件使用任意 JSX **
+_props_ 中的 _children_ 的功能就类似于 _Vue_ 中的 _插槽_ 的功能，可以接收**父组件使用任意 JSX**
 
 例如：
-
 ```jsx
 import Avatar from './Avatar.js';
 

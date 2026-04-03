@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "React",
+      "path": "interview/React.md"
+    },
+    {
+      "basename": "React",
+      "path": "front-tech/React/React.md"
+    },
+    {
       "basename": "AJAX",
       "path": "front-tech/AJAX.md"
     },
@@ -11,14 +19,6 @@
     {
       "basename": "ES6+",
       "path": "front-tech/JavaScript/ES6+.md"
-    },
-    {
-      "basename": "React",
-      "path": "front-tech/React/React.md"
-    },
-    {
-      "basename": "React",
-      "path": "interview/React.md"
     },
     {
       "basename": "base64 导出",
