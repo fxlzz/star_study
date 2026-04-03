@@ -259,6 +259,16 @@ function Test() {
 ## state
 相当于 _Vue_ 中的 _data_ ，用于保存数据，事件处理函数可以处理 _state_ 中的数据，不破坏从 _prop_ 中传入的数据，保持组件的 **纯粹性**
 
+### React 渲染时机
+1. 在 DOM（wip fiber tree）更新后 
+2. 执行*事件处理函数*（遇到 setxxx 函数加入更新队列）
+3. 触发*重新渲染*，在重新渲染期间*执行更新队列*，计算最新的 state
+4. 生成*新*的*虚拟 DOM*
+5. *Diff* 比较，计算出最小差异
+6. React 将计算好的差异应用到*真实 DOM*上（此时，浏览器尚未重绘）
+7. 浏览器完成布局（layout）和绘制（paint）
+8. 执行 UseEffect 等*副作用*函数
+
 ### useState
 在 React 中，`useState` 以及任何其他以“`use`”开头的函数都被称为 **Hook**
 
@@ -274,8 +284,8 @@ const [index, setIndex] = useState(0);
 const [showMore, setShowMore] = useState(false);
 ```
 
-- `useState` Hook 返回一对值：当前 state 和更新它的函数。
-- 你可以拥有多个 state 变量。在内部，React 按顺序匹配它们。
+- `useState` Hook 返回一对值：当前 state 和更新它的函数
+- 你可以拥有多个 state 变量。在内部，React 按顺序匹配它们
 
 ### state 是隔离且私有的
 换句话说，**如果你渲染同一个组件两次，每个副本都会有完全隔离的 state**！改变其中一个不会影响另一个
@@ -283,11 +293,8 @@ const [showMore, setShowMore] = useState(false);
 与 props 不同，**state 完全私有于声明它的组件**。父组件无法更改它
 
 ### 按下快门
-_React_ 渲染组件：
-1. 组件的 **初次渲染** 
-2. **state** 的修改（包括自身和祖先组件，设置 _state_ 不会更改现有渲染中的变量，会请求一次新的渲染）
-
-在 _React_ 渲染过程中，_setValue_ 就像是一个请求者，只要看见这个东东，_React_ 就会马上就会 **“按下快门”** ，也就是当前状态下的 _state_ 值都会使用 **同一个值**
+在 _React_ 渲染过程中，_setValue_ 就像是一个请求者，只要看见这个东东
+_React_ 就会马上就会 **“按下快门”** ，也就是当前状态下的 _state_ 值都会使用 **同一个值**（加入到更新队列）
 
 例如：
 ```jsx
@@ -295,9 +302,9 @@ import {useState} from 'react';
 export default function Test (){
   const [num, setNum] = useState(0);
   function handleClick() {
-    setNum(num + 1); 
-    setNum(num + 1);
-    setNum(num + 1);
+    setNum(num + 1); // 加入队列 -> 将num更新围为 0 + 1
+    setNum(num + 1); // 加入队列 -> 将num更新围为 0 + 1
+    setNum(num + 1); // 加入队列 -> 将num更新围为 0 + 1
   }
   return (
     <> 
@@ -320,18 +327,12 @@ function handleClick() {
 ```
 
 ### 如何解决呢？
-
-前提知识： 
-+ React 会等到*事件处理函数*中的所有代码，都运行完毕后
-+ 再处理 state 更新（异步的，批处理）
-这就是为什么重新渲染只会发生在所有这些 `setNumber()` 调用 **之后** 的原因
-
 替换成 **更新函数**，一次多个设置 _state_ 值，上述代码，可以修改成下面的代码
 
 ```jsx
-setNumber(n => n + 1);
-setNumber(n => n + 1);
-setNumber(n => n + 1);
+setNumber(n => n + 1); // 加入队列 -> 将队列中上一个 n 的值 加1 赋给 n（0 + 1 = 1）
+setNumber(n => n + 1); // 加入队列 -> 将队列中上一个 n 的值 加1 赋给 n（1 + 1 = 2）
+setNumber(n => n + 1); // 加入队列 -> 将队列中上一个 n 的值 加1 赋给 n（2 + 1 = 3）
 ```
 
 **解释：**
@@ -376,9 +377,18 @@ _React_ 在执行事件处理函数时处理的过程：
 
 所以说，要想 _React_ 知道，_state_ 中的引用数据发生了改变的话，就需要 **覆盖** **_state_** **数据的地址**。（也就是，创建一个新的数组 或 对象来替换原有的值，让 _state_ 指向新的地址）
 
-总结：**浅拷贝是不行的，需要用深拷贝，要指向新的内存地址**
+---
+<font color="#ff0000">总结： React 怎么知道 state 更新了？</font>
++ 当React 感知到传入 setxxx 的参数与原来的值不是同一个地址空间
++ 如果直接修改引用对象，React 会认为"新旧状态还是同一个东西"，从而跳过渲染
 
-#### 方法：
+---
+在 React 内部的*调度* 阶段：
+1. 当你调用 `setXXX(newValue)` 时，React 会立即对比 `Object.is(oldValue, newValue)`
+2. **如果相等**：React 会直接退出，不进入之后的 Render 阶段，也不会执行任何 Diff 算法
+3. **如果不相等**：React 将该组件标记为“脏 (Dirty)”，并将其排入更新任务队列，等待下一轮渲染计算
+
+#### 方法
 可以使用扩展运算符来浅拷贝对象
 ```jsx
 setPerson({ // 创建新对象
