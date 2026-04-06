@@ -259,16 +259,6 @@ function Test() {
 ## state
 相当于 _Vue_ 中的 _data_ ，用于保存数据，事件处理函数可以处理 _state_ 中的数据，不破坏从 _prop_ 中传入的数据，保持组件的 **纯粹性**
 
-### React 渲染时机
-1. 在 DOM（wip fiber tree）更新后 
-2. 执行*事件处理函数*（遇到 setxxx 函数加入更新队列）
-3. 触发*重新渲染*，在重新渲染期间*执行更新队列*，计算最新的 state
-4. 生成*新*的*虚拟 DOM*
-5. *Diff* 比较，计算出最小差异
-6. React 将计算好的差异应用到*真实 DOM*上（此时，浏览器尚未重绘）
-7. 浏览器完成布局（layout）和绘制（paint）
-8. 执行 UseEffect 等*副作用*函数
-
 ### useState
 在 React 中，`useState` 以及任何其他以“`use`”开头的函数都被称为 **Hook**
 
@@ -2789,7 +2779,7 @@ diff 算法根据生成的节点个数，分成了两种情况：
 ```
 
 单节点 Diff 流程：
-1. 比较 key -> 更新前第一个 key 为 one，与更新后 key 为 two *key 不相同*  -> 不可复用
+1. 比较 key -> `two !== one` 不可复用
 2. 比较*兄弟节点 key*  ->  *key 相同*
 3. *比较 type* -> li 变成 p  -> *type 不同*  
 4. 结论： *不可复用*（后续兄弟节点都标记为删除）
@@ -2808,12 +2798,13 @@ key不相同，只能代表当前这个 fiberNode 不能复用，还需要遍历
 
 ### 第一轮遍历
 
-- 如果新旧子节点的**key 和 type 都相同**，说明可以复用
-- 如果新旧子节点的 **key 相同**，但是 **type 不相同**，这个时候就会根据 ReactElement 来生成一个全新的 fiber，旧的 fiber 被放入到 deletions 数组里面，回头统一删除。但是注意，此时遍历并不会终止
-- 如果新旧子节点的 **key 不相同**，结束遍历
+- *key 不同* ——终止遍历
+- *key 相同*
+	- *判断 type*
+		- Type 相同，直接复用
+		- Type 不同，加入到 deletions 数组，后续同一删除
 
-更新前
-
+更新前：
 ```js
 <div>
   <div key="a">a</div>
@@ -2823,8 +2814,7 @@ key不相同，只能代表当前这个 fiberNode 不能复用，还需要遍历
 </div>
 ```
 
-更新后
-
+更新后：
 ```js
 <div>
   <div key="a">a</div>
@@ -2834,35 +2824,26 @@ key不相同，只能代表当前这个 fiberNode 不能复用，还需要遍历
 </div>
 ```
 
-首先遍历到 div.key.a，发现该 FiberNode 能够复用
+流程：
+比较 key 
+	1. 都是 a 相等，比较 type，都是 div，复用
+	2. 都是 b 相等，比较 type，都是 div，复用
+	3. `e !== c` key 不同 => <font color="#ff0000">终止遍历</font>
 
-![](https://cdn.nlark.com/yuque/0/2025/png/51701855/1753429332709-c40e7631-a58b-43ec-840c-7aceef029a69.png)
-
-继续往后面走，发现 div.key.b 也能够复用
-
-![](https://cdn.nlark.com/yuque/0/2025/png/51701855/1753429332702-8f8fe87e-3db5-4f10-a44a-2beac1ea9280.png)
-
-接下来继续往后面走，div.key.e，这个时候发现 key 不一样，因此第一轮遍历就结束了
-
-![](https://cdn.nlark.com/yuque/0/2025/png/51701855/1753429332784-a8b69790-b8f2-4a1f-b6ec-0637f8afc5c6.png)
 
 ### 第二轮遍历
-
 如果第一轮遍历被提前终止了，那么意味着有新的 React 元素或者旧的 FiberNode 没有遍历完，此时就会采用第二轮遍历
 
 第二轮遍历会处理这么三种情况：
+-  只剩下需*删除*的节点——原个数 > 更新后个数（加入 deletions 数组）
++ 只剩下需*新增*的节点——原个数 < 更新后个数
++ 新增和删除节点都存在（*移动*）——原个数 = 更新后个数（会将第一轮终止后的节点都加入 Map，第二轮遍历后续节点时，如果在 Map 中能找到，那么复用，找不到就新增；如果更新后的节点遍历完毕，Map 中还有剩余节点，那么加入到 deletions 数组）
 
-- **只剩下旧子节点**：将旧的子节点添加到 deletions 数组里面直接删除掉（**删除**的情况）
-- **只剩下新的 JSX 元素**：根据 ReactElement 元素来创建 FiberNode 节点（**新增**的情况）
-- **新旧子节点都有剩余**：会将剩余的 FiberNode 节点放入一个 **map 里面**，遍历剩余的新的 JSX 元素，然后从 map 中去寻找能够复用的 FiberNode 节点，如果能够找到，就拿来复用。（**移动**的情况）
-
-如果不能找到，那就新增。如果剩余的 JSX 元素都遍历完了，map 结构中还有剩余的 Fiber 节点，就将这些 Fiber 节点添加到 deletions 数组里面，之后统一做删除操作。
 
 **只剩下旧子节点**
 
-更新前
-
-```
+更新前：
+```js
 <div>
   <div key="a">a</div>
   <div key="b">b</div>
@@ -2871,9 +2852,8 @@ key不相同，只能代表当前这个 fiberNode 不能复用，还需要遍历
 </div>
 ```
 
-更新后
-
-```
+更新后：
+```js
 <div>
   <div key="a">a</div>
   <div key="b">b</div>
@@ -2881,24 +2861,22 @@ key不相同，只能代表当前这个 fiberNode 不能复用，还需要遍历
 </div>
 ```
 
-遍历前面两个节点，发现能够复用，此时就会复用前面的节点，对于 React 元素来讲，遍历完前面两个就已经遍历结束了，因此剩下的FiberNode就会被放入到 deletions 数组里面，之后统一进行删除
+复用前两个节点，对于 wip fiber tree，遍历完前面两个就已经遍历结束了，因此剩下的FiberNode（c、d）就会被放入到 deletions 数组里面，之后统一进行删除
 
 ![](https://cdn.nlark.com/yuque/0/2025/png/51701855/1753429710575-2e31e430-cd4b-4095-aaf3-a9271b3d8fee.png)
 
 **只剩下新的 JSX 元素**
 
-更新前
-
-```
+更新前：
+```js
 <div>
   <div key="a">a</div>
   <div key="b">b</div>
 </div>
 ```
 
-更新后
-
-```
+更新后：
+```js
 <div>
   <div key="a">a</div>
   <div key="b">b</div>
@@ -2907,49 +2885,48 @@ key不相同，只能代表当前这个 fiberNode 不能复用，还需要遍历
 </div>
 ```
 
-根据新的 React 元素新增对应的 FiberNode 即可。
+根据新的 React 元素新增对应的 FiberNode 即可
 
 ![](https://cdn.nlark.com/yuque/0/2025/png/51701855/1753429710726-7c965fd6-45ad-4d65-8ec4-fe80724d225c.png)
 
 **新旧子节点都有剩余**
 
-更新前
-
-```
+更新前：
+```js
 <div>
   <div key="a">a</div>
-  <div key="b">b</div>
+  <div key="b">b</div> // 终止第一轮遍历（b，c，d 加入Map）
   <div key="c">c</div>
-  <div key="d">d</div>
+  <div key="d">d</div> // wip fiber tree 遍历完毕，删除 d，加入deletions
 </div>
 ```
 
-更新后
-
-```
+更新后：
+```js
 <div>
-  <div key="a">a</div>
-  <div key="c">b</div>
-  <div key="b">b</div>
-  <div key="e">e</div>
+  <div key="a">a</div> // 复用
+  <div key="c">b</div> // 复用（map.has(c)）
+  <div key="b">b</div> // 复用（map.has(b)）
+  <div key="e">e</div> // 新增 (!map.has(e))
 </div>
 ```
 
-首先会将剩余的旧的 FiberNode 放入到一个 map 里面
+首先会将剩余的旧的 FiberNode 放入到一个 Map 里面
 
 ![](https://cdn.nlark.com/yuque/0/2025/png/51701855/1753429710681-6bb4cd35-dd9b-4b53-9f8f-c84d504fa5f9.png)
 
-接下来会继续去遍历剩下的 JSX 对象数组，遍历的同时，从 map 里面去找有没有能够复用
+遍历剩余的节点，从 Map 中寻找有没有能够复用节点
 
 ![](https://cdn.nlark.com/yuque/0/2025/png/51701855/1753429710619-3d52e97f-12e1-456a-9775-ef267bd5f329.png)
 
-如果在 map 里面没有找到，那就会新增这个 FiberNode，如果整个 JSX 对象数组遍历完成后，map 里面还有剩余的 FiberNode，说明这些 FiberNode 是无法进行复用，直接放入到 deletions 数组里面，后期统一进行删除。
+如果在 Map 中没有找到，新增 FiberNode 节点；如果遍历完成后，Map 中还有剩余的节点（说明这些 FiberNode 是无法进行复用）加入到 deletions 数组中，统一删除
 
 ![](https://cdn.nlark.com/yuque/0/2025/png/51701855/1753429710661-ae883ea9-bf4f-4d53-923a-53100dacce27.png)
 
-为什么 react 不采用双端 diff？
+## 为什么 react 不采用双端 diff？
+因为数据结构的限制，双端 diff 需要从后往前遍历。
+React 设计 FiberNode 只能从前往后遍历，只有前一个节点能通过 sibling 找到兄弟节点，但兄弟节点不知道它的前一个兄弟节点是谁
 
-其实主要原因是，因为双端 diff 需要从后往前遍历节点。但是在 fiberNode 中，兄弟节点中没有从后往前的指向，只能从前往后遍历（只有前一个节点通过 sibling 指向它的兄弟节点，其兄弟节点不能找到它的前一个兄弟节点）
 
 # commit 工作流程
 
