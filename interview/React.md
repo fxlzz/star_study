@@ -188,15 +188,17 @@ function App({ list }) {
 因为使用 index 作为 key ，可能会影响复用效率。
 
 比如，渲染数组，原数组为 `[0,1,2,3]` 更新成 `[2,3]`
-走多节点 diff 流程，`0 == 0` key 相同，`0 !== 2` type 不同 ---> 0 加入 deletions
-同理，1 也加入 deletions 数组
-此时 `[2,3]` 遍历完成，*删除原数组所有元素*
+走多节点 diff 流程，
+1.  `0 == 0` key 相同，`0 !== 2` type 不同 ---> 0 加入 deletions
+2. 同理，1 也加入 deletions 数组
+3. 此时 `[2,3]` 遍历完成，*删除原数组所有元素*
 
 若不用 index 作为 key 值，一样的场景
 原数组为 `[0,1,2,3]` 更新成 `[2,3]`
-走多节点 diff 流程， `0 !== 2` key 不同，结束遍历。将 `[0,1,2,3]` 加入到 Map 中
-`[2,3]` 可在 Map 中找到，*复用*
-遍历完后，`0,1` 删除
+走多节点 diff 流程，
+1.  `0 !== 2` key 不同，结束遍历。将 `[0,1,2,3]` 加入到 Map 中
+2.  `[2,3]` 可在 Map 中找到，*复用*
+3. 遍历完后，`0,1` 删除
 
 # 组件 & Hooks
 类组件用的不多
@@ -315,6 +317,12 @@ export default App;
 点击更新 count，视图更新，useEffect 代码执行
 
 ### `useMemo & useCallback`
+优化措施：
 
+ `useMemo` —— 缓存数值
+ `useCallback` —— 缓存函数
+UseMemo 和 useCallback 执行时机： 依赖项更新后，才会执行对应的代码
 
- 
+`React.memo` —— 缓存组件
+props 和 context 发生改变时，才会重新渲染 `memo` 包裹的组件
+
