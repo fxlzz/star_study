@@ -425,6 +425,9 @@ function handleNameChange(e) {
 }
 ```
 
+## useReducer
+
+
 ## 表单(受控组件)
 
 收到 _state_ 中数据的控制，换句话说，就是 _state_ 中的数据更改之后，表单中的数据也会发生变化。**所有的表单元素，得到表单值全部都是value** 使用`e.target.value`
