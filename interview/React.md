@@ -317,8 +317,9 @@ export default App;
 
 ### `useEffect` 和 `useLayoutEffect` 的区别？
 
-
-
+渲染时机有所不同：
++ `useEffect` 在绘制之后*异步*执行
++ `useLayoutEffect` 在 DOM 更新之后，绘制之前*同步*执行
 
 ## `useMemo & useCallback`
 优化措施：

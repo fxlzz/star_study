@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "简历",
+      "path": "interview/简历.md"
+    },
+    {
       "basename": "React",
       "path": "front-tech/React/React.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "操作系统",
       "path": "interview/操作系统.md"
-    },
-    {
-      "basename": "简历",
-      "path": "interview/简历.md"
     }
   ],
   "omittedPaths": [],
