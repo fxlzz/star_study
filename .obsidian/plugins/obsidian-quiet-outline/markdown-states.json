@@ -75,15 +75,15 @@
     ]
   },
   "project/improve_coding/improve_coding.md": {
-    "scroll": 671.0390474419845,
+    "scroll": 0,
     "cursor": {
       "from": {
-        "line": 687,
-        "ch": 0
+        "line": 2,
+        "ch": 7
       },
       "to": {
-        "line": 687,
-        "ch": 0
+        "line": 2,
+        "ch": 7
       }
     },
     "expandedKeys": [
@@ -117,12 +117,12 @@
     "scroll": 0,
     "cursor": {
       "from": {
-        "line": 8,
-        "ch": 13
+        "line": 9,
+        "ch": 19
       },
       "to": {
-        "line": 8,
-        "ch": 13
+        "line": 9,
+        "ch": 19
       }
     },
     "expandedKeys": []

@@ -5,6 +5,10 @@
       "path": "interview/简历.md"
     },
     {
+      "basename": "improve_coding",
+      "path": "project/improve_coding/improve_coding.md"
+    },
+    {
       "basename": "React",
       "path": "front-tech/React/React.md"
     },
@@ -163,10 +167,6 @@
     {
       "basename": "JS",
       "path": "front-tech/JavaScript/JS.md"
-    },
-    {
-      "basename": "improve_coding",
-      "path": "project/improve_coding/improve_coding.md"
     },
     {
       "basename": "计算机网络-图",
