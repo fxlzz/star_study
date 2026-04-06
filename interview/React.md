@@ -219,10 +219,55 @@ function App({ list }) {
 ### `useEffect`
 渲染时机： 在真实 DOM 生成后（commit 后），异步执行
 
-`useEffect` 会返回一个清理函数，在组件被摧毁时使用
+会返回一个*清理函数*
+*执行时机*： 在 7、8 之间执行
+7. 浏览器完成布局（layout）和绘制（paint）
+8. 执行 `useEffect` 清理函数
+9. 执行 `useEffect` 等*副作用*函数
 
+关于*依赖对象*
++ *不设置*依赖项 —— 组件每次重新渲染，`useEffect` 中代码重新执行
++ *具体*依赖项 —— 只有相关依赖项改变时， `useEffect` 才重新执行代码
++ *空数组* —— 只有组件初始时，执行 `useEffect` 代码（清理函数不执行）
+
+```jsx
+import { useState, useEffect } from "react";
+
+const App = () => {
+
+	const [count, setCount] = useState(0);
+
+	useEffect(() => {
+		if(count > 5) {
+			console.log("定时器不在开启");
+			return;
+		}
+	
+		const timer = setInterval(() => {
+			console.log("函数被调用了")
+		}, 1000)
+	
+		// 每当用户点击一次，就会调一次清理函数
+		// 但是，现象时定时器似乎没有停下来
+		// 是因为，清理完上一个定时器后，马上又执行了 useEffect 函数，重新开启了一个定时器
+		return () => {
+			console.log("清理函数被调用了")
+			clearInterval(timer);
+		}
+	}, [count])
+
+	return (
+		<>
+			<p>{count}</p>
+			<button onClick={() => setCount(count + 1)}>+1</button>
+		</>
+	);
+}
+```
 
 ### `useRef`
+
+
 
 ### `useMemo & useCallback`
 

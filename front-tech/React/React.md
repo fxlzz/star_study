@@ -558,7 +558,7 @@ function App() {
       // console.log("清理函数执行了");
       clearInterval(stopTimer);
     }
-  });
+  }, [count]);
 
 
   function clickhandle() {
@@ -620,13 +620,13 @@ useEffect(()=>{
 React 通过浅比较（Shallow Comparison） 检测依赖项变化，但比较的是每次渲染时的值，具体机制如下：
 
 1. React 为每次渲染“保存”一份依赖数组
-每次组件渲染时，React 会记录当前渲染中 useEffect 的依赖数组（例如 [a, b, c]）。
+每次组件渲染时，React 会记录当前渲染中 useEffect 的依赖数组（例如 `[a, b, c]`）。
 这些依赖值是本次渲染闭包中的值（不是引用，是具体值）。
 2. 执行前进行严格相等比较
 在本次渲染的提交阶段（Commit Phase），React 会：
 + 取出上一次渲染保存的依赖数组（旧值）。
 + 与本次渲染的依赖数组（新值）逐项对比。
-+ 使用 Object.is() 规则判断是否变化（类似 ===，但处理 NaN 和 -0 更严格）。
++ 使用 Object.is() 规则判断是否变化类似 ==但处理 NaN 和 -0 更严格==
 只要有一项不相等，就触发 Effect 重新执行
 
 ## react-router
@@ -953,19 +953,15 @@ export default function App() {
 但其实，高阶组件的出现，是为了解决类组件横向抽离而出现的。现在，以函数组件为主的 React，其实用自定义 hook 就可以实现逻辑复用了~
 
 ## Ref
-
-就是用于获取 dom 元素的，如果不是万不得以，就不要用。最好是，**数据**来操作 UI 视图。
+就是用于获取 dom 元素的，如果不是万不得以，就不要用。最好是，**数据**来操作 UI 视图
 
 写下这个知识点的时候，用的是 react19，很多 API 都废弃了
 
 ### _createRef_
-
 很多都是用于**类组件**中，不过现在都是用的函数组件（类组件我也不是很了解）
 
 比如：
-
-- 使用 `_createRef_` -> **获取某个 dom 元素【目前还可以用，但是已经是过时 API 了】**
-
+- 使用 `createRef` -> **获取某个 dom 元素【目前还可以用，但是已经是过时 API 了】**
 ```jsx
 import React, { Component } from "react";
 
@@ -1122,17 +1118,13 @@ export default React.forwardRef(function Input(props, ref) {
 });
 ```
 
-`forwardRef 和 useImperactiveHandle`的使用场景：
-
-[https://www.yuque.com/fanxiaolan-975oy/zvuxpw/yf2shb447040nt6m](https://www.yuque.com/fanxiaolan-975oy/zvuxpw/yf2shb447040nt6m)
-
 ### useRef
 
 >  useRef 与 React.createRef 的区别:
 >  - useRef：一般用于**函数组件**，挂载在 fiber 上，**只会更新一次**
 >  - React.createRef：一般用于**类组件**，每次更新都会重新创建
 
-```
+```js
 const ref = useRef(initialValue);
 ```
 
@@ -1141,7 +1133,6 @@ const ref = useRef(initialValue);
 例如：
 
 存储在 ref 中存储**定时器的 id**，随后可以轻松的清除定时器
-
 ```jsx
 import React, { useRef, useState } from "react";
 
@@ -1170,7 +1161,6 @@ export default function App(props) {
 ```
 
 使用 ref 可以确保：
-
 - 可以在重新渲染之间 **存储信息**（普通对象存储的值每次渲染都会重置）。
 - 改变它 **不会触发重新渲染**（状态变量会触发重新渲染）。
 - 对于组件的每个副本而言，**这些信息都是本地的**（外部变量则是共享的）。
