@@ -203,8 +203,7 @@ function App({ list }) {
 # 组件 & Hooks
 类组件用的不多
 
-## Hooks
-### `useState`
+## `useState`
 渲染时机：
 1. 在 DOM（wip fiber tree）更新后 
 2. 执行*事件处理函数*（遇到 `setxxx`函数加入更新队列）
@@ -218,7 +217,7 @@ function App({ list }) {
 有什么用：
 宏观一点，更新 state，会更新组件
 
-### `useEffect`
+## `useEffect`
 渲染时机： 在真实 DOM 生成后（commit 后），异步执行
 
 会返回一个*清理函数*
@@ -267,7 +266,7 @@ const App = () => {
 }
 ```
 
-### `useRef`
+## `useRef`
 挂载在 fiber 上，只会更新一次
 
 注意：
@@ -316,7 +315,12 @@ export default App;
 点击更新 ref，useEffect 代码不会执行
 点击更新 count，视图更新，useEffect 代码执行
 
-### `useMemo & useCallback`
+### `useEffect` 和 `useLayoutEffect` 的区别？
+
+
+
+
+## `useMemo & useCallback`
 优化措施：
 
  `useMemo` —— 缓存数值
