@@ -266,8 +266,53 @@ const App = () => {
 ```
 
 ### `useRef`
+挂载在 fiber 上，只会更新一次
 
+注意：
+改变 ref 不会触发重新渲染, 这意味着 ref 是存储一些**不影响组件视图输出**信息的完美选择
 
+```jsx
+import { useState, useEffect, useRef } from "react";
+
+const App = () => {
+
+  const [count, setCount] = useState(0);
+  const ref = useRef(0);
+
+  const handleRef = () => {
+    ref.current += 1;
+    console.log(ref.current);
+  };
+
+  useEffect(() => {
+    console.log("函数被调用了");
+
+    return () => {
+      console.log("清理函数被调用了");
+    };
+  }, [ref, count]);
+
+  return (
+    <>
+      <p>count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>更新count</button>
+      <button onClick={handleRef}>更新ref</button>
+    </>
+  );
+};
+
+export default App;
+```
+
+这段代码就能很好的反应出，三件事情：
++ `useEffect` 设置具体的依赖项，确实是依赖项改变后，执行 `useEffect` 中的代码
++ `useRef` 定义的变量，更新不会影响组件渲染
++ `useState` state 改变才会触发组件重新渲染
+
+---
+现象：
+点击更新 ref，useEffect 代码不会执行
+点击更新 count，视图更新，useEffect 代码执行
 
 ### `useMemo & useCallback`
 

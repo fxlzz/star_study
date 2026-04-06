@@ -1139,10 +1139,11 @@ import React, { useRef, useState } from "react";
 export default function App(props) {
   const timerRef = useRef(null);
   const [count, setCount] = useState(0);
+  
   const start = () => {
     clearInterval(timerRef.current);
     timerRef.current = setInterval(() => {
-      setCount((count) => count + 1);
+      setCount(count + 1);
     }, 100);
   };
 
@@ -1161,9 +1162,9 @@ export default function App(props) {
 ```
 
 使用 ref 可以确保：
-- 可以在重新渲染之间 **存储信息**（普通对象存储的值每次渲染都会重置）。
-- 改变它 **不会触发重新渲染**（状态变量会触发重新渲染）。
-- 对于组件的每个副本而言，**这些信息都是本地的**（外部变量则是共享的）。
+- 可以在重新渲染期间 **存储信息**（普通对象存储的值每次渲染都会重置）
+- 改变它 **不会触发重新渲染**
+- 对于组件的每个副本而言，**这些信息都是本地的**（外部变量则是共享的）
 
 注意：使用`useRef`hook 一般用于组件内部的 React 内置组件（input、button ...），如果绑定在自定义组件上，需要给自定义组件加上`React.forwardRef`将 ref 传递。
 
