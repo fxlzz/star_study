@@ -75,7 +75,7 @@
     ]
   },
   "project/improve_coding/improve_coding.md": {
-    "scroll": 363.2222139569324,
+    "scroll": 363.2237922397095,
     "cursor": {
       "from": {
         "line": 411,
@@ -114,21 +114,21 @@
     ]
   },
   "interview/简历.md": {
-    "scroll": 119.54001145747685,
+    "scroll": 136.14736797935083,
     "cursor": {
       "from": {
-        "line": 132,
-        "ch": 70
+        "line": 151,
+        "ch": 10
       },
       "to": {
-        "line": 132,
-        "ch": 70
+        "line": 151,
+        "ch": 10
       }
     },
     "expandedKeys": []
   },
   "front-tech/工程化/webpack - 优化.md": {
-    "scroll": 145.09728917602703,
+    "scroll": 133.04704578171967,
     "cursor": {
       "from": {
         "line": 209,
@@ -533,7 +533,7 @@
     "expandedKeys": []
   },
   "interview/React.md": {
-    "scroll": 314.5912363822,
+    "scroll": 305.03506463123136,
     "cursor": {
       "from": {
         "line": 327,
@@ -1117,5 +1117,33 @@
       "item-2-6",
       "item-3-7"
     ]
+  },
+  "front-tech/场景/未命名.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 0,
+        "ch": 0
+      },
+      "to": {
+        "line": 0,
+        "ch": 0
+      }
+    },
+    "expandedKeys": []
+  },
+  "front-tech/场景/异步请求hook.md": {
+    "scroll": 108.56299259482311,
+    "cursor": {
+      "from": {
+        "line": 118,
+        "ch": 2
+      },
+      "to": {
+        "line": 118,
+        "ch": 2
+      }
+    },
+    "expandedKeys": []
   }
 }

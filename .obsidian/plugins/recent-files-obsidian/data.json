@@ -5,16 +5,24 @@
       "path": "interview/简历.md"
     },
     {
-      "basename": "improve_coding",
-      "path": "project/improve_coding/improve_coding.md"
+      "basename": "异步请求hook",
+      "path": "front-tech/场景/异步请求hook.md"
+    },
+    {
+      "basename": "React",
+      "path": "interview/React.md"
     },
     {
       "basename": "webpack - 优化",
       "path": "front-tech/工程化/webpack - 优化.md"
     },
     {
-      "basename": "React",
-      "path": "interview/React.md"
+      "basename": "场景题",
+      "path": "interview/场景题.md"
+    },
+    {
+      "basename": "improve_coding",
+      "path": "project/improve_coding/improve_coding.md"
     },
     {
       "basename": "React",
@@ -191,14 +199,6 @@
     {
       "basename": "工程化",
       "path": "interview/工程化.md"
-    },
-    {
-      "basename": "场景题",
-      "path": "interview/场景题.md"
-    },
-    {
-      "basename": "操作系统",
-      "path": "interview/操作系统.md"
     }
   ],
   "omittedPaths": [],
