@@ -9,12 +9,16 @@
       "path": "project/improve_coding/improve_coding.md"
     },
     {
-      "basename": "React",
-      "path": "front-tech/React/React.md"
+      "basename": "webpack - 优化",
+      "path": "front-tech/工程化/webpack - 优化.md"
     },
     {
       "basename": "React",
       "path": "interview/React.md"
+    },
+    {
+      "basename": "React",
+      "path": "front-tech/React/React.md"
     },
     {
       "basename": "AJAX",
@@ -135,10 +139,6 @@
     {
       "basename": "并发请求",
       "path": "front-tech/场景/并发请求.md"
-    },
-    {
-      "basename": "webpack - 优化",
-      "path": "front-tech/工程化/webpack - 优化.md"
     },
     {
       "basename": "webpack",
