@@ -5,6 +5,10 @@
       "path": "interview/简历.md"
     },
     {
+      "basename": "计算机网络",
+      "path": "interview/计算机网络.md"
+    },
+    {
       "basename": "异步请求hook",
       "path": "front-tech/场景/异步请求hook.md"
     },
@@ -31,10 +35,6 @@
     {
       "basename": "AJAX",
       "path": "front-tech/AJAX.md"
-    },
-    {
-      "basename": "计算机网络",
-      "path": "interview/计算机网络.md"
     },
     {
       "basename": "ES6+",
