@@ -14,8 +14,10 @@
 
 ## 三种写法
 + `axios.[method](url, [config])`
+	+ `axios.[method](url, data[,config]) --- post/put/patch`
 + `axios(config) | axios.request(config)`
 + `const curl = axios.create(config)`
+
 ```js
 // 创建 axios 实例，实例也能使用前两种写法调用
 const curl = axios.create({
