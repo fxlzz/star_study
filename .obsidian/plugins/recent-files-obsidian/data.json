@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "docker",
+      "path": "general-tech/docker.md"
+    },
+    {
       "basename": "React",
       "path": "front-tech/React/React.md"
     },
@@ -119,10 +123,6 @@
     {
       "basename": "git",
       "path": "general-tech/git.md"
-    },
-    {
-      "basename": "docker",
-      "path": "general-tech/docker.md"
     },
     {
       "basename": "TypeScript",

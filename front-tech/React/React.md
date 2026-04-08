@@ -1681,51 +1681,6 @@ React v16 之前都是用的 stack 架构，16 以后用的是 fiber 架构
 
 那么转换成虚拟 DOM 对象结构大致如下：
 
-stack 描述虚拟 dom
-```js
-{  
-	type : "div",  
-	props : {  
-		id : "test",  
-		children : [  
-	{  
-	type : "h1",  
-	props : {  
-		children : "This is a title"  
-	}  
-},  
-{  
-	type : "p",  
-	props : {  
-		children : "This is a paragraph"  
-	}  
-},
-{  
-	type : "ul",  
-	props : {  
-		children : [{  
-			type : "li",  
-			props : {  
-				children : "apple"
-			}
-		}] 
-	}  
-},
-{  
-	type : "li",  
-	props : {  
-		children : "banana"  
-	}  
-},
-{  
-	type : "li",  
-	props : {  
-		children : "pear"  
-	}  
-}
-
-```
-
 ### fiber 架构
 那么为了解决这个 JS 执行过长并且一旦执行不能停止的问题，16 之后，
 
