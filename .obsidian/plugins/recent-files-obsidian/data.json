@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "AJAX",
+      "path": "front-tech/AJAX.md"
+    },
+    {
       "basename": "计算机网络",
       "path": "interview/计算机网络.md"
     },
@@ -43,10 +47,6 @@
     {
       "basename": "improve_coding",
       "path": "project/improve_coding/improve_coding.md"
-    },
-    {
-      "basename": "AJAX",
-      "path": "front-tech/AJAX.md"
     },
     {
       "basename": "ES6+",
