@@ -114,15 +114,15 @@
     ]
   },
   "interview/简历.md": {
-    "scroll": 191.9070088570578,
+    "scroll": 0,
     "cursor": {
       "from": {
-        "line": 202,
-        "ch": 10
+        "line": 0,
+        "ch": 27
       },
       "to": {
-        "line": 202,
-        "ch": 10
+        "line": 0,
+        "ch": 27
       }
     },
     "expandedKeys": []
@@ -285,15 +285,15 @@
     "expandedKeys": []
   },
   "front-tech/React/React.md": {
-    "scroll": 640.0780639648438,
+    "scroll": 1723.5842882987886,
     "cursor": {
       "from": {
-        "line": 639,
-        "ch": 27
+        "line": 1736,
+        "ch": 51
       },
       "to": {
-        "line": 639,
-        "ch": 27
+        "line": 1736,
+        "ch": 51
       }
     },
     "expandedKeys": [
@@ -307,7 +307,12 @@
       "item-1-43",
       "item-3-48",
       "item-2-14",
-      "item-2-32"
+      "item-2-32",
+      "item-2-38",
+      "item-2-46",
+      "item-1-71",
+      "item-2-67",
+      "item-1-65"
     ]
   },
   "general-tech/docker.md": {

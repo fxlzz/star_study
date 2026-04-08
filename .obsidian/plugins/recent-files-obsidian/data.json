@@ -5,16 +5,20 @@
       "path": "interview/简历.md"
     },
     {
+      "basename": "React",
+      "path": "front-tech/React/React.md"
+    },
+    {
+      "basename": "React",
+      "path": "interview/React.md"
+    },
+    {
       "basename": "计算机网络",
       "path": "interview/计算机网络.md"
     },
     {
       "basename": "异步请求hook",
       "path": "front-tech/场景/异步请求hook.md"
-    },
-    {
-      "basename": "React",
-      "path": "interview/React.md"
     },
     {
       "basename": "webpack - 优化",
@@ -27,10 +31,6 @@
     {
       "basename": "improve_coding",
       "path": "project/improve_coding/improve_coding.md"
-    },
-    {
-      "basename": "React",
-      "path": "front-tech/React/React.md"
     },
     {
       "basename": "AJAX",
