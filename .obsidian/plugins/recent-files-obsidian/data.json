@@ -1,40 +1,72 @@
 {
   "recentFiles": [
     {
-      "basename": "跨域",
-      "path": "front-tech/跨域.md"
-    },
-    {
-      "basename": "浏览器",
-      "path": "front-tech/浏览器.md"
-    },
-    {
-      "basename": "计算机网络",
-      "path": "interview/计算机网络.md"
-    },
-    {
-      "basename": "Nodejs",
-      "path": "front-tech/Nodejs.md"
-    },
-    {
-      "basename": "TypeScript",
-      "path": "front-tech/TypeScript.md"
-    },
-    {
-      "basename": "base64 导出",
-      "path": "front-tech/场景/base64 导出.md"
-    },
-    {
-      "basename": "双 token流程",
-      "path": "front-tech/场景/双 token流程.md"
+      "basename": "双 token 流程",
+      "path": "front-tech/场景/双 token 流程.md"
     },
     {
       "basename": "AJAX",
       "path": "front-tech/AJAX.md"
     },
     {
+      "basename": "Nodejs",
+      "path": "front-tech/Nodejs.md"
+    },
+    {
       "basename": "简历",
       "path": "interview/简历.md"
+    },
+    {
+      "basename": "React",
+      "path": "interview/React.md"
+    },
+    {
+      "basename": "improve_coding",
+      "path": "project/improve_coding/improve_coding.md"
+    },
+    {
+      "basename": "webpack",
+      "path": "front-tech/工程化/webpack.md"
+    },
+    {
+      "basename": "思维的转变",
+      "path": "front-tech/工程化/思维的转变.md"
+    },
+    {
+      "basename": "包管理工具",
+      "path": "front-tech/工程化/包管理工具.md"
+    },
+    {
+      "basename": "跨域",
+      "path": "front-tech/跨域.md"
+    },
+    {
+      "basename": "TypeScript",
+      "path": "front-tech/TypeScript.md"
+    },
+    {
+      "basename": "HTML5",
+      "path": "front-tech/HTML5.md"
+    },
+    {
+      "basename": "CSS3",
+      "path": "front-tech/CSS3.md"
+    },
+    {
+      "basename": "浏览器",
+      "path": "front-tech/浏览器.md"
+    },
+    {
+      "basename": "微前端",
+      "path": "front-tech/微前端.md"
+    },
+    {
+      "basename": "计算机网络",
+      "path": "interview/计算机网络.md"
+    },
+    {
+      "basename": "base64 导出",
+      "path": "front-tech/场景/base64 导出.md"
     },
     {
       "basename": "docker",
@@ -53,10 +85,6 @@
       "path": "front-tech/场景/antd Modal + Form.md"
     },
     {
-      "basename": "React",
-      "path": "interview/React.md"
-    },
-    {
       "basename": "事件循环",
       "path": "front-tech/JavaScript/事件循环.md"
     },
@@ -73,20 +101,8 @@
       "path": "interview/场景题.md"
     },
     {
-      "basename": "improve_coding",
-      "path": "project/improve_coding/improve_coding.md"
-    },
-    {
       "basename": "ES6+",
       "path": "front-tech/JavaScript/ES6+.md"
-    },
-    {
-      "basename": "CSS3",
-      "path": "front-tech/CSS3.md"
-    },
-    {
-      "basename": "HTML5",
-      "path": "front-tech/HTML5.md"
     },
     {
       "basename": "python",
@@ -161,18 +177,6 @@
       "path": "毕设/毕设.md"
     },
     {
-      "basename": "webpack",
-      "path": "front-tech/工程化/webpack.md"
-    },
-    {
-      "basename": "包管理工具",
-      "path": "front-tech/工程化/包管理工具.md"
-    },
-    {
-      "basename": "思维的转变",
-      "path": "front-tech/工程化/思维的转变.md"
-    },
-    {
       "basename": "JS+TS",
       "path": "interview/JS+TS.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "some details",
       "path": "front-tech/JavaScript/some details.md"
-    },
-    {
-      "basename": "浏览器",
-      "path": "interview/浏览器.md"
     }
   ],
   "omittedPaths": [],

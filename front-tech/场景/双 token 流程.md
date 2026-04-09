@@ -272,6 +272,7 @@ const Login = () => {
   // 模拟一个组件几个请求，同时 token 失效
   const runConcurrentRequests = async () => {
     try {
+      // 立即并行发起 3 个请求，返回 3 个 Promise
       const tasks = Array.from({ length: 3 }, () => getList());
       const results = await Promise.all(tasks);
 

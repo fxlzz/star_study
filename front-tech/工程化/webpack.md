@@ -36,6 +36,7 @@ Webpack 的 HMR 依赖于 “打包后的 bundle”：**当某个模块修改后
 Vite 的 HMR 基于 “原生 ESM 模块图”：由于**浏览器直接请求单个模块，Vite 只需精确找到被修改的模块，重新编译该模块**，并通过 HMR 通知浏览器替换该模块即可。**无需重新处理整个依赖树**，更新速度极快（通常是毫秒级）。
 
 # webpack
+具体项目配置： [Webpack 工程化设计](../../project/improve_coding/improve_coding.md#Webpack%20工程化设计)
 
 # 引言
 
@@ -1518,17 +1519,12 @@ module.exports = {
 ```
 
 ### tree shaking
+>  只能在 *ESM* 的环境下使用（因为 CJM 是动态导入的，tree shaking 不能解析）
 
-使用前提：只能在 ESM 的环境下使用（因为 CJM 是动态导入的，tree shaking 不能解析）
-
-这个也是来减少打包后文件的体积，用于生产环境下的优化
-
-这个技术，就是将一些第三方库中没有用到的代码都删除掉
-
+减少打包后文件的体积，用于生产环境下的优化 —— 将一些第三方库中没有用到的代码都删除掉
 只要是生产环境，`tree shaking`自动开启
 
 比如：
-
 ```js
 // index.js
 export function add(a,b) {
