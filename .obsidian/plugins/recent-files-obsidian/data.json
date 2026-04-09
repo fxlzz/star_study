@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "React",
+      "path": "interview/React.md"
+    },
+    {
+      "basename": "简历",
+      "path": "interview/简历.md"
+    },
+    {
       "basename": "双 token 流程",
       "path": "front-tech/场景/双 token 流程.md"
     },
@@ -11,14 +19,6 @@
     {
       "basename": "Nodejs",
       "path": "front-tech/Nodejs.md"
-    },
-    {
-      "basename": "简历",
-      "path": "interview/简历.md"
-    },
-    {
-      "basename": "React",
-      "path": "interview/React.md"
     },
     {
       "basename": "improve_coding",
