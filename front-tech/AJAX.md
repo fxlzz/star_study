@@ -55,6 +55,7 @@ const curl = axios.create({
 ### 响应结构
 [响应结构 \| Axios Docs](https://axios-http.com/zh/docs/res_schema)
 
+Response:
 + `data` 后端数据
 + `status` HTTP 的状态码
 + `statusText`
