@@ -92,6 +92,19 @@ axios.interceptors.response.use((response) => {
 })
 ```
 
+`error` 返回的数据结构：
+1. 请求发出，服务器有响应，状态码不为 200
+	+  `error.response`
+	+  `error.response.data`
+	+  `error.response.status`
+	+  `error.response.headers`
+2. 请求发出，但没有响应
+	+  `error.request` —— 此时 `error.response === undefined`
+3. 通用属性
+	+  `error.config`
+	+ `error.code`
+	+ `error.message`
+
 请求超时：
 `axios.isAxiosError(error) && error.code === "ECONNABORTED"` 
 
