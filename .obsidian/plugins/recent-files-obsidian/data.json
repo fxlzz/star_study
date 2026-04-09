@@ -1,16 +1,12 @@
 {
   "recentFiles": [
     {
-      "basename": "AJAX",
-      "path": "front-tech/AJAX.md"
+      "basename": "双 token流程",
+      "path": "front-tech/场景/双 token流程.md"
     },
     {
       "basename": "计算机网络",
       "path": "interview/计算机网络.md"
-    },
-    {
-      "basename": "事件循环",
-      "path": "front-tech/JavaScript/事件循环.md"
     },
     {
       "basename": "React",
@@ -21,16 +17,24 @@
       "path": "general-tech/docker.md"
     },
     {
+      "basename": "简历",
+      "path": "interview/简历.md"
+    },
+    {
+      "basename": "AJAX",
+      "path": "front-tech/AJAX.md"
+    },
+    {
+      "basename": "事件循环",
+      "path": "front-tech/JavaScript/事件循环.md"
+    },
+    {
       "basename": "React",
       "path": "front-tech/React/React.md"
     },
     {
       "basename": "浏览器",
       "path": "front-tech/浏览器.md"
-    },
-    {
-      "basename": "简历",
-      "path": "interview/简历.md"
     },
     {
       "basename": "异步请求hook",
@@ -195,10 +199,6 @@
     {
       "basename": "浏览器",
       "path": "interview/浏览器.md"
-    },
-    {
-      "basename": "工程化",
-      "path": "interview/工程化.md"
     }
   ],
   "omittedPaths": [],

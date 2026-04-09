@@ -114,15 +114,15 @@
     ]
   },
   "interview/简历.md": {
-    "scroll": 184.4991137186686,
+    "scroll": 0,
     "cursor": {
       "from": {
-        "line": 217,
-        "ch": 65
+        "line": 10,
+        "ch": 61
       },
       "to": {
-        "line": 217,
-        "ch": 65
+        "line": 10,
+        "ch": 61
       }
     },
     "expandedKeys": []
@@ -1150,6 +1150,20 @@
       "to": {
         "line": 118,
         "ch": 2
+      }
+    },
+    "expandedKeys": []
+  },
+  "front-tech/场景/双 token.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 0,
+        "ch": 0
+      },
+      "to": {
+        "line": 0,
+        "ch": 0
       }
     },
     "expandedKeys": []
