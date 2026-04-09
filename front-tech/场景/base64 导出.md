@@ -1,6 +1,5 @@
 ```js
 import { Alert } from '@/components'
-import { IntlShape } from 'react-intl'
 
 type ExportType = 'csv' | 'awr' | 'html' | 'txt' | 'pdf'
 
@@ -55,7 +54,6 @@ export const exportFile = async ({
   extname,
   fileName,
   requestFn,
-  intl,
   options,
 }: IExportParams) => {
   if (!extMap.has(extname)) {
@@ -68,9 +66,7 @@ export const exportFile = async ({
 
   const { onBeforeExport, onAfterExport, onError } = options ?? {}
   try {
-    onBeforeExport
-      ? onBeforeExport()
-      : Alert.alert(`${intl.formatMessage({ id: 'Exporting log' })}`)
+    onBeforeExport ? onBeforeExport() : "导出中..."
 
     const data = await requestFn()
     if (data.success && data.data) {
@@ -84,15 +80,13 @@ export const exportFile = async ({
 
       createDownloadLink(extname, fileName, blob)
 	
-      onAfterExport
-        ? onAfterExport()
-        : Alert.alert(`${intl.formatMessage({ id: 'Export Success' })}`, 'success')
+      onAfterExport ? onAfterExport() : "导出成功"
     } else {
-      onError ? onError() : Alert.alert(`${intl.formatMessage({ id: 'Export Failed' })}`, 'error')
+      onError ? onError() : "导出失败"
     }
   } catch (error) {
     console.error('export error:', error)
-    onError ? onError() : Alert.alert(`${intl.formatMessage({ id: 'Export Failed' })}`, 'error')
+    onError ? onError() : "导出失败"
   }
 }
 
