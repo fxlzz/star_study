@@ -2,6 +2,10 @@
   "recentFiles": [
     {
       "basename": "React",
+      "path": "front-tech/React/React.md"
+    },
+    {
+      "basename": "React",
       "path": "interview/React.md"
     },
     {
@@ -87,10 +91,6 @@
     {
       "basename": "事件循环",
       "path": "front-tech/JavaScript/事件循环.md"
-    },
-    {
-      "basename": "React",
-      "path": "front-tech/React/React.md"
     },
     {
       "basename": "webpack - 优化",

@@ -426,6 +426,24 @@ function handleNameChange(e) {
 ```
 
 ## useReducer
+如果说 `useState` 是一个用来管理简单状态的“开关”，那么 `useReducer` 就是一套完整的“控制面板”。
+专门用户处理*复杂状态逻辑* 或者 *一个状态的变化依赖于前一个状态*
+
+语法：
+```js
+const [state, dispatch] = useReducer(reducer, initialArg, init?); 
+```
+
+核心概念： 
++ `Action` 通常是一个对象，描述发生了什么（一般有`type`属性）
++ `Reducer(state, action)` 必须是纯函数，不能修改原有的 state，返回新的对象
++ `Dispatch` 用于触发状态更新，给 `dispatch` 传什么，Reducer 就会收到什么 Action
+
+例如：
+```jsx
+
+
+```
 
 
 ## 表单(受控组件)
