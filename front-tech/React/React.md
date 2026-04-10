@@ -391,11 +391,12 @@ const newPerson = {...person, fristName: e.target.value}
 setPerson(newPerson);
 ```
 
-对于多层嵌套的对象，可以使用 **Immer** 库，方便“修改”，这里的修改，指的是表面上“直接修改”，但是内在还是遵守 **“替换”** 的
+对于多层嵌套的对象，可以使用 [use-immer](https://github.com/immerjs/use-immer) 库，方便“修改”，这里的修改，指的是表面上“直接修改”，但是内在还是遵守 **“替换”** 的
 
 使用 Immer： 可以直接修改数据，
 1. 运行 `npm install use-immer` 添加 Immer 依赖
-2. 用 `import { useImmer } from 'use-immer'` 替换掉 `import { useState } from 'react'`
+2. `useImmer -- useState`
+3. `useImmerReducer -- useReducer`
 
 ```jsx
 // state 对象 
@@ -437,12 +438,41 @@ const [state, dispatch] = useReducer(reducer, initialArg, init?);
 核心概念： 
 + `Action` 通常是一个对象，描述发生了什么（一般有`type`属性）
 + `Reducer(state, action)` 必须是纯函数，不能修改原有的 state，返回新的对象
-+ `Dispatch` 用于触发状态更新，给 `dispatch` 传什么，Reducer 就会收到什么 Action
++ `Dispatch` 用于触发状态更新
+---
+总之： dispatch 派发 action，reducer 根据不同的 action 更新 state 的状态
 
 例如：
 ```jsx
+import { useReducer } from "react";
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "increment":
+      return { count: state.count + 1 };
+    case "decrement":
+      return { count: state.count - 1 };
+    case "reset":
+      return { count: 0 };
+    default:
+      throw new Error("无效指令");
+  }
+};
 
+const App = () => {
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
+  
+  return (
+    <>
+      <p>计数：{state.count}</p>
+      <button onClick={() => dispatch({ type: "increment" })}>+</button>
+      <button onClick={() => dispatch({ type: "decrement" })}>-</button>
+      <button onClick={() => dispatch({ type: "reset" })}>重置</button>
+    </>
+  );
+};
+
+export default App;
 ```
 
 
