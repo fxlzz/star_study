@@ -240,6 +240,11 @@ function App({ list }) {
 宏观一点，更新 state，会更新组件
 
 ##  `useReducer`
+使用场景： 
++ 复杂状态逻辑
++ 多个状态同步修改
++ 状态之间有依赖
+具体： [useReducer](../front-tech/React/React.md#useReducer)
 
 ## `useEffect`
 渲染时机： 在真实 DOM 生成后（commit 后），异步执行
@@ -253,7 +258,7 @@ function App({ list }) {
 关于*依赖对象*
 + *不设置*依赖项 —— 组件每次重新渲染，`useEffect` 中代码重新执行
 + *具体*依赖项 —— 只有相关依赖项改变时， `useEffect` 才重新执行代码
-+ *空数组* —— 只有组件初始时，执行 `useEffect` 代码（清理函数不执行）
++ *空数组* —— 只有组件初始时，执行 `useEffect` 代码（更新时，清理函数不执行）
 
 ```jsx
 import { useState, useEffect } from "react";

@@ -391,7 +391,7 @@ const newPerson = {...person, fristName: e.target.value}
 setPerson(newPerson);
 ```
 
-对于多层嵌套的对象，可以使用 [use-immer](https://github.com/immerjs/use-immer) 库，方便“修改”，这里的修改，指的是表面上“直接修改”，但是内在还是遵守 **“替换”** 的
+对于*多层嵌套*的对象，可以使用 [use-immer](https://github.com/immerjs/use-immer) 库，方便“修改”，这里的修改，指的是表面上“直接修改”，但是内在还是遵守 **“替换”** 的
 
 使用 Immer： 可以直接修改数据，
 1. 运行 `npm install use-immer` 添加 Immer 依赖
@@ -427,12 +427,24 @@ function handleNameChange(e) {
 ```
 
 ## useReducer
-如果说 `useState` 是一个用来管理简单状态的“开关”，那么 `useReducer` 就是一套完整的“控制面板”。
-专门用户处理*复杂状态逻辑* 或者 *一个状态的变化依赖于前一个状态*
+专门处理*复杂状态逻辑* 或者*一个状态的变化依赖于前一个状态* 或者*多个状态需要同步修改*
 
 语法：
 ```js
 const [state, dispatch] = useReducer(reducer, initialArg, init?); 
+
+/**
+* reducer: Reducer 函数
+* initialArg: 初始值
+* init?: 若初始状态需要经过复杂计算，可用这个参数 --- 只会在组件挂载时运行一次，避免每次渲染都执行复杂计算
+*/
+
+// 例如：
+function createInitialState(initialCount) {
+  return { count: initialCount, history: [] };
+}
+
+const [state, dispatch] = useReducer(reducer, 10, createInitialState);
 ```
 
 核心概念： 
@@ -442,7 +454,7 @@ const [state, dispatch] = useReducer(reducer, initialArg, init?);
 ---
 总之： dispatch 派发 action，reducer 根据不同的 action 更新 state 的状态
 
-例如：
+例如： 经典的 count 问题
 ```jsx
 import { useReducer } from "react";
 
