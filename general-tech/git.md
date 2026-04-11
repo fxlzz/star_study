@@ -50,6 +50,8 @@ git init -> 生成 .git文件
 git remote add origin <远程仓库地址>
 ```
 
+删除 git 索引： `git rm --cached <sub-module>`
+
 ## 切换分支
 使用场景：什么时候会切换分支呢？
 - 不想破坏主分支代码

@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "git",
+      "path": "general-tech/git.md"
+    },
+    {
       "basename": "React",
       "path": "interview/React.md"
     },
@@ -151,10 +155,6 @@
     {
       "basename": "Linux",
       "path": "general-tech/Linux.md"
-    },
-    {
-      "basename": "git",
-      "path": "general-tech/git.md"
     },
     {
       "basename": "Zustand",
