@@ -754,11 +754,11 @@ const router = createBrowserRouter([
 	},
 	{
 		path: "/xxx",
-		elememt: <Test />,
+		Component: <Test />,
 		loader: dataLoader, // 路由进入之前获取数据
 		action: xxx, 
 		children: [
-			{ path: "/xx", element: <xxx/> }
+			{ path: "/xx", Component: <xxx/> }
 		]
 	}
 ])
