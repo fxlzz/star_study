@@ -202,20 +202,22 @@
     ]
   },
   "front-tech/JavaScript/JS.md": {
-    "scroll": 9.653508370382744,
+    "scroll": 1268.7377170763518,
     "cursor": {
       "from": {
-        "line": 16,
-        "ch": 12
+        "line": 1279,
+        "ch": 8
       },
       "to": {
-        "line": 16,
-        "ch": 12
+        "line": 1279,
+        "ch": 8
       }
     },
     "expandedKeys": [
       "item-1-0",
-      "item-2-2"
+      "item-2-2",
+      "item-2-94",
+      "item-1-92"
     ]
   },
   "front-tech/JavaScript/some details.md": {
@@ -290,20 +292,22 @@
     "expandedKeys": []
   },
   "front-tech/React/React.md": {
-    "scroll": 1259.0359907986824,
+    "scroll": 769.5295175304032,
     "cursor": {
       "from": {
-        "line": 1264,
-        "ch": 38
+        "line": 781,
+        "ch": 0
       },
       "to": {
-        "line": 1264,
-        "ch": 38
+        "line": 781,
+        "ch": 0
       }
     },
     "expandedKeys": [
       "item-2-52",
-      "item-1-43"
+      "item-1-43",
+      "item-2-32",
+      "item-2-30"
     ]
   },
   "general-tech/docker.md": {
@@ -1202,5 +1206,19 @@
     "expandedKeys": [
       "item-2-1"
     ]
+  },
+  "front-tech/场景/路由守卫.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 34,
+        "ch": 0
+      },
+      "to": {
+        "line": 34,
+        "ch": 0
+      }
+    },
+    "expandedKeys": []
   }
 }
