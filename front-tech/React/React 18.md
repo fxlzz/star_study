@@ -41,10 +41,8 @@ SetTimeout (() => {
 # UseTransition 过渡更新
 [useTransition – React 中文文档](https://zh-hans.react.dev/reference/react/useTransition)
 
-区分：
-+ 紧急更新
-+ 非紧急更新
-Hook 允许在后台渲染部分 UI
+什么时候用？
+>  当某次更新“很耗性能”，但不会影响当前交互结果时
 
 语法：
 ```js
@@ -60,6 +58,30 @@ const [isPending, startTransition] = useTransistion();
 会在 `startTransition` 函数调用后切换为 true，在所有 Action 完成且呈现给用户前一直保持为 true
 
 可通过 `useOptimistic` 即使反馈 transition 的状态
+
+言而总之，`useTransition` 用于标记“非紧急更新”，让 React 优先保证用户交互
+
+# UseDeferredValue 延迟值
+让某个值“慢一点更新”
+
+语法：
+```js
+const deferredValue = useDeferredValue(value);
+```
+
+使用场景：
++ 搜索框
++ 大列表过滤
+
+# Suspense
+允许子组件完成加载前展示“降级”方案
+可配合 `React.lazy` 懒加载
+
+```jsx
+<Suspense fallback={<Loading />}>  
+<SomeComponent />  
+</Suspense>
+```
 
 
 
