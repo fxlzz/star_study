@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "路由守卫",
-      "path": "front-tech/场景/路由守卫.md"
+      "basename": "React 18",
+      "path": "front-tech/React/React 18.md"
     },
     {
       "basename": "React",
       "path": "front-tech/React/React.md"
+    },
+    {
+      "basename": "路由守卫",
+      "path": "front-tech/场景/路由守卫.md"
     },
     {
       "basename": "JS",
@@ -195,10 +199,6 @@
     {
       "basename": "md测试数据",
       "path": "毕设/md测试数据.md"
-    },
-    {
-      "basename": "计算机网络-图",
-      "path": "interview/计算机网络-图.md"
     }
   ],
   "omittedPaths": [],
