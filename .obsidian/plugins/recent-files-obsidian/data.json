@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "React",
+      "path": "interview/React.md"
+    },
+    {
+      "basename": "简历",
+      "path": "interview/简历.md"
+    },
+    {
       "basename": "React 18",
       "path": "front-tech/React/React 18.md"
     },
@@ -27,14 +35,6 @@
     {
       "basename": "路由守卫",
       "path": "front-tech/场景/路由守卫.md"
-    },
-    {
-      "basename": "React",
-      "path": "interview/React.md"
-    },
-    {
-      "basename": "简历",
-      "path": "interview/简历.md"
     },
     {
       "basename": "双 token 流程",
