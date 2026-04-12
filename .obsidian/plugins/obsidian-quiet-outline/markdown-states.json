@@ -1235,17 +1235,19 @@
     "expandedKeys": []
   },
   "front-tech/React/React 18.md": {
-    "scroll": 0,
+    "scroll": 53.585011612807364,
     "cursor": {
       "from": {
-        "line": 11,
+        "line": 62,
         "ch": 0
       },
       "to": {
-        "line": 11,
+        "line": 62,
         "ch": 0
       }
     },
-    "expandedKeys": []
+    "expandedKeys": [
+      "item-1-0"
+    ]
   }
 }
