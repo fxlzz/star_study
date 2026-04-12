@@ -5,20 +5,20 @@
       "path": "front-tech/React/React 18.md"
     },
     {
-      "basename": "React",
-      "path": "front-tech/React/React.md"
-    },
-    {
-      "basename": "路由守卫",
-      "path": "front-tech/场景/路由守卫.md"
-    },
-    {
       "basename": "JS",
       "path": "front-tech/JavaScript/JS.md"
     },
     {
+      "basename": "React",
+      "path": "front-tech/React/React.md"
+    },
+    {
       "basename": "git",
       "path": "general-tech/git.md"
+    },
+    {
+      "basename": "路由守卫",
+      "path": "front-tech/场景/路由守卫.md"
     },
     {
       "basename": "React",
