@@ -152,6 +152,7 @@ app.listen(3003, () => {
 	 
 ```js
 import axios from "axios";
+import { message } form "antd";
 
 const request = axios.create({
   baseURL: "http://localhost:3003",
@@ -167,7 +168,6 @@ request.interceptors.request.use((config) => {
    * 2. 请求放行
    */
   const token = localStorage.getItem("access_token");
-  
   if (token) {
     config.headers = config.headers || {};
     config.headers.Authorization = `Bearer ${token}`;
@@ -180,6 +180,15 @@ request.interceptors.response.use(
   (response) => response.data,
   async (error) => {
     const originalRequest = error.config;
+    
+    // 单独处理 login 接口
+    if (error.response?.status === 401 && originalRequest.url === "/login") {
+      const data = error.response?.data;
+      if (!data?.success) {
+        return message.error(data?.message);
+      }
+    }
+    
     if (error.response?.status === 401 && originalRequest && !originalRequest._retry) 
 {
       originalRequest._retry = true; // 失败的请求最多只帮你重试一次（防止token刷新失败、
@@ -213,7 +222,10 @@ request.interceptors.response.use(
       } catch (refreshError) {
       	// RT 过期
         localStorage.clear();
-        window.location.href = '/login';
+        message.error("token过期，请重新登录", 1.5);
+        setTimeout(() => {
+          window.location.href = "/login";
+        }, 1000);
         return Promise.reject(refreshError);
       }
     }
