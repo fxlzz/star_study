@@ -41,6 +41,8 @@ SetTimeout (() => {
 # UseTransition 过渡更新
 [useTransition – React 中文文档](https://zh-hans.react.dev/reference/react/useTransition)
 
+控制*更新逻辑*
+
 什么时候用？
 >  当某次更新“很耗性能”，但不会影响当前交互结果时
 >  例如：
@@ -64,17 +66,32 @@ const [isPending, startTransition] = useTransistion();
 
 言而总之，`useTransition` 用于标记“非紧急更新”，让 React 优先保证用户交互
 
+```jsx
+const handleChange = (e) => {
+    const value = e.target.value;
+
+    // 用户输入为 紧急更新
+    setSearchVal(value);
+
+    // 这里把过滤操作放到 transition 里面，React 会把这次更新标记为“可延迟状态更新”
+    startTransition(() => {
+      const nextData = data.filter((item) => item.name.includes(value));
+     setFilteredData(nextData);
+    });
+
+  };
+```
+
 # UseDeferredValue 延迟值
-让某个值“慢一点更新”
+控制*数值*
 
 语法：
 ```js
 const deferredValue = useDeferredValue(value);
 ```
 
-使用场景：
-+ 搜索框
-+ 大列表过滤
+总之：
+> useDeferredValue 用于延迟某个值的更新，适用于高频变化但计算开销较大的场景，例如输入框过滤、大列表渲染等。它可以避免阻塞用户交互，从而提升页面流畅度。
 
 # Suspense
 允许子组件完成加载前展示“降级”方案

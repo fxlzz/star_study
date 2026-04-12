@@ -5,6 +5,14 @@
       "path": "front-tech/React/React 18.md"
     },
     {
+      "basename": "Tanstack Query",
+      "path": "front-tech/React/Tanstack Query.md"
+    },
+    {
+      "basename": "react-query-guide",
+      "path": "front-tech/React/react-query-guide.md"
+    },
+    {
       "basename": "JS",
       "path": "front-tech/JavaScript/JS.md"
     },
@@ -171,14 +179,6 @@
     {
       "basename": "Zustand",
       "path": "front-tech/React/Zustand.md"
-    },
-    {
-      "basename": "Tanstack Query",
-      "path": "front-tech/React/Tanstack Query.md"
-    },
-    {
-      "basename": "react-query-guide",
-      "path": "front-tech/React/react-query-guide.md"
     },
     {
       "basename": "antd",

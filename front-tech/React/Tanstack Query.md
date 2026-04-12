@@ -2,14 +2,69 @@
 > 如果有条件可以用 AI 学习，让 AI 用苏格拉底式提问法，去学习
 
 参考资料：
-官网：https://tanstack.com/query/latest/docs/framework/react/overview
-deepWiki：https://deepwiki.com/TanStack/query
-源码：https://github1s.com/TanStack/query
+[react query](https://tanstack.com/query/latest/docs/framework/react/overview)
+[deepWiki](https://deepwiki.com/TanStack/query)
+[source](https://github1s.com/TanStack/query)
 
 # 面临的问题
 开发中，最终要的就是处理数据的流向，一般，有两种情况
 + 从接口获取数据，展示到页面上 -> 纯展示【useQuery】
 + 通过交互，修改数据，更新服务器上的数据 -> 变更【useMutation】
+
+# 快速上手
+
+安装依赖：
+```js
+npm install @tanstack/react-query
+```
+
+`main.js`
+```jsx
+import { createRoot } from "react-dom/client";
+import { RouterProvider } from "react-router/dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+import router from "@/routes";
+
+const queryClient = new QueryClient();
+
+createRoot(document.getElementById("root")).render(
+  <QueryClientProvider client={queryClient}>
+    <RouterProvider router={router} />
+  </QueryClientProvider>,
+);
+```
+
+使用：
+```jsx
+import { useQuery } from "@tanstack/react-query";
+
+const query = useQuery({
+	requestKey: ["mockList"],
+	requestFn: async () => {
+		const res = await request({ url: "/mock/list", method: "get" })
+		return res?.data ?? [],
+	},
+	enabled: false, // 初次不自动请求数据
+})
+```
+
+返回值：
+```js
+  const { data = [], isLoading, isError, refetch, isFetched } = query;
+```
+
++ data: 请求函数返回数据
++ isError： 请求过程中是否在错误
++ refetch： 调用可重新请求接口
++ isFetched： 数据是否正在请求中
++ isLoading: 数据是否正在加载
+
+使用 refetch：
+点击按钮后，在重发请求
+```jsx
+<button onClick={() => refetch()}>获取数据</button>
+```
 
 ## 核心概念
 React Query 强大的秘密在于它区分了数据的**“新鲜度”（Fresh）和“缓存期”（Cached）**，这主要由两个核心配置项控制：staleTime 和 cacheTime。
