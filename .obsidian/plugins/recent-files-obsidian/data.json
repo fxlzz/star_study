@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "测试",
+      "path": "front-tech/前端测试/测试.md"
+    },
+    {
       "basename": "双 token 流程",
       "path": "front-tech/场景/双 token 流程.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "RAG 测试数据",
       "path": "毕设/RAG 测试数据.md"
-    },
-    {
-      "basename": "md测试数据",
-      "path": "毕设/md测试数据.md"
     }
   ],
   "omittedPaths": [],
