@@ -1,4 +1,7 @@
-React 18 意味着 React 从“单线程阻塞”转变为“可中断并发”
+具体演示可见： 
+ [GitHub - fxlzz/knowledge\_scenario\_practice: Knowledge Point Scenario Practice · GitHub](https://github.com/fxlzz/knowledge_scenario_practice) react 文件中的 react 18 代码
+
+>  React 18 意味着 React 从“单线程阻塞”转变为“可中断并发”
 
 开启并发模式：
 ```js
@@ -15,7 +18,7 @@ ReactDOM.render(<App />, root) ---> createRoot(root).render(<App />)
 ```js
 SetA (1);  
 SetB (2);  
-// ✅ 批处理
+// 批处理
 ```
 
 但在异步中不会：
@@ -24,7 +27,7 @@ SetTimeout (() => {
   SetA (1);  
   SetB (2);  
 });  
-// ❌ 不会批处理（会渲染两次）
+// 不会批处理（会渲染两次）
 ```
 
 ---
@@ -35,7 +38,7 @@ SetTimeout (() => {
   SetA (1);  
   SetB (2);  
 });  
-// ✅ 只渲染一次
+// 只渲染一次
 ```
 
 # UseTransition 过渡更新

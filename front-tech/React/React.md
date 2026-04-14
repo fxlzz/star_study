@@ -484,6 +484,7 @@ const App = () => {
 export default App;
 ```
 
+模拟业务场景： [GitHub - fxlzz/knowledge\_scenario\_practice: Knowledge Point Scenario Practice · GitHub](https://github.com/fxlzz/knowledge_scenario_practice) react 文件中的 useReducer 代码
 
 ## 表单(受控组件)
  _state_ 中的数据更改之后，表单中的数据也会发生变化

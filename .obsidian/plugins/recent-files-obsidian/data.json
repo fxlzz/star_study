@@ -1,60 +1,80 @@
 {
   "recentFiles": [
     {
-      "basename": "AJAX",
-      "path": "front-tech/AJAX.md"
-    },
-    {
-      "basename": "测试",
-      "path": "front-tech/前端测试/测试.md"
-    },
-    {
-      "basename": "双 token 流程",
-      "path": "front-tech/场景/双 token 流程.md"
-    },
-    {
-      "basename": "React",
-      "path": "interview/React.md"
-    },
-    {
-      "basename": "简历",
-      "path": "interview/简历.md"
-    },
-    {
       "basename": "React 18",
       "path": "front-tech/React/React 18.md"
-    },
-    {
-      "basename": "Tanstack Query",
-      "path": "front-tech/React/Tanstack Query.md"
-    },
-    {
-      "basename": "react-query-guide",
-      "path": "front-tech/React/react-query-guide.md"
     },
     {
       "basename": "JS",
       "path": "front-tech/JavaScript/JS.md"
     },
     {
+      "basename": "some details",
+      "path": "front-tech/JavaScript/some details.md"
+    },
+    {
+      "basename": "ES6+",
+      "path": "front-tech/JavaScript/ES6+.md"
+    },
+    {
+      "basename": "事件循环",
+      "path": "front-tech/JavaScript/事件循环.md"
+    },
+    {
       "basename": "React",
       "path": "front-tech/React/React.md"
+    },
+    {
+      "basename": "React",
+      "path": "interview/React.md"
+    },
+    {
+      "basename": "计算机网络",
+      "path": "interview/计算机网络.md"
+    },
+    {
+      "basename": "计算机网络-图",
+      "path": "interview/计算机网络-图.md"
+    },
+    {
+      "basename": "Linux",
+      "path": "general-tech/Linux.md"
+    },
+    {
+      "basename": "k8s",
+      "path": "general-tech/k8s.md"
     },
     {
       "basename": "git",
       "path": "general-tech/git.md"
     },
     {
-      "basename": "路由守卫",
-      "path": "front-tech/场景/路由守卫.md"
+      "basename": "docker",
+      "path": "general-tech/docker.md"
     },
     {
-      "basename": "Nodejs",
-      "path": "front-tech/Nodejs.md"
+      "basename": "浏览器",
+      "path": "front-tech/浏览器.md"
     },
     {
-      "basename": "improve_coding",
-      "path": "project/improve_coding/improve_coding.md"
+      "basename": "Tanstack Query",
+      "path": "front-tech/React/Tanstack Query.md"
+    },
+    {
+      "basename": "Zustand",
+      "path": "front-tech/React/Zustand.md"
+    },
+    {
+      "basename": "react-query-guide",
+      "path": "front-tech/React/react-query-guide.md"
+    },
+    {
+      "basename": "antd",
+      "path": "front-tech/React/antd.md"
+    },
+    {
+      "basename": "webpack - 优化",
+      "path": "front-tech/工程化/webpack - 优化.md"
     },
     {
       "basename": "webpack",
@@ -69,76 +89,44 @@
       "path": "front-tech/工程化/包管理工具.md"
     },
     {
-      "basename": "跨域",
-      "path": "front-tech/跨域.md"
-    },
-    {
-      "basename": "TypeScript",
-      "path": "front-tech/TypeScript.md"
-    },
-    {
-      "basename": "HTML5",
-      "path": "front-tech/HTML5.md"
-    },
-    {
-      "basename": "CSS3",
-      "path": "front-tech/CSS3.md"
-    },
-    {
-      "basename": "浏览器",
-      "path": "front-tech/浏览器.md"
-    },
-    {
-      "basename": "微前端",
-      "path": "front-tech/微前端.md"
-    },
-    {
-      "basename": "计算机网络",
-      "path": "interview/计算机网络.md"
+      "basename": "file-20260129104047870",
+      "path": "front-tech/工程化/assets/webpack - 优化/file-20260129104047870.png"
     },
     {
       "basename": "base64 导出",
       "path": "front-tech/场景/base64 导出.md"
     },
     {
-      "basename": "docker",
-      "path": "general-tech/docker.md"
+      "basename": "antd Modal + Form",
+      "path": "front-tech/场景/antd Modal + Form.md"
     },
     {
       "basename": "异步请求hook",
       "path": "front-tech/场景/异步请求hook.md"
     },
     {
+      "basename": "双 token 流程",
+      "path": "front-tech/场景/双 token 流程.md"
+    },
+    {
+      "basename": "路由守卫",
+      "path": "front-tech/场景/路由守卫.md"
+    },
+    {
       "basename": "并发请求",
       "path": "front-tech/场景/并发请求.md"
     },
     {
-      "basename": "antd Modal + Form",
-      "path": "front-tech/场景/antd Modal + Form.md"
+      "basename": "毕设",
+      "path": "毕设/毕设.md"
     },
     {
-      "basename": "事件循环",
-      "path": "front-tech/JavaScript/事件循环.md"
+      "basename": "RAG 测试数据",
+      "path": "毕设/RAG 测试数据.md"
     },
     {
-      "basename": "webpack - 优化",
-      "path": "front-tech/工程化/webpack - 优化.md"
-    },
-    {
-      "basename": "场景题",
-      "path": "interview/场景题.md"
-    },
-    {
-      "basename": "ES6+",
-      "path": "front-tech/JavaScript/ES6+.md"
-    },
-    {
-      "basename": "python",
-      "path": "python/python.md"
-    },
-    {
-      "basename": "rust",
-      "path": "rust/rust.md"
+      "basename": "md测试数据",
+      "path": "毕设/md测试数据.md"
     },
     {
       "basename": "RAG",
@@ -157,44 +145,60 @@
       "path": "ai/ai-concept.md"
     },
     {
-      "basename": "gemini",
-      "path": "ai/agent-cli/gemini.md"
-    },
-    {
       "basename": "claude",
       "path": "ai/agent-cli/claude.md"
     },
     {
-      "basename": "data",
-      "path": "data-algo/data.md"
+      "basename": "gemini",
+      "path": "ai/agent-cli/gemini.md"
     },
     {
       "basename": "algo",
       "path": "data-algo/algo.md"
     },
     {
-      "basename": "k8s",
-      "path": "general-tech/k8s.md"
+      "basename": "data",
+      "path": "data-algo/data.md"
     },
     {
-      "basename": "Linux",
-      "path": "general-tech/Linux.md"
-    },
-    {
-      "basename": "Zustand",
-      "path": "front-tech/React/Zustand.md"
-    },
-    {
-      "basename": "antd",
-      "path": "front-tech/React/antd.md"
-    },
-    {
-      "basename": "毕设",
-      "path": "毕设/毕设.md"
+      "basename": "Vue",
+      "path": "interview/Vue.md"
     },
     {
       "basename": "JS+TS",
       "path": "interview/JS+TS.md"
+    },
+    {
+      "basename": "HTML+CSS",
+      "path": "interview/HTML+CSS.md"
+    },
+    {
+      "basename": "AI",
+      "path": "interview/AI.md"
+    },
+    {
+      "basename": "浏览器",
+      "path": "interview/浏览器.md"
+    },
+    {
+      "basename": "简历",
+      "path": "interview/简历.md"
+    },
+    {
+      "basename": "工程化",
+      "path": "interview/工程化.md"
+    },
+    {
+      "basename": "操作系统",
+      "path": "interview/操作系统.md"
+    },
+    {
+      "basename": "跨域",
+      "path": "front-tech/跨域.md"
+    },
+    {
+      "basename": "AJAX",
+      "path": "front-tech/AJAX.md"
     }
   ],
   "omittedPaths": [],
