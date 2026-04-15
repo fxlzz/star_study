@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "TypeScript",
+      "path": "front-tech/TypeScript.md"
+    },
+    {
       "basename": "AJAX",
       "path": "front-tech/AJAX.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "操作系统",
       "path": "interview/操作系统.md"
-    },
-    {
-      "basename": "跨域",
-      "path": "front-tech/跨域.md"
     }
   ],
   "omittedPaths": [],

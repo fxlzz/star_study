@@ -27,7 +27,6 @@ JS 的基本类型：8个基本类型
 number string null undefined boolean object bigint symbol 当然object还包括Array String Function...
 
 TS 的基本类型：
-
 1. 包含上述 JS 的基本类型
 2. 六个新类型：  
     any unknown never void tuple enum
