@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "AJAX",
+      "path": "front-tech/AJAX.md"
+    },
+    {
+      "basename": "git",
+      "path": "general-tech/git.md"
+    },
+    {
       "basename": "React 18",
       "path": "front-tech/React/React 18.md"
     },
@@ -43,10 +51,6 @@
     {
       "basename": "k8s",
       "path": "general-tech/k8s.md"
-    },
-    {
-      "basename": "git",
-      "path": "general-tech/git.md"
     },
     {
       "basename": "docker",
@@ -195,10 +199,6 @@
     {
       "basename": "跨域",
       "path": "front-tech/跨域.md"
-    },
-    {
-      "basename": "AJAX",
-      "path": "front-tech/AJAX.md"
     }
   ],
   "omittedPaths": [],

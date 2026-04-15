@@ -330,15 +330,15 @@
     ]
   },
   "general-tech/git.md": {
-    "scroll": 192.5140310588636,
+    "scroll": 183.61402573892366,
     "cursor": {
       "from": {
-        "line": 202,
-        "ch": 3
+        "line": 205,
+        "ch": 13
       },
       "to": {
-        "line": 202,
-        "ch": 11
+        "line": 205,
+        "ch": 13
       }
     },
     "expandedKeys": [
@@ -1112,15 +1112,15 @@
     "expandedKeys": []
   },
   "front-tech/AJAX.md": {
-    "scroll": 0,
+    "scroll": 34.537078187990495,
     "cursor": {
       "from": {
-        "line": 12,
-        "ch": 23
+        "line": 41,
+        "ch": 44
       },
       "to": {
-        "line": 12,
-        "ch": 23
+        "line": 41,
+        "ch": 44
       }
     },
     "expandedKeys": [

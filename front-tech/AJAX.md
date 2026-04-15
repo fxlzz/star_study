@@ -39,7 +39,7 @@ const curl = axios.create({
 + `method: enum`
 + `baseURL: string`
 + `headers: object`
-+ `params: object` 应该是 query 参数 
++ `params: object` 应该是 query 参数 (axois 会自动编码)
 	+ query 参数： `/api/files?a=1&b=2 ---> ?a=1&b=2` 
 	+ params 参数： `/api/user:id ---> :id` 动态参数
 + `data: object(常见)`
