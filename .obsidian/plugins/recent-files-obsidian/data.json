@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "项目介绍",
+      "path": "project/image_upload/项目介绍.md"
+    },
+    {
+      "basename": "Nodejs",
+      "path": "front-tech/Nodejs.md"
+    },
+    {
       "basename": "TypeScript",
       "path": "front-tech/TypeScript.md"
     },
@@ -15,10 +23,6 @@
     {
       "basename": "git",
       "path": "general-tech/git.md"
-    },
-    {
-      "basename": "Nodejs",
-      "path": "front-tech/Nodejs.md"
     },
     {
       "basename": "React 18",
@@ -195,10 +199,6 @@
     {
       "basename": "简历",
       "path": "interview/简历.md"
-    },
-    {
-      "basename": "工程化",
-      "path": "interview/工程化.md"
     }
   ],
   "omittedPaths": [],

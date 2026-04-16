@@ -183,7 +183,7 @@
     ]
   },
   "front-tech/Nodejs.md": {
-    "scroll": 160.64326996569085,
+    "scroll": 159.70068154299855,
     "cursor": {
       "from": {
         "line": 159,
@@ -1303,6 +1303,34 @@
       "to": {
         "line": 20,
         "ch": 6
+      }
+    },
+    "expandedKeys": []
+  },
+  "project/image_upload/未命名.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 0,
+        "ch": 0
+      },
+      "to": {
+        "line": 0,
+        "ch": 0
+      }
+    },
+    "expandedKeys": []
+  },
+  "project/image_upload/项目介绍.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 7,
+        "ch": 17
+      },
+      "to": {
+        "line": 7,
+        "ch": 17
       }
     },
     "expandedKeys": []
