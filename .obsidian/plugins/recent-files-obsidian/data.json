@@ -9,8 +9,16 @@
       "path": "front-tech/AJAX.md"
     },
     {
+      "basename": "双 token 流程",
+      "path": "front-tech/场景/双 token 流程.md"
+    },
+    {
       "basename": "git",
       "path": "general-tech/git.md"
+    },
+    {
+      "basename": "Nodejs",
+      "path": "front-tech/Nodejs.md"
     },
     {
       "basename": "React 18",
@@ -113,10 +121,6 @@
       "path": "front-tech/场景/异步请求hook.md"
     },
     {
-      "basename": "双 token 流程",
-      "path": "front-tech/场景/双 token 流程.md"
-    },
-    {
       "basename": "路由守卫",
       "path": "front-tech/场景/路由守卫.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "工程化",
       "path": "interview/工程化.md"
-    },
-    {
-      "basename": "操作系统",
-      "path": "interview/操作系统.md"
     }
   ],
   "omittedPaths": [],
