@@ -204,10 +204,10 @@ fetch("/api", {
 + `statusText`
 
 常见方法：
-+ `response.json()` 解析为 JSON 格式
-+ `response.text()` 解析为 USVString 格式
-+ `response.blob()` 解析为 Blob 格式
-+ `response.arrayBuffer()` 解析为 ArrayBuffer 格式
++ `Response.json()` 解析为 JSON 格式
++ `Response.text()` 解析为 USVString 格式
++ `Response.blob()` 解析为 Blob 格式
++ `Response.arrayBuffer()` 解析为 ArrayBuffer 格式
 
 # 相关 API
 ## `encodeURIComponent`

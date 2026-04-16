@@ -34,7 +34,9 @@ app/blog/[...slug]/page.js
 
 app/blog/a
 app/blog/a/b
-app/blog/a/b/c
+app/blog/../../ 任意多层都会被 page.js 这个hander捕获到
+
+params --- ["a", "b", ..]
 ```
 + （Optional Catch-all）可选
 ```js
@@ -63,3 +65,111 @@ app/(auth)/register/page.js
 app/@model/(...)login/page.js
 ```
 
+# Route Handlers 
+在 Nextjs 中创建一个 api，支持原生 [Response](AJAX.md#Response) 和 [Request](AJAX.md#Request)
+对象.  *这点非常重要!!! 所有的行为都于原生的保持一致* 
+Nestjs 在此基础上封装了一层 NextResponse 和 NextRequest
+
+支持 HTTP 方法： GET、POST、PUT、PATCH、DELETE、OPTIONS、HEAD，其他返回 405
+
+Nextjs 配合路由实现 api 函数
+```jsx
+// node.js
+app.get("/api/user/list", (req, res) => {
+	res.json({ msg: "hello world"});
+})
+
+// nextjs
+// 文件路由 api/user/list/route.ts
+export const GET = async (request: NextRequest) => {
+	return Response.json({ msg: "hello world" })
+}
+```
+
+*获取 query 参数* —— `/api/user?id=123`
+```ts
+export const GET = async (req) => {
+	const { serachParams } = new URL(req.url);
+	const id = serachParams.get("id");
+	// ...
+}	
+```
+
+*获取 body*
+```ts
+export const POST = async (req) => {
+	const body = await req.json();
+	// ...
+}
+```
+
+*获取 headers*
+```js
+export const GET = async (req) => {
+	const token = req.headers.get("authorization");
+	// ...
+}
+```
+
+*获取 params 参数* —— `/api/user/123`
+
+注意： Nextjs 16 params 参数是异步的
+
+```js
+export const GET = async (req, { params: Promise<{id: string}> }) => {
+	const { id } = await params;
+	// ...
+}
+```
+
+## 关于缓存
+Route Handlers 默认不缓存，可以缓存 `GET` 方法
+开启配置：
+```js
+export const dynamic = 'force-static'
+ 
+export async function GET() {
+  const res = await fetch('https://data.mongodb-api.com/...")
+  const data = await res.json()
+ 
+  return Response.json({ data })
+}
+```
+
+### 启动缓存
+需要配置缓存组件，通过在 `next.config.ts` 文件中设置 `cacheComponent: true`
+
+Usage： 
++ Data 缓存一个获取或计算数据的函数
++ UI 缓存整个组件
+
+*Data:*
+```js
+import { cacheLife } from 'next/cache'
+ 
+export async function getUsers() {
+  'use cache'
+  cacheLife('hours')
+  return db.query('SELECT * FROM users')
+}
+```
+
+*UI:*
+```js
+import { cacheLife } from 'next/cache'
+ 
+export default async function Page() {
+  'use cache'
+  cacheLife('hours')
+ 
+  const users = await db.query('SELECT * FROM users')
+ 
+  return (
+    <ul>
+      {users.map((user) => (
+        <li key={user.id}>{user.name}</li>
+      ))}
+    </ul>
+  )
+}
+```
