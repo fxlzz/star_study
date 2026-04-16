@@ -1325,11 +1325,25 @@
     "scroll": 0,
     "cursor": {
       "from": {
-        "line": 11,
-        "ch": 229
+        "line": 8,
+        "ch": 0
       },
       "to": {
-        "line": 11,
+        "line": 8,
+        "ch": 0
+      }
+    },
+    "expandedKeys": []
+  },
+  "front-tech/Nextjs.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 13,
+        "ch": 0
+      },
+      "to": {
+        "line": 13,
         "ch": 0
       }
     },

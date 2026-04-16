@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "Nextjs",
+      "path": "front-tech/Nextjs.md"
+    },
+    {
+      "basename": "AJAX",
+      "path": "front-tech/AJAX.md"
+    },
+    {
+      "basename": "浏览器",
+      "path": "front-tech/浏览器.md"
+    },
+    {
+      "basename": "跨域",
+      "path": "front-tech/跨域.md"
+    },
+    {
       "basename": "项目介绍",
       "path": "project/image_upload/项目介绍.md"
     },
@@ -11,10 +27,6 @@
     {
       "basename": "TypeScript",
       "path": "front-tech/TypeScript.md"
-    },
-    {
-      "basename": "AJAX",
-      "path": "front-tech/AJAX.md"
     },
     {
       "basename": "双 token 流程",
@@ -71,10 +83,6 @@
     {
       "basename": "docker",
       "path": "general-tech/docker.md"
-    },
-    {
-      "basename": "浏览器",
-      "path": "front-tech/浏览器.md"
     },
     {
       "basename": "Tanstack Query",
@@ -191,14 +199,6 @@
     {
       "basename": "AI",
       "path": "interview/AI.md"
-    },
-    {
-      "basename": "浏览器",
-      "path": "interview/浏览器.md"
-    },
-    {
-      "basename": "简历",
-      "path": "interview/简历.md"
     }
   ],
   "omittedPaths": [],
