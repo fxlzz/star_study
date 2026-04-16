@@ -65,7 +65,7 @@ app/(auth)/register/page.js
 app/@model/(...)login/page.js
 ```
 
-# Route Handlers 
+# Route Handlers（API Route） 
 在 Nextjs 中创建一个 api，支持原生 [Response](AJAX.md#Response) 和 [Request](AJAX.md#Request)
 对象.  *这点非常重要!!! 所有的行为都于原生的保持一致* 
 Nestjs 在此基础上封装了一层 NextResponse 和 NextRequest
@@ -86,16 +86,18 @@ export const GET = async (request: NextRequest) => {
 }
 ```
 
-*获取 query 参数* —— `/api/user?id=123`
+### *获取 query 参数* 
+—— `/api/user?id=123`
 ```ts
 export const GET = async (req) => {
+	// serachParams ---> URLSearchParams 对象
 	const { serachParams } = new URL(req.url);
 	const id = serachParams.get("id");
 	// ...
 }	
 ```
 
-*获取 body*
+### *获取 body*
 ```ts
 export const POST = async (req) => {
 	const body = await req.json();
@@ -103,7 +105,7 @@ export const POST = async (req) => {
 }
 ```
 
-*获取 headers*
+### *获取 headers*
 ```js
 export const GET = async (req) => {
 	const token = req.headers.get("authorization");
@@ -111,8 +113,8 @@ export const GET = async (req) => {
 }
 ```
 
-*获取 params 参数* —— `/api/user/123`
-
+### *获取 params 参数*
+—— `/api/user/123`
 注意： Nextjs 16 params 参数是异步的
 
 ```js
@@ -173,3 +175,30 @@ export default async function Page() {
   )
 }
 ```
+
+# Zod
+[Intro \| Zod](https://zod.dev/)
+Api 参数校验，确实非常强，开发体验也不错（相比于 json-schema）
+
+简单示例：
+```js
+import * as zod from "zod";
+
+const querySchema = zod.object({
+	name: zod.string().max(10).min(3),
+	email: zod.string().email()
+})
+
+// 校验 —— 两种写法
+try {
+	const result = zod.parse({name: ..., email: ...})
+	// ...
+} catch(error) {
+	// error instanseof ZodError
+}
+
+const result = zod.safeParse({name: ..., email: ...})
+
+if (!result.sucess) {}
+```
+
