@@ -8,6 +8,8 @@ app/
 	about/page.js -> /about
 ```
 
-文件夹 = 路由路径 
-`page.js` = 页面入口
+> 规则：
+>  - 文件夹 = 路由路径 
+>  - `page.js` = 页面入口
+
 
