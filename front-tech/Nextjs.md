@@ -1,3 +1,14 @@
+适合做什么项目：
+- SEO 项目（官网、博客）
+- 电商
+- SaaS
+- 全栈项目
+...
+不太适合做什么项目：
++ 纯 SPA 后台系统
++ 强实时系统
+...
+
 # 路由规则
 App Router
 `app/` 目录自动生成（约定大于配置）
@@ -201,4 +212,6 @@ const result = zod.safeParse({name: ..., email: ...})
 
 if (!result.sucess) {}
 ```
+
+配合 drizzle-orm 校验
 
