@@ -5,8 +5,20 @@
       "path": "front-tech/Nextjs.md"
     },
     {
+      "basename": "计算机网络",
+      "path": "interview/计算机网络.md"
+    },
+    {
       "basename": "AJAX",
       "path": "front-tech/AJAX.md"
+    },
+    {
+      "basename": "JS+TS",
+      "path": "interview/JS+TS.md"
+    },
+    {
+      "basename": "TypeScript",
+      "path": "front-tech/TypeScript.md"
     },
     {
       "basename": "浏览器",
@@ -23,10 +35,6 @@
     {
       "basename": "Nodejs",
       "path": "front-tech/Nodejs.md"
-    },
-    {
-      "basename": "TypeScript",
-      "path": "front-tech/TypeScript.md"
     },
     {
       "basename": "双 token 流程",
@@ -63,10 +71,6 @@
     {
       "basename": "React",
       "path": "interview/React.md"
-    },
-    {
-      "basename": "计算机网络",
-      "path": "interview/计算机网络.md"
     },
     {
       "basename": "计算机网络-图",
@@ -187,10 +191,6 @@
     {
       "basename": "Vue",
       "path": "interview/Vue.md"
-    },
-    {
-      "basename": "JS+TS",
-      "path": "interview/JS+TS.md"
     },
     {
       "basename": "HTML+CSS",

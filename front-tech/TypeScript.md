@@ -353,7 +353,6 @@ class Person {
 ```
 
 TS 代码
-
 ```ts
 class Person {
   constructor(public name: string, public age: number) {}
@@ -365,7 +364,6 @@ class Person {
 ```
 
 ### 权限修饰符
-
 不难看出，增加了一些**权限修饰符**，并且简写了构造方法
 
 |   |   |   |
@@ -377,7 +375,7 @@ class Person {
 |readonly|只读属性|属性无法修改|
   
 
-## 抽象类
+### 抽象类
 
 **关键字：abstract**
 
