@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "Tanstack Query",
+      "path": "front-tech/React/Tanstack Query.md"
+    },
+    {
       "basename": "计算机网络",
       "path": "interview/计算机网络.md"
     },
@@ -87,10 +91,6 @@
     {
       "basename": "docker",
       "path": "general-tech/docker.md"
-    },
-    {
-      "basename": "Tanstack Query",
-      "path": "front-tech/React/Tanstack Query.md"
     },
     {
       "basename": "Zustand",
