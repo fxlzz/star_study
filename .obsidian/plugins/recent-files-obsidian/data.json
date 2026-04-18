@@ -1,20 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "Tanstack Query",
-      "path": "front-tech/React/Tanstack Query.md"
+      "basename": "AJAX",
+      "path": "front-tech/AJAX.md"
+    },
+    {
+      "basename": "git",
+      "path": "general-tech/git.md"
     },
     {
       "basename": "计算机网络",
       "path": "interview/计算机网络.md"
     },
     {
-      "basename": "Nextjs",
-      "path": "front-tech/Nextjs.md"
+      "basename": "Tanstack Query",
+      "path": "front-tech/React/Tanstack Query.md"
     },
     {
-      "basename": "AJAX",
-      "path": "front-tech/AJAX.md"
+      "basename": "Nextjs",
+      "path": "front-tech/Nextjs.md"
     },
     {
       "basename": "JS+TS",
@@ -43,10 +47,6 @@
     {
       "basename": "双 token 流程",
       "path": "front-tech/场景/双 token 流程.md"
-    },
-    {
-      "basename": "git",
-      "path": "general-tech/git.md"
     },
     {
       "basename": "React 18",
