@@ -647,7 +647,7 @@ setTimeout(() => {
 
 **async**
 
-async 一定是标记在函数前面的，一旦标记了 async 关键字，那么该函数**返回 Promise 对象**。
+async 一定是标记在函数前面的，一旦标记了 async 关键字，那么该函数**返回 Promise 对象**
 
 比如，
 ```js
