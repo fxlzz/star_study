@@ -211,6 +211,29 @@ function App({ list }) {
 # 组件 & Hooks
 ## 类组件
 ## 受控组件与非受控组件的区别？
+最大的区别： 表单数据谁来管理和维护
+
+### 受控组件
+通常由 react 中的 state 来管理，单一数据流
+```js
+import { useState } from "react";
+export default const Test = () => {
+	const [val, setVal] = useState("");
+	return <input value="name" onChange={(e) => setVal(e.target.value)}/>
+}
+```
+
+### 非受控组件
+表单数据存储在 DOM 节点中，由 DOM 进行管理，React 通过 ref 进行读取数据
+```jsx
+import { useRef } from "react";
+export default const Test = () => {
+	const inputRef = useRef();
+	// 获取数据 
+	// inputRef.current.value;
+	return <input ref="inputRef"/>
+}
+```
 
 ## 为什么 hook 不能在 if、for、else 中使用？
 
@@ -346,14 +369,12 @@ export default App;
 点击更新 count，视图更新，useEffect 代码执行
 
 ### `useEffect` 和 `useLayoutEffect` 的区别？
-
 渲染时机有所不同：
 + `useEffect` 在绘制之后*异步*执行
 + `useLayoutEffect` 在 DOM 更新之后，绘制之前*同步*执行
 
 ## `useMemo & useCallback`
 优化措施：
-
  `useMemo` —— 缓存数值
  `useCallback` —— 缓存函数
 UseMemo 和 useCallback 执行时机： 依赖项更新后，才会执行对应的代码
