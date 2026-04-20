@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "Nextjs",
+      "path": "front-tech/Nextjs.md"
+    },
+    {
       "basename": "AJAX",
       "path": "front-tech/AJAX.md"
     },
@@ -15,10 +19,6 @@
     {
       "basename": "Tanstack Query",
       "path": "front-tech/React/Tanstack Query.md"
-    },
-    {
-      "basename": "Nextjs",
-      "path": "front-tech/Nextjs.md"
     },
     {
       "basename": "JS+TS",

@@ -1120,15 +1120,15 @@
     "expandedKeys": []
   },
   "front-tech/AJAX.md": {
-    "scroll": 195.53639830204477,
+    "scroll": 202.05555811568368,
     "cursor": {
       "from": {
-        "line": 210,
-        "ch": 0
+        "line": 231,
+        "ch": 23
       },
       "to": {
-        "line": 205,
-        "ch": 2
+        "line": 231,
+        "ch": 23
       }
     },
     "expandedKeys": [
@@ -1346,7 +1346,7 @@
     "expandedKeys": []
   },
   "front-tech/Nextjs.md": {
-    "scroll": 201.11855210726222,
+    "scroll": 199.9553453702272,
     "cursor": {
       "from": {
         "line": 218,
