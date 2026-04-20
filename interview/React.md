@@ -368,8 +368,8 @@ export default App;
 点击更新 ref，useEffect 代码不会执行
 点击更新 count，视图更新，useEffect 代码执行
 
-### `useEffect` 和 `useLayoutEffect` 的区别？
-渲染时机有所不同：
+## `useLayoutEffect` 
+与 useEffect 对比，渲染时机有所不同：
 + `useEffect` 在绘制之后*异步*执行
 + `useLayoutEffect` 在 DOM 更新之后，绘制之前*同步*执行
 
@@ -452,6 +452,15 @@ React 在原生 DOM 事件上，封装了一层*合成事件*
 
 # React router
 ## HashRouter 与 BrowserRouter 的区别？
+表现形式上和底层原理上不一样
+*BrowserRouter* 使用 HTML 5 提供的 history api 进行跳转
++ url：不加 #
++ 当你点击链接时，通过 js 修改浏览器地址栏，不会触发页面刷新，React Router 拦截了这种变化并渲染对应的组件
++ 服务器必须配置： 会直接在 url 后加上路由配置，得配置服务器重定向至 `index.html`
+
+*HashRouter* 使用 url 中的哈希值来管理路由
++ url： 带 #
++ 通过监听 `window.onhashchange` 来感知路由变化，hash 值不会被发送到服务器
 
 ## Loader 和 action
 Loader 可在路由渲染前加载数据，避免页面出现加载状态闪烁的问题
