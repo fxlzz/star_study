@@ -391,6 +391,13 @@ useEffect(() => {
 + 首次渲染，执行 useEffect 中代码，由于 `query.data == undefined` 不会执行 set 函数，不会重新渲染
 + 正常渲染
 
+---
+当 useEffect 的依赖项是一个*在每次渲染时都会重新创建的引用类型*，比如，对象或数组，也会导致无限循环 —— 这种情况下，可以用 useMemo 或 useCallback 来缓存引用
+
+例如：
+有个组件，每次渲染会创建一个过滤函数，传给子组件。
+如果直接在 useEffect 里依赖这个函数，会导致每次渲染都触发 useEffect，这个时候可以用 useCallback 缓存这个函数
+
 
 # Fiber 架构
 Fiber 架构：
@@ -424,3 +431,7 @@ React 在原生 DOM 事件上，封装了一层*合成事件*
 
 # React router
 ## HashRouter 与 BrowserRouter 的区别？
+
+## Loader 和 action
+Loader 可在路由渲染前加载数据，避免页面出现加载状态闪烁的问题
+

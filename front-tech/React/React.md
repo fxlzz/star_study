@@ -1576,11 +1576,10 @@ export default App;
 `React.memo()`：缓存组件
 `useCallback()`：缓存函数
 `useMemo()`：缓存数值
-
-共同的使用场景：说白了，就是不想让**缓存值**的影响到其他的组件（依赖这些值的组件）渲染
-
-还有一个其实也可以算到这个里面，
 `useRef()`：只会更新一次，挂载载 fiber 上，不会触发重新渲染
+`React.lazy + Suspense`：路由懒加载
+`useTransition() + useDeferredValue()`： 高优先级任务优先执行，提升用户交互的流畅度
+
 
 # 深入理解
 
