@@ -237,7 +237,7 @@ export default const Test = () => {
 
 ## 为什么 hook 不能在 if、for、else 中使用？
 
-*React 依靠 Hook 调用的顺序来确定哪个状态对应哪个 useState 或 useEffect*
+*React 依靠 Hook 调用的顺序来确定哪个状态对应哪个 Hook*
 如果在条件语句或循环中使用 Hook，这个顺序就会被打乱，导致 React 彻底“记串了”状态
 
 怎么实现的呢？
