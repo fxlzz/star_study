@@ -1,3 +1,53 @@
+# 导入&导出
+注意：
+1. 静态结构 —— 只能写在组件顶层
+2. Live binding —— 导入方与导出方指向的是同一个变量，每次访问导出值，都会重新去源模块读取值（编译时绑定 + 运行时动态读取）
+3. Import 是只读的
+4. This 指向 undefined
+
+## 导入
+*命名导入*
+```js
+import { a, foo } from './a.js'
+
+// 重命名
+import { a as b } from "./a.js"
+```
+
+*默认导入*
+```js
+import fn from './a.js'
+```
+
+*全量导入*
+```js
+import * as obj from './a.js'
+```
+
+*动态导入*
+返回的是一个 promise —— 懒加载
+```js 
+const result = await import("./a.js");
+```
+
+## 导出
+*具名导出*
+```js
+export const a = 1; 		
+export function foo() {} 	
+
+// 重命名
+const a = 1;
+export { a as b };
+```
+
+*默认导出*
+默认导出一个模块只能导出一个
+```js
+export defualt function a() {}
+```
+
+
 # 类
 >  ES6 更加支持面向对象编程
 

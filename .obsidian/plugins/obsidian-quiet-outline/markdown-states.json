@@ -523,15 +523,15 @@
     ]
   },
   "interview/JS+TS.md": {
-    "scroll": 18.969297844066954,
+    "scroll": 0,
     "cursor": {
       "from": {
-        "line": 26,
-        "ch": 5
+        "line": 7,
+        "ch": 0
       },
       "to": {
-        "line": 26,
-        "ch": 5
+        "line": 7,
+        "ch": 0
       }
     },
     "expandedKeys": [
@@ -716,20 +716,22 @@
     ]
   },
   "front-tech/JavaScript/ES6+.md": {
-    "scroll": 666.1791728162857,
+    "scroll": 16.17982422678094,
     "cursor": {
       "from": {
-        "line": 624,
-        "ch": 9
+        "line": 37,
+        "ch": 0
       },
       "to": {
-        "line": 624,
-        "ch": 9
+        "line": 37,
+        "ch": 0
       }
     },
     "expandedKeys": [
-      "item-2-24",
-      "item-1-14"
+      "item-2-27",
+      "item-1-17",
+      "item-1-3",
+      "item-1-0"
     ]
   },
   "front-tech/JavaScript/事件循环.md": {
