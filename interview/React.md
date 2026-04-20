@@ -209,7 +209,8 @@ function App({ list }) {
 3. 遍历完后，`0,1` 删除
 
 # 组件 & Hooks
-类组件用的不多
+## 类组件
+## 受控组件与非受控组件的区别？
 
 ## 为什么 hook 不能在 if、for、else 中使用？
 
@@ -421,3 +422,5 @@ React 在原生 DOM 事件上，封装了一层*合成事件*
 3. 原生冒泡 
 4. React 合成事件冒泡
 
+# React router
+## HashRouter 与 BrowserRouter 的区别？
