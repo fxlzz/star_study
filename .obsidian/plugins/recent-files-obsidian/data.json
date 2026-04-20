@@ -1,24 +1,32 @@
 {
   "recentFiles": [
     {
-      "basename": "Nextjs",
-      "path": "front-tech/Nextjs.md"
+      "basename": "RAG",
+      "path": "ai/RAG.md"
+    },
+    {
+      "basename": "AI",
+      "path": "interview/AI.md"
     },
     {
       "basename": "AJAX",
       "path": "front-tech/AJAX.md"
     },
     {
+      "basename": "Nextjs",
+      "path": "front-tech/Nextjs.md"
+    },
+    {
       "basename": "git",
       "path": "general-tech/git.md"
     },
     {
-      "basename": "计算机网络",
-      "path": "interview/计算机网络.md"
-    },
-    {
       "basename": "Tanstack Query",
       "path": "front-tech/React/Tanstack Query.md"
+    },
+    {
+      "basename": "计算机网络",
+      "path": "interview/计算机网络.md"
     },
     {
       "basename": "JS+TS",
@@ -157,10 +165,6 @@
       "path": "毕设/md测试数据.md"
     },
     {
-      "basename": "RAG",
-      "path": "ai/RAG.md"
-    },
-    {
       "basename": "MCP",
       "path": "ai/MCP.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "HTML+CSS",
       "path": "interview/HTML+CSS.md"
-    },
-    {
-      "basename": "AI",
-      "path": "interview/AI.md"
     }
   ],
   "omittedPaths": [],

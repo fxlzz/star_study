@@ -7,9 +7,9 @@ Retrieval-Augmentd Generation: 检索增强生成
 这一切的前提是， 理解 LLM 到底是什么？ - 可以抽象成一个函数， 能识别自然语言，通过一些算法架构和训练资料，能够推断出用户想知道的答案是什么。
 
 主要有两个： 
-+ 功能性缺陷 - 知道用户想做什么，但是 LLM 无法做到 -> Function Calling / MCP
++ *功能性*缺陷 - 知道用户想做什么，但是 LLM 无法做到 -> Function Calling / MCP
 	+ 用户想知道北京今天的天气如何？ LLM的资料库没有今天的资料 -> 所以得去调接口，获取天气
-+ 知识性缺陷 - LLM 不理解用户想干什么 -> prompt engineering / RAG
++ *知识性*缺陷 - LLM 不理解用户想干什么 -> prompt engineering / RAG
 	+ 用户提问公司内部资料或市面上不存在的东西 -> LLM 根本不知道用户在讲什么，很有可能出现乱回答的情况(我们称之为：幻觉) -> 最根本的原因，不就是 LLM 不知道嘛， 让它知道即可
 
 ---
@@ -28,8 +28,6 @@ RAG 解决的呢，就是 LLM 的知识性缺陷，具体一点：
 3. 嵌入 embedding - 嵌入模型
 4. 存储 store - 向量数据库
 5. 检索 retrieval - 怎么提升精确度？召回率？
-
-当然上述流程，是个人理解
 
 ## 文档加载
 langchain 支持市面常见的文档，所有的 loader 都继承至 BaseDocumentLoader ， 这个抽象类实现了 DocumentLoader 这个接口，提供 load 方法。 

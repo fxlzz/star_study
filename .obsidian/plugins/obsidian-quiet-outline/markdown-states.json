@@ -1106,18 +1106,25 @@
     "expandedKeys": []
   },
   "ai/RAG.md": {
-    "scroll": 0,
+    "scroll": 12.670089599845596,
     "cursor": {
       "from": {
-        "line": 0,
-        "ch": 0
+        "line": 27,
+        "ch": 22
       },
       "to": {
-        "line": 0,
-        "ch": 0
+        "line": 27,
+        "ch": 22
       }
     },
-    "expandedKeys": []
+    "expandedKeys": [
+      "item-2-2",
+      "item-2-4",
+      "item-3-6",
+      "item-3-9",
+      "item-2-12",
+      "item-2-15"
+    ]
   },
   "front-tech/AJAX.md": {
     "scroll": 202.05555811568368,
@@ -1349,12 +1356,12 @@
     "scroll": 199.9553453702272,
     "cursor": {
       "from": {
-        "line": 218,
-        "ch": 0
+        "line": 207,
+        "ch": 14
       },
       "to": {
-        "line": 218,
-        "ch": 0
+        "line": 207,
+        "ch": 14
       }
     },
     "expandedKeys": [
