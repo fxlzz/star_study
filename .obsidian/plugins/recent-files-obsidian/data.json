@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "JS+TS",
+      "path": "interview/JS+TS.md"
+    },
+    {
+      "basename": "ES6+",
+      "path": "front-tech/JavaScript/ES6+.md"
+    },
+    {
+      "basename": "JS",
+      "path": "front-tech/JavaScript/JS.md"
+    },
+    {
+      "basename": "React",
+      "path": "front-tech/React/React.md"
+    },
+    {
+      "basename": "简历",
+      "path": "interview/简历.md"
+    },
+    {
       "basename": "浏览器",
       "path": "front-tech/浏览器.md"
     },
@@ -11,14 +31,6 @@
     {
       "basename": "React",
       "path": "interview/React.md"
-    },
-    {
-      "basename": "简历",
-      "path": "interview/简历.md"
-    },
-    {
-      "basename": "React",
-      "path": "front-tech/React/React.md"
     },
     {
       "basename": "React 18",
@@ -57,10 +69,6 @@
       "path": "interview/计算机网络.md"
     },
     {
-      "basename": "JS+TS",
-      "path": "interview/JS+TS.md"
-    },
-    {
       "basename": "TypeScript",
       "path": "front-tech/TypeScript.md"
     },
@@ -81,16 +89,8 @@
       "path": "front-tech/场景/双 token 流程.md"
     },
     {
-      "basename": "JS",
-      "path": "front-tech/JavaScript/JS.md"
-    },
-    {
       "basename": "some details",
       "path": "front-tech/JavaScript/some details.md"
-    },
-    {
-      "basename": "ES6+",
-      "path": "front-tech/JavaScript/ES6+.md"
     },
     {
       "basename": "计算机网络-图",
