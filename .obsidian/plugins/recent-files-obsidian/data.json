@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "JS+TS",
+      "path": "interview/JS+TS.md"
+    },
+    {
+      "basename": "简历",
+      "path": "interview/简历.md"
+    },
+    {
       "basename": "webpack",
       "path": "front-tech/工程化/webpack.md"
     },
@@ -17,20 +25,12 @@
       "path": "interview/React.md"
     },
     {
-      "basename": "简历",
-      "path": "interview/简历.md"
-    },
-    {
       "basename": "React",
       "path": "front-tech/React/React.md"
     },
     {
       "basename": "ES6+",
       "path": "front-tech/JavaScript/ES6+.md"
-    },
-    {
-      "basename": "JS+TS",
-      "path": "interview/JS+TS.md"
     },
     {
       "basename": "JS",
