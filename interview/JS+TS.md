@@ -24,6 +24,41 @@ b.get();
 ```
 
 闭包可能会导致什么问题？如何避免？
++ 内存泄漏： 闭包会持有外部变量的引用
+```js
+function a() {
+	let cnt = 0;
+	return {
+		add() {
+			cnt++;
+		}
+	}
+}
+let b = a(); // b 一直存在，cnt一直不会被释放
+
+// 解决措施
+b = null;
+```
++ 变量污染： 多个闭包共享同一个变量引用
+```js
+for(var i = 0; i < 3; i++) {
+	setTimeout(() => {
+		console.log(i); // 3 3 3 
+	}, 100);
+}
+
+// 解决措施
+// 换成 let
+```
++ 性能问题： 频繁创建闭包
+```jsx
+<button onClick={() => handleClick(id)}></button>
+
+// 解决措施
+// 使用 useCallback / useMemo
+```
+React 中每次 render 都会创建新函数，不断创建闭包，额外性能消耗
+
 
 # 原型链
 

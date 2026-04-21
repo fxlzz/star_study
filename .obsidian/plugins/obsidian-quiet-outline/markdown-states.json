@@ -116,12 +116,12 @@
     "scroll": 62.11929803145559,
     "cursor": {
       "from": {
-        "line": 13,
-        "ch": 0
+        "line": 11,
+        "ch": 29
       },
       "to": {
-        "line": 13,
-        "ch": 0
+        "line": 11,
+        "ch": 29
       }
     },
     "expandedKeys": []
@@ -525,14 +525,14 @@
     ]
   },
   "interview/JS+TS.md": {
-    "scroll": 0.8623620544362604,
+    "scroll": 41.580200389832086,
     "cursor": {
       "from": {
-        "line": 19,
+        "line": 55,
         "ch": 0
       },
       "to": {
-        "line": 19,
+        "line": 55,
         "ch": 0
       }
     },
