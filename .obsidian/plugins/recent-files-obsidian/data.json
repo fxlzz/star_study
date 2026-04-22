@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "事件循环",
+      "path": "front-tech/JavaScript/事件循环.md"
+    },
+    {
+      "basename": "需求分析",
+      "path": "product/需求分析.md"
+    },
+    {
+      "basename": "简历",
+      "path": "interview/简历.md"
+    },
+    {
+      "basename": "工程化",
+      "path": "interview/工程化.md"
+    },
+    {
+      "basename": "webpack",
+      "path": "front-tech/工程化/webpack.md"
+    },
+    {
       "basename": "JS+TS",
       "path": "interview/JS+TS.md"
     },
@@ -11,18 +31,6 @@
     {
       "basename": "HTML+CSS",
       "path": "interview/HTML+CSS.md"
-    },
-    {
-      "basename": "简历",
-      "path": "interview/简历.md"
-    },
-    {
-      "basename": "webpack",
-      "path": "front-tech/工程化/webpack.md"
-    },
-    {
-      "basename": "工程化",
-      "path": "interview/工程化.md"
     },
     {
       "basename": "浏览器",
@@ -43,10 +51,6 @@
     {
       "basename": "JS",
       "path": "front-tech/JavaScript/JS.md"
-    },
-    {
-      "basename": "事件循环",
-      "path": "front-tech/JavaScript/事件循环.md"
     },
     {
       "basename": "React 18",
@@ -195,10 +199,6 @@
     {
       "basename": "claude",
       "path": "ai/agent-cli/claude.md"
-    },
-    {
-      "basename": "gemini",
-      "path": "ai/agent-cli/gemini.md"
     }
   ],
   "omittedPaths": [],

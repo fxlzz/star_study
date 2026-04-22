@@ -50,5 +50,6 @@
     "iconName": "LiWand",
     "iconColor": "#21c3c3"
   },
-  "python": "LiFolderCode"
+  "python": "LiFolderCode",
+  "product": "LiFolder"
 }
