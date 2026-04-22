@@ -3,7 +3,7 @@
 # 快速开始
 创建 expo go 项目：
 ```bash
-npx create-expo-app@latest
+ pnpm create expo-app -t blank
 ```
 
 两种调式方式：
