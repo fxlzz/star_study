@@ -509,19 +509,21 @@
     ]
   },
   "interview/HTML+CSS.md": {
-    "scroll": 0,
+    "scroll": 519.119718852796,
     "cursor": {
       "from": {
-        "line": 2,
-        "ch": 12
+        "line": 531,
+        "ch": 0
       },
       "to": {
-        "line": 2,
-        "ch": 12
+        "line": 531,
+        "ch": 0
       }
     },
     "expandedKeys": [
-      "item-1-0"
+      "item-1-0",
+      "item-1-8",
+      "item-1-18"
     ]
   },
   "interview/JS+TS.md": {
@@ -1126,15 +1128,15 @@
     ]
   },
   "front-tech/AJAX.md": {
-    "scroll": 202.05555811568368,
+    "scroll": 379.0957007531725,
     "cursor": {
       "from": {
-        "line": 231,
-        "ch": 23
+        "line": 391,
+        "ch": 4
       },
       "to": {
-        "line": 231,
-        "ch": 23
+        "line": 395,
+        "ch": 14
       }
     },
     "expandedKeys": [
