@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "React Native",
+      "path": "front-tech/React/React Native.md"
+    },
+    {
       "basename": "事件循环",
       "path": "front-tech/JavaScript/事件循环.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "ai-concept",
       "path": "ai/ai-concept.md"
-    },
-    {
-      "basename": "claude",
-      "path": "ai/agent-cli/claude.md"
     }
   ],
   "omittedPaths": [],
