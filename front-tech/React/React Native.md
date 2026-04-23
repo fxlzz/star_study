@@ -1,4 +1,4 @@
->  最好先会 React: [React](React.md)
+>  最好先会 [React](React.md)
 
 # 快速开始
 创建 expo go 项目：
@@ -11,6 +11,7 @@
 + 模拟器调式： [下载 Android Studio 和应用工具 - Android 开发者  \|  Android Developers](https://developer.android.com/studio?hl=zh-cn)
 
 # 核心组件
+[核心组件和API · React Native 中文网](https://reactnative.cn/docs/components-and-apis)
 + View 
 + Text
 + Image
@@ -33,3 +34,8 @@ const styles = StyleSheet.create({
 // 使用
 style = { styles.container }
 ```
+
+# 网络请求
+React Native 默认使用 fetch api 
+可参考 [Fetch](AJAX.md#Fetch)
+

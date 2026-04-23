@@ -5,16 +5,16 @@
       "path": "front-tech/React/React Native.md"
     },
     {
+      "basename": "简历",
+      "path": "interview/简历.md"
+    },
+    {
       "basename": "事件循环",
       "path": "front-tech/JavaScript/事件循环.md"
     },
     {
       "basename": "需求分析",
       "path": "product/需求分析.md"
-    },
-    {
-      "basename": "简历",
-      "path": "interview/简历.md"
     },
     {
       "basename": "工程化",
