@@ -268,6 +268,11 @@ console.log(p.toString()); // tags=js&tags=python
 
 
 # 基于 fetch 封装的请求方法
+```js
+// 自动处理查询字符串 ? &
+pnpm add urlcat
+```
+
 优化：
 + 可以将业务逻辑报错，换成 antd 的 message 告诉前端用户，而不是抛出给前端开发，在到具体组件中处理
 

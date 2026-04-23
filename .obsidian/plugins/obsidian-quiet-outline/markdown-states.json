@@ -1128,15 +1128,15 @@
     ]
   },
   "front-tech/AJAX.md": {
-    "scroll": 379.0957007531725,
+    "scroll": 257.8500791169404,
     "cursor": {
       "from": {
-        "line": 391,
-        "ch": 4
+        "line": 271,
+        "ch": 16
       },
       "to": {
-        "line": 395,
-        "ch": 14
+        "line": 271,
+        "ch": 16
       }
     },
     "expandedKeys": [
@@ -1403,12 +1403,12 @@
     "scroll": 0.9049773755656109,
     "cursor": {
       "from": {
-        "line": 17,
-        "ch": 17
+        "line": 11,
+        "ch": 0
       },
       "to": {
-        "line": 17,
-        "ch": 17
+        "line": 11,
+        "ch": 0
       }
     },
     "expandedKeys": []

@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "AJAX",
+      "path": "front-tech/AJAX.md"
+    },
+    {
       "basename": "React Native",
       "path": "front-tech/React/React Native.md"
     },
@@ -27,10 +31,6 @@
     {
       "basename": "JS+TS",
       "path": "interview/JS+TS.md"
-    },
-    {
-      "basename": "AJAX",
-      "path": "front-tech/AJAX.md"
     },
     {
       "basename": "HTML+CSS",
