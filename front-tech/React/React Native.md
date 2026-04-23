@@ -39,3 +39,10 @@ style = { styles.container }
 React Native 默认使用 fetch api 
 可参考 [Fetch](AJAX.md#Fetch)
 
+# Router 跳转
+[Manual installation - Expo Documentation](https://docs.expo.dev/router/installation/)
+
+```js
+npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-constants expo-status-bar
+```
+
