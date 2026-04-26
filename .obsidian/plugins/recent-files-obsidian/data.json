@@ -1,16 +1,32 @@
 {
   "recentFiles": [
     {
-      "basename": "浏览器",
-      "path": "front-tech/浏览器.md"
+      "basename": "简历",
+      "path": "interview/简历.md"
+    },
+    {
+      "basename": "异步请求hook",
+      "path": "front-tech/场景/异步请求hook.md"
     },
     {
       "basename": "TypeScript",
       "path": "front-tech/TypeScript.md"
     },
     {
+      "basename": "webpack",
+      "path": "front-tech/工程化/webpack.md"
+    },
+    {
+      "basename": "事件循环",
+      "path": "front-tech/JavaScript/事件循环.md"
+    },
+    {
       "basename": "计算机网络",
       "path": "interview/计算机网络.md"
+    },
+    {
+      "basename": "浏览器",
+      "path": "front-tech/浏览器.md"
     },
     {
       "basename": "浏览器",
@@ -21,10 +37,6 @@
       "path": "interview/React.md"
     },
     {
-      "basename": "简历",
-      "path": "interview/简历.md"
-    },
-    {
       "basename": "AJAX",
       "path": "front-tech/AJAX.md"
     },
@@ -33,20 +45,12 @@
       "path": "front-tech/React/React Native.md"
     },
     {
-      "basename": "事件循环",
-      "path": "front-tech/JavaScript/事件循环.md"
-    },
-    {
       "basename": "需求分析",
       "path": "product/需求分析.md"
     },
     {
       "basename": "工程化",
       "path": "interview/工程化.md"
-    },
-    {
-      "basename": "webpack",
-      "path": "front-tech/工程化/webpack.md"
     },
     {
       "basename": "JS+TS",
@@ -163,10 +167,6 @@
     {
       "basename": "antd Modal + Form",
       "path": "front-tech/场景/antd Modal + Form.md"
-    },
-    {
-      "basename": "异步请求hook",
-      "path": "front-tech/场景/异步请求hook.md"
     },
     {
       "basename": "路由守卫",
