@@ -5,6 +5,14 @@
       "path": "interview/简历.md"
     },
     {
+      "basename": "React",
+      "path": "interview/React.md"
+    },
+    {
+      "basename": "React",
+      "path": "front-tech/React/React.md"
+    },
+    {
       "basename": "异步请求hook",
       "path": "front-tech/场景/异步请求hook.md"
     },
@@ -33,10 +41,6 @@
       "path": "interview/浏览器.md"
     },
     {
-      "basename": "React",
-      "path": "interview/React.md"
-    },
-    {
       "basename": "AJAX",
       "path": "front-tech/AJAX.md"
     },
@@ -59,10 +63,6 @@
     {
       "basename": "HTML+CSS",
       "path": "interview/HTML+CSS.md"
-    },
-    {
-      "basename": "React",
-      "path": "front-tech/React/React.md"
     },
     {
       "basename": "ES6+",
