@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "毕设",
+      "path": "毕设/毕设.md"
+    },
+    {
       "basename": "简历",
       "path": "interview/简历.md"
     },
@@ -175,10 +179,6 @@
     {
       "basename": "并发请求",
       "path": "front-tech/场景/并发请求.md"
-    },
-    {
-      "basename": "毕设",
-      "path": "毕设/毕设.md"
     },
     {
       "basename": "RAG 测试数据",
