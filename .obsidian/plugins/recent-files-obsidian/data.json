@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "图",
+      "path": "毕设/图.md"
+    },
+    {
       "basename": "简历",
       "path": "interview/简历.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "LangChain",
       "path": "ai/LangChain.md"
-    },
-    {
-      "basename": "ai-concept",
-      "path": "ai/ai-concept.md"
     }
   ],
   "omittedPaths": [],
