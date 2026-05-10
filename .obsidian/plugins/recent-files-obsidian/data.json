@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "mongodb",
+      "path": "general-tech/database/mongodb.md"
+    },
+    {
       "basename": "RAG 测试数据",
       "path": "毕设/RAG 测试数据.md"
     },
@@ -15,10 +19,6 @@
     {
       "basename": "RAG",
       "path": "ai/RAG.md"
-    },
-    {
-      "basename": "mongodb",
-      "path": "general-tech/database/mongodb.md"
     },
     {
       "basename": "事件循环",

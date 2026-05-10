@@ -263,22 +263,15 @@
     "scroll": 0,
     "cursor": {
       "from": {
-        "line": 10,
+        "line": 15,
         "ch": 0
       },
       "to": {
-        "line": 10,
-        "ch": 47
+        "line": 15,
+        "ch": 0
       }
     },
-    "expandedKeys": [
-      "item-1-1",
-      "item-2-6",
-      "item-1-5",
-      "item-2-9",
-      "item-2-15",
-      "item-1-20"
-    ]
+    "expandedKeys": []
   },
   "front-tech/场景/base64 导出.md": {
     "scroll": 80.69377939507056,
@@ -861,7 +854,7 @@
     ]
   },
   "毕设/RAG 测试数据.md": {
-    "scroll": 0.966956495202106,
+    "scroll": 7.9088890075683596,
     "cursor": {
       "from": {
         "line": 3,
