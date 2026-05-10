@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "RAG 测试数据",
+      "path": "毕设/RAG 测试数据.md"
+    },
+    {
+      "basename": "毕设",
+      "path": "毕设/毕设.md"
+    },
+    {
       "basename": "md测试数据",
       "path": "毕设/md测试数据.md"
     },
@@ -39,10 +47,6 @@
     {
       "basename": "AJAX",
       "path": "front-tech/AJAX.md"
-    },
-    {
-      "basename": "毕设",
-      "path": "毕设/毕设.md"
     },
     {
       "basename": "简历",
@@ -187,10 +191,6 @@
     {
       "basename": "并发请求",
       "path": "front-tech/场景/并发请求.md"
-    },
-    {
-      "basename": "RAG 测试数据",
-      "path": "毕设/RAG 测试数据.md"
     },
     {
       "basename": "MCP",
