@@ -1109,15 +1109,15 @@
     "expandedKeys": []
   },
   "ai/RAG.md": {
-    "scroll": 12.670089599845596,
+    "scroll": 0,
     "cursor": {
       "from": {
-        "line": 27,
-        "ch": 22
+        "line": 0,
+        "ch": 29
       },
       "to": {
-        "line": 27,
-        "ch": 22
+        "line": 0,
+        "ch": 0
       }
     },
     "expandedKeys": [

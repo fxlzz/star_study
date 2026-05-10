@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "md测试数据",
+      "path": "毕设/md测试数据.md"
+    },
+    {
+      "basename": "RAG",
+      "path": "ai/RAG.md"
+    },
+    {
       "basename": "mongodb",
       "path": "general-tech/database/mongodb.md"
     },
@@ -93,10 +101,6 @@
       "path": "front-tech/React/React 18.md"
     },
     {
-      "basename": "RAG",
-      "path": "ai/RAG.md"
-    },
-    {
       "basename": "AI",
       "path": "interview/AI.md"
     },
@@ -187,10 +191,6 @@
     {
       "basename": "RAG 测试数据",
       "path": "毕设/RAG 测试数据.md"
-    },
-    {
-      "basename": "md测试数据",
-      "path": "毕设/md测试数据.md"
     },
     {
       "basename": "MCP",
