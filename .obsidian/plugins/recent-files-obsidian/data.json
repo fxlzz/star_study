@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "claude",
+      "path": "ai/agent-cli/claude.md"
+    },
+    {
       "basename": "mongodb",
       "path": "general-tech/database/mongodb.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "MCP",
       "path": "ai/MCP.md"
-    },
-    {
-      "basename": "LangChain",
-      "path": "ai/LangChain.md"
     }
   ],
   "omittedPaths": [],
