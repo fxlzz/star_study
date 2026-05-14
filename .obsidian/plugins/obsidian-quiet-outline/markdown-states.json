@@ -288,25 +288,23 @@
     "expandedKeys": []
   },
   "front-tech/React/React.md": {
-    "scroll": 791.502407011028,
+    "scroll": 778.925409347292,
     "cursor": {
       "from": {
-        "line": 799,
-        "ch": 19
+        "line": 716,
+        "ch": 4
       },
       "to": {
-        "line": 799,
-        "ch": 19
+        "line": 716,
+        "ch": 4
       }
     },
     "expandedKeys": [
       "item-1-0",
-      "item-1-38",
       "item-1-59",
       "item-2-30",
       "item-2-22",
-      "item-2-52",
-      "item-3-33"
+      "item-2-52"
     ]
   },
   "general-tech/docker.md": {
@@ -1249,15 +1247,15 @@
     ]
   },
   "front-tech/场景/路由守卫.md": {
-    "scroll": 27.388090698044554,
+    "scroll": 7.936507573203435,
     "cursor": {
       "from": {
-        "line": 43,
-        "ch": 3
+        "line": 25,
+        "ch": 2
       },
       "to": {
-        "line": 43,
-        "ch": 3
+        "line": 25,
+        "ch": 2
       }
     },
     "expandedKeys": []
