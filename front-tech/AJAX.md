@@ -129,6 +129,10 @@ axios.get("/api/test", {
 controller.abort();
 ```
 
+
+## 事件总线
+为什么？怎么实现？
+
 # Fetch
 浏览器提供的原生 HTTP 请求 API，使用 promise 方式代替 xhr 发送请求
 
