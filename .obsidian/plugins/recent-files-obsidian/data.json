@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "PROJECT_ANALYSIS",
+      "path": "project/TM/nihaoCafe/PROJECT_ANALYSIS.md"
+    },
+    {
+      "basename": "项目管理",
+      "path": "front-tech/工程化/项目管理.md"
+    },
+    {
+      "basename": "包管理工具",
+      "path": "front-tech/工程化/包管理工具.md"
+    },
+    {
       "basename": "AJAX",
       "path": "front-tech/AJAX.md"
     },
@@ -181,24 +193,12 @@
       "path": "front-tech/工程化/思维的转变.md"
     },
     {
-      "basename": "包管理工具",
-      "path": "front-tech/工程化/包管理工具.md"
-    },
-    {
       "basename": "file-20260129104047870",
       "path": "front-tech/工程化/assets/webpack - 优化/file-20260129104047870.png"
     },
     {
       "basename": "base64 导出",
       "path": "front-tech/场景/base64 导出.md"
-    },
-    {
-      "basename": "antd Modal + Form",
-      "path": "front-tech/场景/antd Modal + Form.md"
-    },
-    {
-      "basename": "并发请求",
-      "path": "front-tech/场景/并发请求.md"
     }
   ],
   "omittedPaths": [],
