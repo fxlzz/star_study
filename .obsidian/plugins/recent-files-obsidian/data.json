@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "时间表示",
+      "path": "general-tech/时间表示.md"
+    },
+    {
       "basename": "PROJECT_ANALYSIS",
       "path": "project/TM/nihaoCafe/PROJECT_ANALYSIS.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "file-20260129104047870",
       "path": "front-tech/工程化/assets/webpack - 优化/file-20260129104047870.png"
-    },
-    {
-      "basename": "base64 导出",
-      "path": "front-tech/场景/base64 导出.md"
     }
   ],
   "omittedPaths": [],
