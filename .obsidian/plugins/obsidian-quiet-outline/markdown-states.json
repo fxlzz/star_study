@@ -1510,22 +1510,24 @@
     "expandedKeys": []
   },
   "project/TM/nihaoCafe/PROJECT_ANALYSIS.md": {
-    "scroll": 139.80567989543687,
+    "scroll": 297.2655806816537,
     "cursor": {
       "from": {
-        "line": 150,
-        "ch": 51
+        "line": 304,
+        "ch": 61
       },
       "to": {
-        "line": 150,
-        "ch": 51
+        "line": 304,
+        "ch": 61
       }
     },
     "expandedKeys": [
       "item-1-0",
       "item-2-1",
       "item-2-5",
-      "item-2-11"
+      "item-2-11",
+      "item-2-17",
+      "item-2-22"
     ]
   }
 }
