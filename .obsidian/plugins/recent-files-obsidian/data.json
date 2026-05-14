@@ -1,20 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "PROJECT_ANALYSIS",
-      "path": "project/TM/IM/PROJECT_ANALYSIS.md"
-    },
-    {
       "basename": "AJAX",
       "path": "front-tech/AJAX.md"
     },
     {
-      "basename": "路由守卫",
-      "path": "front-tech/场景/路由守卫.md"
+      "basename": "PROJECT_ANALYSIS",
+      "path": "project/TM/IM/PROJECT_ANALYSIS.md"
     },
     {
       "basename": "React",
       "path": "front-tech/React/React.md"
+    },
+    {
+      "basename": "路由守卫",
+      "path": "front-tech/场景/路由守卫.md"
     },
     {
       "basename": "claude",

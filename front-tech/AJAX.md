@@ -131,7 +131,60 @@ controller.abort();
 
 
 ## 事件总线
-为什么？怎么实现？
+使用场景：
++ 发布方与订阅方没有直接的组件父子关系
++ 非 React 代码要驱动 UI /应用行为
+	例如： axios 拦截器中，拦截 401 响应状态码，错误需要提示用户*未授权登录* UI 提示。但，违和的是封装 axios 代码又不是 react 代码，去需要耦合 react 代码。使用事件总线的方式，就可以将代码分离出来
++ ...
+
+如何实现？
+使用 `mitt` 库[mitt - npm](https://www.npmjs.com/package/mitt)来进行订阅与发布 + `eventBus`（单例） 
++ `on` 发布
++ `off` 关闭
++ `emit` 订阅
+
+例如：
+```ts 
+// 封装 axios
+const axios = Axios.create({
+	baseURL: "..."，
+	timeout: 3000,
+	headers: {
+		"Content-type": "application/json"
+	}
+})
+
+axios.interceptors.request.use((config) => {}, (err) => {})
+
+axios.interceptors.response.use((res) => {
+	if (res.data.code === 401) {
+		eventBus.emit("logout") // 订阅事件
+	}
+})
+
+// 封装事件总线
+import "mitt" from "mitt";
+
+export type EventBus = {
+	logout: void
+}
+
+export const eventBus = mitt<EventBus>();
+
+
+// 发布事件
+import { eventBus } from "./eventBus";
+
+useEffect(() => {
+	const handleLogout = () => {...}
+		
+	eventBus.on("logout", handleLogout);
+	return () => {
+      	eventBus.off("logout", handleLogout);
+    };
+}, [])
+
+```
 
 # Fetch
 浏览器提供的原生 HTTP 请求 API，使用 promise 方式代替 xhr 发送请求
