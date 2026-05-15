@@ -203,14 +203,14 @@
     ]
   },
   "front-tech/JavaScript/JS.md": {
-    "scroll": 1338.2689980400933,
+    "scroll": 1206.7826433988785,
     "cursor": {
       "from": {
-        "line": 1339,
+        "line": 1226,
         "ch": 0
       },
       "to": {
-        "line": 1339,
+        "line": 1226,
         "ch": 0
       }
     },
@@ -224,15 +224,15 @@
     ]
   },
   "front-tech/JavaScript/some details.md": {
-    "scroll": 64.10918708969987,
+    "scroll": 73.26832585714199,
     "cursor": {
       "from": {
-        "line": 74,
-        "ch": 22
+        "line": 88,
+        "ch": 71
       },
       "to": {
-        "line": 74,
-        "ch": 22
+        "line": 88,
+        "ch": 71
       }
     },
     "expandedKeys": [
@@ -325,7 +325,7 @@
     ]
   },
   "general-tech/git.md": {
-    "scroll": 144.71771070797047,
+    "scroll": 168.31265073925124,
     "cursor": {
       "from": {
         "line": 158,
@@ -418,15 +418,15 @@
     ]
   },
   "毕设/毕设.md": {
-    "scroll": 297.702512995402,
+    "scroll": 282.7965462472196,
     "cursor": {
       "from": {
-        "line": 335,
-        "ch": 28
+        "line": 30,
+        "ch": 13
       },
       "to": {
-        "line": 335,
-        "ch": 28
+        "line": 30,
+        "ch": 13
       }
     },
     "expandedKeys": [
@@ -690,15 +690,15 @@
     ]
   },
   "front-tech/TypeScript.md": {
-    "scroll": 308.67981472350004,
+    "scroll": 337.97257095171466,
     "cursor": {
       "from": {
-        "line": 318,
-        "ch": 35
+        "line": 241,
+        "ch": 10
       },
       "to": {
-        "line": 318,
-        "ch": 35
+        "line": 241,
+        "ch": 10
       }
     },
     "expandedKeys": [
@@ -709,7 +709,8 @@
       "item-2-16",
       "item-2-20",
       "item-3-41",
-      "item-2-12"
+      "item-2-12",
+      "item-2-6"
     ]
   },
   "front-tech/JavaScript/ES6+.md": {

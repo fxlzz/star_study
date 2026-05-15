@@ -1,6 +1,30 @@
 {
   "recentFiles": [
     {
+      "basename": "some details",
+      "path": "front-tech/JavaScript/some details.md"
+    },
+    {
+      "basename": "JS",
+      "path": "front-tech/JavaScript/JS.md"
+    },
+    {
+      "basename": "TypeScript",
+      "path": "front-tech/TypeScript.md"
+    },
+    {
+      "basename": "AJAX",
+      "path": "front-tech/AJAX.md"
+    },
+    {
+      "basename": "毕设",
+      "path": "毕设/毕设.md"
+    },
+    {
+      "basename": "git",
+      "path": "general-tech/git.md"
+    },
+    {
       "basename": "Linux",
       "path": "general-tech/Linux.md"
     },
@@ -15,10 +39,6 @@
     {
       "basename": "PROJECT_ANALYSIS",
       "path": "project/TM/nihaoCafe/PROJECT_ANALYSIS.md"
-    },
-    {
-      "basename": "AJAX",
-      "path": "front-tech/AJAX.md"
     },
     {
       "basename": "项目管理",
@@ -49,10 +69,6 @@
       "path": "毕设/RAG 测试数据.md"
     },
     {
-      "basename": "毕设",
-      "path": "毕设/毕设.md"
-    },
-    {
       "basename": "md测试数据",
       "path": "毕设/md测试数据.md"
     },
@@ -67,14 +83,6 @@
     {
       "basename": "浏览器",
       "path": "front-tech/浏览器.md"
-    },
-    {
-      "basename": "some details",
-      "path": "front-tech/JavaScript/some details.md"
-    },
-    {
-      "basename": "JS",
-      "path": "front-tech/JavaScript/JS.md"
     },
     {
       "basename": "ES6+",
@@ -99,10 +107,6 @@
     {
       "basename": "跨域",
       "path": "front-tech/跨域.md"
-    },
-    {
-      "basename": "TypeScript",
-      "path": "front-tech/TypeScript.md"
     },
     {
       "basename": "webpack",
@@ -143,10 +147,6 @@
     {
       "basename": "Nextjs",
       "path": "front-tech/Nextjs.md"
-    },
-    {
-      "basename": "git",
-      "path": "general-tech/git.md"
     },
     {
       "basename": "Tanstack Query",

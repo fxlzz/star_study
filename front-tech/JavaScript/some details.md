@@ -74,3 +74,16 @@ JavaScript 中有许多内置的可迭代对象，如：
 - `Set`
 - `arguments` 对象（函数参数）
 - DOM 集合（如 `NodeList`）
+
+# LocalStorage
+`localStorage` 存储的值最终都会转成字符串
+
+`localStorage` 的键（key）和值（value）都只能是字符串类型
+如果你存入其他数据类型，它会自动调用内部的 `toString()` 方法将其强行转为字符串
+- 布尔值 / 数值： 存入 `true`、`123`，实际存进去的是 `"true"`、`"123"`
+- 数组 / 对象： 直接存入会变成 `"[object Object]"`，导致数据丢失
+- **`null` / `undefined`：** 存入后会变成 `"null"`、`"undefined"`
+
+所以，必坑指南
++  `getItem` 时，最好强转一下类型
++ 存储引用数据类型时，使用 `JSON.stringify()` 转成 JSON 格式；读取数据时，用 `JSON.parse()` 取数据
