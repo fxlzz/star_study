@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "PROJECT_ANALYSIS",
+      "path": "project/TM/IM/PROJECT_ANALYSIS.md"
+    },
+    {
       "basename": "时间表示",
       "path": "general-tech/时间表示.md"
     },
@@ -19,10 +23,6 @@
     {
       "basename": "包管理工具",
       "path": "front-tech/工程化/包管理工具.md"
-    },
-    {
-      "basename": "PROJECT_ANALYSIS",
-      "path": "project/TM/IM/PROJECT_ANALYSIS.md"
     },
     {
       "basename": "React",
