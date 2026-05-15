@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "Linux",
+      "path": "general-tech/Linux.md"
+    },
+    {
       "basename": "PROJECT_ANALYSIS",
       "path": "project/TM/IM/PROJECT_ANALYSIS.md"
     },
@@ -163,10 +167,6 @@
     {
       "basename": "计算机网络-图",
       "path": "interview/计算机网络-图.md"
-    },
-    {
-      "basename": "Linux",
-      "path": "general-tech/Linux.md"
     },
     {
       "basename": "k8s",
