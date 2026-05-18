@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "git",
+      "path": "general-tech/git.md"
+    },
+    {
       "basename": "some details",
       "path": "front-tech/JavaScript/some details.md"
     },
@@ -19,10 +23,6 @@
     {
       "basename": "毕设",
       "path": "毕设/毕设.md"
-    },
-    {
-      "basename": "git",
-      "path": "general-tech/git.md"
     },
     {
       "basename": "Linux",
