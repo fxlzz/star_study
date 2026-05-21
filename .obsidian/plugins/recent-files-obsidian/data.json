@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "i know",
+      "path": "project/TM/IM/i know.md"
+    },
+    {
       "basename": "problem",
       "path": "project/TM/IM/problem.md"
     },
@@ -191,14 +195,6 @@
     {
       "basename": "antd",
       "path": "front-tech/React/antd.md"
-    },
-    {
-      "basename": "webpack - 优化",
-      "path": "front-tech/工程化/webpack - 优化.md"
-    },
-    {
-      "basename": "思维的转变",
-      "path": "front-tech/工程化/思维的转变.md"
     }
   ],
   "omittedPaths": [],
