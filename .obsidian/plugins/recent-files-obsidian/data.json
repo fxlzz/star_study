@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "problem",
+      "path": "project/TM/IM/problem.md"
+    },
+    {
       "basename": "TypeScript",
       "path": "front-tech/TypeScript.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "思维的转变",
       "path": "front-tech/工程化/思维的转变.md"
-    },
-    {
-      "basename": "file-20260129104047870",
-      "path": "front-tech/工程化/assets/webpack - 优化/file-20260129104047870.png"
     }
   ],
   "omittedPaths": [],
